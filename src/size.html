@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title>шрифт - num17.net</title>
+<meta charset="utf-8">
+
+<script type="text/javascript">
+function ChangeSize()
+{
+document.cookie = 'size=150';
+}
+function DeleteCookie()
+{
+document.cookie = 'size=0';
+}
+</script>
+</head>
+<body>
+<section>
+<h1> <a href="https://num17.net/" >Сеть номер 17</a></h1>
+<hr />
+</section>
+</section>
+
+<input type="button" onclick="ChangeSize()"
+value="Изменить размер шрифта" />
+<br><br>
+<input type="button" onclick="DeleteCookie()"
+value="удалить куки" />
+
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+
+</script>
+
+</body>
+</html>

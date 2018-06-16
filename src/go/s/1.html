@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Регулярные выражения(RegEx) в Golang - num17.net</title>
+		<meta charset="utf-8" />
+		<html lang="ru">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+
+                
+                				<!-- Additional Elements -->
+					<section class="wrapper style1 align-center">
+						<div class="inner">
+
+							<div class="index align-left">
+
+								<!-- Heading -->
+									<section>
+                                        <div class="content">
+                                        <h1> <a href="https://num17.net/" >Сеть номер 17</a></h1>
+                                        	<hr />
+                                    </section>
+                                
+                                
+
+                                
+								<!-- Heading -->
+									<section>
+										<header>
+											<h3>Статья</h3>
+										</header>
+										<div class="content">
+
+
+											<header>
+												<h2>Регулярные выражения (RegEx) в Go (Golang)</h2>
+												
+											</header>
+											<p>
+											    <b>Регулярные выражения(RegEx)</b> — система обработки текста, основанная на специальной системе записи образцов для поиска. Образец (англ. pattern), задающий правило поиска, иногда называют шаблоном или маской.
+
+<br><br>
+Основные квантификаторы, якоря и спецсимволы:
+<br>
+<b>^</b> обозначение начала строки
+<br>
+<b>$</b> обозначение конца строки
+<br>
+<b> | </b> или
+<br>
+<b>\</b> экранирование для метасимволов (не работает в символьных классах)
+<br>
+<b>[…]</b> символьный класс
+<br>
+<b>[^…]</b> инвертированный символьный класс
+<br>
+<b>.</b> совпадение с любым символом, кроме символа новой строки
+<br>
+<b>?</b> предшествующий символ необязателен
+<br>
+<b>*</b> любое количество предшествующего символа(выражения) , в том числе и 0
+<br>
+<b>+</b> хотя бы 1 предшествующий символ (выражение) должен быть найден
+<br><br>
+
+<b>{max,min}</b> – минимальное и максимальное количество совпадений для предшествующего символа(выражения)
+<br><br>
+Если в конце любого квантификатора (?,*,+) поставить символ <b>?</b> то будет использоваться алгоритм захватывающий минимально возможное совпадение.
+<br><br>
+Для использования RegEx в golang необходимо подключить пакет regexp.
+<br><br>
+При создании шаблона обычно используют метод regexp.MustCompile(p).В случае неуспешной компиляции возникает аварийная ситуация. Такой подход упрощает использование переменных, содержащих скомпилированные выражения. Если нужно только проверить наличие совпадения, достаточно использовать метод regexp.MatchString(p, s)
+<br><br>
+Этот метод возвращает true или false в зависимости от того соответствует строка s шаблону p или нет. Также будет возвращено nil в качестве ошибки.
+<br><br>
+У многих методов есть реализации для случая, когда исходная строка представлена не типом string , а типом []byte.
+<br><br>
+Пример проверки на совпадение:
+<br><br><br>
+
+<b>[...]</b> перечисление букв
+<br>
+<b>[abc]</b> - находим всё где есть "a" или "b" или "c"
+<br>
+<b>[a-c]</b> - тоже самое
+<br>
+<b>/[bcr]at/</b> - находим "bat" или "cat" или "rat"
+<br><br><br>
+
+<b>[^...]</b> - что угодно кроме
+<br>
+<b>/[^abc]/</b> - что угодно кроме букв "a"или "b" или "c"
+<br>
+<b>/[^a-zA-Z]/</b> - что угодно кроме букв алфавита
+<br><br>
+<b>\d</b> - только цифры .
+<br>
+<b>\s</b> - пробельные символы т.е. [\ \t\r\n\f] пробел , перенос строки, табуляция и т.д.
+<br>
+<b>\w</b> - любые буквы и цифры (английские + русские )
+<br>
+<b>\D</b> - не цифра (отрицание предыдущего)
+<br>
+<b>\S</b> - не пробел
+<br>
+<b>\W</b> - не буквы и цифры
+<br>
+<b>\N</b> - что угодно кроме "\n"
+<br>
+<b>.</b> - что угодно кроме "\n"
+<br>
+<b>^</b> - начало строки
+<br>
+<b>$</b> - конец строки
+<br><br>
+Квантификатор - ставится после выражения
+<br><br>
+<b>?</b> - 0 или 1 (либо есть либо нет , хз)
+<br>
+<b>*</b>- 0 или более (либо нет либо дохуя)
+<br>
+<b>+</b> - 1 или более (либо есть либо дохуя)
+<br>
+<b>{x}</b> - буква пресутствует подряд x раз ( [a]{3} = "aaa")
+<br>
+<b>{x,y}</b> - от х до y включительно
+<br>
+<b>{ ,y}</b> - от нуля до y включительно
+<br>
+<b>{x, }</b> - от х до бесконечности
+
+<br><br><br><br>
+
+
+Готовые примеры :
+<br>
+Дата время
+<br>
+<b>\d{4}-\d{2}-\d{2}</b>  - 2015-10-14
+<br>
+<b>\d{2}:\d{2}:\d{2}</b> - 19:35:01
+<br>
+<b>[п].*[я]</b> - "урок №123 про регулярные выражения Hello"
+											    <br>
+											</p>
+
+											
+
+
+										</div>
+									</section>
+
+
+
+				<!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>&copy; クールなデザイン num17.net: <a href="https://num17.net">HTML5</a>.</p>
+						</div>
+					</footer>
+
+			</div>
+
+<link rel="stylesheet" href="https://num17.net/assets/css/main.css" />
+
+		<!-- Scripts -->
+			<script src="https://num17.net/assets/js/jquery.min.js" async></script>
+			<script src="https://num17.net/assets/js/jquery.scrollex.min.js" async></script>
+			<script src="https://num17.net/assets/js/jquery.scrolly.min.js" async></script>
+			<script src="https://num17.net/assets/js/skel.min.js" async></script>
+			<script src="https://num17.net/assets/js/util.js" async></script>
+			<script src="https://num17.net/assets/js/main.js" async></script>
+			
+			
+	<!-- Google  -->		
+			<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59946546-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	<!-- Google  -->
+			
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter44953405 = new Ya.Metrika({
+                    id:44953405,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/44953405" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+                            
+
+	</body>
+</html>

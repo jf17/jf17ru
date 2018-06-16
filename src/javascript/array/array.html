@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+		<title>Массив в JavaScript - num17.net</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+   body{
+    background-color: #000000; /* Цвет фона веб-страницы */
+   }  
+   .content {
+    color: #59b300; /* Цвет символа */
+
+   } 
+   .table-head{
+    color: #8a00e6; /* Цвет символа */
+
+   } 
+</style>
+
+</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+
+                
+                				<!-- Additional Elements -->
+					<section class="wrapper style1 align-center">
+						<div class="inner">
+
+							<div class="index align-left">
+
+								<!-- Heading -->
+									<section>
+                                        <div class="content">
+                                        <h1> <a href="https://num17.net/">Сеть номер 17</a></h1>
+                                        	<hr>
+                                    </div></section>
+                                
+                                
+
+                                
+								<!-- Heading -->
+									<section>
+										<header>
+											<h3>Статья</h3>
+										</header>
+										<div class="content">
+
+
+											<header>
+											<font color="#ffa31a">	<h2> Массив в JavaScript</h2></font>
+
+Массивы в JavaScript не имеют огроничений на длинну ! <br>
+<font color="#0099ff">var </font><font color="#e96b9e">emptyArray</font><font color="#ffffff"> = [] ;</font><font color="#a6a6a6">  // пустой массив</font><br><br>			
+
+Размер массива.<br>
+<font color="#e96b9e">emptyArray</font><font color="#0099ff">.length</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // вернет Number </font><br><br>
+
+Добавление в массив.<br>
+<font color="#e96b9e">emptyArray</font><font color="#0099ff">.push</font><font color="#ff00ff">('abc')</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  //  </font><br><br>
+
+
+Удаление из массива по индексу.<br>
+<font color="#0099ff">delete </font><font color="#e96b9e">emptyArray</font><font color="#ff00ff">[4]</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // удаляет пятый  елемент массива по индексу  </font><br><br>
+
+
+Удаление из массива последнего елемента.<br>
+<font color="#e96b9e">emptyArray</font><font color="#0099ff">.pop</font><font color="#ff00ff">()</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // удаляет последний елемент массива и возвращает нам удаленный обьект </font><br><br>
+
+Обьединение содежимого массива в строчку  .<br>
+<font color="#0099ff">var </font><font color="#e96b9e">resultArray</font><font color="#ffffff"> = </font><font color="#e96b9e">arrayOfSting</font><font color="#0099ff">.join</font><font color="#ff00ff">( " , " )</font><font color="#ffffff"> ; </font><font color="#a6a6a6">  //  "Hello , user , welcome , back" </font><br><br>
+
+
+Обьединение массивов в один.<br>
+<font color="#0099ff">var </font><font color="#e96b9e">resultArray</font><font color="#ffffff"> = </font><font color="#e96b9e">arrayOfNumbers</font><font color="#0099ff">.concat</font><font color="#ff00ff">(arrayOfStrings)</font><font color="#ffffff"> ; </font><font color="#a6a6a6">  //  [1,2,3,"abc","cde","hello"] </font><br><br>
+
+
+Взятие буквы по индексу .<br>
+<font color="#ffffff">строка</font><font color="#0099ff">[3]</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // вернет букву  </font><br><br>
+
+
+Срез .<br>
+<font color="#0099ff">var </font><font color="#e96b9e">resultArray</font><font color="#ffffff"> = </font><font color="#e96b9e">arrayOfNumbers</font><font color="#0099ff">.slice</font><font color="#ff00ff">(0,25)</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // вернет подмассив  </font><br><br>
+
+Сортируем массив .<br>
+<font color="#e96b9e">arrayOfNumbers</font><font color="#0099ff">.sort</font><font color="#ff00ff">()</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // сортируем  </font><br><br>
+
+
+Вставка в массив .<br>
+<font color="#0099ff">var </font><font color="#e96b9e">resultArray</font><font color="#ffffff"> = </font><font color="#e96b9e">arrayOfNumbers</font><font color="#0099ff">.splice</font><font color="#ff00ff">(индекс_куда_вставляем , кол-во_удаляемых_емементов, что_вставляем )</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  //   </font><br><br>
+
+
+Удаление из массива произвольных элементов.<br>
+<font color="#0099ff">var </font><font color="#e96b9e">resultArray</font><font color="#ffffff"> = </font><font color="#e96b9e">arrayOfNumbers</font><font color="#0099ff">.splice</font><font color="#ff00ff">(индекс_откуда_удаляем , кол-во_удаляемых_емементов)</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  //   </font><br><br>
+
+Удаление из массива первого элемента.<br>
+<font color="#0099ff">var </font><font color="#e96b9e">resultObject</font><font color="#ffffff"> = </font><font color="#e96b9e">arrayOfNumbers</font><font color="#0099ff">.shift</font><font color="#ff00ff">()</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // вернет удаляемый элемент из массива  </font><br><br>
+
+Добавление в начало массива нового элемента.<br>
+<font color="#e96b9e">arrayOfNumbers</font><font color="#0099ff">.unshift</font><font color="#ff00ff">(562)</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // добавит в массив новый элемент  </font><br><br>
+
+Проверка условия всех елементов массива. <br>
+Принимает callbackFunc <br>
+<font color="#e96b9e">arrayOfNumbers</font><font color="#0099ff">.every</font><font color="#ff00ff">(callbackFunc)</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // вернет true или false </font><br><br>
+
+Проверка условия хотябы одного элемента массива. <br>
+Принимает callbackFunc <br>
+<font color="#e96b9e">arrayOfNumbers</font><font color="#0099ff">.some</font><font color="#ff00ff">(callbackFunc)</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // вернет true или false </font><br><br>
+
+
+
+Проверка обьекта на то что он является типом массив . <br>
+<font color="#fff68f">Array</font><font color="#0099ff">.isArray</font><font color="#e96b9e">(emptyArray)</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // вернет true или false </font><br>
+
+Поиск подстроки в строке .<br>
+<font color="#ffffff">строка</font><font color="#0099ff">.indexOf</font><font color="#e96b9e">("#twitter")</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // вернет индекс первого вхождения подстроки в строке </font><br>
+<font color="#ffffff">строка</font><font color="#0099ff">.indexOf</font><font color="#e96b9e">("#noSubstring")</font><font color="#ffffff"> ;</font><font color="#a6a6a6">  // вернет минус один если подстрока не найдена в строке  </font><br><br>
+			</div>
+
+
+               
+
+
+
+
+</section>
+</div>
+</div>
+</section>
+</div>
+</body><!-- Footer -->
+</html>

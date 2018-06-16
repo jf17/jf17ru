@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+		<title>Функции в JavaScript - num17.net</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+   body{
+    background-color: #000000; /* Цвет фона веб-страницы */
+   }  
+   .content {
+    color: #59b300; /* Цвет символа */
+
+   } 
+   .table-head{
+    color: #8a00e6; /* Цвет символа */
+
+   } 
+</style>
+
+</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+
+                
+                				<!-- Additional Elements -->
+					<section class="wrapper style1 align-center">
+						<div class="inner">
+
+							<div class="index align-left">
+
+								<!-- Heading -->
+									<section>
+                                        <div class="content">
+                                        <h1> <a href="https://num17.net/">Сеть номер 17</a></h1>
+                                        	<hr>
+                                    </div></section>
+                                
+                                
+
+                                
+								<!-- Heading -->
+									<section>
+										<header>
+											<h3>Статья</h3>
+										</header>
+										<div class="content">
+
+
+											<header>
+											<font color="#ffa31a">	<h2> Функции в JavaScript</h2></font>
+
+Функция - это обьект высшего порядка. . <br>
+Простые типы в аргумены функции передаются по значению , а сложные типы по ссылке.
+Пустая функция возвращает 'undefined' . <br>
+<p><font color="#0099ff">function </font><font color="#e96b9e">getFollowersCount</font><font color="#ff00ff">( )</font><font color="#ffffff"> {</font><br>
+<font color="#0099ff">    return </font><font color="#7fffd4"> 569 </font><font color="#ffffff"> ;</font><br>
+<font color="#ffffff"> };</font><br><br></p>
+
+Как работает функция <font color="#fff68f">.forEach</font><font color="#ff00ff">( )</font> ? <br>
+Не возвращает во внешний мир ничего.<br>
+Принемает на вход <font color="#0099ff">void </font> <font color="#ff00ff">callbackFunc</font> функцию . <br>
+<font color="#0099ff">function </font><font color="#fff68f">forEach</font><font color="#ff00ff">( callbackFunc )</font><font color="#ffffff"> {</font><br>
+<font color="#0099ff">for </font><font color="#ffffff">(<font color="#0099ff">var</font> = <font color="#7fffd4"> 0 </font>; i< <font color="#0099ff">this</font><font color="#0099ff">.length </font> ; i++ ){</font><font color="#a6a6a6">  // итерируемся по массиву </font><br>
+<font color="#ff00ff">callbackFunc</font><font color="#ffffff">(<font color="#0099ff">this </font>[i], i)</font><font color="#ffffff"> };</font><font color="#a6a6a6">  // вызываем коллбэк функцию , передаем обьект и его индекс</font><br>
+<font color="#ffffff"> };</font><br><br>
+
+
+Как работает функция <font color="#fff68f">.filter</font><font color="#ff00ff">( )</font> ? <br>
+Возвращает во внешний мир массив (прошедших фильтр) элементов.<br>
+Принемает на вход <font color="#00ff7f">Boolean </font> <font color="#ff00ff">callbackFunc</font> функцию . <br><br>
+
+
+Как работает функция <font color="#fff68f">.map</font><font color="#ff00ff">( )</font> ? <br>
+Возвращает во внешний мир массив (измененных) элементов.<br>
+Принемает на вход <font color="#00ff7f">Object </font> <font color="#ff00ff">callbackFunc</font> функцию . <br><br>
+
+Как работает функция <font color="#fff68f">.reduce</font><font color="#ff00ff">( )</font> ? <br>
+Возвращает во внешний мир <font color="#fa8072">буфер</font>(<font color="#00ff7f">Array </font> или <font color="#00ff7f">Object </font> или <font color="#00ff7f">Integer </font>) .<br>
+Принемает на вход <font color="#00ff7f">Object </font> <font color="#ff00ff">callbackFunc</font> функцию и <font color="#fa8072">буфер</font>(куда скадываются элементы после callback функции). <br><br>
+
+
+		</div>
+
+
+               
+
+
+
+
+</section>
+</div>
+</div>
+</section>
+</div>
+</body><!-- Footer -->
+</html>
