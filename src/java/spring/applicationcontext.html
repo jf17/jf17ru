@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title> AnnotationConfigApplicationContext - jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/"> JF17.ru </a></h1>
+<hr>
+</div></section>
+                                
+<!-- Heading -->
+<section>
+<header>
+<div class="content">
+<font color="#ffa31a">	<h2> AnnotationConfigApplicationContext</h2></font>
+<p>
+<li> Класс который позволяет создать конфигурацию приложение через Аннотации (вместо XML-файла) </li>
+<li> Класс <font color="#4dffa6">AppContext</font> должен содержать аннотации <font color="#dadee5">@Configuration</font> и <font color="#dadee5">@Bean</font> </li>
+<br><br>
+<font color="#59b300">Регистрация через <font color="#ff66ff">конструктор </font>:</font>
+<pre><code><font color="#4dd2ff">public static void</font><font color="#ff66ff"> main</font><font color="#ffffff">(</font><font color="#4dffa6">String</font><font color="#ffffff">[] </font><font color="#ff6600">args</font><font color="#ffffff">){
+    <font color="#4dffa6">ApplicationContext</font> <font color="#ff6600">ctx</font> = <font color="#4dd2ff">new</font> <font color="#4dffa6">AnnotationConfigApplicationContext</font>(<font color="#4dffa6">AppContext</font><font color="#4dd2ff">.class</font>);
+}
+</code></pre>
+<br>
+<font color="#59b300">Регистрация через <font color="#e6e600">метод </font>:</font>
+<pre><code><font color="#4dd2ff">public static void</font><font color="#ff66ff"> main</font><font color="#ffffff">(</font><font color="#4dffa6">String</font><font color="#ffffff">[] </font><font color="#ff6600">args</font><font color="#ffffff">){
+    <font color="#4dffa6">ApplicationContext</font> <font color="#ff6600">ctx</font> = <font color="#4dd2ff">new</font> <font color="#4dffa6">AnnotationConfigApplicationContext</font>();
+	<font color="#ff6600">ctx</font><font color="#e6e600">.register</font>(<font color="#4dffa6">AppContext</font><font color="#4dd2ff">.class</font>);
+}
+</code></pre>
+</p></header>
+</div>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
