@@ -30,7 +30,8 @@
 <font color="#ffffff"><font color="#4dd2ff">mov</font> <font color="#ff6600">ah</font>, <font color="#4dffa6">02h</font> ;; ( B4 02 ) </font> команда вывода символа из регистра на экран <br>
 <font color="#ffffff"><font color="#4dd2ff">mov</font> dl, 'H' ;; ( B2 48 )</font> поместить в регистр букву "H"  <br>
 <font color="#ffffff"><font color="#4dd2ff">int </font><font color="#ff66ff">0x21 </font> ;; ( CD 21 ) </font>вызов прерывания № 21 <br>
-
+<font color="#ffffff"><font color="#4dd2ff">mov</font> <font color="#ff6600">ax</font>, <font color="#4dffa6">0x4c00</font>	;; ( B8 00 4C ) </font>ah == 0x4c (завершить программу -- EXIT) ,  al == 0x00  (код выхода 0 )<br>
+<font color="#ffffff"><font color="#4dd2ff">int </font><font color="#ff66ff">0x21 </font> ;; ( CD 21 ) </font>вызов прерывания № 21 <br>
 </div>
 </section>
 <footer>
