@@ -28,10 +28,21 @@
 <div class="content">
 
 <font color="#ffffff"><font color="#4dd2ff">mov</font> <font color="#ff6600">ah</font>, <font color="#4dffa6">02h</font> ;; ( B4 02 ) </font> команда вывода символа из регистра на экран <br>
-<font color="#ffffff"><font color="#4dd2ff">mov</font> dl, 'H' ;; ( B2 48 )</font> поместить в регистр букву "H"  <br>
+<font color="#ffffff"><font color="#4dd2ff">mov</font> dl, <font color="#ebf442">'H'</font> ;; ( B2 48 )</font> поместить в регистр букву "H"  <br>
 <font color="#ffffff"><font color="#4dd2ff">int </font><font color="#ff66ff">0x21 </font> ;; ( CD 21 ) </font>вызов прерывания № 21 <br>
 <font color="#ffffff"><font color="#4dd2ff">mov</font> <font color="#ff6600">ax</font>, <font color="#4dffa6">0x4c00</font>	;; ( B8 00 4C ) </font>ah == 0x4c (завершить программу -- EXIT) ,  al == 0x00  (код выхода 0 )<br>
 <font color="#ffffff"><font color="#4dd2ff">int </font><font color="#ff66ff">0x21 </font> ;; ( CD 21 ) </font>вызов прерывания № 21 <br>
+<br><br>
+
+<font color="#ffffff"><font color="#4dd2ff">mov</font> <font color="#ff6600">dx</font>, <font color="#4dffa6">hello</font> ;; ( BA 0C 01 ) </font> добавляем в регистр DX адрес строки hello(0C) зачем 01 я так и не понял. <br>
+<font color="#ffffff"><font color="#4dd2ff">mov</font> <font color="#ff6600">ah</font>, 9 ;; ( B4 09 )</font> команда Выдать строку на дисплей  <br>
+<font color="#ffffff"><font color="#4dd2ff">int </font><font color="#ff66ff">0x21 </font> ;; ( CD 21 ) </font>вызов прерывания № 21 <br>
+<font color="#ffffff"><font color="#4dd2ff">mov</font> <font color="#ff6600">ax</font>, <font color="#4dffa6">0x4c00</font>	;; ( B8 00 4C ) </font>ah == 0x4c (завершить программу -- EXIT) ,  al == 0x00  (код выхода 0 )<br>
+<font color="#ffffff"><font color="#4dd2ff">int </font><font color="#ff66ff">0x21 </font> ;; ( CD 21 ) </font>вызов прерывания № 21 <br>
+<font color="#ffffff"><font color="#4dffa6">hello</font> <font color="#ff6600">db</font> <font color="#ebf442">'Hello$'</font> ;; ( 48 65 6C 6C 6F 24 ) </font> выводимая строка <br>
+<br><br>
+
+
 </div>
 </section>
 <footer>
