@@ -6,7 +6,7 @@
 
    } 
    .code {
-    color: #303030; /* Цвет символа */
+    color: #dadee5; /* Цвет символа */
 
    } 
    .contentname {
@@ -17,3 +17,27 @@
     color: #8a00e6; /* Цвет символа */
 
    } 
+	.codeclass {
+    color: #4dffa6; /* Цвет символа */
+
+   } 
+   	.codeobject {
+    color: #ff6600; /* Цвет символа */
+
+   } 
+   	.codecomment {
+    color: #303030; /* Цвет символа */
+
+   } 
+   .codemethod {
+    color: #e6e600; /* Цвет символа */
+
+   } 
+   .codetext {
+    color: #ffa31a; /* Цвет символа */
+
+   }
+   .codeoperator {
+    color: #4dd2ff; /* Цвет символа */
+
+   }
