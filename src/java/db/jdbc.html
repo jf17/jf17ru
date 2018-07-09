@@ -25,16 +25,15 @@
 <p>(англ. <font color="#4dffa6">Java DataBase Connectivity</font> — соединение с базами данных на Java) — платформенно-независимый промышленный стандарт взаимодействия Java-приложений с различными СУБД, реализованный в виде пакета <font color="#dadee5">java.sql.*</font>, входящего в состав <font color="#4dffa6">Java SE</font>.  </p>
 <p><font color="#4dffa6">JDBC</font> основан на концепции так называемых драйверов, позволяющих получать соединение с базой данных по специально описанному URL. Драйверы могут загружаться динамически (во время работы программы). Загрузившись, драйвер сам регистрирует себя и вызывается автоматически, когда программа требует URL, содержащий протокол, за который драйвер отвечает.  </p>
 <p>Из определения выходит, что нам нужен драйвер, его мы можем взять на сайте производителя СУБД. <font color="#ff66ff">Скачиваем драйвер и потом импортируем библиотеку в проект</font> !</p>
-
 </header>
 </div>
-
-
 
 <!-- Code -->
 <section>
 <div class="content">
 <pre><code>
+//Оборачиваем всё в <font color="#4dd2ff">try-catch</font>
+
 // Подключаем драйвер
   <font color="#dadee5"><font color="#4dffa6">Class</font><font color="#e6e600">.forName</font>(<font color="#ffa31a">"org.h2.Driver"</font>);
   <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ffa31a">"Драйвер подключен!"</font>); </font>
@@ -46,7 +45,14 @@
   //Создаём Statement
   <font color="#dadee5"><font color="#4dffa6">Statement</font> <font color="#ff6600">statement</font> = <font color="#ff6600">conn</font><font color="#e6e600">.createStatement</font>();</font> 
   
+    //Отправляем комманду 
+	<font color="#dadee5"><font color="#ff6600">statement</font><font color="#e6e600">.execute</font>(<font color="#ffa31a">"create table USER (id integer primary key auto_increment, name varchar(100));"</font>);</font>
+	
+    //или выполняем запрос
+	<font color="#dadee5"><font color="#4dffa6">ResultSet </font><font color="#ff6600">rs</font> = <font color="#ff6600">statement</font><font color="#e6e600">.executeQuery</font>(<font color="#ffa31a">"select * from USER"</font>);</font>
+  
 //Закрываем соединение с базой после работы 
+  <font color="#dadee5"><font color="#ff6600">rs</font><font color="#e6e600">.close</font>();
   <font color="#dadee5"><font color="#ff6600">statement</font><font color="#e6e600">.close</font>();
   <font color="#dadee5"><font color="#ff6600">conn</font><font color="#e6e600">.close</font>();
   <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ffa31a">"Connection close !"</font>);</font>
