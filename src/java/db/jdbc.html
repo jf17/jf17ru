@@ -29,6 +29,29 @@
 </header>
 </div>
 
+
+
+<!-- Code -->
+<section>
+<div class="content">
+<pre><code>
+// Подключаем драйвер
+  <font color="#dadee5"><font color="#4dffa6">Class</font><font color="#e6e600">.forName</font>(<font color="#ffa31a">"org.h2.Driver"</font>);
+  <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ffa31a">"Драйвер подключен!"</font>); </font>
+
+  //Получаем соединение с базой
+  <font color="#dadee5"><font color="#4dffa6">Connection</font> <font color="#ff6600">conn</font> = <font color="#4dffa6">DriverManager</font><font color="#e6e600">.getConnection</font>(<font color="#ffa31a">"jdbc:h2:~/test", "sa", ""</font>);
+  <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ffa31a">"Connection OK !"</font>);</font>
+
+//Закрываем соединение с базой после работы 
+  <font color="#dadee5"><font color="#ff6600">conn</font><font color="#e6e600">.close</font>();
+  <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ffa31a">"Connection close !"</font>);</font>
+
+</code></pre>
+</section>
+<br>
+
+
 <footer>
 <!-- работа с куки -->
 <script type="text/javascript">
