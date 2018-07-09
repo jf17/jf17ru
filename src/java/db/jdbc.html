@@ -43,7 +43,11 @@
   <font color="#dadee5"><font color="#4dffa6">Connection</font> <font color="#ff6600">conn</font> = <font color="#4dffa6">DriverManager</font><font color="#e6e600">.getConnection</font>(<font color="#ffa31a">"jdbc:h2:~/test", "sa", ""</font>);
   <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ffa31a">"Connection OK !"</font>);</font>
 
+  //Создаём Statement
+  <font color="#dadee5"><font color="#4dffa6">Statement</font> <font color="#ff6600">statement</font> = <font color="#ff6600">conn</font><font color="#e6e600">.createStatement</font>();</font> 
+  
 //Закрываем соединение с базой после работы 
+  <font color="#dadee5"><font color="#ff6600">statement</font><font color="#e6e600">.close</font>();
   <font color="#dadee5"><font color="#ff6600">conn</font><font color="#e6e600">.close</font>();
   <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ffa31a">"Connection close !"</font>);</font>
 
