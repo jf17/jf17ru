@@ -50,6 +50,10 @@
 	
     //или выполняем запрос
 	<font color="#dadee5"><font color="#4dffa6">ResultSet </font><font color="#ff6600">rs</font> = <font color="#ff6600">statement</font><font color="#e6e600">.executeQuery</font>(<font color="#ffa31a">"select * from USER"</font>);</font>
+	<font color="#dadee5"><font color="#4dd2ff">while </font>(<font color="#ff6600">rs</font><font color="#e6e600">.next</font>()){
+		<font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ff6600">rs</font><font color="#e6e600">.getInt</font>(<font color="#ffa31a">"id"</font>));
+		}</font>
+	
   
 //Закрываем соединение с базой после работы 
   <font color="#dadee5"><font color="#ff6600">rs</font><font color="#e6e600">.close</font>();
