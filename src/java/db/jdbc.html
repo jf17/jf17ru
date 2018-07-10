@@ -40,27 +40,27 @@
   <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<span class="codetext">"Драйвер подключен!"</span>);
 
   <span class="codecomment">//Получаем соединение с базой</span>
-  <font color="#dadee5"><font color="#4dffa6">Connection</font> <font color="#ff6600">conn</font> = <font color="#4dffa6">DriverManager</font><font color="#e6e600">.getConnection</font>(<font color="#ffa31a">"jdbc:h2:~/test", "sa", ""</font>);
-  <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ffa31a">"Connection OK !"</font>);</font>
+  <font color="#4dffa6">Connection</font> <font color="#ff6600">conn</font> = <font color="#4dffa6">DriverManager</font><font color="#e6e600">.getConnection</font>(<font color="#ffa31a">"jdbc:h2:~/test", "sa", ""</font>);
+  <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ffa31a">"Connection OK !"</font>);
 
   <span class="codecomment">//Создаём Statement</span>
-  <font color="#dadee5"><font color="#4dffa6">Statement</font> <font color="#ff6600">statement</font> = <font color="#ff6600">conn</font><font color="#e6e600">.createStatement</font>();</font> 
+  <font color="#4dffa6">Statement</font> <font color="#ff6600">statement</font> = <font color="#ff6600">conn</font><font color="#e6e600">.createStatement</font>();
   
     <span class="codecomment">//Отправляем комманду</span> 
-	<font color="#dadee5"><font color="#ff6600">statement</font><font color="#e6e600">.execute</font>(<font color="#ffa31a">"create table USER (id integer primary key auto_increment, name varchar(100));"</font>);</font>
+	<font color="#ff6600">statement</font><font color="#e6e600">.execute</font>(<font color="#ffa31a">"create table USER (id integer primary key auto_increment, name varchar(100));"</font>);
 	
     <span class="codecomment">//или выполняем запрос</span>
-	<font color="#dadee5"><font color="#4dffa6">ResultSet </font><font color="#ff6600">rs</font> = <font color="#ff6600">statement</font><font color="#e6e600">.executeQuery</font>(<font color="#ffa31a">"select * from USER"</font>);</font>
-	<font color="#dadee5"><font color="#4dd2ff">while </font>(<font color="#ff6600">rs</font><font color="#e6e600">.next</font>()){
+	<font color="#4dffa6">ResultSet </font><font color="#ff6600">rs</font> = <font color="#ff6600">statement</font><font color="#e6e600">.executeQuery</font>(<font color="#ffa31a">"select * from USER"</font>);
+	<font color="#4dd2ff">while </font>(<font color="#ff6600">rs</font><font color="#e6e600">.next</font>()){
 		<font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ff6600">rs</font><font color="#e6e600">.getInt</font>(<font color="#ffa31a">"id"</font>));
-		}</font>
+		}
 	
   
 <span class="codecomment">//Закрываем соединение с базой после работы</span> 
-  <font color="#dadee5"><font color="#ff6600">rs</font><font color="#e6e600">.close</font>();
-  <font color="#dadee5"><font color="#ff6600">statement</font><font color="#e6e600">.close</font>();
-  <font color="#dadee5"><font color="#ff6600">conn</font><font color="#e6e600">.close</font>();
-  <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ffa31a">"Connection close !"</font>);</font>
+  <font color="#ff6600">rs</font><font color="#e6e600">.close</font>();
+  <font color="#ff6600">statement</font><font color="#e6e600">.close</font>();
+  <font color="#ff6600">conn</font><font color="#e6e600">.close</font>();
+  <font color="#4dffa6">System</font><font color="#e6e600">.out.println</font>(<font color="#ffa31a">"Connection close !"</font>);
 
 </div>
 </code></pre>
