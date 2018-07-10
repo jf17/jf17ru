@@ -21,26 +21,42 @@
 <!-- Spring Core Container. -->
 <section>
 <header>
-<font color="#ffa31a">	<h3>Spring Boot .</h3></font>
+<font color="#ffa31a">	<h3>Spring Boot. hello world</h3></font>
 </header>
 <div class="content">
 <ul>
 <li> import org.springframework.boot.autoconfigure.SpringBootApplication; </li>
 <li> import org.springframework.stereotype.Controller; </li>
 <li> import org.springframework.web.bind.annotation.RequestMapping;  </li>
-<li> <a href="applicationproperties.html"> application.properties</a> </li>
 </ul></div>
 </section>
 
 <section>
 <div class="content">
 <pre><code>
+@Controller
+@SpringBootApplication
+public class DemoApplication {
+
+
+
+@RequestMapping("/hello")
+public String showHelloWorld(){
+return "hello-world";
+}
+
+-------------------------------------------
+	pom.xml :
+	
         dependency
             groupId    org.springframework.boot          groupId
             artifactId spring-boot-starter-freemarker    artifactId
         dependency
-		
-		\src\main\resources\templates\hello-world.ftl
+--------------------------------------------------
+\src\main\resources\templates\hello-world.ftl
+
+----------------------------------------------------
+mvn clean package
 		
 </pre></code>
 </div>
