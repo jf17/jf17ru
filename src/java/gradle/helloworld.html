@@ -25,11 +25,10 @@
 2)переходим в папку 
 3) gradle init --type java-application
 4) добавляем в файл build.gradle строчки :
-jar {
-   manifest {
-      attributes 'Main-Class': 'com.example.main.Application'
-   }
-}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+mainClassName = 'ru.jf17.app.App'
 
 5) gradle clean
 6) gradle build
