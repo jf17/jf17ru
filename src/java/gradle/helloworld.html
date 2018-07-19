@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title> Gradle . Hello World - jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/"> JF17.ru </a></h1>
+<hr>
+</div></section>
+                                
+<!-- Heading -->
+<section>
+<header>
+<div class="content">
+<font color="#ffa31a">	<h2> Gradle . Hello World</h2></font>
+<pre><code>
+1)создаём папку проекта 
+2)переходим в папку 
+3) gradle init --type java-application
+4) добавляем в файл build.gradle строчки :
+jar {
+   manifest {
+      attributes 'Main-Class': 'App'
+   }
+}
+
+5) gradle clean
+6) gradle build
+
+7) в папке my-test-java-app\build\libs\ будет лежать ваш *.jar файл .
+
+</pre></code>
+</header>
+</div>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
