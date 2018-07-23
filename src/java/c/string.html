@@ -32,7 +32,7 @@
 
 <section>
 <div class="content">
-<font color="#a300cc">	<h3> <span class="codeoperator">int</span> <span class="codemethod">.length()</span> :</h3></font>
+<font color="#a300cc">	<h3> <span class="codeoperator">int</span> <span class="codemethod"><span class="codeobject">*</span>.length()</span> :</h3></font>
 <p>Возращает длинну строки .</p>
 <br>
 </div>
@@ -41,7 +41,7 @@
 
 <section>
 <div class="content">
-<font color="#a300cc">	<h3> <span class="codeoperator">boolean</span> <span class="codemethod">.contains()</span> :</h3></font>
+<font color="#a300cc">	<h3> <span class="codeoperator">boolean</span> <span class="codemethod"><span class="codeobject">*</span>.contains()</span> :</h3></font>
 <p>Определяет, содержит ли строка последовательность символов.</p>
 </div>
 <!-- Code -->
@@ -58,7 +58,7 @@
 
 <section>
 <div class="content">
-<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod">.equals(<span class="codeclass">Object</span> <span class="codeobject">obj</span> )</span> :</h3></font>
+<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod"><span class="codeobject">*</span>.equals(<span class="codeclass">Object</span> <span class="codeobject">obj</span> )</span> :</h3></font>
 <p>Сравнивает содержимое строк .</p>
 <br>
 </div>
@@ -66,7 +66,7 @@
 
 <section>
 <div class="content">
-<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod">.equalsIgnoreCase(<span class="codeclass">String</span> <span class="codeobject">str</span> )</span> :</h3></font>
+<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod"><span class="codeobject">*</span>.equalsIgnoreCase(<span class="codeclass">String</span> <span class="codeobject">str</span> )</span> :</h3></font>
 <p>Сравнивает содержимое строк игнорируя регистр букв.</p>
 <br>
 </div>
@@ -76,7 +76,7 @@
 
 <section>
 <div class="content">
-<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod">.toUpperCase()</span> :</h3></font>
+<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod"><span class="codeobject">*</span>.toUpperCase()</span> :</h3></font>
 <p>Переводит все буквы в строке в <b>верхний</b> регистр и возвращает новую строку.</p>
 <br>
 </div>
@@ -84,7 +84,7 @@
 
 <section>
 <div class="content">
-<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod">.toLowerCase()</span> :</h3></font>
+<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod"><span class="codeobject">*</span>.toLowerCase()</span> :</h3></font>
 <p>Переводит все буквы в строке в <b>нижний</b> регистр и возвращает новую строку.</p>
 <br>
 </div>
@@ -94,7 +94,7 @@
 
 <section>
 <div class="content">
-<font color="#a300cc">	<h3> <span class="codeoperator">boolean</span> <span class="codemethod">.matches(<span class="codeclass">String</span> <span class="codeobject">regex</span> )</span> :</h3></font>
+<font color="#a300cc">	<h3> <span class="codeoperator">boolean</span> <span class="codemethod"><span class="codeobject">*</span>.matches(<span class="codeclass">String</span> <span class="codeobject">regex</span> )</span> :</h3></font>
 <p>Указывает, соответствует ли эта строка данному регулярному выражению.</p>
 <br>
 </div>
@@ -104,8 +104,27 @@
 
 <section>
 <div class="content">
-<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod">.trim()</span> :</h3></font>
-<p>Возвращает строку, значение которой является этой строкой, с удалением всех удаленных пробелов.</p>
+<font color="#a300cc">	<h3> <span class="codeclass">String  </span> <span class="codemethod">  <span class="codeobject">*</span>.trim()</span> :</h3></font>
+<p>Возвращает строку, значение которой является этой строкой, с удалением всех пробельных символов.</p>
+<br>
+</div>
+</section>
+
+
+
+<section>
+<div class="content">
+<font color="#a300cc">	<h3> <span class="codeclass">String  </span> <span class="codemethod">  <span class="codeobject">*</span>.replace(<span class="codeoperator">char</span> <span class="codeobject"> oldChar</span>, <span class="codeoperator">char</span> <span class="codeobject"> newChar</span>)</span> :</h3></font>
+<p>Возвращает строку, полученную в результате замены всех вхождений oldChar в этой строке с помощью newChar.</p>
+<br>
+</div>
+</section>
+
+
+<section>
+<div class="content">
+<font color="#a300cc">	<h3> <span class="codeclass">String  </span> <span class="codemethod">  <span class="codeobject">*</span>.replaceAll(<span class="codeclass">String</span> <span class="codeobject">regex</span>, <span class="codeclass">String</span> <span class="codeobject"> replacement</span>)</span> :</h3></font>
+<p>Заменяет каждую подстроку этой строки, которая соответствует данному регулярному выражению с указанной заменой.</p>
 <br>
 </div>
 </section>
