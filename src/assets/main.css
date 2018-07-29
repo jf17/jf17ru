@@ -1,6 +1,9 @@
    body{
     background-color: #000000; /* Цвет фона веб-страницы */
    }  
+
+   A {  color: #42dcf4; }
+
    .content {
     color: #59b300; /* Цвет символа */
 
