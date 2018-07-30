@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title> JAR - jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<hr />
+</section>
+                         
+
+<section>
+<header>
+<div class="content">
+<font color="#ffa31a">	<h2> JAR </h2></font>
+<p> 
+От этого можно уйти, сделав JAR-файл «исполняемым», так чтобы при его выполнении модуль запуска Java автоматически узнавал, какой класс нужно запустить. Для этого достаточно ввести в манифест JAR-файла (MANIFEST.MF в подкаталоге архива JAR META-INF) следующую запись.
+</p>
+<p>
+Main-Class: com.tedneward.jars.Hello
+</p>
+<p>
+Для добавления зависимостей нужно указать Class-Path
+</p>
+<p>
+Class-Path: ./lib/org.springframework.context-3.0.1.RELEASE-A.jar ./lib/org.springframework.core-3.0.1.RELEASE-A.jar  ./lib/commons-logging-1.0.4.jar
+</p>
+
+
+<p>
+Создаем файл Manifest.txt	<br>
+добавляем строчку :
+</p>
+<p>
+Main-Class: MyPackage.MyClass<br>
+Обязательно сделать перевод строки вконце!
+</p>
+<p>
+компилируем<br>
+jar cfm MyJar.jar Manifest.txt MyPackage/*.class
+</p>
+<p>
+
+</p>
+запускаем <br>
+java -jar MyJar.jar
+</div>
+</header>
+</section>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
