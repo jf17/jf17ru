@@ -25,8 +25,7 @@
 Чтобы JAR-файл был исполняемым, он должен содержать файл MANIFEST.MF в каталоге META-INF, в котором должен быть указан главный класс программы (такой класс должен содержать метод main и задаётся параметром Main-Class). Номер версии JAR задаётся параметром Manifest-Version и является обязательным.
 </p>
 <p>
-1)Создаем файл Manifest.txt	<br>
-добавляем строчку :
+1) Создаем файл Manifest.txt :
 <pre class="code"><code>Manifest-Version: 1.0
 Main-Class: ru.jf17.ide.gui.Main
 Class-Path: ./zlib/autocomplete-2.6.1.jar ./zlib/rsyntaxtextarea-2.6.1.jar
@@ -39,13 +38,13 @@ Class-Path: ./zlib/autocomplete-2.6.1.jar ./zlib/rsyntaxtextarea-2.6.1.jar
 
 <img src="jar.PNG" alt="JAR">
 <p>
-2)компилируем:
-<pre class="code"><code>jar cvfm MyJar.jar Manifest.txt имя_папки_с_классами имя_папки_с_библиотеками имя_папки_с_ресурсами
+2) компилируем:
+<pre class="code"><code>jar cvfm MyJar.jar Manifest.txt <font color="blue">имя_папки_с_классами</font> <font color="pink">имя_папки_с_библиотеками</font> <font color="yellow">имя_папки_с_ресурсами</font>
 </pre></code>
 <img src="jar2.PNG" alt="JAR">
 </p>
 <p>
-3)запускаем <br>
+3) запускаем <br>
 <pre class="code"><code>java -jar MyJar.jar
 </pre></code>
 </p>
