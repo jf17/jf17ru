@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title> JAVAC - jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<hr />
+</section>
+                         
+
+<section>
+<header>
+<div class="content">
+<font color="#ffa31a">	<h2> JAVAC </h2></font>
+<p> 
+Javac — оптимизирующий компилятор языка java, включенный в состав многих Java Development Kit (JDK).
+</p>
+<p>
+1) Создаем(вручную) папку classes (куда будут сохраняться результаты компиляции) :
+<pre class="code"><code>-d classes
+</pre></code>
+<br>
+</p>
+<p>
+2) создаём строку CLASSPATH (откуда будут браться сторонние библиотеки) :<br>
+для Linux вместо точки с зяпятой используется двоеточие и наклон в другую сторону.
+<pre class="code"><code>-cp "testzip\zlib\autocomplete-2.6.1.jar;testzip\zlib\rsyntaxtextarea-2.6.1.jar"
+</pre></code>
+<br>
+</p>
+
+<p>
+3) добавляем все папки с *.java файлами  <br>
+<pre class="code"><code>java\ru\jf17\ide\gui\*.java
+</pre></code>
+<br>
+</p>
+
+<p>
+4) запускаем <br>
+<pre class="code"><code>javac -d classes -cp "testzip\zlib\autocomplete-2.6.1.jar;testzip\zlib\rsyntaxtextarea-2.6.1.jar" java\ru\jf17\ide\gui\*.java
+</pre></code>
+</p>
+
+
+</div>
+</header>
+</section>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
