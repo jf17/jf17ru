@@ -23,37 +23,32 @@
 <font color="#ffa31a">	<h2> JAR </h2></font>
 <p> 
 Чтобы JAR-файл был исполняемым, он должен содержать файл MANIFEST.MF в каталоге META-INF, в котором должен быть указан главный класс программы (такой класс должен содержать метод main и задаётся параметром Main-Class). Номер версии JAR задаётся параметром Manifest-Version и является обязательным.
-<br>
-Manifest-Version: 1.0
 </p>
 <p>
-Main-Class: com.tedneward.jars.Hello
-</p>
-<p>
-Для добавления зависимостей нужно указать Class-Path
-</p>
-<p>
-Class-Path: ./lib/org.springframework.context-3.0.1.RELEASE-A.jar ./lib/org.springframework.core-3.0.1.RELEASE-A.jar  ./lib/commons-logging-1.0.4.jar
-</p>
-
-
-<p>
-Создаем файл Manifest.txt	<br>
+1)Создаем файл Manifest.txt	<br>
 добавляем строчку :
-</p>
-<p>
-Main-Class: MyPackage.MyClass<br>
-Обязательно сделать перевод строки вконце!
-</p>
-<p>
-компилируем<br>
-jar cfm MyJar.jar Manifest.txt MyPackage/*.class
-</p>
-<p>
+<pre class="code"><code>Manifest-Version: 1.0
+Main-Class: ru.jf17.ide.gui.Main
+Class-Path: ./zlib/autocomplete-2.6.1.jar ./zlib/rsyntaxtextarea-2.6.1.jar
 
+</pre></code>
 </p>
-запускаем <br>
-java -jar MyJar.jar
+<p>
+Обязательно сделать перевод строки вконце файла Manifest.txt!
+</p>
+
+<img src="jar.PNG" alt="JAR">
+<p>
+2)компилируем:
+<pre class="code"><code>jar cvfm MyJar.jar Manifest.txt имя_папки_с_классами имя_папки_с_библиотеками имя_папки_с_ресурсами
+</pre></code>
+<img src="jar2.PNG" alt="JAR">
+</p>
+<p>
+3)запускаем <br>
+<pre class="code"><code>java -jar MyJar.jar
+</pre></code>
+</p>
 </div>
 </header>
 </section>
