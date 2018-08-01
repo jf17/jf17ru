@@ -41,6 +41,9 @@ mainClassName = 'ru.jf17.app.App'
 
 <pre><code>
 jar {
+
+  exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
+
   manifest {
     attributes(
       'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
