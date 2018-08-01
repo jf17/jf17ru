@@ -28,12 +28,12 @@
 1) Создаем файл Manifest.txt :
 <pre class="code"><code>Manifest-Version: 1.0
 Main-Class: ru.jf17.ide.gui.Main
-Class-Path: autocomplete-2.6.1.jar rsyntaxtextarea-2.6.1.jar
+Class-Path: lib/autocomplete-2.6.1.jar lib/rsyntaxtextarea-2.6.1.jar
 
 </pre></code>
 </p>
 <p>
-Файлы библиотек лучше ложить в корень JAR так как существует проблема с расзыми ОС .
+Файлы библиотек лучше держать снаруже в папке lib так как существует проблема с расзыми ОС .
 </p>
 <p>
 Обязательно сделать перевод строки вконце файла Manifest.txt!
@@ -42,7 +42,7 @@ Class-Path: autocomplete-2.6.1.jar rsyntaxtextarea-2.6.1.jar
 <img src="jar.PNG" alt="JAR">
 <p>
 2) компилируем:
-<pre class="code"><code>jar cvfm MyJar.jar Manifest.txt <font color="blue">имя_папки_с_классами</font> <font color="pink">файлы_с_библиотеками</font> <font color="yellow">имя_папки_с_ресурсами</font>
+<pre class="code"><code>jar cvfm MyJar.jar Manifest.txt <font color="yellow">имя_папки_с_классами</font> 
 </pre></code>
 <img src="jar2.PNG" alt="JAR">
 </p>
