@@ -38,6 +38,18 @@ mainClassName = 'ru.jf17.app.App'
 7) в папке my-test-java-app\build\libs\ будет лежать ваш *.jar файл .
 
 </pre></code>
+
+<pre><code>
+jar {
+  manifest {
+    attributes(
+      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+      'Main-Class': 'ru.jf17.app.App'
+    )
+  }
+}
+</pre></code>
+
 </header>
 </div>
 
