@@ -28,9 +28,18 @@
 3) gradle init --type java-application
 4) добавляем в файл build.gradle строчки :
 
+apply plugin: 'java'
+apply plugin: 'java-library-distribution'
+
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 mainClassName = 'ru.jf17.app.App'
+
+// Task "distZip" added by plugin "java-library-distribution":
+distZip.shouldRunAfter(build)
+
+
 
 5) gradle clean
 6) gradle build
