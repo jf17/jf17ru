@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Spring Boot - jf17.ru</title>
+<title>Helo World Spring Boot - jf17.ru</title>
 <meta charset="utf-8" />
 <html lang="ru">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,19 +15,52 @@
 <h1> <a href="https://jf17.ru/" >Главная</a></h1>
 <h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
 <h2> <a href="https://jf17.ru/java/spring/index.html" >Spring</a></h2>
+<h2> <a href="https://jf17.ru/java/spring/springboot/index.html" >Spring Boot</a></h2>
 <hr />
 </section>
 
-<!-- Spring Boot. -->
+<!-- Spring Core Container. -->
 <section>
 <header>
-<font color="#ffa31a">	<h3>Spring Boot.</h3></font>
+<font color="#ffa31a">	<h3>Spring Boot. hello world</h3></font>
 </header>
 <div class="content">
 <ul>
-<li> <a href="hello.html"> Spring Boot.</a> </li>
-<li> <a href="postgresql.html"> PosgreSQL.</a> </li>
+<li> import org.springframework.boot.autoconfigure.SpringBootApplication; </li>
+<li> import org.springframework.stereotype.Controller; </li>
+<li> import org.springframework.web.bind.annotation.RequestMapping;  </li>
 </ul></div>
+</section>
+
+<section>
+<div class="content">
+<pre><code>
+@Controller
+@SpringBootApplication
+public class DemoApplication {
+
+
+
+@RequestMapping("/hello")
+public String showHelloWorld(){
+return "hello-world";
+}
+
+-------------------------------------------
+	pom.xml :
+	
+        dependency
+            groupId    org.springframework.boot          groupId
+            artifactId spring-boot-starter-freemarker    artifactId
+        dependency
+--------------------------------------------------
+\src\main\resources\templates\hello-world.ftl
+
+----------------------------------------------------
+mvn clean package
+		
+</pre></code>
+</div>
 </section>
 
 <!-- Полезные ссылки . -->
