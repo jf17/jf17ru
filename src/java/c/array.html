@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title> Array. Java - jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<hr />
+</section>
+                         
+
+<section>
+<header>
+<div class="content">
+<font color="#ffa31a">	<h2> Массив </h2></font>
+<p>
+Массив, какого бы типа и размерности он ни был, является объектом. Это значит, что он обладает всеми свойствами и методами объекта.
+</p>
+<p>
+После создания массив инициализируется значением по умолчанию для типа его элементов. Это гарантируется спецификацией языка.
+</p>
+<p>
+А каково это значение по умолчанию? Объект, созданный вызовом конструктора без параметров? А если такого конструктора нет? <br>
+А хранятся в этом массиве не объекты. Там хранятся ссылки на них. Как любая переменная объектного типа является ссылкой на объект, так и любой элемент массива тоже является ссылкой. А для ссылки значение по умолчанию – null!
+</p>  
+<p>
+о копировании. Есть способ быстрее – использовать метод System.arraycopy(...). В этом методе после всех проверок происходит просто копирование области памяти. 
+</p>
+    <p>
+    Хочу специально коснуться вопроса копирования элементов массива объектов. Поскольку содержит он ссылки, именно они и копируются. Т.е. после копирования новый массив будет указывать на тот же самый набор объектов! И если изменить внутреннее состояние какого-либо из объектов – это будет видно при доступе к нему через любой из массивов.
+    </p>
+<br>
+</header>
+</div>
+
+
+
+<section>
+<div class="content">
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html"> Package java.lang.String </a> </li>
+	</ul>
+	</div>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
