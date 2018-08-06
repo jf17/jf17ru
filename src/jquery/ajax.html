@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title> AJAX in jQuery- jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/jquery/index.html" >jQuery</a></h2>
+<hr />
+</section>
+                                
+<!-- Heading -->
+<section>
+<header>
+<div class="content">
+<font color="#ffa31a">	<h2>AJAX in jQuery</h2></font>
+
+<pre class="code"><code>
+script
+  $('#BT_send').click(function (){
+  var input_value = $('#input_Box').val ()
+  
+  if (input_value) {
+  // is not emtpy
+
+  $('#response').append(input_value + "<br>");
+    $.ajax({
+      url: '/ajax',
+      type: "post",
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify({ Quote:input_value}),
+      dataType: 'json',
+      success: function(r) {
+        $('#response').html(r.Quote);
+      }
+    });
+	}else if (!input_value) {
+	alert( "Поле не должно быть пустым !!" );
+	}
+	
+	
+  });
+script
+-------------------------------------------------------------
+$(".alpha-only").on("input", function(){
+  var regexp = /[^0-9A-Z]/g;
+  if($(this).val().match(regexp)){
+    $(this).val( $(this).val().replace(regexp,'') );
+  }
+});
+script
+
+</pre></code>
+</header>
+</div>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
