@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+		<title> JSON - jf17.ru</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+	<body>
+
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/javascript/index.html" >JavaScript</a></h2>
+<hr />
+</section>
+
+<section>
+<div class="content">
+<font color="#ffa31a">	<h2> JSON </h2></font>
+<p>
+	JSON - Текстовый формат обмена данными, основанный на JavaScript.
+	<br> Ключи (key) в стрковом формате JSON должны быть обязательно в двойных кавычках !!!
+</p>
+<p>
+	метод превращающий обьект в строку (для отправки на сервер):<br>
+<code class="code">
+	<span class="codeclass">JSON</span><span class="codemethod">.stringify(</span>{ x: 5, y: 6 }) <span class="codecomment">// expected output: "{"x":5,"y":6}"</span>
+</code>
+</p>
+<p>
+	метод превращающий строку в обьект ( str -> obj ):<br>
+<code class="code">
+	<span class="codeobject">obj</span> = <span class="codeclass">JSON</span><span class="codemethod">.parse(</span><span class="codetext"> '{ "x": 5, "y": 6 }' </span>); <span class="codecomment">// expected output: "{"x":5,"y":6}"</span>
+</code>
+	
+</p>
+
+</div>
+</section>
+
+
+
+
+
+<!-- Footer -->
+<footer >
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+</script>
+</footer>
+
+</body>
+</html>
