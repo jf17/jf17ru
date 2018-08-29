@@ -14,6 +14,7 @@
 <div class="content">
 <h1> <a href="https://jf17.ru/" >Главная</a></h1>
 <h2> <a href="https://jf17.ru/javascript/index.html" >JavaScript</a></h2>
+<h2> <a href="https://jf17.ru/javascript/type.html" >Типы данных</a></h2>
 <hr />
 </section>
 
@@ -24,21 +25,51 @@
 <div class="content">
 <header>
 <font color="#ffa31a">	<h2> Number JavaScript</h2></font>
+<p>
+	есть три типа : <br>
+	<font color="#0099ff"> Integer , Float , NaN </font>(Not a Number, не число) .<br>
+	получить <font color="#0099ff">NaN </font> можно путем умножения строки на число. 
+
+</p>
+<br>
+
 <font color="#ff99cc">123 </font><font color="#a6a6a6">// целые числа Integer</font><br>		
 <font color="#ff99cc">10.05 </font><font color="#a6a6a6">// числа с плавающей точкой Float</font><br><br>
 <font color="#ff99cc">0x11 </font><font color="#a6a6a6">// шестнадцетиричное 17</font><br>
 <font color="#ff99cc">0b11 </font><font color="#a6a6a6">// бинарное 3</font><br>
 <font color="#ff99cc">0o11 </font><font color="#a6a6a6">// восьмиричное 9</font><br><br>
 <font color="#ff99cc">2.998e8</font><font color="#a6a6a6">// экспанента 2.998x10ˆ8 или 299800000 </font><br><br>
-Под числовой тип отводотся 64 бита. <br>	
+Парсинг строки в Integer.<br>
+<font color="#0099ff">parseInt</font><font color="#ffffff">(строка , система_исчисления)</font><br>
+Пример:<br>
+<font color="#0099ff">parseInt</font><font color="#ffffff">( "17" , 10 )</font><font color="#a6a6a6">  // переведет в десятичное 17</font><br>
+<font color="#0099ff">parseInt</font><font color="#ffffff">( "11" , 2 )</font><font color="#a6a6a6">  // переведет в двоичное 3</font><br><br>
+
+Парсинг строки в Float.<br>
+<font color="#0099ff">parseFloat</font><font color="#ffffff">( строка )</font><br><br>
+<br><br>
+Округление .<br>
+<font color="#0099ff">Math.floor</font><font color="#ffffff">( 3.1 )</font><font color="#a6a6a6">  // Округляет вниз . вернет 3</font><br>
+<font color="#0099ff">Math.ceil</font><font color="#ffffff">( 3.1 )</font><font color="#a6a6a6">  // Округляет вверх . вернет 4</font><br>
+<font color="#0099ff">Math.ceil</font><font color="#ffffff">( 3.1 )</font><font color="#a6a6a6">  // Округляет до ближайшего целого . вернет 3</font><br>
+
+<br><br>
+
+Под числовой тип отводотся 64 бита. <br>
 <font color="#ff99cc">Number</font><font color="#ffffff">.MAX_SAFE_INTEGER  </font>
-<font color="#a6a6a6">// 9007199254740991</font><br><br>
+<font color="#a6a6a6">// 9007199254740991</font>
+<p>
+Из <font color="#ffffff">64</font> бит, отведённых на число, сами цифры числа занимают до <font color="#ffffff">52</font> бит, остальные <font color="#ffffff">11</font> бит хранят позицию десятичной точки и один бит – знак.<br> Так что если <font color="#ffffff">52</font> бит не хватает на цифры, то при записи пропадут младшие разряды.
+</p><br>	
+<br>
 
 Безконечное число .	<br>	
 <font color="#ff99cc">Infinity </font><font color="#a6a6a6">// плюс безконечность (положительное)</font><br>			
 <font color="#ff99cc">-Infinity </font><font color="#a6a6a6">// минус безконечность(отрицательное)</font><br>
 <font color="#ff99cc">  Infinity</font><font color="#0099ff"> - </font><font color="#ff99cc">1</font><font color="#0099ff"> === </font><font color="#ff99cc">Infinity</font><font color="#a6a6a6">  // Если от безконечности отнять еденицу и сравнить с безконечностью, то вернет true</font><br>
 </div></section>
+<br><br>
+
 
 <!-- Footer -->
 <footer >
