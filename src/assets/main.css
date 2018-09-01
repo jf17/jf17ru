@@ -21,11 +21,11 @@
 
    } 
 	.codeclass {
-    color: #4dffa6; /* Цвет символа */
+    color: #a2b726; /* Цвет символа */
 
    } 
    	.codeobject {
-    color: #ff6600; /* Цвет символа */
+    color: #e82451; /* Цвет символа */
 
    } 
    	.codecomment {
@@ -37,10 +37,15 @@
 
    } 
    .codetext {
-    color: #ffa31a; /* Цвет символа */
+    color: #d1ad50; /* Цвет символа */
 
    }
    .codeoperator {
     color: #4dd2ff; /* Цвет символа */
 
    }
+    .codenumber {
+    color: #546bf8; /* Цвет символа */
+
+   }
+
