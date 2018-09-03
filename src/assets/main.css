@@ -21,11 +21,11 @@
 
    } 
 	.codeclass {
-    color: #a2b726; /* Цвет символа */
+    color: #50fa7b; /* Цвет символа */
 
    } 
    	.codeobject {
-    color: #e82451; /* Цвет символа */
+    color: #ff79c6; /* Цвет символа */
 
    } 
    	.codecomment {
@@ -33,19 +33,23 @@
 
    } 
    .codemethod {
-    color: #e6e600; /* Цвет символа */
+    color: #f1fa8c; /* Цвет символа */
 
    } 
    .codetext {
-    color: #d1ad50; /* Цвет символа */
+    color: #ffb86c; /* Цвет символа */
 
    }
    .codeoperator {
     color: #4dd2ff; /* Цвет символа */
 
    }
-    .codenumber {
+   .codenumber {
     color: #546bf8; /* Цвет символа */
+
+   }
+   .codeconstructor {
+    color: #bd93f9; /* Цвет символа */
 
    }
 
