@@ -22,7 +22,7 @@
 <header>
 <div class="content">
 <font color="#ffa31a">	<h2> Maven. Hello World</h2></font>
-<pre><code>
+<pre><code class="code">
 mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
 перейти в папку проекта !
@@ -32,6 +32,26 @@ mvn generate-resources
 mvn compile 
 
 mvn package
+
+<span><</span>properties<span>></span>
+  <span><</span>maven.compiler.target<span>></span>1.8<span><</span>/maven.compiler.target<span>></span>
+  <span><</span>maven.compiler.source<span>></span>1.8<span><</span>/maven.compiler.source<span>></span>
+<span><</span>/properties<span>></span>
+
+	
+<span><</span>build<span>></span>
+<span><</span>plugins<span>></span>
+  <span><</span>plugin<span>></span>
+    <span><</span>groupId<span>></span>org.apache.maven.plugins<span><</span>/groupId>
+    <span><</span>artifactId<span>></span>maven-compiler-plugin<span><</span>/artifactId>
+    <span><</span>version<span>></span>3.6.1<span><</span>/version>
+      <span><</span>configuration<span>></span>
+        <span><</span>source<span>></span>1.8<span><</span>/source<span>></span>
+        <span><</span>target<span>></span>1.8<span><</span>/target<span>></span>
+      <span><</span>/configuration<span>></span>
+  <span><</span>/plugin<span>></span>
+<span><</span>/plugins<span>></span>
+<span><</span>/build<span>></span>
 
 </pre></code>
 </header>
