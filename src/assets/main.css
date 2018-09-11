@@ -13,7 +13,11 @@
 
    } 
    .contentname {
-    color: #ffa31a; /* Цвет символа */
+    color: #ffa31a; /* Цвет оранжевый */
+
+   } 
+   .contenthead {
+    color: #a300cc; /* фиолетовый */
 
    } 
    .table-head{
