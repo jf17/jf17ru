@@ -37,14 +37,14 @@ script.sh
 <section class="content">
 <font color="#a300cc"><h4>Ввод-вывод  :</h4></font>
         <ul>
-                <li><font color="#ffffff"><span class="codeoperator">echo</span> </font>— выводит выражение или содержимое переменной (stdout), но имеет ограничения в использовании[3].</li>
-				<li><font color="#ffffff"><span class="codeoperator">echo</span> <span class="codetext">'hello'</span> <span>> </span>filename.txt </font>— Перенаправление стандартного вывода в файл filename.txt.</li>
-				<li><font color="#ffffff"><span class="codeoperator">echo</span> <span class="codetext">'hello'</span> <span>>> </span>filename.txt </font>— Перенаправление стандартного вывода в файл filename.txt , данные добавляются в конец файла. При отсутствии файла он создаётся</li>
-                <li><font color="#ffffff"><span class="codeoperator">printf</span> </font>— команда форматированного вывода, расширенный вариант команды echo</li>
-                <li><font color="#ffffff"><span class="codeoperator">read</span> </font>— «читает» значение переменной со стандартного ввода (stdin), в интерактивном режиме это клавиатура </li>
-				<li><font color="#ffffff"><span class="codeoperator">read</span> <span>< </span>filename.txt</font>— Перенаправление стандартного ввода из файла filename.txt </li>
-				<li><font color="#ffffff">2<span>>&</span>1 </font>— Перенаправление вывода ошибок на стандартный вывод .</li>
-				<li><font color="#ffffff">command1 | command2 </font>— Перенаправление вывода command1 на ввод command2 .</li>
+                <li><font color="#ffffff"><span class="codeoperator">echo</span> </font> — выводит выражение или содержимое переменной (stdout), но имеет ограничения в использовании[3].</li>
+				<li><font color="#ffffff"><span class="codeoperator">echo</span> <span class="codetext">'hello'</span> <span>> </span>filename.txt </font> — Перенаправление стандартного вывода в файл filename.txt.</li>
+				<li><font color="#ffffff"><span class="codeoperator">echo</span> <span class="codetext">'hello'</span> <span>>> </span>filename.txt </font> — Перенаправление стандартного вывода в файл filename.txt , данные добавляются в конец файла. При отсутствии файла он создаётся</li>
+                <li><font color="#ffffff"><span class="codeoperator">printf</span> </font> — команда форматированного вывода, расширенный вариант команды echo</li>
+                <li><font color="#ffffff"><span class="codeoperator">read</span> </font> — «читает» значение переменной со стандартного ввода (stdin), в интерактивном режиме это клавиатура </li>
+				<li><font color="#ffffff"><span class="codeoperator">read</span> <span>< </span>filename.txt</font> — Перенаправление стандартного ввода из файла filename.txt </li>
+				<li><font color="#ffffff">2<span>>&</span>1 </font> — Перенаправление вывода ошибок на стандартный вывод .</li>
+				<li><font color="#ffffff">command1 | command2 </font> — Перенаправление вывода command1 на ввод command2 .</li>
                 </ul>    
 
 </section>
@@ -52,10 +52,10 @@ script.sh
 <section class="content">
 <font color="#a300cc"><h4>Файловая система  :</h4></font>
         <ul>
-                <li><font color="#ffffff"><span class="codeoperator">cd</span> Directory1</font>— Перемещение в каталог Directory1 .</li>
-				<li><font color="#ffffff"><span class="codeoperator">cd</span> ~ </font>— Перемещение в домашний каталог .</li>
-				<li><font color="#ffffff"><span class="codeoperator">cd</span> .. </font>— Перемещение на один уровень выше .</li>
-                <li><font color="#ffffff"><span class="codeoperator">pwd</span> </font>— выводит название текущего рабочего каталога (от англ. print working directory) </li>
+                <li><font color="#ffffff"><span class="codeoperator">cd</span> Directory1</font> — Перемещение в каталог Directory1 .</li>
+				<li><font color="#ffffff"><span class="codeoperator">cd</span> ~ </font> — Перемещение в домашний каталог .</li>
+				<li><font color="#ffffff"><span class="codeoperator">cd</span> .. </font> — Перемещение на один уровень выше .</li>
+                <li><font color="#ffffff"><span class="codeoperator">pwd</span> </font> — выводит название текущего рабочего каталога (от англ. print working directory) </li>
                 </ul>    
 
 </section>
@@ -63,10 +63,10 @@ script.sh
 <section class="content">
 <font color="#a300cc"><h4>Чтение из файла  :</h4></font>
         <ul>
-                <li><font color="#ffffff"><span class="codeoperator">cat</span> filename.txt</font>— Команда cat считывает файл, переданный как аргумент, и выводит его содержимое по стандартному каналу вывода .</li>
-				<li><font color="#ffffff"><span class="codeoperator">head</span> filename.txt</font>— Команда head читает первые 10 строк любого переданного текста и выводит их по стандартному каналу.</li>
-				<li><font color="#ffffff"><span class="codeoperator">tail</span> filename.txt</font>— Команда tail работает аналогично команде head, но читает строки с конца.</li>
-                <li><font color="#ffffff"><span class="codeoperator">grep</span> <span class="codetext">'student`</span> file1.txt </font>— Команда grep занимается поиском переданной строки в указанном файле. -i Отключение чувствительности к регистру </li>
+                <li><font color="#ffffff"><span class="codeoperator">cat</span> filename.txt</font> — Команда cat считывает файл, переданный как аргумент, и выводит его содержимое по стандартному каналу вывода .</li>
+				<li><font color="#ffffff"><span class="codeoperator">head</span> filename.txt</font> — Команда head читает первые 10 строк любого переданного текста и выводит их по стандартному каналу.</li>
+				<li><font color="#ffffff"><span class="codeoperator">tail</span> filename.txt</font> — Команда tail работает аналогично команде head, но читает строки с конца.</li>
+                <li><font color="#ffffff"><span class="codeoperator">grep</span> <span class="codetext">'student`</span> file1.txt </font> — Команда grep занимается поиском переданной строки в указанном файле. -i Отключение чувствительности к регистру </li>
                 </ul>    
 
 </section>
@@ -74,8 +74,8 @@ script.sh
 <section class="content">
 <font color="#a300cc"><h4>Коннекторы  :</h4></font>
         <ul>
-<li><font color="#ffffff"> command1 <span class="codeoperator">&&</span> command2 </font>— Первая команда исполняется всегда, вторая — только в случае успешного завершения первой .</li>
-<li><font color="#ffffff"> command1 <span class="codeoperator">||</span> command2 </font>— Первая команда исполняется всегда, вторая — только в случае неудачного завершения первой .</li>
+<li><font color="#ffffff"> command1 <span class="codeoperator">&&</span> command2 </font> — Первая команда исполняется всегда, вторая — только в случае успешного завершения первой .</li>
+<li><font color="#ffffff"> command1 <span class="codeoperator">||</span> command2 </font> — Первая команда исполняется всегда, вторая — только в случае неудачного завершения первой .</li>
 <li><font color="#ffffff"> command1 <span class="codeoperator">;</span> command2 </font> — Команды исполняются всегда .</li>
 </ul>    
 
@@ -84,9 +84,19 @@ script.sh
 <section class="content">
 <font color="#a300cc"><h4>Процессы  :</h4></font>
         <ul>
-<li><span class="codeoperator">kill</span>— посылает сигнал завершения процессу.</li>
-<li><span class="codeoperator">ps</span>— Команда выводит информацию о запущенных процессах. (ID процесса (PID) , тип терминала (TTY),время работы процесса (TIME),имя команды, запустившей процесс (CMD) )</li>
+<li><span class="codeoperator">kill</span> — посылает сигнал завершения процессу.</li>
+<li><span class="codeoperator">ps</span> — Команда выводит информацию о запущенных процессах. (ID процесса (PID) , тип терминала (TTY),время работы процесса (TIME),имя команды, запустившей процесс (CMD) )</li>
 </ul>    
+
+</section>
+
+
+<section class="content">
+<font color="#a300cc"><h4>Интернет  :</h4></font>
+        <ul>
+<li><font color="#ffffff"><span class="codeoperator">wget </span> https://github.com/mikeizbicki/ucr-cs100 </font>  — Команда wget скачивает файлы из Сети и помещает их в текущий каталог .</li>
+<li><font color="#ffffff"><span class="codeoperator">curl </span> http://curl.haxx.se </font> — Простейший и самый обычный HTTP-запрос - получить содержимое URL .</li>
+		</ul>    
 
 </section>
 
@@ -110,7 +120,7 @@ script.sh
 <script type="text/javascript">
 var x = document.cookie;
 if(x=='size=150'){
-document.body.style.fontSize='150%';
+document.body.style.fontSize='140%';
 }
 </script>
 </footer>
