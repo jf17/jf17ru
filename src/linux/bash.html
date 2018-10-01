@@ -50,8 +50,21 @@
 <section class="content">
 <font color="#a300cc"><h4>Файловая система  :</h4></font>
         <ul>
-                <li><font color="#ffffff">cd </font>— изменяет текущий каталог .</li>
-                <li><font color="#ffffff">pwd </font>— выводит название текущего рабочего каталога (от англ. print working directory) </li>
+                <li><font color="#ffffff"><span class="codeoperator">cd</span> Directory1</font>— Перемещение в каталог Directory1 .</li>
+				<li><font color="#ffffff"><span class="codeoperator">cd</span> ~ </font>— Перемещение в домашний каталог .</li>
+				<li><font color="#ffffff"><span class="codeoperator">cd</span> .. </font>— Перемещение на один уровень выше .</li>
+                <li><font color="#ffffff"><span class="codeoperator">pwd</span> </font>— выводит название текущего рабочего каталога (от англ. print working directory) </li>
+                </ul>    
+
+</section>
+
+<section class="content">
+<font color="#a300cc"><h4>Чтение из файла  :</h4></font>
+        <ul>
+                <li><font color="#ffffff"><span class="codeoperator">cat</span> filename.txt</font>— Команда cat считывает файл, переданный как аргумент, и выводит его содержимое по стандартному каналу вывода .</li>
+				<li><font color="#ffffff"><span class="codeoperator">head</span> filename.txt</font>— Команда head читает первые 10 строк любого переданного текста и выводит их по стандартному каналу.</li>
+				<li><font color="#ffffff"><span class="codeoperator">tail</span> filename.txt</font>— Команда tail работает аналогично команде head, но читает строки с конца.</li>
+                <li><font color="#ffffff"><span class="codeoperator">grep</span> <span class="codetext">'student`</span> file1.txt </font>— Команда grep занимается поиском переданной строки в указанном файле. -i Отключение чувствительности к регистру </li>
                 </ul>    
 
 </section>
