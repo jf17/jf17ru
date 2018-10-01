@@ -23,7 +23,9 @@
 <div class="content">
 <p>Bash — (от англ. Bourne again shell, каламбур «Born again» shell — «возрождённый» shell) — усовершенствованная и модернизированная вариация командной оболочки Bourne shell.  </p>
 <pre><code class="code">
-<span class="codeobject">#!/usr/bin/env bash</span>
+script.sh
+
+<span class="codecomment">#!/usr/bin/env bash</span>
 <span class="codeoperator">echo</span><span class="codetext"> 'Hello World!'</span>
 </pre></code>
 
@@ -75,6 +77,15 @@
 <li><font color="#ffffff"> command1 <span class="codeoperator">&&</span> command2 </font>— Первая команда исполняется всегда, вторая — только в случае успешного завершения первой .</li>
 <li><font color="#ffffff"> command1 <span class="codeoperator">||</span> command2 </font>— Первая команда исполняется всегда, вторая — только в случае неудачного завершения первой .</li>
 <li><font color="#ffffff"> command1 <span class="codeoperator">;</span> command2 </font> — Команды исполняются всегда .</li>
+</ul>    
+
+</section>
+
+<section class="content">
+<font color="#a300cc"><h4>Процессы  :</h4></font>
+        <ul>
+<li><font color="#ffffff"><span class="codeoperator">kill</span> </font>— посылает сигнал завершения процессу.</li>
+<li><font color="#ffffff"><span class="codeoperator">ps</span> </font>— Команда выводит информацию о запущенных процессах. (ID процесса (PID) , тип терминала (TTY),время работы процесса (TIME),имя команды, запустившей процесс (CMD) )</li>
 </ul>    
 
 </section>
