@@ -22,6 +22,11 @@
 <font color="#ffa31a">	<h3>Bash</h3></font>
 <div class="content">
 <p>Bash — (от англ. Bourne again shell, каламбур «Born again» shell — «возрождённый» shell) — усовершенствованная и модернизированная вариация командной оболочки Bourne shell.  </p>
+<pre><code class="code">
+<span class="codeobject">#!/usr/bin/env bash</span>
+<span class="codeoperator">echo</span><span class="codetext"> 'Hello World!'</span>
+</pre></code>
+
 </div>
 </header>
 </section>
@@ -31,8 +36,10 @@
 <font color="#a300cc"><h4>Ввод-вывод  :</h4></font>
         <ul>
                 <li><font color="#ffffff">echo </font>— выводит выражение или содержимое переменной (stdout), но имеет ограничения в использовании[3].</li>
+				<li><font color="#ffffff">echo 'hello' >filename.txt </font>— Перенаправление стандартного вывода в файл filename.txt.</li>
                 <li><font color="#ffffff">printf </font>— команда форматированного вывода, расширенный вариант команды echo</li>
                 <li><font color="#ffffff">read </font>— «читает» значение переменной со стандартного ввода (stdin), в интерактивном режиме это клавиатура </li>
+				<li><font color="#ffffff">read <span><</span>filename.txt</font>— Перенаправление стандартного ввода из файла filename.txt </li>
                 </ul>    
 
 </section>
