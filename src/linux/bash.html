@@ -106,21 +106,21 @@ script.sh
 <section class="content">
 <font color="#a300cc"><h4>Работа с пакетами  :</h4></font>
         <ul>
-<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> update </font>  — Команда update используется для повторной синхронизации индекса файлов пакета из своих источников, указанных в файле /etc/apt/sources.list .</li>
-<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> upgrade  </font>  — Команда upgrade используется для обновления всех установленных пакетов программного обеспечения в системе .</li>
-<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> install имяпакета </font>  — Команда install отслеживает один или несколько пакетов для установки или модернизации.</li>
-<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> download имяпакета </font>  — Скачать любой пакет без установки.</li>
-<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> remove  имяпакета </font>  — Чтобы деинсталлировать пакеты программного обеспечения, не удаляя их конфигурационных файлов (для последующего повторного использования той же конфигурации), используйте команду remove.</li>
-<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> purge имяпакета </font>  — Для удаления программных пакетов, включая их конфигурационные файлы, используйте purge.</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">update </span></font>  — Команда update используется для повторной синхронизации индекса файлов пакета из своих источников, указанных в файле /etc/apt/sources.list .</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">upgrade  </span></font>  — Команда upgrade используется для обновления всех установленных пакетов программного обеспечения в системе .</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">install</span> имяпакета </font>  — Команда install отслеживает один или несколько пакетов для установки или модернизации.</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">download</span> имяпакета </font>  — Скачать любой пакет без установки.</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">remove</span>  имяпакета </font>  — Чтобы деинсталлировать пакеты программного обеспечения, не удаляя их конфигурационных файлов (для последующего повторного использования той же конфигурации), используйте команду remove.</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">purge</span> имяпакета </font>  — Для удаления программных пакетов, включая их конфигурационные файлы, используйте purge.</li>
 <li></li>
-<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> --download-only source имяпакета </font>  — Скачать только исходный код пакета.</li>
-<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> source имяпакета </font>  — Скачать и распаковать пакет.</li>
-<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> --compile source  имяпакета </font>  — Скачать, распаковать и скомпилировать исходный код одновременно .</li>
-<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> build-dep  имяпакета </font>  — Команда ищет локальные репозитории в системе и устанавливает зависимости для сборки пакета.  .</li>
-<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> check </font>  — Команда используется для обновления кэша пакетов и проверяет его на предмет сломанных зависимостей.</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">--download-only source</span> имяпакета </font>  — Скачать только исходный код пакета.</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">source</span> имяпакета </font>  — Скачать и распаковать пакет.</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">--compile source</span>  имяпакета </font>  — Скачать, распаковать и скомпилировать исходный код одновременно .</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">build-dep</span>  имяпакета </font>  — Команда ищет локальные репозитории в системе и устанавливает зависимости для сборки пакета.  .</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">check </span></font>  — Команда используется для обновления кэша пакетов и проверяет его на предмет сломанных зависимостей.</li>
 <li></li>
-<li><font color="#ffffff"><span class="codeoperator">apt-cache </span> showpkg имяпакета </font>  — Используйте showpkg для проверки зависимостей для определенных пакетов программного обеспечения .</li>
-<li><font color="#ffffff"><span class="codeoperator">apt-cache </span> show имяпакета </font>  — Если вы хотите проверить информацию о пакете и получить краткое описание (номер версии, проверка суммы, размера, установленного размера, категории и т.д.), используйте ' показать команду show.</li>
+<li><font color="#ffffff"><span class="codeoperator">apt-cache </span> <span class="codemethod">showpkg</span> имяпакета </font>  — Используйте showpkg для проверки зависимостей для определенных пакетов программного обеспечения .</li>
+<li><font color="#ffffff"><span class="codeoperator">apt-cache </span> <span class="codemethod">show</span> имяпакета </font>  — Если вы хотите проверить информацию о пакете и получить краткое описание (номер версии, проверка суммы, размера, установленного размера, категории и т.д.), используйте ' показать команду show.</li>
 
 		</ul>    
 
