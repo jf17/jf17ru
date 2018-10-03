@@ -109,11 +109,13 @@ script.sh
 <li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> update </font>  — Команда update используется для повторной синхронизации индекса файлов пакета из своих источников, указанных в файле /etc/apt/sources.list .</li>
 <li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> upgrade  </font>  — Команда upgrade используется для обновления всех установленных пакетов программного обеспечения в системе .</li>
 <li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> install имяпакета </font>  — Команда install отслеживает один или несколько пакетов для установки или модернизации.</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> download имяпакета </font>  — Скачать любой пакет без установки.</li>
 <li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> remove  имяпакета </font>  — Чтобы деинсталлировать пакеты программного обеспечения, не удаляя их конфигурационных файлов (для последующего повторного использования той же конфигурации), используйте команду remove.</li>
 <li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> purge имяпакета </font>  — Для удаления программных пакетов, включая их конфигурационные файлы, используйте purge.</li>
 <li></li>
 <li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> --download-only source имяпакета </font>  — Скачать только исходный код пакета.</li>
 <li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> source имяпакета </font>  — Скачать и распаковать пакет.</li>
+<li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> --compile source  имяпакета </font>  — Скачать, распаковать и скомпилировать исходный код одновременно, .</li>
 
 
 <li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> check </font>  — Команда используется для обновления кэша пакетов и проверяет его на предмет сломанных зависимостей.</li>
