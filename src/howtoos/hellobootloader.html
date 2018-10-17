@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+<!-- author: Aleksandrovich Aleksey Borisovich aka JF17-->
+<title>“Hello World” Boot Loader   - jf17.ru</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h1> <a href="https://jf17.ru/howtoos/index.html" > Как работают ОС ?</a></h1>
+<hr />
+</section>
+
+
+<!-- Системные вызовы, реализованные в Linux. -->
+<section>
+<font color="#ffa31a">	<h3> “Hello World” Boot Loader :</h3></font>
+<div class="content">
+Шаг № 1 код.
+<pre><code>
+<font color="#ffffff"> 
+
+BITS 16                     
+<span class="codeoperator">jmp</span> main                    
+nop                         
+<span class="codeclass">main:</span>   
+    <span class="codeoperator">mov</span> ax, 07C0h           
+    <span class="codeoperator">add</span> ax, 288             
+    <span class="codeoperator">mov</span> ss, ax
+    <span class="codeoperator">mov</span> sp, 4096
+    <span class="codeoperator">mov</span> ax, 07C0h           
+    <span class="codeoperator">mov</span> ds, ax              
+    <span class="codeoperator">call</span> <span class="codeclass">PrintHelloWorld</span>    
+    <span class="codeoperator">jmp</span> <span class="codeclass">.InfiniteLoop</span>
+    <span class="codeclass">.InfiniteLoop:</span>          
+        <span class="codeoperator">jmp</span> <span class="codeclass">.InfiniteLoop</span>   
+
+HelloWorld      db  "Hello World. This is from the bootloader", 0x0d, 0x0a, 0x00
+<span class="codeclass">PrintHelloWorld:</span>            
+    <span class="codeoperator">mov</span> si, HelloWorld      
+    <span class="codeoperator">call</span> PrintStr           
+    ret
+<span class="codeclass">PrintStr:</span>                   
+    <span class="codeoperator">push</span> ax                 
+    <span class="codeoperator">mov</span> ah, 0Eh             
+    .loop:
+        lodsb               
+        cmp al, 0x00        
+        <span class="codeoperator">je</span> .done
+        <span class="codeoperator">int</span> 10h             
+        <span class="codeoperator">jmp</span> .loop
+    .done:
+        <span class="codeoperator">pop</span>  ax              
+        <span class="codeoperator">ret</span> 
+times 510-($-$$) db 0       
+<span class="codeoperator">dw</span> 0xAA55 <span class="codecomment">;запись в конец 0x55 и 0xAA .</span>
+
+</font>
+</code></pre>
+Шаг № 2  компиляция.
+<pre><code>
+<font color="#ffffff"> 
+<span class="codeoperator">nasm</span> -f bin -o hello_world_bootloader.bin hello_world_bootloader.asm
+</font>
+</code></pre>
+Шаг № 3  создание образа и запись туда кода загрузчика.
+<pre><code>
+<font color="#ffffff"> 
+<span class="codeoperator">dd</span> if=/dev/zero of=hello_world_bootloader.img bs=512 count=2880
+
+<span class="codeoperator">dd</span> status=noxfer conv=notrunc if=hello_world_bootloader.bin of=hello_world_bootloader.img
+</font>
+</code></pre>
+Шаг № 4  запуск.
+<pre><code>
+<span class="codecomment">// для 32-битной версии</span>
+<font color="#ffffff"> 
+<span class="codeoperator">qemu-system-i386</span> hellow_world_bootloader.bin
+</font>
+
+<span class="codecomment">// для 64-битной версии</span>
+<font color="#ffffff"> 
+<span class="codeoperator">qemu-system-x86_64</span> hello_world_bootloader.bin
+</font>
+</code></pre>
+
+</div>
+</section>
+
+
+
+<!-- Footer -->
+<footer >
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+</script>
+</footer>
+
+</body>
+</html>
