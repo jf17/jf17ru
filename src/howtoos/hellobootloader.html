@@ -18,14 +18,13 @@
 </section>
 
 
-<!-- Системные вызовы, реализованные в Linux. -->
+<!-- “Hello World” Boot Loader. -->
 <section>
 <font color="#ffa31a">	<h3> “Hello World” Boot Loader :</h3></font>
 <div class="content">
-Шаг № 1 код.
 <pre><code>
+Шаг № 1 код.
 <font color="#ffffff"> 
-
 BITS 16                     
 <span class="codeoperator">jmp</span> main                    
 nop                         
@@ -63,29 +62,27 @@ times 510-($-$$) db 0
 
 </font>
 </code></pre>
-Шаг № 2  компиляция.
 <pre><code>
+Шаг № 2  компиляция.
 <font color="#ffffff"> 
 <span class="codeoperator">nasm</span> -f bin -o hello_world_bootloader.bin hello_world_bootloader.asm
 </font>
 </code></pre>
-Шаг № 3  создание образа и запись туда кода загрузчика.
 <pre><code>
+Шаг № 3  создание образа и запись туда кода загрузчика.
 <font color="#ffffff"> 
 <span class="codeoperator">dd</span> if=/dev/zero of=hello_world_bootloader.img bs=512 count=2880
 
 <span class="codeoperator">dd</span> status=noxfer conv=notrunc if=hello_world_bootloader.bin of=hello_world_bootloader.img
 </font>
 </code></pre>
-Шаг № 4  запуск.
 <pre><code>
-<span class="codecomment">// для 32-битной версии</span>
-<font color="#ffffff"> 
-<span class="codeoperator">qemu-system-i386</span> hellow_world_bootloader.bin
+Шаг № 4  запуск.
+<span class="codecomment">// для 32-битной версии</span><font color="#ffffff"> 
+<span class="codeoperator">qemu-system-i386</span> hello_world_bootloader.bin
 </font>
 
-<span class="codecomment">// для 64-битной версии</span>
-<font color="#ffffff"> 
+<span class="codecomment">// для 64-битной версии</span><font color="#ffffff">
 <span class="codeoperator">qemu-system-x86_64</span> hello_world_bootloader.bin
 </font>
 </code></pre>
