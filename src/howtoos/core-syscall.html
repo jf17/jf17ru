@@ -29,7 +29,7 @@
 <font color="#ffa31a">	<h3> Системные вызовы, реализованные в Linux:</h3></font>
 <div class="content">
 <ul>
-<li> int 80h (используется в эмуляции 32-битного режима) </li>
+<li> int 80h (не рекомендуется использовать в 64-разрядном режиме) </li>
 <li> sysenter/sysexit </li>
 <li> syscall/sysret</li>
 <li> vsyscall </li>
@@ -49,6 +49,7 @@
 </header>
 <div class="content">
 <ul>
+<li> <a href="https://wiki.osdev.org/System_V_ABI" target="_blank"> System V ABI (OS Dev вики)</a></li>
 <li> <a href="https://habr.com/post/347596/" target="_blank"> Эволюция системных вызовов архитектуры x86 (хабр)</a></li>
 <li> <a href="https://stackoverflow.com/questions/46087730/what-happens-if-you-use-the-32-bit-int-0x80-linux-abi-in-64-bit-code" target="_blank"> What happens if you use the 32-bit int 0x80 Linux ABI in 64-bit code? (stackoverflow)</a></li>
 <li> </li>
