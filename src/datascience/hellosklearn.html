@@ -18,14 +18,31 @@
                                 
 <!-- Heading -->
 <section>
-<header>
 <div class="content">
 <font color="#ffa31a">	<h2> Задачка классификации на библиотеке sklearn</h2></font>
 <p>
-Попробуем классифицировать яблоко и апельсин из набора дата сета. 
-</p></header>
+Попробуем классифицировать яблоко и апельсин из набора дата сета. <br>
+Будем классифицировать по двум параметрам это вес и текстура кожицы.
+</p>
 </div>
+<div class="code">
+<pre><code>
+<span class="codeoperator">from</span> <span class="codeclass">sklearn</span> <span class="codeoperator">import</span>  <span class="codeclass">tree</span> <span class="codecomment">// импортируем библиотеку</span>
+<span class="codeobject">features</span> = [[140,1],[130,1],[150,0],[170,0]]
+labels = [0,0,1,1]
+clf = <span class="codeclass">tree</span><span class="codemethod">.DecisionTreeClassifier()</span>
+clf = clf.fit(features,labels)
+<span class="codeoperator">print</span>(clf.predict([[150,0]]))
+</code></pre>
+<br>
+<br>
+</div>
+</section>
 
+
+
+
+<section>
 <!-- Полезные ссылки . -->
 <div class="contentname">
 <h4>Полезные ссылки:</h4>
