@@ -2,7 +2,7 @@
 <html lang="ru"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <!-- author: Aleksandrovich Aleksey Borisovich -->
-<title>SQL createtable - jf17.ru</title>
+<title>SQL insert - jf17.ru</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
@@ -20,15 +20,15 @@
 <!-- Heading -->
 <section>
 <div class="content">
-<font color="#ffa31a">	<h2> Создание таблицы:</h2></font>
+<font color="#ffa31a">	<h2> Заполнение таблицы:</h2></font>
 <p>
-Создадим таблицу с городами.<br>
+Заполним таблицу.<br>
 <font color="red">Обязательно в конце ставить точку с запятой ; </font> 
 </p>
 </div>
 <div class="code">
 <pre><code>
-<span class="codeoperator">CREATE TABLE</span> <span class="codeobject">citys</span> (<span class="codeobject">id</span> <span class="codeclass">INT</span> <span class="codemethod">NOT NULL</span> , <span class="codeobject">name</span> <span class="codeclass">VARCHAR(255)</span> <span class="codemethod">NOT NULL</span>);
+<span class="codeoperator">INSERT INTO</span> <span class="codeobject">citys</span>(<span class="codeobject">id</span> , <span class="codeobject">name</span> ) <span class="codeoperator">VALUES</span>( <font color="#1b877e"> 1</font> , <span class="codetext">"Moscow"</span>);
 </code></pre>
 </div>
 </section>
