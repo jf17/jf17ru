@@ -2,7 +2,7 @@
 <html lang="ru"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <!-- author: Aleksandrovich Aleksey Borisovich -->
-<title>SQL select - jf17.ru</title>
+<title>SQL delete - jf17.ru</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
@@ -20,20 +20,20 @@
 <!-- Heading -->
 <section>
 <div class="content">
-<font color="#ffa31a">	<h2> Запрос:</h2></font>
+<font color="#ffa31a">	<h2> Удаление записи:</h2></font>
 <p>
-Делаем запрос .<br>
+Удалим запись в таблице.<br>
 <font color="red">Обязательно в конце ставить точку с запятой ; </font> <br>
-Операция в протоколе HTTP : <font color="yellow">GET</font> .
+Операция в протоколе HTTP : <font color="yellow">DELETE</font> .
 </p>
 </div>
 <div class="code">
 <pre><code>
-<span class="codeoperator">SELECT <span class="codeobject">*</span> FORM </span><span class="codeobject">citys</span>;              <span class="codecomment">/* Вывести всё из таблицы */</span>
 
-<span class="codeoperator">SELECT <span class="codeobject">*</span> FORM </span><span class="codeobject">citys</span> <span class="codeoperator">LIMIT</span> <font color="#1b877e">3</font>;      <span class="codecomment">/* Вывести первые три поля из таблицы */</span>
+<span class="codeoperator">DELETE FROM </span><span class="codeobject">citys</span>;  <span class="codecomment">/* Удалит все записи из таблицы */</span>
 
-<span class="codeoperator">SELECT <span class="codeobject">*</span> FORM </span><span class="codeobject">citys</span> <span class="codeoperator">WHERE </span><span class="codeobject">id</span>=<font color="#1b877e">2</font>;   <span class="codecomment">/* Вывести поле с id №2 */</span>
+<span class="codeoperator">DELETE FROM </span><span class="codeobject">citys</span> <span class="codeoperator">WHERE </span><span class="codeobject">id</span>=<font color="#1b877e">2</font>;  <span class="codecomment">/* Удалить записть с id №2 */</span>
+
 </code></pre>
 </div>
 </section>
