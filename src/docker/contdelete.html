@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
 <!-- author: Aleksandrovich Aleksey Borisovich -->
-<title> Stop docker контейнер - jf17.ru</title>
+<title> Удаление docker контейнеров - jf17.ru</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
@@ -18,13 +18,12 @@
 <!-- Heading -->
 <section>
 <div class="content">
-<font color="#ffa31a">	<h2> Остановка контейнеров: </h2></font>
+<font color="#ffa31a">	<h2> Удаление контейнеров: </h2></font>
 </div>
 <div class="code">
 <pre><code>
-<span class="contenthead">docker-compose :</span>
-<span class="codecomment">// зайти в папку где расположен файл <span class="codemethod">docker-compose.yml</span> и запустить команду</span>
-<span class="codemethod">sudo</span><span class="codeoperator"> docker-compose </span><span class="codeclass">stop</span>
+<span class="codemethod">sudo</span><span class="codeoperator"> docker </span><span class="codeclass">stop</span> <span class="codeobject">$(docker ps -a -q)</span>
+<span class="codemethod">sudo</span><span class="codeoperator"> docker </span><span class="codeclass">rm</span> <span class="codeobject">$(docker ps -a -q)</span>
 </code></pre>
 </div>
 </section>
