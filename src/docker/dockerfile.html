@@ -18,6 +18,23 @@
 <!-- Heading -->
 <section>
 <div class="content">
+<font color="#ffa31a">	<h2> Сборка образа : </h2></font>
+<p>
+По-умолчанию Docker кеширует каждый шаг и формируя кеш сборок. Чтобы отключить кеш, например для использования последнего apt-get update, используйте флаг <span class="codeobject">--no-cache</span>.
+</p>
+</div>
+<div class="code">
+<pre><code>
+<span class="codemethod">sudo</span><span class="codeoperator"> docker build -t</span> <span class="codeclass">имя_нового_образа</span> <span class="codeobject">путь_к_Dockerfile_или_к_GitHub</span>
+</code></pre>
+</div>
+</section>
+
+
+
+
+<section>
+<div class="content">
 <font color="#ffa31a">	<h2> FROM : </h2></font>
 <p>
 Инструкция <span class="codeoperator">FROM</span> задает базовый образ для последующих инструкций.
