@@ -41,7 +41,6 @@
 <p>
 Инструкция <span class="codeoperator">MAINTAINER </span> позволяет указать автора образа.
 </p>
-
 </div>
 <div class="code">
 <pre><code>
@@ -50,6 +49,20 @@
 </div>
 </section>
 
+
+<section>
+<div class="content">
+<font color="#ffa31a">	<h2> ADD : </h2></font>
+<p>
+Инструкция <span class="codeoperator">ADD </span>берет два аргумента, путь откуда скопировать файл + путь куда скопировать файлы и копирует это в собственную файловую систему контейнера. Если же source путем является URL (т.е адрес веб-страницы) — то вся страница будет скачена и помещена в контейнер. 
+</p>
+</div>
+<div class="code">
+<pre><code>
+<span class="codeoperator">ADD </span><span class="codeclass">исходный_путь_или_URL </span><span class="codeobject">путь_назначения</span>
+</code></pre>
+</div>
+</section>
 
 
 
