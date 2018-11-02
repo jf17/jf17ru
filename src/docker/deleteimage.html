@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title> Удаление docker образа - jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/docker/index.html" >Docker</a></h2>
+<hr />
+</section>
+                                
+<!-- Heading -->
+<section>
+<div class="content">
+<font color="#ffa31a">	<h2> Удаление образов: </h2></font>
+<p>
+1) Прежде чем удалить image нужно сначала удалить все с ним свазянные контейнеры!
+</p>
+</div>
+<div class="code">
+<pre><code>
+<span class="codemethod">sudo</span><span class="codeoperator"> docker </span><span class="codeclass">stop</span> <span class="codeobject">$(sudo docker ps -a -q)</span>
+<span class="codemethod">sudo</span><span class="codeoperator"> docker </span><span class="codeclass">rm</span> <span class="codeobject">$(sudo docker ps -a -q)</span>
+</code></pre>
+</div>
+<div class="content">
+<p>
+2) После удаления всех контейнеров можно приступать к удалению самого образа !
+</p>
+</div>
+<div class="code">
+<pre><code>
+<span class="codemethod">sudo</span><span class="codeoperator"> docker </span><span class="codeclass">rmi</span> <span class="codeobject">id_образа</span>
+<span class="codecomment">// посмотреть id всех образов можно командой</span>
+<span class="codemethod">sudo</span><span class="codeoperator"> docker </span><span class="codeclass">ps</span> <span class="codeobject">-a</span>
+</code></pre>
+</div>
+</section>
+
+
+
+
+<section>
+<!-- Полезные ссылки . -->
+<div class="contentname">
+<h4>Полезные ссылки:</h4>
+</div>
+<div class="content">
+<ul>
+<li> </li>
+<li> </li>
+</ul></div>
+</section>
+
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
