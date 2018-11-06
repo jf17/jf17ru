@@ -49,8 +49,14 @@
 <span class="codecomment">// добавление в линковщик ld адреса с нашей библиотекой </span>
 <span class="codemethod">export</span><span class="codeoperator"> LD_LIBRARY_PATH = </span>.
 
+<span class="codecomment">// компиляция с нашей библиотекой </span>
+<span class="codemethod">gcc</span><span class="codeoperator"> main.c </span><span class="codeclass">-fPIC </span><span class="codeobject">-L. -lHello</span> -o hello
+
 <span class="codecomment">// посмотреть содержимое библиотеки </span>
 <span class="codemethod">nm</span><span class="codeoperator"> libHello.so </span>
+
+<span class="codecomment">// посмотреть от каких динамических библиотек зависит наш исполняемый файл </span>
+<span class="codemethod">ldd</span><span class="codeoperator"> hello.exe </span>
 </code></pre>
 </div>
 </section><br><br>
