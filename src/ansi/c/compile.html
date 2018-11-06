@@ -43,6 +43,7 @@
 </div>
 <div class="code">
 <pre><code>
+<span class="codecomment">// если библиотеку компилировать как С++ файл , то нужно в файле *.h перед методом написать <span class="codemethod">extern "C"</span> </span>
 <span class="codemethod">gcc</span><span class="codeoperator"> -o libHello.so </span><span class="codeobject">-shared </span><span class="codeclass">-fPIC </span> hello.c
 
 <span class="codecomment">// добавление в линковщик ld адреса с нашей библиотекой </span>
