@@ -29,7 +29,7 @@
 <span class="codecomment"># в качестве пути к файлу нужно указать точку если вы находитесь в папке с Dockerfile</span>
 </code></pre>
 </div>
-</section>
+</section><br><br>
 
 
 
@@ -51,7 +51,7 @@
 <span class="codeoperator">FROM </span><span class="codeclass">имя_образа</span>:<span class="codeobject">имя_версии_образа</span>
 </code></pre>
 </div>
-</section>
+</section><br><br>
 
 
 <section>
@@ -68,11 +68,37 @@
 <span class="codeoperator">RUN </span><span class="codeclass">apt-get install -y</span> <span class="codeobject">mvn</span>
 </code></pre>
 </div>
-</section>
+</section><br><br>
 
 
+<section>
+<div class="content">
+<font color="#ffa31a">	<h2> CMD : </h2></font>
+<p>
+Основное предназначение <span class="codeoperator">CMD</span> передача параметров по-умолчанию для запуска контейнера. <br>
+<span class="codeoperator">CMD</span> ничего не выполняет во время сборки, но задает команду которая будет выполнена при запуске образа.
+</p>
+</div>
+<div class="code">
+<pre><code>
+<span class="codeoperator">CMD </span><span class="codeclass">["/bin/bash","-c", "echo $HOME"]</span>
+</code></pre>
+</div>
+</section><br><br>
 
-
+<section>
+<div class="content">
+<font color="#ffa31a">	<h2> ADD : </h2></font>
+<p>
+Инструкция <span class="codeoperator">ADD </span>берет два аргумента, путь откуда скопировать файл + путь куда скопировать файлы и копирует это в собственную файловую систему контейнера. Если же source путем является URL (т.е адрес веб-страницы) — то вся страница будет скачена и помещена в контейнер. 
+</p>
+</div>
+<div class="code">
+<pre><code>
+<span class="codeoperator">ADD </span><span class="codeclass">исходный_путь_или_URL </span><span class="codeobject">путь_назначения</span>
+</code></pre>
+</div>
+</section><br><br>
 
 
 <section>
@@ -87,22 +113,24 @@
 <span class="codeoperator">MAINTAINER </span><span class="codeclass">имя_автора</span>
 </code></pre>
 </div>
-</section>
+</section><br><br>
 
 
 <section>
 <div class="content">
-<font color="#ffa31a">	<h2> ADD : </h2></font>
+<font color="#ffa31a">	<h2> LABEL : </h2></font>
 <p>
-Инструкция <span class="codeoperator">ADD </span>берет два аргумента, путь откуда скопировать файл + путь куда скопировать файлы и копирует это в собственную файловую систему контейнера. Если же source путем является URL (т.е адрес веб-страницы) — то вся страница будет скачена и помещена в контейнер. 
+Инструкция <span class="codeoperator">LABEL </span> добавляет метаданные для образа, состоит из пар ключ-значение. 
 </p>
 </div>
 <div class="code">
 <pre><code>
-<span class="codeoperator">ADD </span><span class="codeclass">исходный_путь_или_URL </span><span class="codeobject">путь_назначения</span>
+<span class="codeoperator">LABEL </span><span class="codeclass">version</span> = <span class="codeobject">"1.0"</span>
+<span class="codecomment"># или </span>
+<span class="codeoperator">LABEL </span><span class="codeclass">"com.example.vendor"</span> = <span class="codeobject">"ACME Incorporated"</span>
 </code></pre>
 </div>
-</section>
+</section><br><br>
 
 
 
