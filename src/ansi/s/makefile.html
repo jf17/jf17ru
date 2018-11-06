@@ -32,22 +32,36 @@
 <pre><code>
 .PHONY: all clean install uninstall
 	
-all: hello
+<span class="codeoperator">all</span>: <span class="codemethod">hello</span>
 	
-clean:
-    -rm  hello *.o
-main.o: main.c
-    gcc -c -o main.o main.c
-hello.o: hello.c
-    gcc -c -o hello.o hello.c
-hello: main.o hello.o
-    gcc -o hello main.o hello.o
-install:
-    install ./hello /usr/local/bin
-uninstall:
-    -rm  /usr/local/bin/hello											    
+<span class="codeoperator">clean</span>:
+    <span class="codeobject">-rm  hello *.o</span>
+<span class="codeoperator">main.o</span>: <span class="codemethod">main.c</span>
+    <span class="codeobject">gcc -c -o main.o main.c</span>
+<span class="codeoperator">hello.o</span>: <span class="codemethod">hello.c</span>
+    <span class="codeobject">gcc -c -o hello.o hello.c</span>
+<span class="codeoperator">hello</span>: <span class="codemethod">main.o hello.o</span>
+    <span class="codeobject">gcc -o hello main.o hello.o</span>
+<span class="codeoperator">install</span>:
+    <span class="codeobject">install ./hello /usr/local/bin</span>
+<span class="codeoperator">uninstall</span>:
+    <span class="codeobject">-rm  /usr/local/bin/hello	</span>										    
 </code></pre>
-</div></section>
+</div></section><br><br>
+
+
+
+<section>
+<!-- Полезные ссылки . -->
+<div class="contentname">
+<h4>Полезные ссылки:</h4>
+</div>
+<div class="content">
+<ul>
+<li> </li>
+<li> </li>
+</ul></div>
+</section>
  
 <!-- Footer -->
 <footer >
