@@ -18,7 +18,7 @@
 <!-- Heading -->
 <section>
 <div class="content">
-<font color="#ffa31a">	<h2> Компиляция: </h2></font>
+<font color="#ffa31a">	<h2> Компиляция в исполняемый файл : </h2></font>
 </div>
 <div class="code">
 <pre><code>
@@ -34,8 +34,25 @@
 <span class="contenthead">в исполняемый файл(из обьектных файлов) :</span>
 <span class="codemethod">gcc</span><span class="codeoperator"> -o имя_файла_результат </span> main.o hello.o
 </code></pre>
-</div>
+</div><br><br>
 </section>
+
+<section>
+<div class="content">
+<font color="#ffa31a">	<h2> Компиляция в динамическую библиотеку: </h2></font>
+</div>
+<div class="code">
+<pre><code>
+<span class="codemethod">gcc</span><span class="codeoperator"> -o libHello.so </span><span class="codeobject">-shared </span><span class="codeclass">-fPIC </span> hello.c
+
+<span class="codecomment">// добавление в линковщик ld адреса с нашей библиотекой </span>
+<span class="codemethod">export</span><span class="codeoperator"> LD_LIBRARY_PATH = </span>.
+
+<span class="codecomment">// посмотреть содержимое библиотеки </span>
+<span class="codemethod">nm</span><span class="codeoperator"> libHello.so </span>
+</code></pre>
+</div>
+</section><br><br>
 
 
 
