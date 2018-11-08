@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+<!-- author: Aleksandrovich Aleksey Borisovich aka JF17-->
+<title> Двоичный (бинарный) поиск - jf17.ru</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+
+
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/algorithms/index.html" >Алгоритмы</a></h2>
+<hr />
+</section>
+                                
+<!-- Heading -->
+<section>
+<header>
+<div class="content">
+<font color="#ffa31a">	<h2>Двоичный (бинарный) поиск </h2></font>
+<p>
+<font color="#4dffa6">Двоичный (бинарный) поиск</font> (также известен как метод деления пополам и дихотомия) — классический алгоритм поиска элемента в отсортированном массиве (векторе), использующий дробление массива на половины  </li>
+<br><br>
+<font color="#59b300">Код на <font color="#ff66ff"> Java </font>:</font>
+<div class="code">
+<pre><code>
+
+</code></pre>
+</div>
+<br>
+<font color="#59b300">Код на <font color="#e6e600"> C </font>:</font>
+<div class="code">
+<pre><code>
+
+</code></pre>
+</div>
+<br>
+<font color="#59b300">Код на <font color="#e6e600"> JavaScript </font>:</font>
+<div class="code">
+<pre><code>
+<span class="codecomment">//// Binary search function using JavaScript</span>
+
+<span class="codecomment">/// Defining function</span>
+<span class="codeoperator">function</span> binSearch(arr, toFind)
+{
+    <span class="codecomment">/// Checking our array for emptiness.</span>
+    if (!arr) return null;
+    var first = 0;
+    var last = arr.length - 1;
+    <span class="codecomment">/// Running binary search</span>
+    while (first <span><</span> last)
+    {
+        var mid = first + Math.floor((last - first) / 2);
+        if (arr[mid] <span>></span>= toFind) last = mid;
+        else first = mid + 1;
+    }
+    <span class="codecomment">/// After the end of the loop, lastIndex can point to the search item. </span>
+    <span class="codecomment">/// Otherwise the element is missing in the array.</span>
+    if (arr[last] == toFind)
+        return last;
+    else return null;
+}
+
+<span class="codecomment">/// Let's try out our function:</span>
+<span class="codeobject">console</span>.log(binSearch([1, 2, 4],  4 )); <span class="codecomment">// Output is: 2</span>
+<span class="codeobject">console</span>.log(binSearch([1, 2, 4],  3 )); <span class="codecomment">// Output is: null</span>
+<span class="codeobject">console</span>.log(binSearch([1, 2, 4],  2 )); <span class="codecomment">// Output is: 1</span>
+<span class="codeobject">console</span>.log(binSearch([           ],  1 )); <span class="codecomment">// Output is: null</span>
+<span class="codeobject">console</span>.log(binSearch("abcdef",'c')); <span class="codecomment">// Output is: 2</span>
+</code></pre>
+</div>
+</p></header>
+</div><br><br><br><br>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
