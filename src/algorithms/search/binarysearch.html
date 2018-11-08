@@ -26,7 +26,7 @@
 <p>
 <font color="#4dffa6">Двоичный (бинарный) поиск</font> (также известен как метод деления пополам и дихотомия) — классический алгоритм поиска элемента в отсортированном массиве (векторе), использующий дробление массива на половины  </li>
 <br><br>
-<font color="#59b300">Код на <font color="#ff66ff"> Java </font>:</font>
+<font color="#59b300">Код на <font color="#e6e600"> Java </font>:</font>
 <div class="code">
 <pre><code>
 
@@ -46,16 +46,16 @@
 <span class="codecomment">//// Binary search function using JavaScript</span>
 
 <span class="codecomment">/// Defining function</span>
-<span class="codeoperator">function</span> binSearch(arr, toFind)
+<span class="codeoperator">function</span> <span class="codeclass">binSearch</span>(<span class="codeobject">arr, toFind</span>)
 {
     <span class="codecomment">/// Checking our array for emptiness.</span>
-    if (!arr) return null;
-    var first = 0;
-    var last = arr.length - 1;
+    <span class="codeoperator">if</span> (!<span class="codeobject">arr</span>) <span class="codeoperator">return null</span>;
+    <span class="codeoperator">var</span> <span class="codeobject">first</span> = 0;
+    <span class="codeoperator">var</span> <span class="codeobject">last</span> = <span class="codeobject">arr</span><span class="codemethod">.length</span> - 1;
     <span class="codecomment">/// Running binary search</span>
-    while (first <span><</span> last)
+    <span class="codeoperator">while</span> (first <span><</span> last)
     {
-        var mid = first + Math.floor((last - first) / 2);
+        <span class="codeoperator">var</span> mid = first + <span class="codeclass">Math</span><span class="codemethod">.floor</span>((last - first) / 2);
         if (arr[mid] <span>></span>= toFind) last = mid;
         else first = mid + 1;
     }
@@ -63,15 +63,15 @@
     <span class="codecomment">/// Otherwise the element is missing in the array.</span>
     if (arr[last] == toFind)
         return last;
-    else return null;
+    <span class="codeoperator">else return null</span>;
 }
 
 <span class="codecomment">/// Let's try out our function:</span>
-<span class="codeobject">console</span>.log(binSearch([1, 2, 4],  4 )); <span class="codecomment">// Output is: 2</span>
-<span class="codeobject">console</span>.log(binSearch([1, 2, 4],  3 )); <span class="codecomment">// Output is: null</span>
-<span class="codeobject">console</span>.log(binSearch([1, 2, 4],  2 )); <span class="codecomment">// Output is: 1</span>
-<span class="codeobject">console</span>.log(binSearch([           ],  1 )); <span class="codecomment">// Output is: null</span>
-<span class="codeobject">console</span>.log(binSearch("abcdef",'c')); <span class="codecomment">// Output is: 2</span>
+<span class="codeobject">console</span><span class="codemethod">.log</span>(<span class="codeclass">binSearch</span>([1, 2, 4],  4 )); <span class="codecomment">// Output is: 2</span>
+<span class="codeobject">console</span><span class="codemethod">.log</span>(<span class="codeclass">binSearch</span>([1, 2, 4],  3 )); <span class="codecomment">// Output is: null</span>
+<span class="codeobject">console</span><span class="codemethod">.log</span>(<span class="codeclass">binSearch</span>([1, 2, 4],  2 )); <span class="codecomment">// Output is: 1</span>
+<span class="codeobject">console</span><span class="codemethod">.log</span>(<span class="codeclass">binSearch</span>([           ],  1 )); <span class="codecomment">// Output is: null</span>
+<span class="codeobject">console</span><span class="codemethod">.log</span>(<span class="codeclass">binSearch</span>("abcdef",'c')); <span class="codecomment">// Output is: 2</span>
 </code></pre>
 </div>
 </p></header>
