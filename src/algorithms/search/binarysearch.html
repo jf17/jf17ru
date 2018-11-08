@@ -61,7 +61,7 @@
     }
     <span class="codecomment">/// After the end of the loop, lastIndex can point to the search item. </span>
     <span class="codecomment">/// Otherwise the element is missing in the array.</span>
-    if (arr[last] == toFind)
+    <span class="codeoperator">if</span> (arr[last] == toFind)
         return last;
     <span class="codeoperator">else return null</span>;
 }
@@ -71,7 +71,7 @@
 <span class="codeobject">console</span><span class="codemethod">.log</span>(<span class="codeclass">binSearch</span>([1, 2, 4],  3 )); <span class="codecomment">// Output is: null</span>
 <span class="codeobject">console</span><span class="codemethod">.log</span>(<span class="codeclass">binSearch</span>([1, 2, 4],  2 )); <span class="codecomment">// Output is: 1</span>
 <span class="codeobject">console</span><span class="codemethod">.log</span>(<span class="codeclass">binSearch</span>([           ],  1 )); <span class="codecomment">// Output is: null</span>
-<span class="codeobject">console</span><span class="codemethod">.log</span>(<span class="codeclass">binSearch</span>("abcdef",'c')); <span class="codecomment">// Output is: 2</span>
+<span class="codeobject">console</span><span class="codemethod">.log</span>(<span class="codeclass">binSearch</span>(<span class="codetext">"abcdef"</span>,'c')); <span class="codecomment">// Output is: 2</span>
 </code></pre>
 </div>
 </p></header>
