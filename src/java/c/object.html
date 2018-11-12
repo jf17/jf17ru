@@ -35,9 +35,13 @@
 <font color="orange"><h4>методы Object:</h4></font>
 <ul>
 <li><font color="#4dd2ff">String  </font><font color="#e6e600"> *.toString() </font> : Метод toString служит для получения представления данного объекта в виде строки.<br> <font color="pink">   getClass().getName() + '@' + Integer.toHexString(hashCode()) </font><font color="white">== Person@7960847b </font> . Mетод toString() нередко переопределяют.</li><br>
-<li><font color="#4dd2ff">int   </font><font color="#e6e600"> *.hashCode() </font> : Метод hashCode позволяет задать некоторое числовое значение, которое будет соответствовать данному объекту или его хэш-код. По данному числу, например, можно сравнивать объекты.Но мы можем задать свой алгоритм определения хэш-кода объекта .  </li><br>
+<li><font color="#4dd2ff">int   </font><font color="#e6e600"> *.hashCode() </font> : Метод hashCode позволяет задать некоторое числовое значение, которое будет соответствовать данному объекту или его хэш-код.Если два объекта равны по методу equals (Object), то вызов метода hashCode для каждого из двух объектов должен привести к одному целочисленному результату.<br>
+1) для одного и того-же объекта, хеш-код всегда будет одинаковым; <br>
+2) если объекты одинаковые, то и хеш-коды одинаковые (но не наоборот, см. правило 3). <br>
+3) если хеш-коды равны, то входные объекты не всегда равны (коллизия); <br>
+4)  если хеш-коды разные, то и объекты гарантированно разные; </li><br>
 <li><font color="#4dd2ff">Class<span><</span>?<span>></span>   </font><font color="#e6e600"> *.getClass() </font> : Метод getClass позволяет получить тип данного объекта .  </li><br>
-<li><font color="#4dd2ff">boolean   </font><font color="#e6e600"> *.equals() </font> : Метод equals по умолчанию сравнивает ссылки.<font color="pink"> return (this == obj);</font> Mетод equals() нередко переопределяют. </li><br>
+<li><font color="#4dd2ff">boolean   </font><font color="#e6e600"> *.equals() </font> : Метод equals по умолчанию сравнивает ссылки.<font color="pink"> return (<span class="codeoperator">this</span> == <span class="codeobject">obj</span>);</font> Mетод equals() нередко переопределяют. </li><br>
 
 <li>  </li>
 </ul>
