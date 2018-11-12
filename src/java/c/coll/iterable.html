@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
 </head>
 <body>
+
 <!-- Heading -->
 <section>
 <div class="content">
@@ -18,7 +19,7 @@
 </section>
                          
 
-<section>
+
 <header>
 <div class="content">
 <font color="#ffa31a">	<h2> интерфейс Iterable:</h2></font>
@@ -28,33 +29,59 @@
 
 </p>
 <p> </p>
+</div>
 </header>
-</div>
 
-<!-- имплементация в классах -->
-<div class="content">
-<font color="orange"><h4>имплементация в классах:</h4></font>
-<ul>
-<li>  </li>
-<li>  </li>
-</ul>
-</div>
 
 <!-- методы интерфейса Iterable: -->
+<section>
 <div class="content">
 <font color="orange"><h4>методы интерфейса Iterable:</h4></font>
 <ul>
-<li><font color="#e6e600"> </font> </li>
-<li><font color="#e6e600">Iterator<span><</span>T<span>></span> iterator()</font>: возвращает итератор  </li>
+<li><font color="#4dd2ff">Iterator<span><</span>T<span>></span></font> <font color="#e6e600"> *.iterator()</font> :Он возвращает итератор - то есть объект, реализующий интерфейс Iterator. </li>
+<li><font color="#4dd2ff">void  </font> <font color="#e6e600"> *.forEach(<font color="pink">лямбда выражение</font>)</font> :Выполняет данное действие для каждого элемента в массиве, пока все элементы не будут обработаны или действие выдаст Exception. </li>
+
 <li>  </li>
 </ul>
 </div>
+</section>
+
+
+<!-- методы интерфейса Iterable: -->
+<section>
+<div class="content">
+<font color="orange"><h4>Пример:</h4></font>
+</div>
+<div class="code">
+<pre><code>
+import java.util.*;
+ 
+public class Program {
+ 
+    public static void main(String[] args) {
+         
+        ArrayList<span><</span>String<span>></span> <span class="codeobject">states</span> = new ArrayList<span><</span>String<span>></span>();
+        states.add("Germany");
+        states.add("France");
+        states.add("Italy");
+        states.add("Spain");
+         
+        <span class="codeclass">Iterator</span><span><</span>String<span>></span> <span class="codeobject">iter</span> = <span class="codeobject">states</span><span class="codemethod">.iterator()</span>;
+        <span class="codeoperator">while</span>(<span class="codeobject">iter</span><span class="codemethod">.hasNext()</span>){
+         
+            System.out.println(<span class="codeobject">iter</span><span class="codemethod">.next()</span>);
+        }
+    }
+}
+</code></pre>
+</div>
+</section>
 
 <section>
 <div class="content">
 	<h4>Полезные ссылки:</h4>
 	<ul>
-	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html" target="_blank"> Iterable </a> </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html" target="_blank"> Iterable (Java docs)</a> </li>
 	<li>  </li>
 	</ul>
 	</div>
