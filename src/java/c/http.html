@@ -30,9 +30,9 @@
 </section>
 
 <section>
-<!-- HTTP Headers -->
+<!-- HTTP Header GET -->
 <div class="content">
-<font color="orange"><h4>HTTP Headers:</h4></font>
+<font color="orange"><h4>HTTP Header GET:</h4></font>
 
 <div class="code">
 <pre><code>
@@ -50,6 +50,7 @@ Cookie: PHPSESSID=r2t5uvjq435r4q7ib3vtdjq120
 Pragma: no-cache
 Cache-Control: no-cache
 </code></pre><br><br>
+</div>
 
 <div class="code">
 <pre><code>
@@ -77,27 +78,57 @@ Vary: Accept-Encoding, Cookie, User-Agent
  <span><</span>title <span>></span>Top 20+ MySQL Best Practices - Nettuts+ <span><</span>/title <span>></span>
  <span><</span>!-- ... rest of the html ... -- <span>></span>
 </code></pre><br><br>
-
-<p>
-
-</p>
+</div>
 </div>
 </section>
 
-<!-- методы интерфейса List: -->
+
 <section>
+<!-- HTTP Header POST -->
 <div class="content">
-<font color="orange"><h4>методы интерфейса Map:</h4></font>
-<ul>
-<li><font color="#4dd2ff">int  </font><font color="#e6e600"> .size() </font> : возвращает размер коллекции </li>
-<li><font color="#4dd2ff">boolean   </font><font color="#e6e600"> .isEmpty() </font> : проверяет пустая ли коллекция ?  </li>
-<li><font color="#4dd2ff">boolean </font><font color="#e6e600"> .containsKey(<font color="#4dffa6">Object</font><font color="#ff6600"> key</font>) </font> : проверяет наличие ключа в коллекции </li>
-<li><font color="#4dd2ff">boolean </font><font color="#e6e600"> .containsValue(<font color="#4dffa6">Object</font><font color="#ff6600"> value</font>) </font> : проверяет наличие значения в коллекции </li>
-<li>  </li>
-</ul>
+<font color="orange"><h4>HTTP Header POST:</h4></font>
+
+<div class="code">
+<pre><code>
+<span class="codecomment">// Простая форма запроса, используя стандартный application/x-www-form-urlencoded content type:</span>
+POST / HTTP/1.1
+Host: foo.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 13
+
+say=Hi&to=Mom
+
+
+
+<span class="codecomment">// Форма запроса, используя multipart/form-data content type:</span>
+POST /test.html HTTP/1.1 
+Host: example.org 
+Content-Type: multipart/form-data;boundary="boundary" 
+
+--boundary 
+Content-Disposition: form-data; name="field1" 
+
+value1 
+--boundary 
+Content-Disposition: form-data; name="field2"; filename="example.txt" 
+
+value2
+</code></pre><br><br>
+</div>
+
 </div>
 </section>
 
+
+<!-- Полезные ссылки . -->
+<div class="contentname">
+<h4>Полезные ссылки:</h4>
+</div>
+<div class="content">
+<ul>
+<li> <a href="https://developer.mozilla.org/ru/docs/Web/HTTP/Methods/POST" target="_blank" rel="noopener"> POST</a></li>
+</ul></div>
+</section>
 
 <footer>
 <!-- работа с куки -->
