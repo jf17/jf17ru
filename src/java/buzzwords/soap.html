@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<!-- author: Aleksandrovich Aleksey Borisovich -->
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
 <title> SOAP - jf17.ru</title>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
 </head>
+
+
 <body>
 <!-- Heading -->
 <section>
@@ -49,6 +53,33 @@ SOAP может использоваться с любым протоколом 
 </div>
 </section>
 
+
+<section>
+<!-- Пример -->
+<div class="content">
+<font color="orange"><h4>Пример:</h4></font>
+
+<div class="code">
+<pre><code>
+<span class="codecomment">// Запрос:</span>
+POST /MyService HTTP/1.1
+Host: www.servicesite.com
+Content-Type:text/xml; charset="utf-8"
+Content-Length: xxxx
+SOAPAction: "www.servicesite.com/action"
+
+ <span><</span>SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/ envelope" 
+ SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding"<span>></span>
+ <span><</span>SOAP-ENV:Body<span>></span>
+ <span><</span>m:GetSomeValue xmlns:m=" www.servicesite.com/action "<span>></span>
+ <span><</span>symbol<span>></span>SYM <span><</span>/symbol<span>></span>
+ <span><</span>/m:GetSomeValue<span>></span>
+ <span><</span>/SOAP-ENV:Body<span>></span>
+ <span><</span>/Soap-ENV:Envelope<span>></span> 
+
+</code></pre><br><br>
+</div>
+</section>
 
 <footer>
 <!-- работа с куки -->
