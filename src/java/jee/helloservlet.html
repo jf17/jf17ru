@@ -27,7 +27,7 @@
 <font color="#ffa31a">	<h2> HelloWorld сервлет в Intellij IDEA:</h2></font>
 <ul>
 <li>Java Enterprise -<span>></span> Web Application</li>
-<li>создаём класс HelloServlet.java и регистрируем сервлет через аннотацию <span class="codemethod">@WebServlet("/hello")</span> :</li>
+<li>создаём класс HelloServlet.java и регистрируем сервлет через аннотацию <span class="codemethod">@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})</span> :</li>
 <div class="code">
 <pre><code><span>
 package ru.jf17.demo;
@@ -40,7 +40,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
-<span class="codemethod">@WebServlet("/hello")</span>
+<span class="codemethod">@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})</span>
 public class <span class="codeclass">HelloServlet</span> extends HttpServlet {
  
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
