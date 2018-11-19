@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> HelloWorld сервлет в Intellij Idea - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+
+<body>
+
+<!-- Heading -->
+<header>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h2> <a href="https://jf17.ru/java/jee/index.html" >Java EE</a></h2>
+<hr />
+</header>
+                         
+
+<section>
+<div class="content">
+<font color="#ffa31a">	<h2> HelloWorld сервлет в Intellij Idea:</h2></font>
+<ul>
+<li>Java Enterprise -<span>></span> Web Application</li>
+<li>заходим в web.xml там регистрируем servlet :</li>
+<div class="code">
+<pre><code><span><</span>servlet<span>></span>
+	<span><</span>servlet-name<span>></span>Hello<span><</span>/servlet-name<span>></span>
+	<span><</span>servlet-class<span>></span>HelloServlet<span><</span>/servlet-class<span>></span>
+<span><</span>/servlet<span>></span>
+</code></pre></div>
+<li>создаём класс HelloServlet.java :</li>
+<div class="code">
+<pre><code><span>
+import java.io.PrintWriter;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+ 
+@WebServlet("/hello")
+public class HelloServlet extends HttpServlet {
+ 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+         
+        response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();
+        try {
+            writer.println("<span><</span>h2<span>></span>Hello from HelloServlet<span><</span>/h2<span>></span>");
+        } finally {
+            writer.close();  
+        }
+    }
+}
+</code></pre></div>
+</ul><br>
+</div>
+</section>
+
+
+
+<!-- Полезные ссылки . -->
+<div class="contentname">
+<h4>Полезные ссылки:</h4>
+</div>
+<div class="content">
+<ul>
+<li> <a href="https://javaee.github.io/glassfish/download" target="_blank" rel="noopener"> Java EE 8 - GlassFish 5 Download</a></li>
+<li></li>
+<li></li>
+</ul></div>
+</section>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
