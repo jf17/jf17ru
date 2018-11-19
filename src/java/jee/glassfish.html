@@ -25,11 +25,14 @@
 <section>
 <div class="content">
 <font color="#ffa31a">	<h2> GlassFish:</h2></font>
-<p> Перед первым запуском нужно поменять файл настроек (добавить расположение JDK) </p>
+<p>
+GlassFish 5.0 пока что не работает на JDK 9 (возможно починят в 5.1).
+</p>
+ Перед первым запуском нужно поменять файл настроек (добавить расположение JDK) :
 <ul>
 <li>зайти GlassFish\glassfish5\glassfish\config\asenv.bat</li>
 <li>в конец файла добавить строчку "set AS_JAVA=C:\Program Files\Java\jdk1.8.0_151"</li>
-</ul>
+</ul><br>
 <ul>
 <li>запуск  E:\GlassFish\glassfish5\bin>asadmin.bat start-domain</li>
 <li>остановка E:\GlassFish\glassfish5\bin>asadmin.bat stop-domain</li>
