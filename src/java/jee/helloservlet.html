@@ -27,14 +27,7 @@
 <font color="#ffa31a">	<h2> HelloWorld сервлет в Intellij Idea:</h2></font>
 <ul>
 <li>Java Enterprise -<span>></span> Web Application</li>
-<li>заходим в web.xml там регистрируем servlet :</li>
-<div class="code">
-<pre><code><span><</span>servlet<span>></span>
-	<span><</span>servlet-name<span>></span>Hello<span><</span>/servlet-name<span>></span>
-	<span><</span>servlet-class<span>></span>HelloServlet<span><</span>/servlet-class<span>></span>
-<span><</span>/servlet<span>></span>
-</code></pre></div>
-<li>создаём класс HelloServlet.java :</li>
+<li>создаём класс HelloServlet.java и регистрируем сервлет через аннотацию <span class="codemethod">@WebServlet("/hello")</span> :</li>
 <div class="code">
 <pre><code><span>
 import java.io.PrintWriter;
@@ -45,8 +38,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
-@WebServlet("/hello")
-public class HelloServlet extends HttpServlet {
+<span class="codemethod">@WebServlet("/hello")</span>
+public class <span class="codeclass">HelloServlet</span> extends HttpServlet {
  
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
          
@@ -60,6 +53,19 @@ public class HelloServlet extends HttpServlet {
     }
 }
 </code></pre></div>
+<li> или регистрируем сервлет через файл <span class="codemethod">web.xml</span> :</li>
+<div class="code">
+<pre><code>
+    <servlet>
+        <span><</span>servlet-name<span>></span>HelloServlet<span><</span>/servlet-name<span>></span>
+        <span><</span>servlet-class<span>></span>ru.jf17.demo.HelloServlet<span><</span>/servlet-class<span>></span>
+    <span><</span>/servlet<span>></span>
+    <span><</span>servlet-mapping<span>></span>
+        <span><</span>servlet-name<span>></span>HelloServlet<span><</span>/servlet-name<span>></span>
+        <span><</span>url-pattern<span>></span>/hello<span><</span>/url-pattern<span>></span>
+   <span><</span>/servlet-mapping<span>></span>
+</code></pre></div>
+<li> <a href="http://localhost:8080/helloworld_war_exploded/hello" target="_blank" rel="noopener"> открываем результат</a></li>
 </ul><br>
 </div>
 </section>
