@@ -31,17 +31,14 @@ sudo apt-get install sbcl
 wget https://beta.quicklisp.org/quicklisp.lisp
 sbcl --load quicklisp.lisp
 
-<span class="codecomment">;; 3) запускаем  sbcl и там выполняем :</span>
-(ql:add-to-init-file)
-
 (quicklisp-quickstart:install)
 
 (ql:add-to-init-file)
 
 (quit)
 
-<span class="codecomment">;; 4) Установите SLIME :</span>
-<span class="codecomment">;; 4.a) добавляем MELPA repository в init.el:</span>
+<span class="codecomment">;; 3) Установите SLIME :</span>
+<span class="codecomment">;; 3.a) добавляем MELPA repository в init.el:</span>
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -61,16 +58,16 @@ There are two things you can do about this warning:
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
 
-<span class="codecomment">;; 4.б) заходим в Emacs и набираем команду M-x package-list-packages </span>
-<span class="codecomment">;; 4.в) набираем команду M-x package-install затем Enter</span>
-<span class="codecomment">;; 4.в) набираем  slime  затем Enter </span>
+<span class="codecomment">;; 3.б) заходим в Emacs и набираем команду M-x package-list-packages </span>
+<span class="codecomment">;; 3.в) набираем команду M-x package-install затем Enter</span>
+<span class="codecomment">;; 3.в) набираем  slime  затем Enter </span>
 
-<span class="codecomment">;; 4.г) добавляем в init.el:</span>
+<span class="codecomment">;; 3.г) добавляем в init.el:</span>
 ;; Set your lisp system and, optionally, some contribs
 (setq inferior-lisp-program "sbcl")
 (setq slime-contribs '(slime-fancy))
 
-<span class="codecomment">;; 4.д) заходим в Emacs и набираем команду M-x slime </span>
+<span class="codecomment">;; 3.д) заходим в Emacs и набираем команду M-x slime </span>
 </code></pre>
 </section>
 
