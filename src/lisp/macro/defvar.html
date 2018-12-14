@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
 <!-- author: Alexandrovich Alexey Borisovich aka JF17-->
-<title>LISP - jf17.ru</title>
+<title>Defvar , LISP - jf17.ru</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <meta http-equiv="Content-Language" content="ru">
 <meta name="theme-color" content="#000000"/>
@@ -15,50 +15,23 @@
 <!-- Heading -->
 <header>
 <h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h1> <a href="https://jf17.ru/lisp/index.html" >LISP</a></h1>
 <hr />
  </header>
 
- <nav >
-<!-- Core (База). -->
+
+<!-- Defvar. -->
 <section>
-<h4> <span class="contentname">Core (База) :</span></h4>
-<ul>
-<li> <a href="c/primetivetype.html"> Примитивные типы </a> </li>
-<li> <a href="#"> REPL</a>называется цикл-чтение-вычисление-печать (по-английски read-eval-print-loop)</li>
-<li> <a href="#"> XXXX </a> </li>
-</ul>
+<h4> <span class="contentname">Defvar :</span></h4>
+<pre class="code"><code>
+<span class="codecomment">//регистрируем новую глобальную переменную</span>
+(<span class="codeoperator">defvar</span> <span class="codeobject">*db*</span> <span class="codenumber">nil</span>)
+</code></pre>
 </section>
 
-<!-- Функции. -->
-<section>
-<h4> <span class="contentname">Функции :</span></h4>
-<ul>
-<li> <a href="defun.html"> defun </a>определение новой функции</li>
-<li> <a href="#"> eval </a> </li>
-<li> <a href="#"> lambda </a> </li>
-</ul>
-</section>
-
-<!-- Макросы. -->
-<section>
-<h4> <span class="contentname">Макросы :</span></h4>
-<ul>
-<li> <a href="macro/defvar.html"> defvar </a>создать новую 'глобальную' переменную</li>
-<li> <a href="#"> xxxxx </a> </li>
-<li> <a href="#"> xxxxx </a> </li>
-</ul>
-</section>
-
-<!-- Строки. -->
-<section>
-<h4> <span class="contentname">Строки :</span></h4>
-<ul>
-<li> <a href="string/format.html"> format </a> </li>
-<li> <a href="#"> xxxx </a> </li>
-</ul>
-</section>
 					
 <!-- Полезные ссылки . -->
+<br><br><br>
 <section>
 <h4><span class="contentname">Полезные ссылки:</span></h4>
 <ul>
@@ -66,7 +39,7 @@
 <li> <a href="http://buildyourownlisp.com/" target="_blank" rel="noopener">Книга. Создание компилятора для LISP на языке Си. </a> </li>
 </ul>
 </section>
-</nav>      
+    
 
 
 <!-- Footer -->
