@@ -26,6 +26,9 @@
 <pre class="code"><code>
 <span class="codecomment">//регистрируем новую глобальную переменную</span>
 (<span class="codeoperator">defvar</span> <span class="codeobject">*db*</span> <span class="codenumber">nil</span>)
+
+<span class="codecomment">Для добавления элементов в *db* можно использовать макрос PUSH.</span>
+(<span class="codeoperator">defun</span> <span class="codeclass">add-record</span> (<span class="codeobject">data</span>) (<span class="codeoperator">push</span> <span class="codeobject">data</span> <span class="codeobject">*db*</span>))
 </code></pre>
 </section>
 
