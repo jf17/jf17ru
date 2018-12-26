@@ -52,8 +52,8 @@
 <span class="codeoperator">ORDER BY</span> <span class="codenumber">2</span> <span class="codemethod">DESC</span>;
 
 <span class="codecomment">// сопоставить колонку из первой таблицы к колонке из второй таблицы </span>
-<span class="codeoperator">SELECT</span> <span class="codeobject">Orders</span><span class="codetext">.onum</span>, <span class="codeobject">Customers</span><span class="codetext">.cname</span>
-<span class="codeoperator">FROM</span> <span class="codeobject">Orders, Customers</span>
+<span class="codeoperator">SELECT</span> <span class="codeobject">Orders</span><span class="codetext">.onum</span>, <span class="codeobject">Customers</span><span class="codetext">.cname</span> <span class="codecomment">// колонки которые нужно сопоставить и вывести</span>
+<span class="codeoperator">FROM</span> <span class="codeobject">Orders, Customers</span> <span class="codecomment">// из каких таблиц ?</span>
 <span class="codeoperator">WHERE</span> <span class="codeobject">Orders</span><span class="codetext">.cnum</span>=<span class="codeobject">Customers</span><span class="codetext">.cnum</span>; <span class="codecomment">// общие значения из разных таблиц</span>
 
 
