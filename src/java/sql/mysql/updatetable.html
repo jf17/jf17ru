@@ -40,7 +40,12 @@
 <span class="codeoperator">DROP TABLE</span> <span class="codeobject">employees</span>;
 
 <span class="codecomment">// Удаление строки из таблицы</span>
-<span class="codeoperator">DELETE FROM</span> <span class="codeobject">Salespeople</span> <span class="codeoperator">WHERE</span> <span class="codetext">id</span>=<span class="codenumber">103</span>;
+<span class="codeoperator">DELETE FROM</span> <span class="codeobject">employees</span> 
+<span class="codeoperator">WHERE</span> <span class="codetext">id</span>=<span class="codenumber">103</span>;
+
+<span class="codecomment">// Изменение одного столбца всех строк </span>
+<span class="codeoperator">UPDATE</span> <span class="codeobject">Customers</span> 
+<span class="codemethod">SET</span> <span class="codetext">rating</span>=<span class="codenumber">200</span>;
 
 </code></pre>
 </div>
