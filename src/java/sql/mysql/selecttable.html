@@ -56,7 +56,17 @@
 <span class="codeoperator">FROM</span> <span class="codeobject">Orders, Customers</span> <span class="codecomment">// из каких таблиц ?</span>
 <span class="codeoperator">WHERE</span> <span class="codeobject">Orders</span><span class="codetext">.customerId</span>=<span class="codeobject">Customers</span><span class="codetext">.customerId</span>; <span class="codecomment">// общие значения из разных таблиц</span>
 
+</code></pre>
+</div>
 
+<font color="#ffa31a">	<h2> Использование подзапросов :</h2></font>
+<div class="code">
+<pre><code>
+// вычисляем snum из другой таблицы 
+<span class="codeoperator">SELECT</span> * <span class="codeoperator">FROM</span> <span class="codeobject">Orders</span>
+<span class="codeoperator">WHERE</span> <span class="codetext">snum</span> = (<span class="codeoperator">SELECT</span> <span class="codetext">snum</span>
+<span class="codeoperator">FROM</span> <span class="codeobject">Salespeople</span>
+<span class="codeoperator">WHERE</span> <span class="codetext">sname</span> = 'Motika');
 </code></pre>
 </div>
 </section>
