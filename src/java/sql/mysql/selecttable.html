@@ -45,6 +45,12 @@
 <span class="codecomment">// показать все данные из таблицы, отсортированые по полю id,  в порядке убывания </span>
 <span class="codeoperator">SELECT</span> <span class="codeclass">*</span> <span class="codeoperator">FROM</span> <span class="codeobject">employees</span> <span class="codeoperator">ORDER BY</span> <span class="codetext">rating</span> <span class="codemethod">DESC</span>; 
 
+<span class="codecomment">// запрос, который подсчитывает общую сумму денег у людей рожденных в один день и выводит результаты в порядке убывания.  </span>
+<span class="codeoperator">SELECT</span> <span class="codetext">dateofbirth</span>, <span class="codemethod">SUM</span>(<span class="codetext">money</span>)
+<span class="codeoperator">FROM</span> <span class="codeobject">employees</span>
+<span class="codeoperator">GROUP BY</span> <span class="codetext">dateofbirth</span>
+<span class="codeoperator">ORDER BY</span> <span class="codenumber">2</span> <span class="codemethod">DESC</span>;
+
 </code></pre>
 </div>
 </section>
