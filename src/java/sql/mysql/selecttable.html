@@ -76,6 +76,13 @@
 
 <span class="codecomment">// запрос показывающий всех покупателей с максимальным рейтингом</span>
 <span class="codeoperator">SELECT</span> <span class="codemethod">MAX</span>(<span class="codetext">rating</span>) <span class="codeoperator">FROM</span> <span class="codeobject">Customers</span> ;
+
+<span class="codecomment">// группировка запроса </span>
+<span class="codeoperator">SELECT</span> <span class="codeobject">odate</span>, <span class="codemethod">SUM</span>(<span class="codetext">amt</span>)
+<span class="codeoperator">FROM</span> <span class="codeobject">Orders</span>
+<span class="codeoperator">GROUP BY</span> <span class="codetext">odate</span>
+<span class="codeoperator">ORDER BY</span> <span class="codenumber">2</span> <span class="codemethod">DESC</span>;
+
 </code></pre>
 </div>
 </section>
