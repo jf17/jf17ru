@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title> hashCode. Java - jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<hr />
+</section>
+                         
+
+
+<header>
+<div class="content">
+<font color="#ffa31a">	<h2> hashCode.</h2></font>
+<p>в терминах Java, хеш-код – это эметод который принимает на вход Обьект и возвращает int.<br><br>
+Следует понимать, что множество возможных хеш-кодов ограничено примитивным типом int, (т.е. уникальных значений всего 4.294.967.296) <br>
+а множество объектов ограничено только нашей фантазией (т.е. обьектов может быть больше кол-ва уникальных хеш-кодов ). <br>
+Отсюда следует утверждение: “Множество объектов мощнее множества хеш-кодов”. <br>
+Из-за этого ограничения, вполне возможна ситуация, что хеш-коды разных объектов могут совпасть. 
+ </p>
+<br>
+</div>
+</header>
+
+<!-- методы Object: -->
+<div class="content">
+<font color="orange"><h4>методы Object:</h4></font>
+<ul>
+<li><font color="#4dd2ff">int   </font><font color="#e6e600"> *.hashCode() </font> : Метод hashCode позволяет задать некоторое числовое значение, которое будет соответствовать данному объекту или его хэш-код.Если два объекта равны по методу equals (Object), то вызов метода hashCode для каждого из двух объектов должен привести к одному целочисленному результату.<br>
+1) для одного и того-же объекта, хеш-код всегда будет одинаковым; <br>
+2) если объекты одинаковые, то и хеш-коды одинаковые (но не наоборот, см. правило 3). <br>
+3) если хеш-коды равны, то входные объекты не всегда равны (коллизия); <br>
+4)  если хеш-коды разные, то и объекты гарантированно разные; </li><br>
+
+<li>  </li>
+</ul>
+</div>
+
+<section>
+<div class="content">
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html"> Object in JavaDoc </a> </li>
+	<li> <a href="https://habr.com/post/168195/"> Разбираемся с hashCode() и equals() (хабр) </a> </li>
+	</ul>
+	</div>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
