@@ -39,6 +39,21 @@
 </section>
 
 <section>
+<font color="#ffa31a">	<h3>Примеры :</h3></font>
+<div class="content">
+Скачать файл из интернета :
+<pre class="code"><code>
+<span class="codeclass">URL</span> <span class="codeobject">url</span> = <span class="codeoperator">new</span> <span class="codeclass">URL</span>(<span class="codetext">"https://www.google.ru/images/srpr/logo11w.png"</span>);
+<span class="codeclass">InputStream</span> <span class="codeobject">inputStream</span> = <span class="codeobject">url</span><span class="codemethod">.openStream</span>();
+
+<span class="codeclass">Path</span> <span class="codeobject">tempFile</span> = <span class="codeclass">Files</span><span class="codemethod">.createTempFile</span>(<span class="codetext">"temp-"</span>,<span class="codetext">".tmp"</span>);
+<span class="codeclass">Files</span><span class="codemethod">.copy</span>(<span class="codeobject">inputStream</span>, <span class="codeobject">tempFile</span>);
+</code></pre>
+
+</div>
+</section>
+
+<section>
 <div class="content">
 	<h4>Полезные ссылки:</h4>
 	<ul>
