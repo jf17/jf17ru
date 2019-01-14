@@ -41,7 +41,49 @@
 <section>
 <font color="#ffa31a">	<h3>Примеры :</h3></font>
 <div class="content">
-Скачать файл из интернета :
+Чтение байтов из файла :
+<pre class="code"><code>
+<span class="codeclass">Path</span> <span class="codeobject">file</span> = ...;
+<span class="codeoperator">byte</span>[] <span class="codeobject">fileArray</span>;
+<span class="codeobject">fileArray</span> = <span class="codeclass">Files</span><span class="codemethod">.readAllBytes</span>(<span class="codeobject">file</span>);
+</code></pre>
+
+Запись байтов в файл:
+<pre class="code"><code>
+<span class="codeclass">Path</span> <span class="codeobject">file</span> = ...;
+<span class="codeoperator">byte</span>[] <span class="codeobject">buf</span> = ...;
+<span class="codeclass">Files</span><span class="codemethod">.write</span>(<span class="codeobject">file</span>, <span class="codeobject">buf</span>);
+</code></pre>
+
+<br><br>Чтение из текстового файла :
+<pre class="code"><code>
+<span class="codeclass">Path</span> <span class="codeobject">file</span> = ...;
+<span class="codeclass">List</span><<span class="codeclass">String</span>> <span class="codeobject">list</span> = <span class="codeoperator">new</span> <span class="codeclass">ArrayList</span><<span class="codeclass">String</span>>();
+<span class="codeclass">Charset</span> <span class="codeobject">charset</span> = <span class="codeclass">Charset</span><span class="codemethod">.forName</span>(<span class="codetext">"RU-ASCII"</span>);
+<span class="codeoperator">try</span> (<span class="codeclass">BufferedReader</span> <span class="codeobject">reader</span> = <span class="codeclass">Files</span><span class="codemethod">.newBufferedReader</span>(<span class="codeobject">file</span>, <span class="codeobject">charset</span>)) {
+    <span class="codeclass">String</span> <span class="codeobject">line</span> = <span class="codeoperator">null</span>;
+    <span class="codeoperator">while</span> ((<span class="codeobject">line</span> = <span class="codeobject">reader</span><span class="codemethod">.readLine</span>()) != <span class="codeoperator">null</span>) {
+        <span class="codeclass">System</span>.out<span class="codemethod">.println</span>(<span class="codeobject">line</span>);
+    }
+} <span class="codeoperator">catch</span> (<span class="codeclass">IOException</span> <span class="codeobject">x</span>) {
+    <span class="codeclass">System</span>.err<span class="codemethod">.format</span>(<span class="codetext">"IOException: %s%n"</span>, <span class="codeobject">x</span>);
+}
+</code></pre>
+
+Запись текста в файл:
+<pre class="code"><code>
+<span class="codeclass">Path</span> <span class="codeobject">file</span> = ...;
+<span class="codeclass">List</span><<span class="codeclass">String</span>> <span class="codeobject">list</span> = <span class="codeoperator">new</span> <span class="codeclass">ArrayList</span><<span class="codeclass">String</span>>();
+<span class="codeclass">Charset</span> <span class="codeobject">charset</span> = <span class="codeclass">Char</span>set<span class="codemethod">.forName</span>(<span class="codetext">"RU-ASCII"</span>);
+<span class="codeclass">String</span> <span class="codeobject">s</span> = ...;
+<span class="codeoperator">try</span> (<span class="codeclass">BufferedWriter</span> <span class="codeobject">writer</span> = <span class="codeclass">Files</span><span class="codemethod">.newBufferedWriter</span>(<span class="codeobject">file</span>, <span class="codeobject">charset</span>)) {
+    <span class="codeobject">writer</span><span class="codemethod">.write</span>(<span class="codeobject">s</span>, <span class="codenumber">0</span>, <span class="codeobject">s</span><span class="codemethod">.length</span>());
+} <span class="codeoperator">catch</span> (<span class="codeclass">IOException</span> <span class="codeobject">x</span>) {
+    <span class="codeclass">System</span>.err<span class="codemethod">.format</span>(<span class="codetext">"IOException: %s%n"</span>, <span class="codeobject">x</span>);
+}
+</code></pre>
+
+<br><br>Скачать файл из интернета :
 <pre class="code"><code>
 <span class="codeclass">URL</span> <span class="codeobject">url</span> = <span class="codeoperator">new</span> <span class="codeclass">URL</span>(<span class="codetext">"https://www.google.ru/images/srpr/logo11w.png"</span>);
 <span class="codeclass">InputStream</span> <span class="codeobject">inputStream</span> = <span class="codeobject">url</span><span class="codemethod">.openStream</span>();
