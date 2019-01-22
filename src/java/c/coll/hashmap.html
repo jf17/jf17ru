@@ -24,7 +24,10 @@
 <section>
 <font color="#ffa31a">	<h2> HasMap:</h2></font>
 <p> <span class="codeclass">HasMap</span> - это <span class="codeobject">key-value</span> коллекция работающая по принципу Кеширования.</p>
-<p> <span class="codeobject">Key-value</span> значения хранаться попарно в классе <span class="codeclass">Entry</span> , а сами классы <span class="codeclass">Entry</span> храняться в массиве с именем <span class="codeobject">table</span> (capacity - по умолчанию имеет значение 16). </p></div>
+<p> <span class="codeobject">Key-value</span> значения хранаться попарно в классе <span class="codeclass">Entry</span> , а сами классы <span class="codeclass">Entry</span> храняться в массиве с именем <span class="codeobject">table</span> (capacity - по умолчанию имеет значение 16). <br>
+Добавление элемента выполняется за время O(1), потому как новые элементы вставляются в начало цепочки.<br>
+Операции получения и удаления элемента могут выполняться за время O(1), если хэш-функция равномерно распределяет элементы и отсутствуют коллизии.В самом худшем случае, время выполнения может составить Θ(n) .
+</p>
 </section>
 
 
@@ -56,10 +59,10 @@
 <section>
 <font color="orange"><h4>При возникновении коллизии:</h4></font>
 <ol>
-<li>Пропускается, ключ не равен null</li>
+<li>Пропускается, ключ не равен <span class="codeoperator">null .</span></li>
 <li>Далее генерируется хэш на основе ключа (<span class="codetext">"idx"</span>.<span class="codemethod">hashCode</span>() =<span class="codenumber">101603</span>)</li>
-<li>Определение позиции в массиве</li>
-<li>Новый элемент добавляется в начало цепочки</li>
+<li>Определение позиции в массиве .</li>
+<li>Новый элемент добавляется в начало цепочки .</li>
 <img src="hashmap2.png" alt="hashmap2">
 </ol>
 </section>
