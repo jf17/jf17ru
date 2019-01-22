@@ -23,7 +23,9 @@
 
 <section>
 <font color="#ffa31a">	<h2> HasMap:</h2></font>
-пакет java.util.
+пакет java.util.<br>
+<span class="codeoperator">extends</span> <span class="codeclass">AbstractMap</span> <br>
+<span class="codeoperator">implements</span> <span class="codeclass">Map</span>, <span class="codeclass">Cloneable</span>, <span class="codeclass">Serializable</span> <br>
 <p> класс <span class="codeclass">HasMap</span> - это <span class="codeobject">key-value</span> коллекция работающая по принципу Хеширования.</p>
 <p> <span class="codeobject">Key-value</span> значения хранаться попарно в классе <span class="codeclass">Entry</span> , а сами классы <span class="codeclass">Entry</span> храняться в массиве с именем <span class="codeobject">table</span> (capacity - по умолчанию имеет значение 16). <br>
 Добавление элемента выполняется за время O(1), потому как новые элементы вставляются в начало цепочки списка.<br>
@@ -67,6 +69,25 @@
 <li>Новый элемент добавляется в начало цепочки .</li>
 <img src="hashmap2.png" alt="hashmap2">
 </ol>
+</section>
+
+<section>
+<font color="orange"><h3>Методы:</h3></font>
+<ul>
+<li>*<span class="codemethod">.put</span>(<span class="codenumber">562354</span>, <span class="codetext">"Шекспир"</span>) - добавить в HashMap новый элемент.</li>
+<li><span class="codeoperator">void</span> *<span class="codemethod">.putAll</span>(<span class="codeobject">otherMap</span>) - копирует всё из одной Map'ы в эту.  </li>
+<li>*<span class="codemethod">.get</span>(<span class="codenumber">56265</span>) - вернуть значение по ключу 56265.</li>
+<li><span class="codeoperator">int</span> *<span class="codemethod">.size</span>() - возвращает размер .</li>
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.containsKey</span>(<span class="codenumber">56</span>265) - Есть ли такой ключ в этой коллекции ? </li>
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.containsValue</span>(<span class="codetext">"Шекспир"</span>) - Есть ли такое значение в этой коллекции ? </li>
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.isEmpty</span>() - Пустая ли коллекция ? </li>
+<li>*<span class="codemethod">.remove</span>(<span class="codenumber">56265</span>) - Удалить элемент по ключу .</li>
+<li><span class="codeclass">HashMap</span> *<span class="codemethod">.clone</span>() - клонирует коллекцию. </li>
+<li><span class="codeoperator">void</span> *<span class="codemethod">.clear</span>() - очищает коллекцию .</li>
+<li><span class="codeclass">Set</span> *<span class="codemethod">.keySet</span>() - получить все ключи из коллекции .</li>
+<li><span class="codeclass">Set(Map.Entry)</span> *<span class="codemethod">.entrySet</span>() - получить все <span class="codeobject">key-value</span>(<span class="codeclass">Entry</span>) .</li>
+<li></li>
+</ul>
 </section>
 
 <section>
