@@ -35,11 +35,23 @@
 <li> <span class="codeobject">loadFactor</span> — Коэффициент загрузки. Значение по умолчанию 0.75 является хорошим компромиссом между временем доступа и объемом хранимых данных; </li>
 <li><span class="codeobject">threshold</span> — Предельное количество элементов, при достижении которого, размер хэш-таблицы увеличивается вдвое. Рассчитывается по формуле (<span class="codeobject">capacity</span> * <span class="codeobject">loadFactor</span>);</li>
 <li><span class="codeobject">size</span> — Количество элементов HashMap-а</li>
+<br>
 Вы можете указать свои емкость и коэффициент загрузки, используя конструкторы <span class="codeclass">HashMap</span>(<span class="codeobject">capacity</span>) и <span class="codeclass">HashMap</span>(<span class="codeobject">capacity</span>, <span class="codeobject">loadFactor</span>). Максимальная емкость, которую вы сможете установить, равна половине максимального значения <span class="codeoperator">int</span> (1073741824).
 </ul>
 </section>
 
-
+<section>
+<font color="orange"><h4>Добавление елемента в HashMap:</h4></font>
+<ol>
+<li>Сначала ключ проверяется на равенство <span class="codeoperator">null</span>. Если это проверка вернула true, будет вызван метод <span class="codemethod">putForNullKey</span>(<span class="codeobject">value</span>)</li>
+<li>Далее генерируется хэш на основе ключа. Для генерации используется метод <span class="codemethod">hash</span>(<span class="codeobject">hashCode</span>), в который передается <span class="codeobject">key</span>.<span class="codemethod">hashCode</span>().</li>
+<li>С помощью метода <span class="codemethod">indexFor</span>(<span class="codeobject">hash</span>, <span class="codeobject">tableLength</span>), определяется позиция в массиве, куда будет помещен элемент.</li>
+При значении хэша 51 и размере таблице 16, мы получаем индекс в массиве 3.
+<li>Теперь, зная индекс в массиве, мы получаем список (цепочку) элементов, привязанных к этой ячейке. Хэш и ключ нового элемента поочередно сравниваются с хэшами и ключами элементов из списка и, при совпадении этих параметров, значение элемента перезаписывается.</li>
+<li>Если же предыдущий шаг не выявил совпадений, будет вызван метод <span class="codemethod">addEntry</span>(<span class="codeobject">hash</span>, <span class="codeobject">key</span>, <span class="codeobject">value</span>, <span class="codeobject">index</span>) для добавления нового элемента.</li>
+<img src="hashmap1.png" alt="hashmap">
+</ol>
+</section>
 
 
 <footer>
