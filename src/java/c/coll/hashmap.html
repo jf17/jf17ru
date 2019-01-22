@@ -23,8 +23,8 @@
 
 <section>
 <font color="#ffa31a">	<h2> HasMap:</h2></font>
-<p> HasMap - это key-value коллекция работающая по принципу Кеширования.</p>
-<p> Key-value значения хранаться попарно в классе <span class="codeclass">Entry</span> , а сами классы <span class="codeclass">Entry</span> храняться в массиве с именем <span class="codeobject">table</span> (capacity - по умолчанию имеет значение 16). </p></div>
+<p> <span class="codeclass">HasMap</span> - это <span class="codeobject">key-value</span> коллекция работающая по принципу Кеширования.</p>
+<p> <span class="codeobject">Key-value</span> значения хранаться попарно в классе <span class="codeclass">Entry</span> , а сами классы <span class="codeclass">Entry</span> храняться в массиве с именем <span class="codeobject">table</span> (capacity - по умолчанию имеет значение 16). </p></div>
 </section>
 
 
@@ -33,8 +33,9 @@
 <ul>
 <li><span class="codeobject">table</span> — Массив типа <span class="codeclass">Entry</span>[], который является хранилищем ссылок на списки (цепочки) значений;</li>
 <li> <span class="codeobject">loadFactor</span> — Коэффициент загрузки. Значение по умолчанию 0.75 является хорошим компромиссом между временем доступа и объемом хранимых данных; </li>
-<li><span class="codeobject">threshold</span> — Предельное количество элементов, при достижении которого, размер хэш-таблицы увеличивается вдвое. Рассчитывается по формуле (capacity * loadFactor);</li>
+<li><span class="codeobject">threshold</span> — Предельное количество элементов, при достижении которого, размер хэш-таблицы увеличивается вдвое. Рассчитывается по формуле (<span class="codeobject">capacity</span> * <span class="codeobject">loadFactor</span>);</li>
 <li><span class="codeobject">size</span> — Количество элементов HashMap-а</li>
+Вы можете указать свои емкость и коэффициент загрузки, используя конструкторы <span class="codeclass">HashMap</span>(<span class="codeobject">capacity</span>) и <span class="codeclass">HashMap</span>(<span class="codeobject">capacity</span>, <span class="codeobject">loadFactor</span>). Максимальная емкость, которую вы сможете установить, равна половине максимального значения <span class="codeoperator">int</span> (1073741824).
 </ul>
 </section>
 
