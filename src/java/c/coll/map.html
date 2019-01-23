@@ -11,34 +11,38 @@
 </head>
 <body>
 <!-- Heading -->
-<section>
+<header>
 <div class="content">
 <h1> <a href="https://jf17.ru/" >Главная</a></h1>
 <h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
 <h2> <a href="https://jf17.ru/java/c/collections.html" >Collections Framework</a></h2>
 <hr />
-</section>
+</header>
                          
 
 <section>
-<header>
 <div class="content">
 <font color="#ffa31a">	<h2> интерфейс Map(key-value коллекция):</h2></font>
-<p>  </p>
-<p> </p>
-</header>
+<p> Отображения не поддерживают реализацию интерфейса <span class="codeclass">Iterable</span>, поэтому нельзя перебрать карту через цикл <span class="codeoperator">for</span> в форме <span class="codeoperator">for-each</span> </p>
+<p>Интерфейс <span class="codeclass">SortedMap</span> расширяет интерфейс <span class="codeclass">Map</span> и гарантирует, что элементы размещаются в возрастающем порядке значений ключей. </p>
+<p>Интерфейс <span class="codeclass">NavigableMap</span> расширяет интерфейс <span class="codeclass">SortedMap</span> и определяет поведение отображения, поддерживающее извлечение элементов на основе ближайшего соответствия заданному ключу или ключам</p>
+<p>Интерфейс <span class="codeclass">Map.Entry</span> позволяет работать с элементом отображения, в частности используется при переборе элементов .</p>
 </div>
+</section>
 
 <!-- имплементация в классах -->
+<section>
 <div class="content">
 <font color="orange"><h4>имплементация в классах:</h4></font>
 <ul>
-<li> <a href="coll/hashmap.html"> HashMap</a> </li>
-<li> <a href="coll/treemap.html"> TreeMap</a> </li>
+<li> <a href="hashmap.html"> HashMap</a> </li>
+<li> <a href="#"> TreeMap</a> </li>
 </ul>
 </div>
+</section>
 
 <!-- методы интерфейса List: -->
+<section>
 <div class="content">
 <font color="orange"><h4>методы интерфейса Map:</h4></font>
 <ul>
@@ -49,6 +53,7 @@
 <li>  </li>
 </ul>
 </div>
+</section>
 
 
 
