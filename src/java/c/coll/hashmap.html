@@ -27,6 +27,7 @@
 <span class="codeoperator">extends</span> <span class="codeclass">AbstractMap</span> <br>
 <span class="codeoperator">implements</span> <span class="codeclass">Map</span>, <span class="codeclass">Cloneable</span>, <span class="codeclass">Serializable</span> <br>
 <p> класс <span class="codeclass">HasMap</span> - это <span class="codeobject">key-value</span> коллекция работающая по принципу Хеширования. <a href="https://jf17.ru/java/c/hashCode.html" >hashCode</a></p>
+<p><font color="#ff6666">Этот класс не дает никаких гарантий упорядоченного размещения элементов.</font></p>
 <p> <span class="codeobject">Key-value</span> значения хранаться попарно в классе <span class="codeclass">Entry</span> , а сами классы <span class="codeclass">Entry</span> храняться в массиве с именем <span class="codeobject">table</span> (capacity - по умолчанию имеет значение 16). <br>
 Добавление элемента выполняется за время O(1), потому как новые элементы вставляются в начало цепочки списка.<br>
 Операции получения и удаления элемента могут выполняться за время O(1), если хэш-функция равномерно распределяет элементы и отсутствуют коллизии.В самом худшем случае, время выполнения может составить Θ(n) .<br>
