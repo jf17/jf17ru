@@ -21,7 +21,7 @@
 
 <section>
 <font color="#ffa31a">	<h2> интерфейс Collection:</h2></font>
-<p>  </p>
+<p>java.util</p>
 <p></p>
 </section>
 
@@ -30,8 +30,25 @@
 <section>
 <font color="orange"><h3>Методы:</h3></font>
 <ul>
-boolean *.add(E e) - добавить элемент в коллекцию 
-
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.add</span>(E e) - добавить элемент в коллекцию </li>
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.addAll</span>(Collection<? extends E> c) - добавить много элементов из другой коллекции в эту</li>
+<li><span class="codeoperator">void</span> *<span class="codemethod">.clear</span>() - очистить коллекцию</li>
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.contains</span>(Object o) - проверить наличие обьекта в коллекции</li>
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.containsAll</span>(Collection<?> c) - проверить наличие всех элементов в коллекции</li>
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.equals</span>(Object o) - сравнить коллекции</li>
+<li><span class="codeoperator">int</span> *<span class="codemethod">.hashCode</span>() - вернуть хэшкод коллекции</li>
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.isEmpty</span>() - путая ли коллекция ? </li>
+<li><span class="codeclass">Iterator</span>  *<span class="codemethod">.iterator</span>() - возвращает объект Iterator для обхода элементов коллекции</li>
+<li><span class="codeoperator">default</span> <span class="codeclass">Stream</span>  *<span class="codemethod">.parallelStream(</span>) -  </li>
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.remove(</span>Object o) - удалить обьект из коллекции </li>
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.removeAll(</span>Collection coll) - удаляет все объекты коллекции coll из текущей коллекции</li>
+<li><span class="codeoperator">default boolean</span> *<span class="codemethod">.removeIf</span>(Predicate filter) - Удаляет все элементы этой коллекции, удовлетворяющие заданному предикату.</li>
+<li><span class="codeoperator">boolean</span> *<span class="codemethod">.retainAll</span>(Collection coll) -  удаляет все объекты из текущей коллекции, кроме тех, которые содержатся в коллекции col. </li>
+<li><span class="codeoperator">int</span> *<span class="codemethod">.size(</span>) - возвращает число элементов в коллекции .</li>
+<li><span class="codeclass">Spliterator</span> *<span class="codemethod">.spliterator(</span>) - возвращает Spliterator чтобы  легко отделить часть коллекции, например. потому что вы распараллеливаете и хотите, чтобы один поток работал над одной частью коллекции, другой поток работал с другой частью и т.д </li>
+<li><span class="codeclass">Stream</span> *<span class="codemethod">.stream(</span>) - для работы Stream API .</li>
+<li><span class="codeoperator">[]</span> *<span class="codemethod">.toArray(</span>) -  возвращает массив, содержащий все элементы коллекции . </li>
+<li></li>
 </ul>
 </section>
 
