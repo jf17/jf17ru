@@ -9,43 +9,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
 </head>
-<body>
+<body class="content">
 <!-- Heading -->
-<section>
-<div class="content">
+<header>
 <h1> <a href="https://jf17.ru/" >Главная</a></h1>
 <h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
 <hr />
-</section>
+</header>
                          
 
 <section>
-<header>
-<div class="content">
 <font color="#ffa31a">	<h2> String</h2></font>
 <p><font color="#ffa31a">package java.lang.*</font></p>
 <p>Следует помнить, что объекты класса String являются неизменяемыми (immutable). Поэтому, когда вам кажется, что вы меняете строку, то на самом деле вы создаёте новую строку. </p>
 <p>В Java есть специальные классы StringBuffer и StringBuilder, который допускают изменения в строке. </p>
 <p>Классы String, StringBuffer, StringBuilder определены в пакете java.lang и доступны автоматически без объявления импорта. Все три класса реализуют интерфейс CharSequence. </p>
 <br>
-</header>
-</div>
+</section>
+
+<section>
+<font color="#ffa31a">	<h2> Какая основная разница между String, StringBuffer, StringBuilder? </h2></font>
+<p>String - неизменяемый класс, тоесть для для добавление данных в уже существующую строку, создается новый объект строки. </p>
+<p>StringBuffer и StringBuilder могут изменятся и добавление строки не такое дорогостоющее с точки зрения памяти. Первы - синхронизированный, второй - нет. Это их единственное различие. </p>
+<br>
+</section>
+
 
 
 <section>
-<div class="content">
 <font color="#a300cc">	<h3> <span class="codeoperator">int</span> <span class="codemethod"><span class="codeobject">*</span>.length()</span> :</h3></font>
 <p>Возращает длинну строки .</p>
 <br>
-</div>
 </section>
 
 
 <section>
-<div class="content">
 <font color="#a300cc">	<h3> <span class="codeoperator">boolean</span> <span class="codemethod"><span class="codeobject">*</span>.contains()</span> :</h3></font>
 <p>Определяет, содержит ли строка последовательность символов.</p>
-</div>
+</section>
+
 <!-- Code -->
 <section>
 <pre><code class="code">
