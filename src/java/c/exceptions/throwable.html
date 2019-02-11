@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Throwable. Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body class="content">
+
+
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h2> <a href="https://jf17.ru/java/c/exceptions.html" >Exceptions</a></h2>
+<hr />
+</header>
+                         
+
+<section>
+<font color="#ffa31a">	<h2> Throwable:</h2></font>
+пакет <font color="#cc00ff">java.lang.Throwable</font> <br>
+<p>
+Все классы-исключения расширяют класс <span class="codeclass">Throwable</span> - непосредственное расширение класса <span class="codeobject">object</span>.
+</p>
+<ul>
+<li><span class="codeclass">Throwable</span>() - конструктор по умолчанию .</li>
+<li><span class="codeclass">Throwable</span> (<span class="codeclass">String</span> <span class="codeobject">message</span>) - создаваемый объект будет содержать произвольное сообщение <span class="codeobject">message</span>.</li>
+</ul>
+Записанное в конструкторе сообщение можно получить затем методом <span class="codemethod">*.getMessage()</span>. Если объект создавался конструктором по умолчанию, то данный метод возвратит <span class="codeoperator">null</span>.
+</section>
+<br>
+
+
+<section>
+<font color="#ffa31a">	<h2> Методы :</h2></font>
+	<ul>
+	<li> <span class="codemethod">*.printstackTrace()</span> - выводит сообщения в стандартный вывод, как правило, это консоль;</li>
+	<li> <span class="codemethod">*.printStackTrace(PrintStream stream)</span> - выводит сообщения в байтовый поток stream; </li>
+	<li> <span class="codemethod">*.printStackTrace(PrintWriter stream)</span> - выводит сообщения в символьный поток stream. </li>
+	</ul>
+</section>
+
+
+
+
+
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html" target="_blank" rel="noopener"> документация Oracle по Throwable.  </a> </li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	</ul>
+</section>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body>
+</html>
