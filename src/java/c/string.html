@@ -40,86 +40,28 @@
 
 
 
+<!-- методы : -->
 <section>
-<font color="#a300cc">	<h3> <span class="codeoperator">int</span> <span class="codemethod"><span class="codeobject">*</span>.length()</span> :</h3></font>
-<p>Возращает длинну строки .</p>
-<br>
+<font color="orange"><h4>Методы :</h4></font>
+<ul>
+<li><span class="codeoperator">int</span> <span class="codeobject">*</span><span class="codemethod">.length</span>() - Возращает длинну строки .</li>
+<li><span class="codeoperator">boolean</span> <span class="codeobject">*</span><span class="codemethod">.contains</span>() - Определяет, содержит ли строка последовательность символов. </li>
+<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.equals</span>(<span class="codeclass">Object</span> <span class="codeobject">obj</span>) - Сравнивает содержимое строк . </li>
+<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.equalsIgnoreCase</span>(<span class="codeclass">String</span> <span class="codeobject">str</span>) - Сравнивает содержимое строк игнорируя регистр букв.</li>
+<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.toUpperCase</span>() - Переводит все буквы в строке в верхний регистр и возвращает новую строку.</li>
+<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.toLowerCase</span>() - Переводит все буквы в строке в нижний регистр и возвращает новую строку.</li>
+<li><span class="codeoperator">boolean</span> <span class="codeobject">*</span><span class="codemethod">.matches</span>(<span class="codeclass">String</span> <span class="codeobject">regex</span>) - Указывает, соответствует ли эта строка данному регулярному выражению. </li>
+<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.trim</span>() - Возвращает строку, значение которой является этой строкой, с удалением всех пробельных символов.</li>
+<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.replace</span>(<span class="codeoperator">char</span> <span class="codeobject">oldChar</span>, <span class="codeoperator">char</span> <span class="codeobject">newChar</span>) - Возвращает строку, полученную в результате замены всех вхождений oldChar в этой строке с помощью newChar.</li>
+<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.replaceAll</span>(<span class="codeclass">String</span> <span class="codeobject">regex</span>, <span class="codeclass">String</span> <span class="codeobject">replacement</span>) - Заменяет каждую подстроку этой строки, которая соответствует данному регулярному выражению с указанной заменой.</li>
+<li><span class="codeoperator">byte[]</span>  <span class="codeobject">*</span><span class="codemethod">.getBytes</span>() - Вернуть байтовое представление строки</li>
+<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.substring</span>(<span class="codeoperator">int</span> <span class="codeobject">beginIndex</span>, <span class="codeoperator">int</span> <span class="codeobject">endIndex</span>) - Вернуть подстроку из строки по индексам.</li>
+<li><span class="codeoperator">char</span> <span class="codeobject">*</span><span class="codemethod">.charAt</span>(<span class="codeoperator">int</span> <span class="codeobject">index</span>) - Вернуть букву по её индексу.</li>
+<li> </li>
+<li> </li>
+</ul>
 </section>
 
-
-<section>
-<font color="#a300cc">	<h3> <span class="codeoperator">boolean</span> <span class="codemethod"><span class="codeobject">*</span>.contains()</span> :</h3></font>
-<p>Определяет, содержит ли строка последовательность символов.</p>
-</section>
-
-<!-- Code -->
-<section>
-<pre><code class="code">
-<span class="codeclass">  String</span> <span class="codeobject">testString</span> = <span class="codetext">"котёнок"</span>;
-
-<span class="codeoperator">  if</span>(<span class="codeobject">testString</span><span class="codemethod">.contains</span>(<span class="codetext">"кот"</span>)){
-<span class="codecomment">      // your code</span>
-  }
-</code></pre>
-<br>
-</section>
-
-<section>
-<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod"><span class="codeobject">*</span>.equals(<span class="codeclass">Object</span> <span class="codeobject">obj</span> )</span> :</h3></font>
-<p>Сравнивает содержимое строк .</p>
-<br>
-</section>
-
-<section>
-<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod"><span class="codeobject">*</span>.equalsIgnoreCase(<span class="codeclass">String</span> <span class="codeobject">str</span> )</span> :</h3></font>
-<p>Сравнивает содержимое строк игнорируя регистр букв.</p>
-<br>
-</section>
-
-
-
-<section>
-<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod"><span class="codeobject">*</span>.toUpperCase()</span> :</h3></font>
-<p>Переводит все буквы в строке в <b>верхний</b> регистр и возвращает новую строку.</p>
-<br>
-</section>
-
-<section>
-<font color="#a300cc">	<h3> <span class="codeclass">String</span> <span class="codemethod"><span class="codeobject">*</span>.toLowerCase()</span> :</h3></font>
-<p>Переводит все буквы в строке в <b>нижний</b> регистр и возвращает новую строку.</p>
-<br>
-</section>
-
-
-
-<section>
-<font color="#a300cc">	<h3> <span class="codeoperator">boolean</span> <span class="codemethod"><span class="codeobject">*</span>.matches(<span class="codeclass">String</span> <span class="codeobject">regex</span> )</span> :</h3></font>
-<p>Указывает, соответствует ли эта строка данному регулярному выражению.</p>
-<br>
-</section>
-
-
-
-<section>
-<font color="#a300cc">	<h3> <span class="codeclass">String  </span> <span class="codemethod">  <span class="codeobject">*</span>.trim()</span> :</h3></font>
-<p>Возвращает строку, значение которой является этой строкой, с удалением всех пробельных символов.</p>
-<br>
-</section>
-
-
-
-<section>
-<font color="#a300cc">	<h3> <span class="codeclass">String  </span> <span class="codemethod">  <span class="codeobject">*</span>.replace(<span class="codeoperator">char</span> <span class="codeobject"> oldChar</span>, <span class="codeoperator">char</span> <span class="codeobject"> newChar</span>)</span> :</h3></font>
-<p>Возвращает строку, полученную в результате замены всех вхождений oldChar в этой строке с помощью newChar.</p>
-<br>
-</section>
-
-
-<section>
-<font color="#a300cc">	<h3> <span class="codeclass">String  </span> <span class="codemethod">  <span class="codeobject">*</span>.replaceAll(<span class="codeclass">String</span> <span class="codeobject">regex</span>, <span class="codeclass">String</span> <span class="codeobject"> replacement</span>)</span> :</h3></font>
-<p>Заменяет каждую подстроку этой строки, которая соответствует данному регулярному выражению с указанной заменой.</p>
-<br>
-</section>
 
 <section>
 	<h4>Полезные ссылки:</h4>
