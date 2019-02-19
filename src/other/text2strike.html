@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>Перечёркнутый текст </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+
+    <style type="text/css">
+
+body {
+	font-family:tahoma,verdana,georgia,times new roman,arial;
+	font-size:13px;
+	margin:0;
+	overflow:hidden;
+	padding:0;
+
+}
+
+.wrapper textarea {
+	border:1px solid #666;
+	font-family:tahoma,verdana,arial;
+	font-size:13px;
+	height:120px;
+	padding:5px;
+	width:98%;
+}
+
+.right {
+	float:right;
+	text-align:right;
+	width:40%;
+}
+
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var strikethrough = function() {
+	var input = document.getElementById('input');
+	var output = document.getElementById('output');
+	var result = '\u0336';
+	for (var i=0;i<input.value.length;i++) {
+		result += input.value.charAt(i)+'\u0336';
+	}
+	output.value = result;
+}
+
+//]]>
+</script>
+</head>
+<body class="content">
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<hr />
+</header>
+
+<font color="#ffa31a"><h1>Перечёркнутый текст </h1></font><br>
+<div class="wrapper">
+				<form onsubmit="strikethrough();return false;">
+Ввести текст: <textarea id="input"></textarea><br><br>
+Результат: <textarea id="output"></textarea><br><br>
+<input type="submit" value="Зечеркнуть текст" >
+				</form><br><br>
+</div>
+<!-- Footer -->
+<footer >
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+</script>
+</footer>
+
+</body>
+</html>
