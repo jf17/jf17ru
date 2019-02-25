@@ -16,14 +16,15 @@ var netin =document.getElementById("net").value;
 var coeff = grossin /100;
 var nalog =  coeff * 13;
 
+
 var gross = grossin - nalog;
-var net = netin ;
+var net = netin /0.87;
 
  if (gross != null) {
-    document.getElementById("demo").innerHTML = gross ;
+    document.getElementById("demo").innerHTML = "NET: " + gross + " руб." ;
 }
  if (net != null) {
-    document.getElementById("demo2").innerHTML =net ;
+    document.getElementById("demo2").innerHTML ="GROSS: " +net + " руб." ;
         }
 
   }
