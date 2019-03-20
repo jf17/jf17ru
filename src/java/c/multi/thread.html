@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Thread. Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<hr />
+</header>
+                         
+
+<section>
+
+<font color="#ffa31a">	<h2> Thread.</h2></font>
+<p><font color="#ffa31a">package java.lang.*</font></p>
+ </p>
+<br>
+
+
+<!-- методы Object: -->
+<font color="orange"><h4>методы Thread:</h4></font>
+<ul>
+<li><span class="codeclass">Thread  </span> <font color="#e6e600"> *.currentThread() </font> : Получаем ссылку на текущий поток выполнения </li><br>
+<li><span class="codeclass">String  </span><font color="#e6e600"> *.getName() </font> :  возвращает имя потока</li><br>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.setName(<span class="codeclass">String</span> <span class="codeobject">name</span>) </font> : устанавливает имя потока </li><br>
+<li><span class="codeoperator">int  </span><font color="#e6e600"> *.getPriority() </font> : возвращает приоритет потока </li><br>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.setPriority(<span class="codeoperator">int</span> <span class="codeobject">proirity</span>) </font> : устанавливает приоритет потока.  В этот метод в качестве параметра передается числовое значение приоритета - от 1 до 10. По умолчанию главному потоку выставляется средний приоритет - 5. </li><br>
+<li><span class="codeoperator">boolean  </span><font color="#e6e600"> *.isAlive() </font> :  возвращает true, если поток активен</li><br>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.interrupt() </font> :  приостанавливает поток . (не завершает)</li><br>
+<li><span class="codeoperator">boolean  </span><font color="#e6e600"> *.isInterrupted() </font> :  возвращает true, если поток был прерван</li><br>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.join() </font> :  ожидает завершение потока</li><br>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.run() </font> :  определяет точку входа в поток</li><br>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.sleep(<span class="codeoperator">long</span> <span class="codeobject">millis</span>) </font> :  приостанавливает поток на заданное количество миллисекунд</li><br>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.start() </font> :  запускает поток, вызывая его метод run()</li><br>
+<li><span class="codeoperator">long  </span><font color="#e6e600"> *.getId() </font> :  возвращает Id потока</li><br>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.setDaemon(<span class="codeoperator">boolean</span> <span class="codeobject">on</span>) </font> :  помечает поток как daemon</li><br>
+<li><span class="codeclass">ThreadGroup  </span><font color="#e6e600"> *.getThreadGroup() </font> :  возвращает ссылку на группу потоков . Возврящает <span class="codeoperator">null</span> если поток мертв.</li><br>
+
+<li>  </li>
+</ul>
+</section>
+
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html" target="_blank" rel="noopener"> Thread in JavaDoc (Java 8) </a> </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html" target="_blank" rel="noopener"> Thread in JavaDoc (Java 7) </a> </li>
+	<li>  </li>
+	<li>  </li>
+	</ul>
+	</div>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body>
+<!-- Footer -->
+</html>
