@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> ExecutorService . Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h2> <a href="https://jf17.ru/java/c/multithreading.html" > Многопоточность</a></h2>
+<hr />
+</header>
+                         
+
+<section>
+
+<font color="#ffa31a">	<h2> ExecutorService.</h2></font>
+
+<br>
+
+
+<!-- методы Object: -->
+<font color="orange"><h4>методы ExecutorService:</h4></font>
+<ul>
+<li><span class="codeoperator">void</span><font color="#e6e600"> *.shutdown()</font> : инициирует упорядочное завершение, новые задачи не принимаются . Этот метод не ожидает выполнение ранее отправленных задач !</li><br>
+<li><span class="codeoperator">void</span><font color="#e6e600"> *.shutdownNow()</font> : Пытается остановить все активные задачи, новые задачи не принимаются . Этот метод не ожидает выполнение ранее отправленных задач !</li><br>
+<li><span class="codeoperator">boolean</span><font color="#e6e600"> *.awaitTermination(<span class="codeoperator">long</span> <span class="codeobject">timeout</span>,<span class="codeclass">TimeUnit</span> <span class="codeobject">unit</span>)</font> : блокируется до тех пор, пока все задачи не завершат выполнение после запроса на выключение, или не истечет время ожидания, или текущий поток не прервется. </li><br>
+
+
+
+<li>  </li>
+</ul>
+</section>
+
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html" target="_blank" rel="noopener"> ExecutorService in JavaDoc (Java 7) </a> </li>
+	<li>  </li>
+	<li>  </li>
+	</ul>
+	</div>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body>
+<!-- Footer -->
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Executors . Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h2> <a href="https://jf17.ru/java/c/multithreading.html" > Многопоточность</a></h2>
+<hr />
+</header>
+                         
+
+<section>
+
+<font color="#ffa31a">	<h2> Executors.</h2></font>
+<p><font color="#ffa31a">package java.util.concurrent.*</font></p>
+ </p>
+<p> появился в java 1.5</p>
+<br>
+
+
+<!-- методы Object: -->
+<font color="orange"><h4>методы Executors:</h4></font>
+<ul>
+<li><span class="codeclass">ExecutorService  </span> <span class="codeclass">Executors</span><font color="#e6e600">.newSingleThreadExecutor()</font> : возвращает один рабочий поток . Задачи гарантированно выполняются последовательно.</li><br>
+<li><span class="codeclass">ExecutorService  </span> <span class="codeclass">Executors</span><font color="#e6e600">.newFixedThreadPool(<span class="codeoperator">int</span> <span class="codeobject">nThreads</span>)</font> : возвращает фиксированное кол-во рабочих потоков</li><br>
+<li><span class="codeclass">ExecutorService  </span> <span class="codeclass">Executors</span><font color="#e6e600">.newCachedThreadPool()</font> : создает новые потоки по мере необходимости .</li><br>
+<li><span class="codeclass">ScheduledExecutorService  </span> <span class="codeclass">Executors</span><font color="#e6e600">.newScheduledThreadPool(<span class="codeoperator">int</span> <span class="codeobject">corePoolSize</span>)</font> : создает пул потоков, который может запланировать выполнение команд после задержки или переодическое выполнение.</li><br>
+
+
+<li>  </li>
+</ul>
+</section>
+
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Executors.html" target="_blank" rel="noopener"> Executors in JavaDoc (Java 7) </a> </li>
+	<li>  </li>
+	<li>  </li>
+	</ul>
+	</div>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body>
+<!-- Footer -->
+</html>
