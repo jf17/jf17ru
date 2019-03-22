@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Concurrent Collections . Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h2> <a href="https://jf17.ru/java/c/multithreading.html" > Многопоточность</a></h2>
+<hr />
+</header>
+                         
+
+<section>
+
+<font color="#ffa31a">	<h2> Concurrent Collections.</h2></font>
+
+<br>
+</section>
+
+
+<section>
+<font color="orange"><h4>CopyOnWrite коллекции:</h4></font>
+	<ul>
+	<li> <a href="#" > CopyOnWriteArrayList </a> Потокобезопасный аналог ArrayList, реализованный с CopyOnWrite алгоритмом.  </li>
+	<li> <a href="#" > CopyOnWriteArraySet </a> Имплементация интерфейса Set, использующая за основу CopyOnWriteArrayList. В отличии от CopyOnWriteArrayList, дополнительных методов нет. </li>
+	</ul>
+</section>
+
+<section>
+<font color="orange"><h4>Scalable Maps:</h4></font>
+	<ul>
+	<li> <a href="#" > ConcurrentMap </a> Интерфейс, расширяющий Map несколькими дополнительными атомарными операциями. </li>
+	<li> <a href="#" > ConcurrentHashMap </a> В отличие от Hashtable и блоков synhronized на HashMap, данные представлены в виде сегментов, разбитых по hash'ам ключей. В результате, для доступ к данным лочится по сегментам, а не по одному объекту. В дополнение, итераторы представляют данные на определенный срез времени и не кидают ConcurrentModificationException. </li>
+	<li> <a href="#" > ConcurrentNavigableMap </a> Расширяет интерфейс NavigableMap и вынуждает использовать ConcurrentNavigableMap объекты в качестве возвращаемых значений. Все итераторы декларируются как безопасные к использованию и не кидают ConcurrentModificationException. </li>
+	<li> <a href="#" > ConcurrentSkipListMap </a> Является аналогом TreeMap с поддержкой многопоточности. Данные также сортируются по ключу и гарантируется усредненная производительность log(N) для containsKey, get, put, remove и других похожих операций.</li>
+	<li> <a href="#" > ConcurrentSkipListSet </a> Имплементация Set интерфейса, выполненная на основе ConcurrentSkipListMap. </li>
+	</ul><br>
+</section>
+
+<section>
+<font color="orange"><h4>Queues :</h4></font>
+	<ul>
+	<font color="#cc00cc">Non-Blocking Queues:</font><br>
+	<li> <a href="#" > ConcurrentLinkedQueue </a> В имплементации используется wait-free алгоритм от Michael & Scott, адаптированный для работы с garbage collector'ом. Этот алгоритм довольно эффективен и, что самое важное, очень быстр, т.к. построен на CAS. Метод size() может работать долго, т.ч. лучше постоянно его не дергать. </li>
+	<li> <a href="#" > ConcurrentLinkedDeque </a> Deque расшифровывается как Double ended queue и читается как «Deck». Это означает, что данные можно добавлять и вытаскивать с обоих сторон. Соответственно, класс поддерживает оба режима работы: FIFO (First In First Out) и LIFO (Last In First Out). На практике, ConcurrentLinkedDeque стоит использовать только, если обязательно нужно LIFO, т.к. за счет двунаправленности нод данный класс проигрывает по производительности на 40% по сравнению с ConcurrentLinkedQueue.</li>
+	<br>
+
+	<font color="#cc00cc">Blocking Queues:</font><br>
+	<li> <a href="#" > BlockingQueue </a>  При обработке больших потоков данных через очереди становится явно недостаточно использования ConcurrentLinkedQueue. Если потоки, разгребающие очередь перестанут справляться с наплывом данных, то можно довольно быстро схлопотать out of memory или перегрузить IO/Net настолько, что производительность упадет в разы пока не настанет отказ системы по таймаутам или из за отсутствия свободных дескрипторов в системе. Для таких случаев нужна queue с возможностью задать размер очереди или с блокировками по условиям. Тут то и появляется интерфейс BlockingQueue, открывающий дорогу к целому набору полезных классов.  </li>
+	<li> <a href="#" > ArrayBlockingQueue </a> Класс блокирующей очереди, построенный на классическом кольцевом буфере. Помимо размера очереди, доступна возможность управлять «честностью» блокировок. Если fair=false (по умолчанию), то очередность работы потоков не гарантируется. Более подробно о «честности» можно посмотреть в описании ReentrantLock'a.  </li>
+	<li> <a href="#" > DelayQueue </a> Довольно специфичный класс, который позволяет вытаскивать элементы из очереди только по прошествии некоторой задержки, определенной в каждом элементе через метод getDelay интерфейса Delayed.  </li>
+	<li> <a href="#" > LinkedBlockingQueue </a> Блокирующая очередь на связанных нодах, реализованная на «two lock queue» алгоритме: один лок на добавление, другой на вытаскивание элемента. За счет двух локов, по сравнению с ArrayBlockingQueue, данный класс показывает более высокую производительность, но и расход памяти у него выше. Размер очереди задается через конструктор и по умолчанию равен Integer.MAX_VALUE.  </li>
+	<li> <a href="#" > PriorityBlockingQueue </a> Является многопоточной оберткой над PriorityQueue. При вставлении элемента в очередь, его порядок определяется в соответствии с логикой Comparator'а или имплементации Comparable интерфейса у элементов. Первым из очереди выходит самый наименьший элемент.  </li>
+	<li> <a href="#" > SynchronousQueue </a> Эта очередь работает по принципу один вошел, один вышел. Каждая операция вставки блокирует «Producer» поток до тех пор, пока «Consumer» поток не вытащит элемент из очереди и наоборот, «Consumer» будет ждать пока «Producer» не вставит элемент. </li>
+	<li> <a href="#" > BlockingDeque </a>  Интерфейс, описывающий дополнительные методы для двунаправленной блокирующей очереди. Данные можно вставлять и вытаскивать с двух сторон очереди.  </li>
+	<li> <a href="#" > LinkedBlockingDeque </a> Двунаправленная блокирующая очередь на связанных нодах, реализованная как простой двунаправленный список с одним локом. Размер очереди задается через конструктор и по умолчанию равен Integer.MAX_VALUE.  </li>
+	<li> <a href="#" > TransferQueue </a> Данный интерфейс может быть интересен тем, что при добавлении элемента в очередь существует возможность заблокировать вставляющий «Producer» поток до тех пор, пока другой поток «Consumer» не вытащит элемент из очереди. Блокировка может быть как с таймаутом, так и вовсе может быть заменена проверкой на наличие ожидающих «Consumer»ов. Тем самым появляется возможность реализации механизма передачи сообщений с поддержкой как синхронных, так и асинхронных сообщений.  </li>
+	<li> <a href="#" > LinkedTransferQueue </a> Реализация TransferQueue на основе алгоритма Dual Queues with Slack. Активно использует CAS и парковку потоков, когда они находятся в режиме ожидания. </li>
+	
+	</ul>
+</section>
+
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://habr.com/ru/company/luxoft/blog/157273/" target="_blank" rel="noopener"> Обзор java.util.concurrent.* </a> (хабр) </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html" target="_blank" rel="noopener">Package java.util.concurrent</a> Java 7</li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html" target="_blank" rel="noopener">Package java.util.concurrent</a> Java 8</li>
+	<li>  </li>
+	<li>  </li>
+	</ul>
+	</div>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body>
+<!-- Footer -->
+</html>

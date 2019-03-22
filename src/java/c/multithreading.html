@@ -19,35 +19,35 @@
 </section>
                                 
 <section>
-<div class="content">
 <font color="#ffa31a">	<h2> Data: </h2></font>
 <ul>
-<li> <a href="multi/volatile.html"> volatile </a> fild (без кэширования)</li>
-<li> <a href="multi/atomic.html"> atomic </a> fild ( AtomicInteger ) </li>
-<li></li>
-<li> <a href="multi/synchronized.html"> synchronized </a> block code (устаревший, не рекомендуется)</li>
-<li> <a href="multi/locks.html"> locks </a> block code (Lock)  </li>
-<li></li>
-<li> <a href="multi/collections.html">Concurrent Collections</a> ConcurrentMap </li>
+<font color="#cc00cc">fild (поле)</font><br>
+<li> <a href="multi/volatile.html"> volatile </a>  (без кэширования , потоко <font color="#ff0033">не безопасный</font>)</li>
+<li> <a href="multi/atomic.html"> atomic </a>  ( <font color="#66ff66">потокобезопасные</font> враперы над примитивами ) </li>
+
+<br><font color="#cc00cc">блок кода или метод</font><br>
+<li> <a href="multi/synchronized.html"> synchronized </a>  (устаревший, не рекомендуется)</li>
+<li> <a href="multi/locks.html"> locks </a> (Lock)  </li>
+
+<br><font color="#cc00cc">Thread safe коллекции</font><br>
+<li> <a href="multi/concurrentcollections.html">Concurrent Collections</a> ConcurrentMap </li>
 </ul>
-</div>
+<br>
 </section>
 
 
 <section>
-<div class="content">
 <font color="#ffa31a">	<h2> Time: </h2></font>
 <ul>
 <li> <a href="multi/synchronizers.html"> Synchronizers</a> </li>
 
 </ul>
-</div>
+<br>
 </section>
 
 
 <section>
-<div class="content">
-<font color="#ffa31a">	<h2> Классы и Интерфейсы: </h2></font>
+<font color="#ffa31a">	<h2> Executors: </h2></font>
 <ul>
 <li> <a href="multi/thread.html"> класс Thread </a> </li>
 <li> <a href="multi/executors.html"> класс Executors </a> </li>
@@ -57,6 +57,15 @@
 <li> <a href="multi/future.html"> интерфейс Future </a> </li>
 <li> <a href="multi/runnable.html"> интерфейс Runnable </a> </li>
 <li> <a href="multi/reentrantLock.html"> класс ReentrantLock </a> </li>
+</ul>
+<br>
+</section>
+
+<section>
+<div class="content">
+<font color="#ffa31a">	<h2> Others: </h2></font>
+<ul>
+<li> <a href="https://jf17.ru/java/buzzwords/mutex.html"> mutex</a>  мьютекс </li>
 <li></li>
 <li> <a href="multi/forkjoin.html"> Fork/Join </a>  Java 7 </li>
 <li> <a href="multi/streamapi.html"> Stream API </a> Java 8</li>
@@ -72,7 +81,10 @@
 </div>
 <div class="content">
 <ul>
-<li> <a href="xxxxxx" target="_blank">xxxxx</a></li>
+<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html" target="_blank" rel="noopener">Package java.util.concurrent</a> Java 7</li>
+<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html" target="_blank" rel="noopener">Package java.util.concurrent</a> Java 8</li>
+<li> <a href="https://habr.com/ru/company/luxoft/blog/157273/" target="_blank" rel="noopener">Обзор java.util.concurrent.* </a> (хабр , Luxoft)</li>
+<li> <a href="xxxxxx" target="_blank" rel="noopener">xxxxx</a></li>
 
 </ul></div>
 </section>

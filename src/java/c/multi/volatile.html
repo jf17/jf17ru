@@ -19,20 +19,21 @@
 </header>
                          
 
-<section>
+<article>
 
 <font color="#ffa31a">	<h2> volatile.</h2></font>
 <br>
 <p>Применяется к полю(fild) для того чтобы не использовать кэш данные , а читать значения напрямую из памяти.</p>
+<p>Можно использовать если один поток читает, а другой поток изменяет значение. (Thread safe)</p>
 <p>Чтение и запись <span class="codeoperator">volatile</span> переменной является потокобезопасной(Thread safe) операцией , а остальные (инкремент , декремент и т.д. ) являются <font color="#ff3333">потоко-не-безопасными</font> !!! </p>
-<p>инкремент переменной , такой как  x=x+1 выгладит как одна операция , однако , на самом деле это последовательность операций чтения-изменения-записи !!!</p>
-</section>
+<p>инкремент переменной , такой как  x=x+1 выгладит как одна операция , однако , на самом деле это последовательность операций <font color="#99ff99">чтения</font>-<font color="#ff3333">изменения</font>-<font color="#99ff99">записи</font> !!!</p>
+</article>
 
 
 <section>
 	<h4>Полезные ссылки:</h4>
 	<ul>
-	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Executors.html" target="_blank" rel="noopener"> Executors in JavaDoc (Java 7) </a> </li>
+	<li> <a href="xxxxxx" target="_blank" rel="noopener">xxxxx</a></li>
 	<li>  </li>
 	<li>  </li>
 	</ul>
