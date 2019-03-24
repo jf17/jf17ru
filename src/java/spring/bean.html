@@ -45,6 +45,18 @@
 
 <section>
 
+<section>
+<font color="#ffa31a">	<h3> алгоритм инициализации контекста: </h3></font>
+<ul>
+<li>XmlBeanDefinitionReader сканирует наш xml-конфигурационный файл. </li>
+<li>Создает BeanDefinition’ы и кладет их в HashMap. </li>
+<li> Приходит BeanFactory и из этой HashMap отдельно складывает все BeanPostProcessor’ы.</li>
+<li> Создает из BeanDefinition’ов бины и кладет их в IoC-контейнер.</li>
+<li>Тут приходят BPP и настраивают эти бины с помощью 2х методов. (postProcessorBeforeInitialization , postProcessorAfterInitialization) </li>
+</ul>
+
+<section>
+
 
 <section>
 <font color="#ffa31a">	<h3> Свойства Bean: </h3></font>
