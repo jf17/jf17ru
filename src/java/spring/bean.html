@@ -31,6 +31,17 @@
 <section>
 
 <section>
+<font color="#ffa31a">	<h3> требования к Bean: </h3></font>
+<ul>
+<li> Класс должен иметь конструктор без параметров, с модификатором доступа <span class="codeoperator">public</span> </li>
+<li> Все поля класса должны иметь модификатор <span class="codeoperator">private</span> и свойства класса должны быть доступны через <span class="codeoperator">get</span>, <span class="codeoperator">set</span></li>
+<li>Класс должен быть сериализуем.  <span class="codeoperator">implements</span> java.io.<span class="codeclass">Serializable</span> .  (не обязательно)</li>
+</ul>
+
+<section>
+
+
+<section>
 <font color="#ffa31a">	<h3> Свойства Bean: </h3></font>
 <ul>
 <li><span class="codeoperator">class</span> -  Этот атрибут является обязательным и указывает конкретный класс Java-приложения, который будет использоваться для создания бина. </li>
@@ -42,8 +53,6 @@
 <li><span class="codeoperator">destruction method</span> -  Метод уничтожения бина, который будет использоваться при уничтожении контейнера, содержащего бин.</li>
 <li><span class="codeoperator">autowiring mode</span> -  Определяет режим автоматического связывания при внедрении зависимости.</li>
 <li><span class="codeoperator">lazy-initialization mode</span> -  Режим ленивой инициализации даёт контейнеру IoC команду создавать экземпляр бина при первом запросе, а не при запуске приложения.</li>
-<li> </li>
-
 </ul>
 
 <section>
