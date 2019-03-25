@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Spring Bean - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+
+
+
+<!-- Heading -->
+<section>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h3> <a href="https://jf17.ru/java/spring/index.html" >Spring</a></h3>
+<hr />
+</section>
+                                
+<!-- Heading -->
+<section>
+<font color="#ffa31a">	<h2>Spring Bean :</h2></font>
+<p>
+Spring Bean – это, по сути , обьект, управляемый Spring . <br>
+Более конкретно , это обьект , который создается, настраевается и иным образом управляется контейнером Spring Framework. <br>
+ Spring контейнер может управлять любыми обьектами (POJO, JavaBean, EJB).
+</p>
+<p>Для того чтобы наша конфигурация была понята Spring’ом существует XmlBeanDefinitionReader. Это внутренний компонент Spring’a, который сканирует (парсит) xml и на основе того, что мы там написали создает BeanDefinition’ы. BeanDefinition – это объект, который хранит в себе информацию о бине. Сюда входит: из какого класса его (бин) надо создать; scope; установлена ли ленивая инициализация; нужно ли перед данным бином инициализировать другой и иные проперти, которые описаны в xml. Все полученные BeanDefinition’ы складываются в HashMap, в которой идентификатором является имя бина (установленное вами или присвоенное спрингом) и сам BeanDefinition объект. </p>
+<p>
+После того, как все BeanDefinition’ы созданы на сцену выходит новый герой – BeanFactory. Этот объект итерируется по HashMap’e с BeanDefinition’ами, создает на их основе бины и складывает в IoC контейнер. Здесь есть нюанс, на самом деле, при старте приложения, в IoC контейнер попадут бины, которые имеют scope Singleton (устанавливается по-умолчанию), остальные же создаются, тогда когда они нужны (prototype, request, session).
+</p>
+
+<section>
+
+
+<section>
+<font color="#ffa31a">	<h3> алгоритм инициализации контекста: </h3></font>
+<ol>
+<li>XmlBeanDefinitionReader сканирует наш xml-конфигурационный файл. </li>
+<li>Создает BeanDefinition’ы и кладет их в HashMap. </li>
+<li> Приходит BeanFactory и из этой HashMap отдельно складывает все BeanPostProcessor’ы.</li>
+<li> Создает из BeanDefinition’ов бины и кладет их в IoC-контейнер.</li>
+<li>Тут приходят BPP и настраивают эти бины с помощью 2х методов. (postProcessorBeforeInitialization , postProcessorAfterInitialization) </li>
+</ol>
+
+<section>
+
+
+<section>
+<font color="#ffa31a">	<h3> Свойства Bean: </h3></font>
+<ul>
+<li><span class="codeoperator">class</span> -  Этот атрибут является обязательным и указывает конкретный класс Java-приложения, который будет использоваться для создания бина. </li>
+<li><span class="codeoperator">id</span> или <span class="codeoperator">name</span> - "id" Уникальный идентификатор бина.  “name” как алиас , может содержать одновременно множество имен.</li>
+<li><span class="codeoperator">scope</span> - Это свойство определяет область видимости создаваемых объектов. (singleton , prototype , request ) </li>
+<li><span class="codeoperator">constructor-arg</span> -  Определяет конструктор, использующийся для внедрения зависимости.  </li>
+<li><span class="codeoperator">properties</span> -  Определяет свойства внедрения зависимости.</li>
+<li><span class="codeoperator">initialization method</span> -  Здесь определяется метод инициализации бина</li>
+<li><span class="codeoperator">destruction method</span> -  Метод уничтожения бина, который будет использоваться при уничтожении контейнера, содержащего бин.</li>
+<li><span class="codeoperator">autowiring mode</span> -  Определяет режим автоматического связывания при внедрении зависимости.</li>
+<li><span class="codeoperator">lazy-initialization mode</span> -  Режим ленивой инициализации даёт контейнеру IoC команду создавать экземпляр бина при первом запросе, а не при запуске приложения.</li>
+</ul>
+
+<section>
+
+<section>
+<font color="#ffa31a">	<h3> типы  Bean: </h3></font>
+<ul>
+<li> Entity Bean </li>
+<li> Session Bean (stateless , stateful , singleton)</li>
+<li>Message Driven Beans</li>
+</ul>
+
+<section>
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
+<ul>
+<li> <a href="keybindingidea.html"> Краткая шпаргалка по сочетаниям клавиш в IntelliJ IDEA </a> </li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body><!-- Footer --></html>
