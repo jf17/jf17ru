@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>Spring . XML Configuration - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+
+
+
+<!-- Heading -->
+<section>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h3> <a href="https://jf17.ru/java/spring/index.html" >Spring</a></h3>
+<hr />
+</section>
+                                
+<!-- Heading -->
+<!-- Heading -->
+<section>
+<font color="#ffa31a">	<h2> Главный класс :</h2></font>
+<pre class="code"><code>
+<span class="codeclass">ApplicationContext</span> <span class="codeobject">context</span> = new <span class="codeclass">ClassPathXmlApplicationContext</span>(<span class="codetext">"beans.xml"</span>);
+</code></pre>
+<br><br>
+</section>
+
+/src/main/<span class="codemethod">resources</span>/beans.xml<br><br>
+
+<section>
+<font color="#ffa31a">	<h2> Конфигурация в одном файле :</h2></font>
+|-----  beans.xml  ----------------------------------------------------------------------------------------------------
+<pre class="code"><code><span><</span>?xml version="1.0" encoding="UTF-8"?<span><</span>
+<span><</span>beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd"<span> ></span>
+     
+    <span><</span><span class="codeoperator">bean</span> <span class="codeobject">id</span>=<span class="codetext">"operations"</span>    <span class="codeobject">class</span>=<span class="codetext">"com.howtodoinjava.spring.beans.Operations"</span>  <span>></span>
+    		  <span><</span><span class="codeoperator">property</span> <span class="codeobject">name</span>="prefix" <span class="codeobject">value</span>="Hello World!" /<span>></span>  
+    		  <span><</span><span class="codeoperator">property</span> <span class="codeobject">name</span>="book" <span class="codeclass">ref</span>=<span class="codetext">"bookBean"</span> /<span>></span>  
+    		           <span><</span>/<span class="codeoperator">bean</span><span>></span>
+                                                                      
+    <span><</span><span class="codeoperator">bean</span> <span class="codeobject">id</span>=<span class="codetext">"employee"</span>      <span class="codeobject">class</span>=<span class="codetext">"com.howtodoinjava.spring.beans.Employee"</span>    <span>></span>
+         <span><</span><span class="codeoperator">constructor-arg</span> <span class="codeobject">index</span>=<span class="codetext">"1"</span> <span class="codeobject">value</span>=<span class="codetext">"20000"</span> / <span>></span>    <span><</span>/<span class="codeoperator">bean</span><span>></span>
+    
+    <span><</span><span class="codeoperator">bean</span> <span class="codeobject">id</span>=<span class="codetext">"department"</span>    <span class="codeobject">class</span>=<span class="codetext">"com.howtodoinjava.spring.beans.Department"</span> <span class="codeobject">scope</span>=<span class="codetext">"prototype"</span> <span class="codeobject">lazy-init</span>=<span class="codetext">"true"</span>  /<span>></span>
+     
+<span><</span>/beans>
+</code></pre>
+|----------------------------------------------------------------------------------------------------------------------------<br><br><br>
+</section>
+
+<font color="#ffa31a">	<h2> Многофайловая конфигурация :</h2></font>
+|-----  employee.xml  ----------------------------------------------------------------------------------------------------
+<pre class="code"><code><span><</span>beans<span>></span>
+    <span><</span>bean id="employee" class="com.howtodoinjava.spring.beans.Employee" /<span>></span>
+<span><</span>/beans<span>></span>
+</code></pre>
+|----------------------------------------------------------------------------------------------------------------------------<br><br>
+
+|-----  department.xml  ----------------------------------------------------------------------------------------------------
+<pre class="code"><code><span><</span>beans<span>></span>
+    <span><</span>bean id="department" class="com.howtodoinjava.spring.beans.Department" /<span>></span>
+<span><</span>/beans<span>></span> 
+</code></pre>
+|--------------------------------------------------------------------------------------------------------<br><br>
+
+|-----  beans.xml  ----------------------------------------------------------------------------------------------------
+<pre class="code"><code>
+<span><</span>?xml version="1.0" encoding="UTF-8"? <span>></span>
+<span><</span>beans<span>></span>
+     
+    <span><</span><span class="codeoperator">import</span> <span class="codeobject">resource</span>=<span class="codetext">"employee.xml"</span> /<span>></span>
+    <span><</span><span class="codeoperator">import</span> <span class="codeobject">resource</span>=<span class="codetext">"department.xml"</span> /<span>></span>
+     
+    <span><</span><span class="codeoperator">bean</span> id="operations" class="com.howtodoinjava.spring.beans.Operations" /<span>></span>
+     
+<span><</span>/beans<span>></span> 
+</code></pre>
+|--------------------------------------------------------------------------------------------------------<br><br>
+<br><br>
+</section>
+
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
+<ul>
+<li> <a href="keybindingidea.html"> Краткая шпаргалка по сочетаниям клавиш в IntelliJ IDEA </a> </li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body><!-- Footer --></html>
