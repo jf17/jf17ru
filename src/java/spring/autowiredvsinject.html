@@ -25,18 +25,56 @@
 <section>
 <font color="#ffa31a">	<h3> @Autowired  :</h3></font>
 <p>аннотация используемая только в Spring !!!</p>
-
+<ol>
+<li> Match by Type </li>
+<li>Match by Qualifier </li>
+<li> Match by Name </li>
+</ol>
+<br><br><br>
 <section>
 
 <section>
 <font color="#ffa31a">	<h3> @Inject: </h3></font>
-отличие от @Autowired : Отсутствует 'required' атрибут . 
+ Одно из различий между @Autowired и @Inject заключается в том, что @Inject не имеет обязательного поля, поэтому в случае, если нам не удастся найти подходящий объект для инъекции, произойдет сбой, в то время как @Autowired может использовать required = false и разрешить пустое поле (только если необходимо!) <br>
 package javax.inject.*<br>
-<p>аннотация используемая в Java EE !!! </p>
-
+Аннотация принадлежит JSR-330 коллекции аннотаций. <br>
+<ol>
+<li> Match by Type </li>
+<li>Match by Qualifier </li>
+<li> Match by Name </li>
+</ol>
+<br><br><br>
 <section>
 
+<section>
+<font color="#ffa31a">	<h3> @Resource: </h3></font>
+@Resource аннотации являются частью JSR-250  и упакованы с Java EE.
 
+<ol>
+<li> Match by Name </li>
+<li> Match by Type </li>
+<li>Match by Qualifier </li>
+</ol>
+
+<pre class="code"><code>
+@Resource(name="namedFile")
+private File defaultFile;
+</code></pre>
+<br>
+<section>
+
+<pre class="code"><code>
+|------------|---------------|---------------|---------------|-----------------------|
+|            | Setter/Field  | Constructor   | Applicable to | Matching order        |
+|            | injection     | injection     | type          |                       |
+|------------|---------------|---------------|---------------|-----------------------|
+| @Autowired |       X       |       X       |               | Type, Qualifier, Name |
+|------------|---------------|---------------|---------------|-----------------------|
+| @Inject    |       X       |       X       |               | Type, Qualifier, Name |
+|------------|---------------|---------------|---------------|-----------------------|
+| @Resource  |       X       |               |       X       | Name, Type, Qualifier |
+|------------|---------------|---------------|---------------|-----------------------|
+</code></pre>
 
 
 
