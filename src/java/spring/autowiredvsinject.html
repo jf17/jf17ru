@@ -23,13 +23,35 @@
                                 
 <!-- Heading -->
 <section>
+<font color="#ffa31a">	<h3> @Component  :</h3></font>
+<p>аннотация используемая только в Spring !!!</p>
+Помечает класс для сканирования аннотаций типа @Autowired .
+
+<ul>
+Алиасы :
+<li> @Repository </li>
+<li>@Service </li>
+<li> @Controller </li>
+</ul>
+
+<br><br><br>
+<section>
+
+
+<section>
 <font color="#ffa31a">	<h3> @Autowired  :</h3></font>
 <p>аннотация используемая только в Spring !!!</p>
+@Qualifier("bean") - используется для поиска по имени бина. <br>
+@Autowired(required = false) - используется на то что бы не ругался если не найдет подходящий бин. (не рекомендуется использовать).<br>
+
 <ol>
 <li> Match by Type </li>
 <li>Match by Qualifier </li>
 <li> Match by Name </li>
 </ol>
+@Required аннотация для того чтобы не ругался при компиляции если не найдёт подходящие бины !!!
+
+
 <br><br><br>
 <section>
 
@@ -48,7 +70,9 @@ package javax.inject.*<br>
 
 <section>
 <font color="#ffa31a">	<h3> @Resource: </h3></font>
-@Resource аннотации являются частью JSR-250  и упакованы с Java EE.
+@Resource аннотации являются частью JSR-250  и упакованы с Java EE.<br>
+@Resource(name = "bean") - правильно использование.<br>
+@Named - тоже самое что и в спринге @Component .<br>
 
 <ol>
 <li> Match by Name </li>
