@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Liquibase - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+
+
+
+<!-- Heading -->
+<section>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h3> <a href="https://jf17.ru/java/spring/index.html" >Spring</a></h3>
+<hr />
+</section>
+                                
+<!-- Heading -->
+<section>
+<font color="#ffa31a">	<h2> Liquibase  :</h2></font>
+<p>
+Liquibase - программа для миграции БД.
+</p>
+
+<section>
+
+
+<!-- Heading -->
+<section>
+<font color="#ffa31a">	<h3> шаг 1  :</h3></font>
+<p>
+добавляем зависимость в Maven .
+</p>
+<pre class="code"><code>
+    <span><</span>dependency<span>></span>
+      <span><</span>groupId<span>></span>org.liquibase<span><</span>/groupId<span>></span>
+      <span><</span>artifactId<span>></span>liquibase-core<span><</span>/artifactId<span>></span>
+      <span><</span>version<span>></span>3.6.3<span><</span>/version<span>></span>
+    <span><</span>/dependency<span>></span>
+</code></pre>
+<section>
+
+<section>
+<font color="#ffa31a">	<h3> шаг 2  :</h3></font>
+<p>
+подключаем Maven плагин.
+</p>
+<pre class="code"><code>
+
+      <span><</span>plugin<span>></span>
+        <span><</span>groupId>org.liquibase<span><</span>/groupId<span>></span>
+        <span><</span>artifactId>liquibase-maven-plugin<span><</span>/artifactId<span>></span>
+        <span><</span>version>2.0.5<span><</span>/version<span>></span>
+        <span><</span>configuration<span>></span>
+          <span><</span>propertyFileWillOverride>true<span><</span>/propertyFileWillOverride<span>></span>
+          <span><</span>propertyFile>src/main/resources/liquibase.properties<span><</span>/propertyFile<span>></span>
+          <span><</span>changeLogFile>src/main/resources/changelogs/changelog.xml<span><</span>/changeLogFile<span>></span>
+        <span><</span>/configuration<span>></span>
+        <span><</span>executions<span>></span>
+          <span><</span>execution<span>></span>
+            <span class="codecomment"><span><</span>!--  Another Error: plugin execution not covered by lifecycle configuration..--<span>></span></span>
+          <span><</span>/execution<span>></span>
+        <span><</span>/executions<span>></span>
+        <span><</span>dependencies<span>></span>
+          <span><</span>dependency<span>></span>
+            <span><</span>groupId<span>></span>postgresql<span><</span>/groupId<span>></span>
+            <span><</span>artifactId<span>></span>postgresql<span><</span>/artifactId<span>></span>
+            <span><</span>version<span>></span>9.1-901-1.jdbc4<span><</span>/version<span>></span>
+          <span><</span>/dependency<span>></span>
+        <span><</span>/dependencies<span>></span>
+      <span><</span>/plugin<span>></span>
+
+
+</code></pre>
+<section>
+
+<section>
+<font color="#ffa31a">	<h3> шаг 3  :</h3></font>
+<p>
+Создаем файл resources/liquibase.properties <br>
+Вставляем настройки .
+</p>
+
+<pre class="code"><code>
+driver: org.postgresql.Driver
+classpath: ../ojdbc14.jar
+url: jdbc:postgresql://localhost:5432/postgres
+username: postgres
+password: 1
+</code></pre>
+
+<section>
+
+<section>
+<font color="#ffa31a">	<h3> шаг 4  :</h3></font>
+<p>
+Создаем файл resources/changelogs/changelog.xml <br>
+Вставляем схему БД .
+</p>
+
+<a href="changelog.xml" target="_blank" rel="noopener"> changelog.xml</a> 
+
+<section>
+
+<section>
+<font color="#ffa31a">	<h3> шаг 5  :</h3></font>
+запускаем мавен комманду:
+<pre class="code"><code>
+<span class="codecomment">liquibase:dropAll</span>
+liquibase:migrate
+</code></pre>
+
+<section>
+
+
+
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
+<ul>
+<li> <a href="#" target="_blank" rel="noopener"> XXXXX</a> </li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body><!-- Footer --></html>

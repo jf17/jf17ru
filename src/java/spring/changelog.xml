@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+                                       http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet author="alex" id="drop table bank_account" context="all">
+        <sql>
+            drop table if exists bank_account cascade;
+        </sql>
+    </changeSet>
+
+    <changeSet author="alex" id="drop table credit_card" context="all">
+        <sql>
+            drop table if exists credit_card cascade ;
+        </sql>
+    </changeSet>
+
+    <changeSet author="alex" id="drop hibernate_sequence" context="all">
+        <sql>
+            drop sequence if exists hibernate_sequence ;
+        </sql>
+    </changeSet>
+
+    <changeSet author="alex" id="create hibernate_sequence" context="all">
+        <sql>
+            create sequence hibernate_sequence start 1 increment 1 ;
+        </sql>
+    </changeSet>
+
+    <changeSet author="alex" id="create table bank_account" context="all">
+        <sql>
+            create table bank_account (
+            id int4 not null,
+            owner varchar(255),
+            account int4 not null,
+            bank_name varchar(255),
+            swift varchar(255),
+            primary key (id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet author="alex" id="create table credit_card" context="all">
+        <sql>
+            create table credit_card (
+            id int4 not null,
+            owner varchar(255),
+            card_number int4,
+            exp_month varchar(255),
+            exp_year varchar(255),
+            primary key (id)
+            );
+        </sql>
+    </changeSet>
+
+
+
+</databaseChangeLog>
