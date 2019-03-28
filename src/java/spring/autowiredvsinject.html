@@ -25,7 +25,7 @@
 <section>
 <font color="#ffa31a">	<h3> @Component  :</h3></font>
 <p>аннотация используемая только в Spring !!!</p>
-Помечает класс для сканирования аннотаций типа @Autowired .
+Помечает класс для сканирования на аннотаций типа @Autowired .
 
 <ul>
 Алиасы :
@@ -42,8 +42,10 @@
 <font color="#ffa31a">	<h3> @Autowired  :</h3></font>
 <p>аннотация используемая только в Spring !!!</p>
 @Qualifier("bean") - используется для поиска по имени бина. <br>
-@Autowired(required = false) - используется на то что бы не ругался если не найдет подходящий бин. (не рекомендуется использовать).<br>
-
+@Autowired(required = false) - Конструкция require=false сообщает фреймворку о том, что наличие соответствующего bean'а не является обязательным при компиляции программы. (не рекомендуется использовать).<br>
+<br>
+Чтобы аннотация @Autowire присвоила переменной значения соответствующего bean'а, необходимо чтобы этот bean либо был объявлен в xml конфигурации приложения, либо через @Bean , @Service , @Controller ...
+<br>
 <ol>
 <li> Match by Type </li>
 <li>Match by Qualifier </li>
@@ -57,7 +59,7 @@
 
 <section>
 <font color="#ffa31a">	<h3> @Inject: </h3></font>
- Одно из различий между @Autowired и @Inject заключается в том, что @Inject не имеет обязательного поля, поэтому в случае, если нам не удастся найти подходящий объект для инъекции, произойдет сбой, в то время как @Autowired может использовать required = false и разрешить пустое поле (только если необходимо!) <br>
+ Одно из различий между @Autowired и @Inject заключается в том, что @Inject не имеет required аргумента, поэтому в случае, если нам не удастся найти подходящий объект для инъекции, произойдет сбой, в то время как @Autowired может использовать required = false и разрешить пустое поле (только если необходимо!) <br>
 package javax.inject.*<br>
 Аннотация принадлежит JSR-330 коллекции аннотаций. <br>
 <ol>
@@ -109,7 +111,10 @@ private File defaultFile;
 <section>
 <font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
 <ul>
-<li> <a href="keybindingidea.html"> Краткая шпаргалка по сочетаниям клавиш в IntelliJ IDEA </a> </li>
+<li> <a href="https://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html" target="_blank" rel="noopener"> @Resource </a> Java EE 7 Docks </li>
+<li> <a href="https://docs.oracle.com/javaee/7/api/javax/inject/Inject.html" target="_blank" rel="noopener"> @Inject </a> Java EE 7 Docks </li>
+<li> <a href="https://docs.oracle.com/javaee/7/api/javax/inject/Qualifier.html" target="_blank" rel="noopener"> @Qualifier </a> Java EE 7 Docks </li>
+<li> <a href="https://docs.oracle.com/javaee/7/api/javax/inject/Named.html" target="_blank" rel="noopener"> @Named </a> Java EE 7 Docks </li>
 <li> </li>
 <li> </li>
 </ul>
