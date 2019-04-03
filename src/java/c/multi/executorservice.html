@@ -20,8 +20,8 @@
                          
 
 <section>
-
-<font color="#ffa31a">	<h2> ExecutorService.</h2></font>
+<font color="#ffa31a">	<h2> ExecutorService. execute</h2></font>
+<span class="codecomment">// когда нужно тупо чтото выполнить </span>
 <pre class="code"><code>
 <span class="codeclass">ExecutorService</span> executorService = <span class="codeclass">Executors</span><span class="codemethod">.newFixedThreadPool</span>(10);
 
@@ -33,18 +33,34 @@ executorService.<span class="codemethod">execute</span>(new Runnable() {
 
 executorService.<span class="codemethod">shutdown</span>();
 </code></pre>
-<br>
+<br><br><br>
+</section>
+
+<section>
+<font color="#ffa31a">	<h2> ExecutorService. submit</h2></font>
+<span class="codecomment">// когда нужно вернуть значение</span>
+<pre class="code"><code>
+<span class="codeclass">ExecutorService</span> executor = <span class="codeclass">Executors</span><span class="codemethod">.newFixedThreadPool</span>(10);
+
+ <span class="codeclass">Future</span><span><</span><span class="codeclass">Integer</span><span>></span> <span class="codeobject">futureTask1</span> = executor.<span class="codemethod">submit</span>(() -> {
+            System.out.println("I'm Callable task.");
+            <span class="codeoperator">return</span> 1 + 1;
+
+Integer result = <span class="codeobject">futureTask1</span><span class="codemethod">.get</span>(5, TimeUnit.SECONDS);
+
+executor.<span class="codemethod">shutdown</span>();
+</code></pre>
+<br><br><br>
+</section>
 
 
+<section>
 <!-- методы Object: -->
 <font color="orange"><h4>методы ExecutorService:</h4></font>
 <ul>
 <li><span class="codeoperator">void</span><font color="#e6e600"> *.shutdown()</font> : инициирует упорядочное завершение, новые задачи не принимаются . Этот метод не ожидает выполнение ранее отправленных задач !</li><br>
 <li><span class="codeoperator">void</span><font color="#e6e600"> *.shutdownNow()</font> : Пытается остановить все активные задачи, новые задачи не принимаются . Этот метод не ожидает выполнение ранее отправленных задач !</li><br>
 <li><span class="codeoperator">boolean</span><font color="#e6e600"> *.awaitTermination(<span class="codeoperator">long</span> <span class="codeobject">timeout</span>,<span class="codeclass">TimeUnit</span> <span class="codeobject">unit</span>)</font> : блокируется до тех пор, пока все задачи не завершат выполнение после запроса на выключение, или не истечет время ожидания, или текущий поток не прервется. </li><br>
-
-
-
 <li>  </li>
 </ul>
 </section>
