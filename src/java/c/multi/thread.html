@@ -20,13 +20,25 @@
                          
 
 <section>
-
 <font color="#ffa31a">	<h2> Thread.</h2></font>
-<p><font color="#ffa31a">package java.lang.*</font></p>
- </p>
+package java.lang.*<br><br><br><br>
+Создание собственного потока:
+<pre class="code"><code>
+public class <span class="codeclass">MyThread</span> <span class="codeoperator">extends</span> <span class="codeclass">Thread</span> {
+    public void <span class="codemethod">run</span>() {
+        Log.d(TAG, "Mой поток запущен...");
+    }
+}
+
+public void onClick(View view) {
+    <span class="codeclass">MyThread</span> <span class="codeobject">myThread</span> = new MyThread();
+    <span class="codeobject">myThread</span>.<span class="codemethod">start</span>();
+}
+</code></pre>
 <br>
+</section>
 
-
+<section>
 <!-- методы Object: -->
 <font color="orange"><h4>методы Thread:</h4></font>
 <ul>
