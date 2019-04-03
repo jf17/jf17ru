@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>Java Persistence API (JPA) - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+
+
+<body>
+<!-- Heading -->
+<section>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<hr />
+</section>
+
+<!-- Hibernate ORM. -->
+<section>
+<font color="#ffa31a">	<h3>Java Persistence API (JPA) </h3></font>
+<p>
+Java Persistence API (JPA) — спецификация API Java EE, предоставляет возможность сохранять в удобном виде Java-объекты в базе данных[1]. 
+</p>
+<p>Сам JPA не умеет ни сохранять, ни управлять объектами, JPA только определяет правила игры: как что-то будет действовать. </p>
+<p>
+Существует несколько реализаций этого интерфейса, одна из самых популярных использует для этого Hibernate.
+</p>
+<p>
+JPA реализует концепцию ORM. 
+</p>
+<ul>
+<li>непосредственно API, заданный в пакете javax.persistence; </li>
+<li>платформо-независимый объектно-ориентированный язык запросов Java Persistence Query Language; </li>
+<li> метаинформация, описывающая связи между объектами.</li>
+<li>Генерация DDL для сущностей</li>
+</ul>
+<br><br><br>
+</section>
+
+<!-- Entity . -->
+<section>
+<font color="#ffa31a">	<h3>Entity:</h3></font>
+<p>
+Entity (Сущность) — POJO-класс, связанный с БД с помощью аннотации (@Entity) или через XML.
+</p>
+К такому классу предъявляются следующие требования: 
+<ul>
+<li> Должен иметь пустой конструктор (public или protected). </li>
+<li> Не может быть вложенным, интерфейсом или enum .</li>
+<li> Не может быть final и не может содержать final-полей/свойств .</li>
+<li> Должен содержать хотя бы одно @Id-поле .</li>
+</ul>
+При этом entity может: 
+<ul>
+<li> Содержать непустые конструкторы .</li>
+<li> Наследоваться и быть наследованным .</li>
+<li> Содержать другие методы и реализовывать интерфейсы .</li>
+</ul>
+</section>
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
+<ul>
+<li> <a href="https://docs.oracle.com/javaee/7/api/javax/persistence/package-summary.html" target="_blank"> Package javax.persistence</a> Java EE 7</li>
+<li>  </li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+
+<!-- Footer -->
+<footer >
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+</script>
+</footer>
+</div>
+</body>
+</html>
