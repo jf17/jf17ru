@@ -36,7 +36,7 @@ public void saveMovie() {
     movie.setReleaseYear(1972);
     movie.setLanguage("English");
  
-    entityManager.persist(<span class="codeobject">movie</span>);
+    entityManager<span class="codemethod">.persist</span>(<span class="codeobject">movie</span>);
     entityManager.getTransaction().commit();
     }
 </code></pre>
