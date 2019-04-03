@@ -22,7 +22,17 @@
 <section>
 
 <font color="#ffa31a">	<h2> ExecutorService.</h2></font>
+<pre class="code"><code>
+<span class="codeclass">ExecutorService</span> executorService = <span class="codeclass">Executors</span><span class="codemethod">.newFixedThreadPool</span>(10);
 
+executorService.<span class="codemethod">execute</span>(new Runnable() {
+    public void run() {
+        System.out.println("Asynchronous task");
+    }
+});
+
+executorService.<span class="codemethod">shutdown</span>();
+</code></pre>
 <br>
 
 
@@ -47,6 +57,7 @@
 	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html" target="_blank" rel="noopener"> ExecutorService in JavaDoc (Java 8) </a> </li>
 	<li> <a href="https://www.mkyong.com/java/java-executorservice-examples/" target="_blank" rel="noopener"> Java ExecutorService examples </a> mkyong.com</li>
 	<li> <a href="https://habr.com/ru/post/260953/" target="_blank" rel="noopener"> 10 советов по использованию ExecutorService </a> habr.com</li>
+		<li> <a href="https://javarush.ru/groups/posts/2078-threadom-java-ne-isportishjh--chastjh-v---executor-threadpool-fork-join-pool" target="_blank" rel="noopener"> Thread'ом Java не испортишь </a> JavaRush</li>
 	<li>  </li>
 	<li>  </li>
 	</ul>
