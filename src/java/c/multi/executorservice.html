@@ -45,6 +45,7 @@ executorService.<span class="codemethod">shutdown</span>();
  <span class="codeclass">Future</span><span><</span><span class="codeclass">Integer</span><span>></span> <span class="codeobject">futureTask1</span> = executor.<span class="codemethod">submit</span>(() -> {
             System.out.println("I'm Callable task.");
             <span class="codeoperator">return</span> 1 + 1;
+           });
 
 Integer result = <span class="codeobject">futureTask1</span><span class="codemethod">.get</span>(5, TimeUnit.SECONDS);
 
