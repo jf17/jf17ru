@@ -24,6 +24,14 @@
 <section>
 <font color="#ffa31a">	<h2> EntityManager</h2></font><br>
 javax.persistence.EntityManager
+
+<ul>
+<li> <a href="#" target="_blank">find() или createQuery()</a> берёт сущность под свою опеку и переводит её в состояние «управляемая» (managed)</li>
+<li> <a href="#" target="_blank">persist() </a> берёт сущность под свою опеку и переводит её в состояние «управляемая» (managed)</li>
+<li> <a href="#" target="_blank">remove()</a> Удаляются сущность  «удалённая» (deleted)</li>
+<li> <a href="#" target="_blank">merge() </a>  применённый на отсоединённой сущности, либо копирует значение переданной сущности в уже существующую сущность с тем же значением поля @id, либо создаёт новую сущность этого типа и копирует данные в неё. В обоих случаях результат сохраняется в базу и из метода возвращается новая управляемая сущность. Старая при этом остаётся отсоединённой.</li>
+</ul>
+
 <p>@PersistenceContext<br>
 <span class="codeclass">EntityManager</span> <span class="codeobject">entityManager</span>;</p>
 <pre class="code"><code>
@@ -53,11 +61,10 @@ public Movie getMovie(Long movieId) {
 <div class="contentname">
 <h4>Полезные ссылки:</h4>
 </div>
-<div class="content">
+
 <ul>
 <li> <a href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html" target="_blank">Interface EntityManager</a> Java 7 EE</li>
-
-</ul></div>
+</ul>
 </section>
 
 
