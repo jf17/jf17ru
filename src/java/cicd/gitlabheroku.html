@@ -93,7 +93,7 @@ deploy:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=$HEROKU_DOMEN_NAME --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=$HEROKU_DOMAIN_NAME --api-key=$HEROKU_API_KEY
   only:
     - <span class="codeobject">dev</span>
 </code></pre><br><br>
@@ -104,7 +104,7 @@ deploy:
 Заходим в  Gitlab .<br>
 Settings -> Ci/CD -> Environment variables<br>
 добавляем <span class="codemethod">HEROKU_API_KEY</span> (который берем из панели управления Heroku)<br>
-добавляем <span class="codemethod">HEROKU_DOMEN_NAME</span> (имя домена зарегистрированного в Heroku)
+добавляем <span class="codemethod">HEROKU_DOMAIN_NAME</span> (имя домена зарегистрированного в Heroku)
 
 </section>
 
