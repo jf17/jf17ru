@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>CICD . GitLab . Heroku - num17.net</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+
+<!-- Heading -->
+<section>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<hr />
+</section>
+
+
+<section>
+<font color="#ffa31a">	<h3>1) </h3></font>
+регистрируем домен второго уровня .<br>
+Например:<br>
+<span class="codeobject">heroku-test-app-123-456</span>
+</section>
+
+<section>
+<font color="#ffa31a">	<h3>2) </h3></font>
+добавляем файлик в корень проекта <span class="codeoperator">.gitlab-ci.yml</span><br>
+<span class="codeobject">Оранжевым</span> цветом помечено , то что нужно заменить в файле на свои значения!<br><br>
+Содержимое файлика:
+<pre class="code"><code>
+# This file is a template, and might need editing before it works on your project.
+---
+# Build JAVA applications using Apache Maven (http://maven.apache.org)
+# For docker image tags see https://hub.docker.com/_/maven/
+#
+# For general lifecycle information see https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+#
+# This template will build and test your projects as well as create the documentation.
+#
+# * Caches downloaded dependencies and plugins between invocation.
+# * Verify but don't deploy merge requests.
+# * Deploy built artifacts from master branch only.
+# * Shows how to use multiple jobs in test stage for verifying functionality
+#   with multiple JDKs.
+# * Uses site:stage to collect the documentation for multi-module projects.
+# * Publishes the documentation for `master` branch.
+
+variables:
+  # This will suppress any download for dependencies and plugins or upload messages which would clutter the console log.
+  # `showDateTime` will show the passed time in milliseconds. You need to specify `--batch-mode` to make this work.
+  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  # As of Maven 3.3.0 instead of this you may define these options in `.mvn/maven.config` so the same config is used
+  # when running from the command line.
+  # `installAtEnd` and `deployAtEnd` are only effective with recent version of the corresponding plugins.
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+
+# Cache downloaded dependencies and plugins between builds.
+# To keep cache across branches add 'key: "$CI_JOB_NAME"'
+cache:
+  paths:
+    - .m2/repository
+
+stages:
+  - build
+  - deploy
+
+# For `master` branch run `mvn deploy` automatically.
+# Here you need to decide whether you want to use JDK7 or 8.
+# To get this working you need to define a volume while configuring your gitlab-ci-multi-runner.
+# Mount your `settings.xml` as `/root/.m2/settings.xml` which holds your secrets.
+# See https://maven.apache.org/settings.html
+build:
+  # Use stage test here, so the pages job may later pickup the created site.
+  stage: build
+  script:
+    - 'mvn $MAVEN_CLI_OPTS package'
+  only:
+    - <span class="codeobject">dev</span>
+  # Archive up the built documentation site.
+  artifacts:
+    paths:
+      - target/<span class="codeobject">demo-0.0.1-SNAPSHOT.jar</span>
+  image: maven:3.3.9-jdk-8
+
+deploy:
+  stage: deploy
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=<span class="codeobject">heroku-test-app-123-456</span> --api-key=$HEROKU_API_KEY
+  only:
+    - <span class="codeobject">dev</span>
+</code></pre><br><br>
+</section>
+
+<section>
+<font color="#ffa31a">	<h3>3) </h3></font>
+Заходим в  Gitlab .<br>
+Settings -> Ci/CD -> Environment variables<br>
+добавляем <span class="codemethod">HEROKU_API_KEY</span> (который берем из панели управления Heroku)
+
+</section>
+
+<section>
+<font color="#ffa31a">	<h3>3) </h3></font>
+коммитим в репу 
+</section>
+
+<section>
+<font color="#ffa31a">	<h3>4) </h3></font>
+Заходим в   Ci/CD <br>
+ждем когда Джоба закончит свою работу .<br>
+
+</section>
+
+<section>
+<font color="#ffa31a">	<h3>5) </h3></font>
+проверяем результат
+</section>
+
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
+<ul>
+<li> <a href="https://about.gitlab.com/" target="_blank" rel="noopener"> GitLab</a> </li>
+<li> <a href="https://www.heroku.com/" target="_blank" rel="noopener"> Heroku</a> </li>
+<li>  </li>
+<li> <a href="http://heroku-test-app-123-456.herokuapp.com/" target="_blank" rel="noopener"> Моя тестовая Аппликуха </a> Spring Boot</li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+<!-- Footer -->
+<footer >
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+</script>
+</footer>
+</body>
+</html>
