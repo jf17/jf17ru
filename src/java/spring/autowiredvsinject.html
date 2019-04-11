@@ -24,23 +24,23 @@
 <!-- Heading -->
 <section>
 <font color="#ffa31a">	<h3> @Component  :</h3></font>
-<p>аннотация используемая только в Spring !!!</p>
-Помечает класс для сканирования на аннотаций типа @Autowired .
+<font color="#ff0099">аннотация используемая только в Spring !!!</font><br><br>
+<span class="codeoperator">package</span> <span class="codetext">org.springframework.stereotype.Component;</span><br><br>
 
-<ul>
 Алиасы :
+<ul>
 <li> @Repository </li>
-<li>@Service </li>
+<li>@Service  <span class="codetext">org.springframework.stereotype.Service;</span></li>
 <li> @Controller </li>
 </ul>
-
-<br><br><br>
+<br>
 <section>
 
 
 <section>
 <font color="#ffa31a">	<h3> @Autowired  :</h3></font>
-<p>аннотация используемая только в Spring !!!</p>
+<font color="#ff0099">аннотация используемая только в Spring !!!</font><br><br>
+<span class="codeoperator">package</span> <span class="codetext">org.springframework.beans.factory.annotation.Autowired;</span><br><br>
 @Qualifier("bean") - используется для поиска по имени бина. <br>
 @Autowired(required = false) - Конструкция require=false сообщает фреймворку о том, что наличие соответствующего bean'а не является обязательным при компиляции программы. (не рекомендуется использовать).<br>
 <br>
@@ -53,13 +53,12 @@
 </ol>
 @Required аннотация для того чтобы не ругался при компиляции если не найдёт подходящие бины !!!
 
-
-<br><br><br>
 <section>
+<br><br><br><br><br><br>
 
 <section>
 <font color="#ffa31a">	<h3> @Inject: </h3></font>
- Одно из различий между @Autowired и @Inject заключается в том, что @Inject не имеет required аргумента, поэтому в случае, если нам не удастся найти подходящий объект для инъекции, произойдет сбой, в то время как @Autowired может использовать required = false и разрешить пустое поле (только если необходимо!) <br>
+ Одно из различий между @Autowired и @Inject заключается в том, что <span class="codemethod">@Inject не имеет <span class="codeoperator">required</span> аргумента</span>, поэтому в случае, если нам не удастся найти подходящий объект для инъекции, произойдет сбой, в то время как @Autowired может использовать required = false и разрешить пустое поле (только если необходимо!) <br>
 package javax.inject.*<br>
 Аннотация принадлежит JSR-330 коллекции аннотаций. <br>
 <ol>
@@ -111,6 +110,9 @@ private File defaultFile;
 <section>
 <font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
 <ul>
+<li> <a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Component.html" target="_blank" rel="noopener"> @Component </a>   Spring Docks  </li>
+<li> <a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html" target="_blank" rel="noopener"> @Autowired  </a>   Spring Docks  </li>
+<li> </li>
 <li> <a href="https://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html" target="_blank" rel="noopener"> @Resource </a> Java EE 7 Docks </li>
 <li> <a href="https://docs.oracle.com/javaee/7/api/javax/inject/Inject.html" target="_blank" rel="noopener"> @Inject </a> Java EE 7 Docks </li>
 <li> <a href="https://docs.oracle.com/javaee/7/api/javax/inject/Qualifier.html" target="_blank" rel="noopener"> @Qualifier </a> Java EE 7 Docks </li>

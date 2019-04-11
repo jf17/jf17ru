@@ -13,7 +13,6 @@
 
 <!-- Heading -->
 <header>
-<div class="content">
 <h1> <a href="https://jf17.ru/" >Главная</a></h1>
 <h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
 <h3> <a href="https://jf17.ru/java/spring/index.html" >Spring</a></h3>
@@ -22,8 +21,9 @@
                                 
 <!-- Heading -->
 <section>
-<font color="#ffa31a">	<h2> EntityManager</h2></font><br>
-javax.persistence.EntityManager
+<h4> EntityManager :</h4>
+<font color="#ff6666">Работаем с ним только в обычном Spring (без Spring Boot). </font><br><br>
+javax.persistence.EntityManager<br>
 
 <ul>
 <li> <a href="#" target="_blank">find() или createQuery()</a> берёт сущность под свою опеку и переводит её в состояние «управляемая» (managed)</li>
@@ -33,8 +33,13 @@ javax.persistence.EntityManager
 <li> <a href="#" target="_blank">merge() </a>  применённый на отсоединённой сущности, либо копирует значение переданной сущности в уже существующую сущность с тем же значением поля @id, либо создаёт новую сущность этого типа и копирует данные в неё. В обоих случаях результат сохраняется в базу и из метода возвращается новая управляемая сущность. Старая при этом остаётся отсоединённой.</li>
 <li> <a href="#" target="_blank">refresh()</a> перечитывает дынные управляемой сущности из базы, оставляя её при этом управляемой.</li>
 </ul>
+</section>
 
-<p>@PersistenceContext<br>
+
+<br><br><br>
+<section>
+<h4> 1) внедрение через IoC-контейнер :</h4>
+<p>@PersistenceContext <span class="codecomment">//контейнер отвечает за начало, принятие или откат транзакции.</span><br>
 <span class="codeclass">EntityManager</span> <span class="codeobject">entityManager</span>;</p>
 <pre class="code"><code>
 public void saveMovie() {
@@ -57,20 +62,66 @@ public Movie getMovie(Long movieId) {
     <span class="codeoperator">return</span> movie;
 }
 </code></pre>
+<br><br>
+</section>
+
 <section>
+<h4>2) ручное внедрение :</h4>
+<pre class="code"><code>
+<span class="codeclass">EntityManagerFactory</span> <span class="codeobject">emf</span> = <span class="codeclass">Persistence</span><span class="codemethod">.createEntityManagerFactory(</span><span class="codetext">"com.example.movie_catalog"</span>);
+</code></pre>
+<pre class="code"><code>
+public static <span class="codeclass">EntityManager</span> <span class="codemethod">getEntityManager</span>() {
+    <span class="codeoperator">return</span> <span class="codeobject">emf</span>.createEntityManager();
+}
+</code></pre>
 
-<!-- Полезные ссылки . -->
-<div class="contentname">
-<h4>Полезные ссылки:</h4>
-</div>
 
-<ul>
-<li> <a href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html" target="_blank">Interface EntityManager</a> Java 7 EE</li>
-</ul>
+<br><br><br><br>
+</section>
+
+<section>
+<h4>persistence.xml :</h4>
+<font color="#cccc00"> META-INF/persistence.xml</font>
+<pre class="code"><code>
+<span><</span>persistence-unit name="com.example.movie_catalog"<span>></span>
+    <span><</span>description>Hibernate EntityManager Demo<span><</span>/description<span>></span>
+    <span><</span>class>com.example.hibernate.pojo.Movie<span><</span>/class<span>></span> 
+    <span><</span>exclude-unlisted-classes<span>></span>true<span><</span>/exclude-unlisted-classes<span>></span>
+        <span><</span>properties>
+            <span><</span>property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /<span>></span> <span><</span>!-- DB Driver --<span>></span>
+            <span><</span>property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/dbName" /<span>></span> <span><</span>!-- BD Mane --<span>></span>
+            <span><</span>property name="javax.persistence.jdbc.user" value="postgres" /<span>></span> <span><</span>!-- DB User --<span>></span>
+            <span><</span>property name="javax.persistence.jdbc.password" value="12345" /<span>></span> <span><</span>!-- DB Password --<span>></span>
+
+		  <span><</span>property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/<span>></span> <span><</span>!-- DB Dialect --<span>></span>
+            <span><</span>property name="hibernate.hbm2ddl.auto" value="update" /<span>></span> <span><</span>!-- create / create-drop / update --<span>></span>
+            
+            <span><</span>property name="hibernate.show_sql" value="true" /<span>></span> <span><</span>!-- Show SQL in console --<span>></span>
+            <span><</span>property name="hibernate.format_sql" value="true" /<span>></span> <span><</span>!-- Show SQL formatted --<span>></span>
+        <span><</span>/properties<span>></span>
+<span><</span>/persistence-unit<span>></span>
+</code></pre>
 </section>
 
 
 
+
+<br><br><br>
+<section>
+<!-- Полезные ссылки . -->
+<h4> Полезные ссылки :</h4>
+<ul>
+<li> <a href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html" target="_blank" rel="noopener">Interface EntityManager</a>  Java 7 EE</li>
+<li> <a href="https://www.baeldung.com/hibernate-entitymanager" target="_blank" rel="noopener">Guide to the Hibernate EntityManager</a>  Baeldung</li>
+<li> </li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+
+<!-- Footer -->
 <footer>
 <!-- работа с куки -->
 <script type="text/javascript">
@@ -80,5 +131,5 @@ public Movie getMovie(Long movieId) {
 	}
 	</script>
 </footer>
-</div>
-</div></section></div></body><!-- Footer --></html>
+</body>
+</html>
