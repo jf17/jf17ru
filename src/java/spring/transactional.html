@@ -22,9 +22,73 @@
                                 
 <!-- Heading -->
 <section>
-<font color="#ffa31a">	<h2> @Transactional </h2></font><br>
-import org.springframework.transaction.annotation.Transactional;
+<font color="#ffa31a">	<h2> @Transactional </h2></font>
+import <span class="codemethod">org.springframework.transaction.annotation.Transactional</span>;
 <p>Транзакция это набор операций, которые могут быть либо целиком и успешно выполнены ,либо полностью не выполнены.</p>
+
+<p>Транзакциями в Spring управляют с помощью Declarative Transaction Management (программное управление). Используется аннотация @Transactional для описания необходимости управления транзакцией. В файле конфигурации нужно добавить настройку transactionManager для DataSource.</p>
+</section>
+<br><br><br>
+<section>
+<h4> Через аннотации :</h4>
+<p>аннотировать ваши классы @Transactional аннотацией, добавить @EnableTransactionManagement к @Configuration классу</p>
+<pre class="code"><code>
+@Configuration
+@EnableTransactionManagement
+public class PersistenceJPAConfig{
+ 
+   @Bean
+   public LocalContainerEntityManagerFactoryBean
+     entityManagerFactoryBean(){
+      //...
+   }
+ 
+   @Bean
+   public <span class="codeclass">PlatformTransactionManager</span> transactionManager(){
+      <span class="codeclass">JpaTransactionManager</span> <span class="codeobject">transactionManager</span>
+        = new <span class="codeclass">JpaTransactionManager</span>();
+      transactionManager.setEntityManagerFactory(
+        entityManagerFactoryBean().getObject() );
+      return transactionManager;
+   }
+}
+
+ -------------------------------------------------------------------------------------
+
+@Service
+@Transactional
+public class FooService {
+    //...
+}
+</code></pre>
+</section>
+
+<br><br>
+<section>
+<h4> Через XML :</h4>
+<pre class="code"><code>
+	<span class="codecomment"><span><</span>!-- Enable Annotation based Declarative Transaction Management --<span>></span></span>
+	<span><</span>tx:annotation-driven proxy-target-class="true"
+		transaction-manager="transactionManager" /<span>></span>
+
+	<span class="codecomment"><span><</span>!-- Creating TransactionManager Bean, since JDBC we are creating of type 
+		DataSourceTransactionManager --<span>></span></span>
+	<span><</span><span class="codeoperator">bean</span> id="transactionManager"
+		class="org.springframework.jdbc.datasource.<span class="codeclass">DataSourceTransactionManager</span>"<span>></span>
+		<span><</span>property name="dataSource" ref="<span class="codeobject">dataSource</span>" /<span>></span>
+	<span><</span>/<span class="codeoperator">bean</span><span>></span>
+</code></pre>
+<br>
+Или через JpaTransactionManager:<br>
+<pre class="code"><code>
+    <span class="codecomment"><span><</span>!-- Configure the transaction manager bean --<span>></span></span>
+    <span><</span>bean id="transactionManager"
+          class="org.springframework.orm.jpa.JpaTransactionManager"<span>></span>
+        <span><</span>property name="entityManagerFactory" ref="entityManagerFactory"/<span>></span>
+    <span><</span>/bean<span>></span>
+</code></pre>
+</section>
+<br><br><br><br>
 транзакции соответствуют свойствам ACID :
 <ul>
 <li> Атомарность - транзакция может быть либо целиком выполнена , либо целиком удалена.</li>
@@ -47,7 +111,9 @@ import org.springframework.transaction.annotation.Transactional;
 <div class="content">
 <ul>
 <li> <a href="http://spring-projects.ru/guides/managing-transactions/" target="_blank">http://spring-projects.ru</a></li>
-
+<li> <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#transaction-declarative" target="_blank">Transaction Management </a> Spring Docks</li>
+<li> <a href="https://www.baeldung.com/transaction-configuration-with-jpa-and-spring" target="_blank">Transactions with Spring and JPA </a> Baeldung</li>
+<li> <a href="http://akorsa.ru/2016/08/kak-na-samom-dele-rabotaet-transactional-spring/" target="_blank">Как на самом деле работает @Transactional Spring? </a> Блог Анатолия Корсакова</li>
 </ul></div>
 </section>
 

@@ -1,32 +1,52 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<!-- author: Aleksandrovich Aleksey Borisovich -->
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
 <title> Spring DI - jf17.ru</title>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
 </head>
 <body>
+
+
+
 <!-- Heading -->
-<section>
-<div class="content">
+<header>
 <h1> <a href="https://jf17.ru/" >Главная</a></h1>
 <h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
 <h3> <a href="https://jf17.ru/java/spring/index.html" >Spring</a></h3>
 <hr />
-</section>
+</header>
                                 
-<!-- Heading -->
 <section>
-<header>
-<div class="content">
-<font color="#ffa31a">	<h2> DI, Dependency injection(Внедрение зависимости)</h2></font>
-<p><li><font color="#ff66ff">IoC</font> — принцип "Don't call us, we'll call tou" </li>
-<li><font color="#ff66ff">DI</font> — способ внедрения объектов через конструкторы, сеттеры, методы(шаблон проектирования для реализации IoC, придумал Мартин Фаулер).</li>
+<h4> DI, Dependency injection(Внедрение зависимости)</h4>
+<span class="codeclass">Dependency injection</span> (DI) - паттерн проектирования и архитектурная модель, так же известная как <span class="codeclass">Inversion of Control</span> (IoC). <br>
+DI описывает ситуацию, когда один объект реализует свой функционал через другой объект.<br>
+Например, соединение с базой данных передается конструктору объекта через аргумент, вместо того чтобы конструктор сам устанавливал соединение. <br>
+Существуют три формы внедрения (но не типа) зависимостей: <span class="codeobject">сэттер</span>, <span class="codeobject">конструктор</span> и <span class="codeobject">внедрение путем интерфейса</span>.<br>
+<br>
+DI - это способ достижения слабой связанности.<br>
+IoC предоставляет возможность объекту получать ссылки на свои зависимости. <br>
+Обычно это реализуется через lookup-метод. <br>
+Преимущество IoC в том, что эта модель позволяет отделить объекты от реализации механизмов, которые он использует. <br>
+В результате мы получаем большую гибкость как при разработке приложений, так и при их тестировании.<br>
+<section>
+<br><br>
 
-</p></header>
-</div>
+<section>
+<h4> Преимущества применения Dependency Injection (DI) :<a name="more"></a></h4>
+<ul>
+<li><span class="codemethod">Сокращение объема связующего кода.</span> Одним из самых больших плюсов DI является возможность значительного сокращения объема кода, который должен быть написан для связывания вместе различных компонентов приложения. Зачастую этот код очень прост - при создании зависимости должен создаваться новый экземпляр соответствующего объекта. </li>
+<li><span class="codemethod">Упрощенная конфигурация приложения.</span> За счет применения DI процесс конфигурирования приложения значительно упрощается. Для конфигурирования классов, которые могут быть внедрены в другие классы, можно использовать аннотации или XML-файлы.</li>
+<li><span class="codemethod">Возможность управления общими зависимостями в единственном репозитории.</span> При традиционном подходе к управлению зависимостями в общих службах, к которым относятся, например, подключение к источнику данных, транзакция, удаленные службы и т.п., вы создаете экземпляры (или получаете их из определенных фабричных классов) зависимостей там, где они нужны - внутри зависимого класса. Это приводит к распространению зависимостей по множеству классов в приложении, что может затруднить их изменение. В случае использования DI вся информация об общих зависимостях содержится в единственном репозитории (в Spring есть возможность хранить эту информацию в XML-файлах или Java классах).</li>
+<li><span class="codemethod">Улучшенная возможность тестирования. </span>Когда классы проектируются для DI, становится возможной простая замена зависимостей. Это особенно полезно при тестировании приложения.</li>
+<li><span class="codemethod">Стимулирование качественных проектных решений для приложений. </span>Вообще говоря, проектирование для DI означает проектирование с использованием интерфейсов. Используя Spring, вы получаете в свое распоряжение целый ряд средств DI и можете сосредоточиться на построении логики приложения, а не на поддерживающей DI платформе</li>
+</ul>
+<section>
+<br><br>
 
 <footer>
 <!-- работа с куки -->
@@ -37,5 +57,5 @@
 	}
 	</script>
 </footer>
-</div>
-</div></section></div></body><!-- Footer --></html>
+</body>
+<!-- Footer --></html>
