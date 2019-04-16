@@ -22,6 +22,9 @@
 <section>
 <font color="#ffa31a">	<h2> Thread.</h2></font>
 package java.lang.*<br><br><br><br>
+<p>Поток вызывается один раз ! После выполнения умирает ! Нельзя поток повторно вызвать после смерти ! </p>
+<p>Методы suspend(), resume() и stop() являются deprecated-методами и запрещены к использованию, так как они не являются в полной мере “потоко- 
+безопасными”.</p>
 Создание собственного потока:
 <pre class="code"><code>
 public class <span class="codeclass">MyThread</span> <span class="codeoperator">extends</span> <span class="codeclass">Thread</span> {
@@ -39,21 +42,35 @@ public void onClick(View view) {
 </section>
 
 <section>
+<h4> Жизненный цикл потока :</h4>
+Получить значение состояния потока можно вызовом метода  *.<span class="codemethod">getState()</span> .
+<ol>
+<li><span class="codeoperator">NEW </span> ( поток создан, но еще не запущен)</li>
+<li> <span class="codeoperator">RUNNABLE </span> (поток выполняется;)</li>
+<li> <span class="codeoperator">BLOCKED</span> - (заблокирован поток)</li>
+<li> <span class="codeoperator">WAITING </span> ( поток ждет окончания работы другого потока)</li>
+<li><span class="codeoperator">TIMED_WAITING </span> - поток некоторое время ждет окончания другого потока </li>
+<li><span class="codeoperator">TERMINATED </span> - поток завершен</li>
+</ol>
+<section>
+
+
 <!-- методы Object: -->
 <font color="orange"><h4>методы Thread:</h4></font>
 <ul>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.start() </font> :  запускает поток, вызывая его метод run()</li><br>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.sleep(<span class="codeoperator">long</span> <span class="codeobject">millis</span>) </font> :  приостанавливает поток на заданное количество миллисекунд</li><br>
+<li><span class="codeoperator">void  </span> <span class="codeobject">thread</span><font color="#e6e600">.join() </font> :  ожидает завершение потока thread , а потом продолжает выполнение </li><br>
+<li><span class="codeoperator">void  </span> <span class="codeobject">thread</span><font color="#e6e600">.yield() </font> :  Подсказка планировщику о том, что текущий поток готов отдать свое текущее использование процессора. Планировщик может игнорировать эту подсказку.</li><br>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.interrupt() </font> :  приостанавливает поток . (не завершает)</li><br>
 <li><span class="codeclass">Thread  </span> <font color="#e6e600"> *.currentThread() </font> : Получаем ссылку на текущий поток выполнения </li><br>
 <li><span class="codeclass">String  </span><font color="#e6e600"> *.getName() </font> :  возвращает имя потока</li><br>
 <li><span class="codeoperator">void  </span><font color="#e6e600"> *.setName(<span class="codeclass">String</span> <span class="codeobject">name</span>) </font> : устанавливает имя потока </li><br>
 <li><span class="codeoperator">int  </span><font color="#e6e600"> *.getPriority() </font> : возвращает приоритет потока </li><br>
 <li><span class="codeoperator">void  </span><font color="#e6e600"> *.setPriority(<span class="codeoperator">int</span> <span class="codeobject">proirity</span>) </font> : устанавливает приоритет потока.  В этот метод в качестве параметра передается числовое значение приоритета - от 1 до 10. По умолчанию главному потоку выставляется средний приоритет - 5. </li><br>
 <li><span class="codeoperator">boolean  </span><font color="#e6e600"> *.isAlive() </font> :  возвращает true, если поток активен</li><br>
-<li><span class="codeoperator">void  </span><font color="#e6e600"> *.interrupt() </font> :  приостанавливает поток . (не завершает)</li><br>
 <li><span class="codeoperator">boolean  </span><font color="#e6e600"> *.isInterrupted() </font> :  возвращает true, если поток был прерван</li><br>
-<li><span class="codeoperator">void  </span><font color="#e6e600"> *.join() </font> :  ожидает завершение потока</li><br>
-<li><span class="codeoperator">void  </span><font color="#e6e600"> *.run() </font> :  определяет точку входа в поток</li><br>
-<li><span class="codeoperator">void  </span><font color="#e6e600"> *.sleep(<span class="codeoperator">long</span> <span class="codeobject">millis</span>) </font> :  приостанавливает поток на заданное количество миллисекунд</li><br>
-<li><span class="codeoperator">void  </span><font color="#e6e600"> *.start() </font> :  запускает поток, вызывая его метод run()</li><br>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.run() </font> :  запускает метод класса (без создания нового потока)</li><br>
 <li><span class="codeoperator">long  </span><font color="#e6e600"> *.getId() </font> :  возвращает Id потока</li><br>
 <li><span class="codeoperator">void  </span><font color="#e6e600"> *.setDaemon(<span class="codeoperator">boolean</span> <span class="codeobject">on</span>) </font> :  помечает поток как daemon</li><br>
 <li><span class="codeclass">ThreadGroup  </span><font color="#e6e600"> *.getThreadGroup() </font> :  возвращает ссылку на группу потоков . Возврящает <span class="codeoperator">null</span> если поток мертв.</li><br>
@@ -69,6 +86,7 @@ public void onClick(View view) {
 	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html" target="_blank" rel="noopener"> Thread in JavaDoc (Java 8) </a> </li>
 	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html" target="_blank" rel="noopener"> Thread in JavaDoc (Java 7) </a> </li>
 	<li>  </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.State.html" target="_blank" rel="noopener"> Enum Thread.State in JavaDoc (Java 8) </a> Жизненный цикл потока</li>
 	<li>  </li>
 	</ul>
 	</div>
