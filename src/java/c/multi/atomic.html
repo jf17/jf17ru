@@ -14,17 +14,52 @@
 <header>
 <h1> <a href="https://jf17.ru/" >Главная</a></h1>
 <h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
-<h2> <a href="https://jf17.ru/java/c/multithreading.html" > Многопоточность</a></h2>
+<h3> <a href="https://jf17.ru/java/c/multithreading.html" > Многопоточность</a></h3>
 <hr />
 </header>
                          
 
 <section>
-<font color="#ffa31a">	<h4> Atomic.</h4></font>
-Package java.util.concurrent.atomic.* ;
-
+<h4> Atomic :</h4>
+Package java.util.concurrent.atomic.* ;<br>
+ Операция называется атомарной тогда, когда её можно безопасно выполнять при параллельных вычислениях в нескольких потоках, не используя при этом ни блокировок, ни synchronized .<br>
+ Внутри атомарные классы очень активно используют сравнение с обменом (compare-and-swap, CAS), атомарную инструкцию, которую поддерживает большинство современных процессоров<br>
 </section>
-<br><br><br>
+<br><br>
+
+<section>
+	<h4> AtomicInteger :</h4>
+внутри <span class="codeoperator">private</span> <span class="codeoperator">volatile</span> <span class="codeoperator">int</span> <span class="codeobject">value</span>;	
+<ul>
+<li><span class="codeoperator">int </span> *.<font color="#e6e600"> incrementAndGet() </font> :  корректно увеличить число</li>
+<li><span class="codeoperator">int </span> *.<font color="#e6e600"> decrementAndGet() </font> :  корректно уменьшить число</li>
+<li><span class="codeoperator">int </span> *.<font color="#e6e600"> get() </font> :  получить значение</li>
+<li><span class="codeoperator">void </span> *.<font color="#e6e600"> set(<span class="codeoperator">int</span> <span class="codeobject">newValue</span>) </font> :  задать новое значение</li>
+<li><span class="codeoperator">int </span> *.<font color="#e6e600"> updateAndGet(<span class="codeclass">IntUnaryOperator</span> <span class="codeobject">updateFunction</span>) </font> :  принимает в качестве аргумента лямбда-выражение и выполняет над числом заданные арифметические операции</li>
+<li><span class="codeoperator">int </span> *.<font color="#e6e600"> accumulateAndGet(<span class="codeoperator">int</span> <span class="codeobject">x</span>, <span class="codeclass">IntBinaryOperator</span> <span class="codeobject">accumulatorFunction</span>) </font> :  принимает лямбда-выражения типа IntBinaryOperator</li>
+</ul>
+</section>
+<br>
+
+<section>
+<h4> LongAdder :</h4>
+может выступать в качестве альтернативы AtomicLong для последовательного сложения чисел.<br>
+ класс используется в ситуациях, когда добавлять числа приходится гораздо чаще, чем запрашивать результат.
+<ul>
+<li>*.<font color="#e6e600"> increment() </font> :  </li>
+<li>*.<font color="#e6e600"> add() </font> :  </li>
+<li>*.<font color="#e6e600"> sum() </font> : </li>
+<li>*.<font color="#e6e600"> sumThenReset() </font> :  </li>
+</ul>
+</section>
+<br>
+
+<section>
+<h4> LongAccumulator :</h4>
+Класс LongAccumulator несколько расширяет возможности LongAdder<br>
+Вместо простого сложения он обрабатывает входящие значения с помощью лямбды типа LongBinaryOperator, которая передаётся при инициализации. .
+</section>
+<br>
 
 
 
