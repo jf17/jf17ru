@@ -14,26 +14,73 @@
 <header>
 <h1> <a href="https://jf17.ru/" >Главная</a></h1>
 <h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
-<h2> <a href="https://jf17.ru/java/c/multithreading.html" > Многопоточность</a></h2>
+<h3> <a href="https://jf17.ru/java/c/multithreading.html" > Многопоточность</a></h3>
 <hr />
 </header>
                          
-
-<article>
-
-<font color="#ffa31a">	<h2> volatile.</h2></font>
-<br>
+<br><br>
+<section>
+	<h4> volatile :</h4>
 <p>Применяется к полю(fild) для того чтобы не использовать кэш данные , а читать значения напрямую из памяти.</p>
 <p>Можно использовать если один поток читает, а другой поток изменяет значение. (Thread safe)</p>
 <p>Чтение и запись <span class="codeoperator">volatile</span> переменной является потокобезопасной(Thread safe) операцией , а остальные (инкремент , декремент и т.д. ) являются <font color="#ff3333">потоко-не-безопасными</font> !!! </p>
 <p>инкремент переменной , такой как  x=x+1 выгладит как одна операция , однако , на самом деле это последовательность операций <font color="#99ff99">чтения</font>-<font color="#ff3333">изменения</font>-<font color="#99ff99">записи</font> !!!</p>
-</article>
+</section>
+<br><br>
 
+<section>
+	<h4> пример :</h4>
+<pre class="code"><code>
+<span class="codeoperator">public class</span> <span class="codeclass">BadVolatile</span> {
+
+    <span class="codeoperator">private static int</span> <span class="codeobject">i</span>;
+<span class="codecomment">//   private volatile static int i;</span>
+
+    <span class="codeoperator">public static void</span> <font color="#cc00cc">main</font>(<span class="codeclass">String</span>[] <span class="codeobject">args</span>) {
+        <span class="codeoperator">new</span> <span class="codeclass">MyThreadRead</span>().<span class="codemethod">start()</span>;
+        <span class="codeoperator">new</span> <span class="codeclass">MyThreadWrite</span>().<span class="codemethod">start()</span>;
+
+    }
+
+    <span class="codeoperator">private static class</span> <span class="codeclass">MyThreadWrite</span> <span class="codeoperator">extends</span> <span class="codeclass">Thread</span>{
+
+        @Override
+        <span class="codeoperator">public void</span> <span class="codemethod">run()</span> {
+            <span class="codeoperator">while</span> (<span class="codeobject">i</span><span ><</span><span class="codenumber">8</span>){
+                <span class="codeclass">System</span>.out.<span class="codemethod">println</span>(<span class="codetext">"increment i "</span> + (<span class="codeoperator">++</span><span class="codeobject">i</span>));
+                <span class="codeoperator">try</span> {
+                    <span class="codeclass">Thread</span>.<span class="codemethod">sleep</span>(<span class="codenumber">512</span>);
+                } <span class="codeoperator">catch</span> (<span class="codeclass">InterruptedException</span> <span class="codeobject">e</span>) {
+                    <span class="codeobject">e</span>.<span class="codemethod">printStackTrace()</span>;
+                }
+            }
+
+        }
+    }
+    <span class="codeoperator">private static class</span> <span class="codeclass">MyThreadRead</span> <span class="codeoperator">extends</span> <span class="codeclass">Thread</span>{
+
+        @Override
+        <span class="codeoperator">public void</span> <span class="codemethod">run()</span> {
+            <span class="codeoperator">int</span> <span class="codeobject">localVar</span> = <span class="codeobject">i</span>;
+
+            <span class="codeoperator">while</span> (<span class="codeobject">localVar</span> <span><</span> <span class="codenumber">8</span>){
+                <span class="codeoperator">if</span>(<span class="codeobject">localVar</span>!=<span class="codeobject">i</span>){
+                    <span class="codeclass">System</span>.out.<span class="codemethod">println</span>(<span class="codetext">"new value of i is "</span>+ <span class="codeobject">i</span>);
+                    <span class="codeobject">localVar</span> = <span class="codeobject">i</span>;
+
+                }
+
+            }
+        }}
+}
+</code></pre>
+</section>
+<br><br><br>
 
 <section>
 	<h4>Полезные ссылки:</h4>
 	<ul>
-	<li> <a href="xxxxxx" target="_blank" rel="noopener">xxxxx</a></li>
+	<li> <a href="https://docs.oracle.com/cd/E19683-01/806-5222/codingpractices-1/index.html" target="_blank" rel="noopener">Declaring a Variable Volatile</a>  (Oracle docs)</li>
 	<li>  </li>
 	<li>  </li>
 	</ul>
