@@ -27,6 +27,7 @@ Package java.util.concurrent.atomic.* ;<br>
 </section>
 <br><br>
 
+
 <section>
 	<h4> AtomicInteger :</h4>
 внутри <span class="codeoperator">private</span> <span class="codeoperator">volatile</span> <span class="codeoperator">int</span> <span class="codeobject">value</span>;	
@@ -59,10 +60,42 @@ Package java.util.concurrent.atomic.* ;<br>
 Класс LongAccumulator несколько расширяет возможности LongAdder<br>
 Вместо простого сложения он обрабатывает входящие значения с помощью лямбды типа LongBinaryOperator, которая передаётся при инициализации. .
 </section>
-<br>
+<br><br><br>
 
 
+<section>
+<h4> пример :</h4>
+<pre class="code"><code>
+<span class="codeoperator">public class</span> <span class="codeclass">BadAtomic</span> {
 
+      <span class="codeoperator">private static int</span> <span class="codeobject">value</span>;
+<span class="codecomment">//    private static AtomicInteger value = new AtomicInteger(0) ;</span>
+
+    <span class="codeoperator">public static void</span> <font color="#cc00cc">main</font>(<span class="codeclass">String</span>[] <span class="codeobject">args</span>) {
+
+        <span class="codeoperator">for</span> (<span class="codeoperator">int</span> <span class="codeobject">i</span> = <span class="codenumber">0</span>; <span class="codeobject">i</span> <span><</span> <span class="codenumber">10_000</span>; <span class="codeobject">i</span><span class="codeoperator">++</span>) {
+            <span class="codeoperator">new</span> <span class="codeclass">MyThread</span>().<span class="codemethod">start()</span>;
+        }
+        <span class="codeoperator">try</span> {
+            <span class="codeclass">Thread</span>.<span class="codemethod">sleep</span>(<span class="codenumber">2_048</span>);
+        } <span class="codeoperator">catch</span> (<span class="codeclass">InterruptedException</span> <span class="codeobject">e</span>) {
+            <span class="codeobject">e</span>.<span class="codemethod">printStackTrace()</span>;
+        }
+        <span class="codeclass">System</span>.out.<span class="codemethod">println</span>(<span class="codeobject">value</span>);
+
+    }
+
+    <span class="codeoperator">private static class</span> <span class="codeclass">MyThread</span> <span class="codeoperator">extends</span> <span class="codeclass">Thread</span> {
+        @Override
+        <span class="codeoperator">public void</span> <span class="codemethod">run()</span> {
+            <span class="codeobject">value</span><span class="codeoperator">++</span>;
+<span class="codecomment">//          value.incrementAndGet();</span>
+        }
+    }
+}
+</code></pre>
+</section>
+<br><br>
 
 <section>
 	<h4>Полезные ссылки:</h4>
