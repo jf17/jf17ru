@@ -44,7 +44,7 @@
 
     <span class="codeoperator">private static class</span> <span class="codeclass">MyThreadWrite</span> <span class="codeoperator">extends</span> <span class="codeclass">Thread</span>{
 
-        @Override
+        <span class="codeannotation">@Override</span>
         <span class="codeoperator">public void</span> <span class="codemethod">run()</span> {
             <span class="codeoperator">while</span> (<span class="codeobject">i</span><span ><</span><span class="codenumber">8</span>){
                 <span class="codeclass">System</span>.out.<span class="codemethod">println</span>(<span class="codetext">"increment i "</span> + (<span class="codeoperator">++</span><span class="codeobject">i</span>));
@@ -59,7 +59,7 @@
     }
     <span class="codeoperator">private static class</span> <span class="codeclass">MyThreadRead</span> <span class="codeoperator">extends</span> <span class="codeclass">Thread</span>{
 
-        @Override
+        <span class="codeannotation">@Override</span>
         <span class="codeoperator">public void</span> <span class="codemethod">run()</span> {
             <span class="codeoperator">int</span> <span class="codeobject">localVar</span> = <span class="codeobject">i</span>;
 
