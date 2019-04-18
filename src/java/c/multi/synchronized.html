@@ -19,16 +19,15 @@
 </header>
                          
 
-<article>
-
+<section>
 <font color="#ffa31a">	<h2> synchronized.</h2></font>
 <p>синхронизированый блок кода может быть выполнен только одним потоком одновременно !!!</p>
 <br>
+</section>
 
 
-
-<font color="orange"><h4>блокировка на уровне метода:</h4></font>
-
+<section>
+<h4>блокировка на уровне метода:</h4>
 <pre class="code"><code>
 public class DemoClass{
     public <span class="codeoperator">synchronized</span> void demoMethod(){
@@ -36,11 +35,12 @@ public class DemoClass{
     }
 }
 </code></pre>
+</section>
 <br><br><br>
 
 
-
-<font color="orange"><h4>блокировка на уровне статического метода:</h4></font>
+<section>
+<h4>блокировка на уровне статического метода:</h4>
 <p>
 В статическом методе, синхронизация будет осуществляться по классу.
 </p>
@@ -51,12 +51,13 @@ public class DemoClass{
     }
 }
 </code></pre>
+</section>
 <br><br><br>
 
 
 
-
-<font color="orange"><h4>блокировка на уровне обьекта:</h4></font>
+<section>
+<h4>блокировка на уровне обьекта:</h4>
 <p>опасная штука !!!</p>
 <p>
 <font color="#ff3333">Не синхронизируйте</font> по не финальному (<font color="#ff3333">no final</font>) полю, потому что ссылка, на не финальное поле может измениться в любое время, а затем другой поток может получить синхронизацию на разных объектах и уже не будет никакой синхронизации вообще. Лучше всего использовать класс String, который уже неизменяемый и финальный.
@@ -71,11 +72,12 @@ public class DemoClass{
     }
 }
 </code></pre>
-
+</section>
 <br><br><br>
 
 
-<font color="orange"><h4>блокировка на уровне Класса:</h4></font>
+<section>
+<h4>блокировка на уровне Класса:</h4>
 <pre class="code"><code>
 class <span class="codeclass">MyClass</span> {
    private static String name1 = "Оля";
@@ -91,12 +93,12 @@ class <span class="codeclass">MyClass</span> {
 
 }
 </code></pre>
-
+</section>
 <br><br><br>
 
 
-
-<font color="orange"><h4>Некоторые важные замечания :</h4></font>
+<section>
+<h4>Некоторые важные замечания :</h4>
 <ul>
 <li> Синхронизация в Java гарантирует, что никакие два потока не смогут выполнить синхронизированный метод одновременно или параллельно. </li>
 <li> Синхронизированные методы в Java вносят дополнительные затраты на производительность вашего приложения. Так что используйте синхронизацию, когда она абсолютно необходима. Кроме того, рассмотрите вопрос об использовании синхронизированных блоков кода для синхронизации только критических секций кода.</li>
@@ -104,7 +106,58 @@ class <span class="codeclass">MyClass</span> {
 <li>  </li>
 <li>  </li>
 </ul>
-</article>
+</section>
+<br>
+
+<section>
+<h4>Пример :</h4>
+<pre class="code"><code>
+<span class="codeoperator">public class</span> <span class="codeclass">BadSynchronized</span> {
+
+    <span class="codeoperator">public static void</span> <span class="codeconstructor">main</span>(<span class="codeclass">String</span>[] <span class="codeobject">args</span>) <span class="codeoperator">throws</span> <span class="codeclass">Exception</span>{
+        <span class="codeclass">Resource</span> <span class="codeobject">resource</span> = <span class="codeoperator">new</span> <span class="codeclass">Resource</span>(<span class="codenumber">8</span>);
+
+        <span class="codeclass">MyThread</span> <span class="codeobject">thread1</span> = <span class="codeoperator">new</span> <span class="codeclass">MyThread</span>(<span class="codeobject">resource</span>);
+        <span class="codeobject">thread1</span>.<span class="codemethod">setName</span>(<span class="codetext">"firstThread"</span>);
+        <span class="codeclass">MyThread</span> <span class="codeobject">thread2</span> = <span class="codeobject">new</span> <span class="codeclass">MyThread</span>(<span class="codeobject">resource</span>);
+
+        <span class="codeobject">thread1</span>.<span class="codemethod">start()</span>;
+        <span class="codeobject">thread2</span>.<span class="codemethod">start()</span>;
+
+        <span class="codeobject">thread1</span>.<span class="codemethod">join()</span>;
+        <span class="codeobject">thread2</span>.<span class="codemethod">join()</span>;
+
+
+        <span class="codeclass">System</span>.out.<span class="codemethod">println</span>(<span class="codeobject">resource</span>.<span class="codemethod">getI()</span>);
+    }
+}
+     <span class="codeoperator"> class</span> <span class="codeclass">MyThread</span> <span class="codeoperator">extends</span> <span class="codeclass">Thread</span>{
+        <span class="codeoperator">private final </span><span class="codeclass">Resource</span> <span class="codeobject">resource</span>;
+
+         <span class="codeclass">MyThread</span>(<span class="codeclass">Resource</span> <span class="codeobject">res</span>) { <span class="codeobject">resource</span>=<span class="codeobject">res</span>; }
+
+         <span class="codeannotation">@Override</span>
+         <span class="codeoperator">public void</span> <span class="codemethod">run()</span> {
+             <span class="codeobject">resource</span>.<span class="codemethod">incrementI()</span>;
+         }
+     }
+
+     <span class="codeoperator"> class</span> <span class="codeclass">Resource</span> {
+         <span class="codeoperator">private int </span><span class="codeobject">i</span>;
+      <span class="codecomment">/* synchronized  */ </span> <span class="codeoperator">void</span> <span class="codemethod">incrementI()</span>{
+             <span class="codeoperator">int</span> <span class="codeobject">iLocal</span> = <span class="codeoperator">this</span>.<span class="codeobject">i</span>;
+             <span class="codeoperator">if</span>(<span class="codeclass">Thread</span>.<span class="codemethod">currentThread()</span>.<span class="codemethod">getName()</span>.<span class="codemethod">equals</span>(<span class="codetext">"firstThread"</span>)){
+                 <span class="codeclass">Thread</span>.<span class="codemethod">yield()</span>;
+             }
+             <span class="codeobject">iLocal</span><span class="codeoperator">++</span>;
+             <span class="codeoperator">this</span>.<span class="codeobject">i</span> =<span class="codeobject">iLocal</span>;
+         }
+          <span class="codeclass">Resource</span>(<span class="codeoperator">int</span> <span class="codeobject">i</span>) { <span class="codeoperator">this</span>.<span class="codeobject">i</span> = <span class="codeobject">i</span>; }
+          <span class="codeoperator">int</span> <span class="codemethod">getI()</span> { <span class="codeoperator">return</span> <span class="codeobject">i</span>; }
+    }
+
+</code></pre>
+</section>
 <br>
 
 
@@ -116,7 +169,6 @@ class <span class="codeclass">MyClass</span> {
 	<li> </li>
 	<li>  </li>
 	</ul>
-	</div>
 </section>
 
 

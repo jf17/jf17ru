@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Lock API . Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h3> <a href="https://jf17.ru/java/c/multithreading.html" > Многопоточность</a></h3>
+<hr />
+</header>
+                         
+<br><br>
+<section>
+	<h4> Lock :</h4>
+<p>
+Интерфейс <span class="codeinterface">Lock API :</span> существует с Java 1.5. <br>
+Базовый интерфейс из lock framework, предоставляющий более гибкий подход по ограничению доступа к ресурсам/блокам нежели при использовании synchronized. Так, при использовании нескольких локов, порядок их освобождения может быть произвольный. Плюс имеется возможность пойти по альтернативному сценарию, если лок уже кем то захвачен.
+</p>
+Различия между <span class="codeinterface">Lock</span> и <span class="codeoperator">synchronized</span> блоком :
+	<ul>
+	<li><span class="codeoperator">synchronized</span> блок полностью находится внутри метода , когда  мы можем в  Lock API, поставить блокировку в одном методе класса , а разблокировать в другом методе этого класса.</li>
+	<li><span class="codeoperator">synchronized</span> блок не поддерживает <font color="#999900">приоритеты</font>, любой поток может получить блокировку после освобождения метода/блока. Никакого предпочтения не может быть указано, когда  в Lock API мы можем , указать свойство <font color="#999900">приоритетов</font> . Это гарантирует, что самый длинный ожидающий поток получит доступ к блокировке .</li>
+	<li>Поток блокируется, если он не может получить доступ к <span class="codeoperator">synchronized</span> блоку . Lock  API предоставляет <span class="codemethod">tryLock()</span> метод. Поток получает блокировку, только если он доступен и не удерживается каким-либо другим потоком. </li>
+	<li>Поток, который находится в состоянии “waiting” для получения доступа к <span class="codeoperator">synchronized</span> блоку , не может быть прерван. Lock API предоставляет метод <span class="codemethod">lockInterruptibly()</span> , позволяет прервать заблокированный поток и возобновить выполнение через брошенный java.lang.<span class="codeclass">InterruptedException</span> .</li>
+	</ul>
+</section>
+<br><br>
+
+<section>
+<font color="orange"><h4>методы интерфейса Lock:</h4></font>
+<ul>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.lock() </font> :  получить блокировку, если она доступна; если блокировка недоступна, поток блокируется, пока блокировка не будет снята .</li>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.lockInterruptibly() </font> : похожа на lock(), но позволяет прервать заблокированный поток и возобновить выполнение через брошенный java.lang.InterruptedException .</li>
+<li><span class="codeoperator">boolean   </span><font color="#e6e600"> *.tryLock() </font> :  это неблокирующая версия метода lock () . Он пытается получить блокировку немедленно, возвращает true, если блокировка успешна</li>
+<li><span class="codeoperator">boolean  </span><font color="#e6e600"> *.tryLock </font>(<span class="codeoperator">long</span> <span class="codeobject">timeout</span>, TimeUnit <span class="codeobject">timeUnit</span>) :  это похоже на tryLock (), за исключением того, что оно ожидает указанное время ожидания, прежде чем отказаться от попытки получить блокировку</li>
+<li><span class="codeoperator">void  </span><font color="#e6e600"> *.unlock() </font> :  разблокирует экземпляр блокировки</li>
+<li><span class="codeinterface">Lock  </span><font color="#e6e600"> *.readLock() </font> :  возвращает блокировку, используемую для чтения .</li>
+<li><span class="codeinterface">Lock  </span><font color="#e6e600"> *.writeLock() </font> : возвращает блокировку, использованную для записи .</li>
+</ul>
+</section>
+<br>
+
+<br><br>
+<section>
+	<h4> интерфейс Condition :</h4>
+@since Java 1.5<br>
+Интерфейс, который описывает альтернативные методы стандарным wait/notify/notifyAll. Объект с условием чаще всего получается из локов через метод lock.newCondition(). Тем самым можно получить несколько комплектов wait/notify для одного объекта<br>
+<ul>
+<li><span class="codemethod">await</span>: поток ожидает, пока не будет выполнено некоторое условие и пока другой поток не вызовет методы signal/signalAll. Во многом аналогичен методу wait класса Object</li>
+<li><span class="codemethod">signal</span>: сигнализирует, что поток, у которого ранее был вызван метод await(), может продолжить работу. Применение аналогично использованию методу notify класса Object</li>
+<li><span class="codemethod">signalAll</span>: сигнализирует всем потокам, у которых ранее был вызван метод await(), что они могут продолжить работу. Аналогичен методу notifyAll() класса Object</li>
+</ul>
+</section>
+<br><br>
+
+<br><br>
+<section>
+	<h4> класс ReentrantLock :</h4>
+Лок на вхождение. Только один поток может зайти в защищенный блок. Класс поддерживает «честную» (fair) и «нечестную» (non-fair) разблокировку потоков. При «честной» разблокировке соблюдается порядок освобождения потоков, вызывающих lock(). При «нечестной» разблокировке порядок освобождения потоков не гарантируется, но, как бонус, такая разблокировка работает быстрее. По умолчанию, используется «нечестная» разблокировка.
+</section>
+<br><br>
+
+<section>
+	<h4> класс ReentrantReadWriteLock :</h4>
+Очень часто используется в многопоточных сервисах и кешах, показывая очень хороший прирост производительности по сравнению с блоками <span class="codeoperator">synchronized</span>. По сути, класс работает в 2-х взаимоисключающих режимах: много reader'ов читают данные в параллель и когда только 1 writer пишет данные.
+</section>
+<br><br>
+
+<section>
+	<h4> класс StampedLock :</h4>
+StampedLock представлен в Java 8.
+</section>
+<br><br>
+
+<br><br>
+<section>
+	<h4> Пример ReentrantLock:</h4>
+одна блокировка сразу на два метода .
+<pre class="code"><code>public class ReentrantLockExample {
+
+    public static void main(String[] args) throws InterruptedException {
+        Resource resource = new Resource(6, 14);
+
+        MyThread thread1 = new MyThread(resource);
+        thread1.setName("firstThread");
+        MyThread thread2 = new MyThread(resource);
+
+        thread1.start();
+        thread2.start();
+
+        thread1.join();
+        thread2.join();
+
+        System.out.println(resource.getI());
+        System.out.println(resource.getPhone());
+
+
+    }
+
+
+}
+
+class MyThread extends Thread {
+    private final Resource resource;
+
+    MyThread(Resource res) {
+        resource = res;
+    }
+
+    @Override
+    public void run() {
+        resource.<span class="codemethod">incrementI()</span>;
+    }
+}
+
+class Resource {
+    private int i;
+
+    public int getPhone() {
+        return phone;
+    }
+
+    Resource(int i, int phone) {
+        this.i = i;
+        this.phone = phone;
+    }
+
+    private int phone;
+
+    <span class="codeoperator">private final</span> <span class="codeinterface">Lock</span> <span class="codeobject">lock</span> = <span class="codeoperator">new</span> <span class="codeclass">ReentrantLock</span>();
+
+    <span class="codeoperator">void</span> <span class="codemethod">incrementI()</span> {
+        <span class="codeobject">lock</span>.<span class="codemethod">lock()</span>;
+        int iLocal = this.i;
+        if (Thread.currentThread().getName().equals("firstThread")) {
+            Thread.yield();
+        }
+        iLocal++;
+        this.i = iLocal;
+
+        <span class="codemethod">incrementPhone()</span>;
+    }
+
+    <span class="codeoperator">void</span> <span class="codemethod">incrementPhone()</span> {
+        int phoneLocal = this.phone;
+        if (Thread.currentThread().getName().equals("firstThread")) {
+            Thread.yield();
+        }
+        phoneLocal++;
+        this.phone = phoneLocal;
+        <span class="codeobject">lock</span>.<span class="codemethod">unlock()</span>;
+    }
+
+    int getI() {
+        return i;
+    }
+}
+</code></pre>
+</section>
+<br><br>
+
+
+<br><br>
+<section>
+	<h4> Пример Condition:</h4>
+Блокировка с условием .
+<pre class="code"><code>
+public class ConditionsExample {
+
+    private static <span class="codeinterface">Lock</span> <span class="codeobject">lock</span> = new ReentrantLock();
+    private static <span class="codeinterface">Condition</span> <span class="codeobject">condition</span> = <span class="codeobject">lock</span>.<span class="codemethod">newCondition()</span>;
+    private static int bankAccount =0;
+
+    public static void main(String[] args) {
+
+        new AccountMinusMoney().start();
+        new AccountPlusMoney().start();
+
+    }
+
+    static class  AccountPlusMoney extends Thread{
+        @Override
+        public void run() {
+            <span class="codeobject">lock</span>.<span class="codemethod">lock()</span>;
+            bankAccount +=10;
+            System.out.println("\n ------ прибавили 10 руб. \n");
+            <span class="codeobject">condition</span>.<span class="codemethod">signal()</span>;
+            <span class="codeobject">lock</span>.<span class="codemethod">unlock()</span>;
+        }
+    }
+
+    static class  AccountMinusMoney extends Thread {
+        @Override
+        public void run() {
+            if(bankAccount <span ><</span> 10){
+                try {
+                    <span class="codeobject">lock</span>.<span class="codemethod">lock()</span>;
+                    System.out.println("не можем списать деньги так как сумма на счету меньше 10 руб. =(");
+                    System.out.println("... ждём ... другой поток ....  ");
+                    <span class="codeobject">condition</span>.<span class="codemethod">await()</span>;
+                    <span class="codeobject">lock</span>.<span class="codemethod">unlock()</span>;
+                    System.out.println("... другой поток отработал ... продолжаем ! =) ");
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+
+            }
+            bankAccount -=10;
+            System.out.println("\n ------ отняли 10 руб.\n");
+            System.out.println();
+        }
+    }
+
+}
+</code></pre>
+</section>
+<br><br>
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html" target="_blank" rel="noopener"> interface Lock</a>    JavaDoc (Java 8) </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/Lock.html" target="_blank" rel="noopener"> interface Lock</a>    JavaDoc (Java 7) </li>
+	<li>  </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html" target="_blank" rel="noopener"> interface Condition</a>    JavaDoc (Java 8) </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/Condition.html" target="_blank" rel="noopener"> interface Condition</a>    JavaDoc (Java 7) </li>
+	<li>  </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html" target="_blank" rel="noopener"> class ReentrantLock</a>    JavaDoc (Java 8) </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html" target="_blank" rel="noopener"> class ReentrantLock</a>    JavaDoc (Java 7) </li>
+	<li>  </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html" target="_blank" rel="noopener"> interface ReadWriteLock</a>    JavaDoc (Java 8) </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html" target="_blank" rel="noopener"> class ReentrantReadWriteLock</a>    JavaDoc (Java 8) </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html" target="_blank" rel="noopener"> class ReentrantReadWriteLock</a>    JavaDoc (Java 7) </li>
+	<li>  </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/StampedLock.html" target="_blank" rel="noopener"> class StampedLock</a>    JavaDoc (Java 8) </li>
+	<li>  </li>
+	<li> <a href="https://www.baeldung.com/java-concurrent-locks" target="_blank" rel="noopener">Guide to java.util.concurrent.Locks</a>  Baeldung</li>
+	<li>  </li>
+	<li>  </li>
+	</ul>
+	</div>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body>
+<!-- Footer -->
+</html>

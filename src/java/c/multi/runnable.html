@@ -26,16 +26,16 @@ package java.lang.*<br><br><br><br>
 <pre class="code"><code>
  <span class="codeoperator">class</span> <span class="codeclass">MyRunnable</span> <span class="codeoperator">implements</span> <span class="codeinterface">Runnable</span>{
 
-     public void <span class="codemethod">run</span>(){
-         System.out.println(Thread.currentThread().getName());
+     <span class="codeoperator">public void</span> <span class="codemethod">run</span>(){
+         <span class="codeclass">System</span>.out.<span class="codemethod">println</span>(<span class="codeclass">Thread</span>.<span class="codemethod">currentThread()</span>.<span class="codemethod">getName()</span>);
      }
  }
 
 
 
-        <span class="codeclass">MyRunnable</span> <span class="codeobject">myRunnable</span> = new <span class="codeclass">MyRunnable</span>();
-        <span class="codeclass">Thread</span> thread = new Thread(<span class="codeobject">myRunnable</span>);
-        thread.<span class="codemethod">start</span>();
+        <span class="codeclass">MyRunnable</span> <span class="codeobject">myRunnable</span> = <span class="codeoperator">new</span> <span class="codeclass">MyRunnable</span>();
+        <span class="codeclass">Thread</span> <span class="codeobject">thread</span> = <span class="codeoperator">new</span> <span class="codeclass">Thread</span>(<span class="codeobject">myRunnable</span>);
+        <span class="codeobject">thread</span>.<span class="codemethod">start</span>();
 
  
 </code></pre>
