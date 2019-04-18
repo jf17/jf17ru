@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Callable and Futures . Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h3> <a href="https://jf17.ru/java/c/multithreading.html" > Многопоточность</a></h3>
+<hr />
+</header>
+                         
+<br><br>
+<section>
+	<h4> Callable  :</h4>
+Java 1.5 <br>
+Расширенный аналог интерфейса Runnable для асинхронных операций. Позволяет возвращать типизированное значение и кидать checked exception. Несмотря на то, что в этом интерфейсе отсутсвует метод run(), многие классы java.util.concurrent поддерживают его наряду с Runnable.<br>
+один метод <span class="codemethod">call()</span> 
+</section>
+<br><br>
+
+<br><br>
+<section>
+	<h4>интерфейс Future :</h4>
+Java 1.5 <br>
+Замечательный интерфейс для получения результатов работы асинхронной операции. Ключевым методом здесь является метод get, который блокирует текущий поток (с таймаутом или без) до завершения работы асинхронной операции в другом потоке. Также, дополнительно существуют методы для отмены операции и проверки текущего статуса. В качестве имплементации часто используется класс FutureTask
+</section>
+<br><br>
+
+<br><br>
+<section>
+	<h4>класс FutureTask :</h4>
+Имплементация интерфейса Future/RunnableFuture. Асинхронная операция принимается на вход одного из конструкторов в виде Runnable или Callable объектов. Сам же класс FutureTask предназначен для запуска в worker потоке, например через new Thread(task).start(), или через ThreadPoolExecutor. Результаты работы асинхронной операции вытаскиваются через метод get(...
+</section>
+<br><br>
+
+<br><br>
+<section>
+	<h4>пример  FutureTask и Callable:</h4>
+Даём задачу , ожидаем окончание выполнения , забираем результат.
+<pre class="code"><code>
+public class FuturetaskCallableExample {
+
+    public static void main(String[] args) throws Exception {
+        <span class="codeinterface">Callable</span><span><</span>Integer<span >></span> <span class="codeobject">callable</span> = <span class="codeoperator">new</span> <span class="codeclass">MyCallable</span>();
+        <span class="codeclass">FutureTask</span> <span class="codeobject">futureTask</span> = <span class="codeoperator">new</span> <span class="codeclass">FutureTask</span>(<span class="codeobject">callable</span>);
+        <span class="codeoperator">new</span> <span class="codeclass">Thread</span>(<span class="codeobject">futureTask</span>).<span class="codemethod">start()</span>;
+        System.out.println(<span class="codeobject">futureTask</span><span class="codemethod">.get()</span>);
+    }
+
+    <span class="codeoperator">static class</span> <span class="codeclass">MyCallable</span> <span class="codeoperator">implements</span> <span class="codeinterface">Callable</span><span ><</span>Integer<span >></span> {
+        <span class="codeannotation">@Override</span>
+        public Integer <span class="codemethod">call()</span> throws Exception {
+            int localVar = 0;
+            for (int i = 0; i <span ><</span> 16; i++) {
+                localVar++;
+                Thread.sleep(128);
+            }
+            return localVar;
+        }
+    }
+}
+</code></pre>
+</section>
+<br><br>
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html" target="_blank" rel="noopener"> interface Callable</a>    JavaDoc (Java 8) </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Callable.html" target="_blank" rel="noopener"> interface Callable</a>    JavaDoc (Java 7) </li>
+	<li>  </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" target="_blank" rel="noopener"> interface Future</a>    JavaDoc (Java 8) </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html" target="_blank" rel="noopener"> interface Future</a>    JavaDoc (Java 7) </li>
+	<li>  </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/FutureTask.html" target="_blank" rel="noopener"> class FutureTask</a>    JavaDoc (Java 8) </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/FutureTask.html" target="_blank" rel="noopener"> class FutureTask</a>    JavaDoc (Java 7) </li>
+	<li>  </li>
+	<li> <a href="https://www.baeldung.com/java-concurrent-locks" target="_blank" rel="noopener">Guide to java.util.concurrent.Locks</a>  Baeldung</li>
+	<li>  </li>
+	<li>  </li>
+	</ul>
+	</div>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body>
+<!-- Footer -->
+</html>

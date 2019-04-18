@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> CountDownLatch Example . Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h3> <a href="https://jf17.ru/java/c/multithreading.html" > Многопоточность</a></h3>
+<h3> <a href="https://jf17.ru/java/c/multi/synchronizers.html" > Synchronizers</a></h3>
+<hr />
+</header>
+                         
+<section>
+	<h4>пример  CountDownLatch:</h4>
+
+<pre class="code"><code>
+public class CountDownLatchExample {
+
+    public static void main(String[] args) throws InterruptedException {
+        <span class="codeclass">CountDownLatch</span> <span class="codeobject">countDownLatch</span> = <span class="codeoperator">new</span> <span class="codeclass">CountDownLatch</span>(<span class="codenumber">8</span>);
+        new Worker(countDownLatch);
+        new Worker(countDownLatch);
+        new Worker(countDownLatch);
+        new Worker(countDownLatch);
+        new Worker(countDownLatch);
+        new Worker(countDownLatch);
+        new Worker(countDownLatch);
+        new Worker(countDownLatch);
+
+        <span class="codeobject">countDownLatch</span>.<span class="codemethod">await()</span>;
+        System.out.println("Все работники отработали");
+    }
+}
+
+class Worker extends Thread {
+    <span class="codeoperator">private final </span><span class="codeclass">CountDownLatch</span> <span class="codeobject">countDownLatch</span>;
+
+
+    Worker(CountDownLatch countDownLatch) {
+        this.countDownLatch = countDownLatch;
+        start();
+    }
+
+    @Override
+    public void run() {
+        System.out.println("начал работать");
+        try {
+            sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("завершил работу");
+        <span class="codeobject">countDownLatch</span>.<span class="codemethod">countDown()</span>;
+    }
+}
+</code></pre>
+</section>
+<br><br>
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html" target="_blank" rel="noopener"> class Semaphore</a>    JavaDoc (Java 8) </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/CountDownLatch.html" target="_blank" rel="noopener"> class Semaphore</a>    JavaDoc (Java 7) </li>
+
+	<li>  </li>
+	<li>  </li>
+	</ul>
+	</div>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body>
+<!-- Footer -->
+</html>
