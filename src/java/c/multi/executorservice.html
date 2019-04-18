@@ -47,7 +47,7 @@ executorService.<span class="codemethod">shutdown</span>();
             <span class="codeoperator">return</span> 1 + 1;
            });
 
-Integer result = <span class="codeobject">futureTask1</span><span class="codemethod">.get</span>(5, TimeUnit.SECONDS);
+Integer result = <span class="codeobject">futureTask1</span><span class="codemethod">.get</span>(5, <span class="codeenum">TimeUnit</span>.<span class="codeconst">SECONDS</span>);
 
 executor.<span class="codemethod">shutdown</span>();
 </code></pre>
@@ -61,7 +61,7 @@ executor.<span class="codemethod">shutdown</span>();
 <ul>
 <li><span class="codeoperator">void</span><font color="#e6e600"> *.shutdown()</font> : инициирует упорядочное завершение, новые задачи не принимаются . Этот метод не ожидает выполнение ранее отправленных задач !</li><br>
 <li><span class="codeoperator">void</span><font color="#e6e600"> *.shutdownNow()</font> : Пытается остановить все активные задачи, новые задачи не принимаются . Этот метод не ожидает выполнение ранее отправленных задач !</li><br>
-<li><span class="codeoperator">boolean</span><font color="#e6e600"> *.awaitTermination(<span class="codeoperator">long</span> <span class="codeobject">timeout</span>,<span class="codeclass">TimeUnit</span> <span class="codeobject">unit</span>)</font> : блокируется до тех пор, пока все задачи не завершат выполнение после запроса на выключение, или не истечет время ожидания, или текущий поток не прервется. </li><br>
+<li><span class="codeoperator">boolean</span><font color="#e6e600"> *.awaitTermination(<span class="codeoperator">long</span> <span class="codeobject">timeout</span>,<span class="codeenum">TimeUnit</span> <span class="codeobject">unit</span>)</font> : блокируется до тех пор, пока все задачи не завершат выполнение после запроса на выключение, или не истечет время ожидания, или текущий поток не прервется. </li><br>
 <li>  </li>
 </ul>
 </section>
