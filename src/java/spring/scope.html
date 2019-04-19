@@ -28,7 +28,7 @@
 <ul>
 <li><a href="#" >singleton</a>Определяет один единственный бин для каждого контейнера Spring IoC (используется по умолчанию). </li>
 <li><a href="#" >prototype</a> Позволяет иметь любое количество экземпляров бина.  <font color="#ff6666">Не хранится в контейнере , поэтому @PreDestroy не сработает !!! </font></li>
-<li><a href="#" >request</a>Создаётся один экземпляр бина на каждый HTTP запрос. Касается исключительно ApplicationContext. </li>
+<li><a href="#" >request</a>Если компонент помечен request областью действия, каждый из одновременных запросов видит разные экземпляры компонента. Это верно даже тогда, когда один и тот же сеанс отправляет два запроса одновременно; каждый запрос получает указатель на отдельный объект. Все экземпляры обрабатываются независимо и не влияют друг на друга. </li>
 <li><a href="#" >session</a>Создаётся один экземпляр бина на каждую HTTP сессию. Касается исключительно ApplicationContext. </li>
 <li><a href="#" >global-session</a> Создаётся один экземпляр бина на каждую глобальную HTTP сессию. Касается исключительно ApplicationContext.</li>
 </ul>
@@ -41,8 +41,9 @@
 </div>
 <div class="content">
 <ul>
-<li> <a href="https://proselyte.net/tutorials/spring-tutorial-full-version/bean-scope/" target="_blank">Руководство по Spring. Область видимости бинов.</a></li>
-<li> <a href="https://www.mkyong.com/spring/spring-bean-scopes-examples/" target="_blank">mkyong.com </a> Spring bean scopes example</li>
+<li> <a href="https://proselyte.net/tutorials/spring-tutorial-full-version/bean-scope/"  target="_blank" rel="noopener">Руководство по Spring. Область видимости бинов.</a></li>
+<li> <a href="https://www.mkyong.com/spring/spring-bean-scopes-examples/"  target="_blank" rel="noopener">mkyong.com </a> Spring bean scopes example</li>
+<li> <a href="https://docs.oracle.com/cd/E23095_01/Platform.93/ATGProgGuide/html/s0205requestscope01.html"  target="_blank" rel="noopener">Request Scope  </a> Oracle</li>
 
 </ul></div>
 </section>

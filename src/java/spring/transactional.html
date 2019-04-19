@@ -22,12 +22,77 @@
                                 
 <!-- Heading -->
 <section>
-<font color="#ffa31a">	<h2> @Transactional </h2></font>
+	<h4> @Transactional </h4>
 import <span class="codemethod">org.springframework.transaction.annotation.Transactional</span>;
-<p>Транзакция это набор операций, которые могут быть либо целиком и успешно выполнены ,либо полностью не выполнены.</p>
+<p>Транзакция это набор операций, которые могут быть либо целиком и успешно выполнены ,либо полностью не выполнены.<br>
+транзакции необходимы для поддержки целостности и согласованности данных
+</p>
+При использовании аннотации @Transactional в Spring следует добавить следующую строку в конфигурационный файл Spring:<br>
+<pre class="code"><code><span><</span>tx:annotation-driven transaction-manager="transactionManager"/<span>></span>
+</code></pre>
+<p>
+Устанавливайте аннотацию @Transactional в слое сервиса (Service layer), а не в слое DAO !!!
+</p>
+
+<p>
+<font color="#ff9999"> По умолчанию @Transactional без параметров , является REQUIRED, значением атрибута "<span class="codeobject">readOnly</span>" – <span class="codeoperator">false</span>, уровень изоляции соответствует уровню изоляции по умолчанию для базы данных (как правило, это READ_COMMITTED), и транзакция НЕ БУДЕТ откатываться в случае контролируемых исключений (checked exception) !!!</font>
+</p>
+<p>
+<font color="#ff9999">Странной особенностью флага "<span class="codeannotation">@Transactional</span>(<span class="codeobject">readOnly</span> = <span class="codeoperator">true</span>)" является то, что он вступает в силу только с началом новой транзакции ! В ORM  окружении необходимо использовать этот флаг вместе с Propagation.SUPPORTS. </font>
+</p>
+<p>
+<font color="#ff9999">
+Не используйте аннотацию @Transactional на приватных, protected или default методах. Добавление аннотации к методами с <span class="codeoperator">private</span>, <span class="codeoperator">protected</span> или <span class="codeoperator">default</span> модификаторами доступа не выбросит исключение.Однако аннотация будет проигнорирована !!!
+</font>
+</p>
+<p>
+<font color="#ff9999"> лучше вообще не использовать аннотацию @Transactional при чтении данных из базы </font>
+</p>
 
 <p>Транзакциями в Spring управляют с помощью Declarative Transaction Management (программное управление). Используется аннотация @Transactional для описания необходимости управления транзакцией. В файле конфигурации нужно добавить настройку transactionManager для DataSource.</p>
 </section>
+
+<section>
+<h4> Распространение транзакций : </h4>
+<ul>
+<li> <span class="codeenum">Propagation</span>.<span class="codeconst">REQUIRED</span> — применяется по умолчанию. При входе в @Transactional метод будет использована уже существующая транзакция или создана новая транзакция, если никакой ещё нет</li>
+<li><span class="codeenum">Propagation</span>.<span class="codeconst">REQUIRES_NEW</span> — второе по распространённости правило. Транзакция всегда создаётся при входе метод с Propagation.REQUIRES_NEW, ранее созданные транзакции приостанавливаются до момента возврата из метода.</li>
+<li><span class="codeenum">Propagation</span>.<span class="codeconst">NESTED</span> — корректно работает только с базами данных, которые умеют savepoints. При входе в метод в уже существующей транзакции создаётся savepoint, который по результатам выполнения метода будет либо сохранён, либо откачен. Все изменения, внесённые методом, подтвердятся только поздее, с подтверждением всей транзакции. Если текущей транзакции не существует, будет создана новая.</li>
+<li><span class="codeenum">Propagation</span>.<span class="codeconst">MANDATORY</span> — обратный по отношению к Propagation.REQUIRES_NEW: всегда используется существующая транзакция и кидается исключение, если текущей транзакции нет.</li>
+<li><span class="codeenum">Propagation</span>.<span class="codeconst">SUPPORTS</span> — метод с этим правилом будет использовать текущую транзакцию, если она есть, либо будет исполнятся без транзакции, если её нет. </li>
+<li><span class="codeenum">Propagation</span>.<span class="codeconst">NOT_SUPPORTED</span> — одно из самых забавных правил. При входе в метод текущая транзакция, если она есть, будет приостановлена и метод будет выполняться без транзакции.</li>
+<li><span class="codeenum">Propagation</span>.<span class="codeconst">NEVER</span> — правило, которое явно запрещает исполнение в контексте транзакции. Если при входе в метод будет существовать транзакция, будет выброшено исключение.</li>
+</ul>
+</section>
+
+<section>
+<h4> откат транзакций: </h4>
+<ul>
+<li><span class="codeobject">rollbackFor</span> = <span class="codeclass">Exception</span>.<span class="codeoperator">class</span> -  Значением этого параметра может быть либо класс исключения, либо массив подобных классов. <font color="#ff6666">По умолчанию откат происходит при rollbackFor=RunTimeException.class</font></li>
+<li><span class="codeobject">rollbackForClassName</span> = <span class="codetext">"Name"</span> - для задания имен исключений в строковом виде</li>
+<li><span class="codeobject">noRollbackFor</span> = <span class="codeclass">IllegalStateException</span>.<span class="codeoperator">class</span> -   Означает что откат не должен происходить если целевой метод выбросил это исключение.</li>
+</ul>
+</section>
+
+<section>
+<h4> уровни изоляции транзакций: </h4>
+<ul>
+<li><span class="codeobject">isolation</span> = <span class="codeenum">Isolation</span>.<span class="codeconst">READ UNCOMMITTED</span> (dirty read («грязное чтение»)) - После INSERT данные сразу-же станут доступны для чтения. Тоесть еще до вызова COMMIT</li>
+<li><span class="codeobject">isolation</span> = <span class="codeenum">Isolation</span>.<span class="codeconst">READ COMMTITED</span>(По умолчанию в PostgreSQL) - В данном случае прочитать данные возможно только после вызова COMMIT</li>
+<li><span class="codeobject">isolation</span> = <span class="codeenum">Isolation</span>.<span class="codeconst">REPEATABLE READ</span> (по умолчанию в MySQL) -   изменения данных, которые были прочитаны в транзакции ранее в транзакцию не попадают, другие транзакции не могут изменять данные, прочитанные этой транзакцией. Возможен эффект фантомного чтения, степерь параллельности транзакций выше, чем у Serializable. </li>
+<li><span class="codeobject">isolation</span> = <span class="codeenum">Isolation</span>.<span class="codeconst">SERIALIZABLE</span> -  транзакции полностью изолируются друг от друга и ни одна транзакция ни коим образом не влияет на другие. На самом деле смысла использовать этот уровень нет</li>
+</ul>
+</section>
+
+<section>
+<h4> Для уровня изоляции Read committed допустимы следующие особые условия чтения данных:: </h4>
+<ul>
+<li>Неповторяемое чтение — транзакция повторно читает те же данные, что и раньше, и обнаруживает, что они были изменены другой транзакцией (которая завершилась после первого чтения).</li>
+<li>Фантомное чтение — транзакция повторно выполняет запрос, возвращающий набор строк для некоторого условия, и обнаруживает, что набор строк, удовлетворяющих условию, изменился из-за транзакции, завершившейся за это время.</li>
+</ul>
+</section>
+
+
 <br><br><br>
 <section>
 <h4> Через аннотации :</h4>
@@ -88,8 +153,10 @@ public class FooService {
     <span><</span>/bean<span>></span>
 </code></pre>
 </section>
+
+<section>
 <br><br><br><br>
-транзакции соответствуют свойствам ACID :
+<h4> транзакции соответствуют свойствам ACID :</h4> 
 <ul>
 <li> Атомарность - транзакция может быть либо целиком выполнена , либо целиком удалена.</li>
 <li> Согласованность - состояние данных должно быть логически согласованным после выполнения транзакции</li>
@@ -102,19 +169,20 @@ public class FooService {
 <p>
  Этот метод помечен как @Transactional, что означает откат всех записей к предыдущему значению, если любая из операций в этом методе завершится неудачей, а также повторно бросит оригинальное исключение. Это значит, что если добавление одного из людей завершится ошибкой, то ни один из людей в итоге не добавится в таблицу BOOKINGS.
 </p>
-<section>
+
+</section>
 
 <!-- Полезные ссылки . -->
-<div class="contentname">
+<section>
 <h4>Полезные ссылки:</h4>
-</div>
-<div class="content">
 <ul>
-<li> <a href="http://spring-projects.ru/guides/managing-transactions/" target="_blank">http://spring-projects.ru</a></li>
-<li> <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#transaction-declarative" target="_blank">Transaction Management </a> Spring Docks</li>
-<li> <a href="https://www.baeldung.com/transaction-configuration-with-jpa-and-spring" target="_blank">Transactions with Spring and JPA </a> Baeldung</li>
-<li> <a href="http://akorsa.ru/2016/08/kak-na-samom-dele-rabotaet-transactional-spring/" target="_blank">Как на самом деле работает @Transactional Spring? </a> Блог Анатолия Корсакова</li>
-</ul></div>
+<li> <a href="https://easyjava.ru/spring/spring-data-access/izolyaciya-i-rasprostranenie-tranzakcij-v-spring/"  target="_blank" rel="noopener">Изоляция и распространение транзакций в Spring</a> EasyJava</li>
+<li> <a href="https://www.ibm.com/developerworks/ru/library/j-ts1/"  target="_blank" rel="noopener">Распространенные ошибки</a> IBM</li>
+<li> <a href="http://spring-projects.ru/guides/managing-transactions/"  target="_blank" rel="noopener">http://spring-projects.ru</a></li>
+<li> <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#transaction-declarative"  target="_blank" rel="noopener">Transaction Management </a> Spring Docks</li>
+<li> <a href="https://www.baeldung.com/transaction-configuration-with-jpa-and-spring"  target="_blank" rel="noopener">Transactions with Spring and JPA </a> Baeldung</li>
+<li> <a href="http://akorsa.ru/2016/08/kak-na-samom-dele-rabotaet-transactional-spring/"  target="_blank" rel="noopener">Как на самом деле работает @Transactional Spring? </a> Блог Анатолия Корсакова</li>
+</ul>
 </section>
 
 

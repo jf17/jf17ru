@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Annotation. Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<hr />
+</section>
+                         
+<article>
+<section>
+<font color="#ffa31a">	<h2> Annotation :</h2></font>
+package  java.lang.annotation.*; <br>
+Аннотации представляют из себя дескрипторы, включаемые в текст программы, и используются для хранения метаданных программного кода, необходимых на разных этапах жизненного цикла программы.
+<br>
+</section>
+
+
+<section>
+<h4>Retention :</h4>
+<ul>
+<li> <span class="codeannotation">@Retention</span>(<span class="codeenum">RetentionPolicy</span>.<span class="codeconst">SOURCE</span>)  - содержаться только в исходном файле и отбрасываются при компиляции.</li>
+<li><span class="codeannotation">@Retention</span>(<span class="codeenum">RetentionPolicy</span>.<span class="codeconst">CLASS</span>)  - сохраняются в файле, однако они недоступны JVM во время выполнения.</li>
+<li> <span class="codeannotation">@Retention</span>(<span class="codeenum">RetentionPolicy</span>.<span class="codeconst">RUNTIME</span>)   - сохраняются в файле во время компиляции и остаются доступными JVM во время выполнения.</li>
+</ul>
+</section>
+
+<section>
+<h4>Retention :</h4>
+<ul>
+<li> <span class="codeannotation">@Retention</span>(<span class="codeenum">RetentionPolicy</span>.<span class="codeconst">SOURCE</span>)  - содержаться только в исходном файле и отбрасываются при компиляции.</li>
+<li><span class="codeannotation">@Retention</span>(<span class="codeenum">RetentionPolicy</span>.<span class="codeconst">CLASS</span>)  - сохраняются в файле, однако они недоступны JVM во время выполнения.</li>
+<li> <span class="codeannotation">@Retention</span>(<span class="codeenum">RetentionPolicy</span>.<span class="codeconst">RUNTIME</span>)   - сохраняются в файле во время компиляции и остаются доступными JVM во время выполнения.</li>
+</ul>
+</section>
+
+
+<br><br>
+<section>
+<h4>Target :</h4>
+<ul>
+<li><span class="codeannotation">@Target</span>(<span class="codeenum">ElementType</span>.<span class="codeconst">PACKAGE</span>) - только для пакетов;</li>
+<li><span class="codeannotation">@Target</span>(<span class="codeenum">ElementType</span>.<span class="codeconst">TYPE</span>) - только для классов;</li>
+<li><span class="codeannotation">@Target</span>(<span class="codeenum">ElementType</span>.<span class="codeconst">CONSTRUCTOR</span>) - только для конструкторов;</li>
+<li><span class="codeannotation">@Target</span>(<span class="codeenum">ElementType</span>.<span class="codeconst">METHOD</span>) - только для методов;</li>
+<li><span class="codeannotation">@Target</span>(<span class="codeenum">ElementType</span>.<span class="codeconst">FIELD</span>) - только для атрибутов(переменных) класса;</li>
+<li><span class="codeannotation">@Target</span>(<span class="codeenum">ElementType</span>.<span class="codeconst">PARAMATER</span>) - только для параметров метода;</li>
+<li><span class="codeannotation">@Target</span>(<span class="codeenum">ElementType</span>.<span class="codeconst">LOCAL_VARIABLE</span>) - только для локальных переменных.</li>
+</ul>
+</section>
+
+<br><br>
+<section>
+<h4>Как создать свою Аннотацию? :</h4>
+<pre class="code"><code>
+<span class="codeannotation">@Target</span>({<span class="codeconst">TYPE</span>, <span class="codeconst">FIELD</span>, <span class="codeconst">METHOD</span>, <span class="codeconst">PARAMETER</span>})
+<span class="codeannotation">@Retention</span>(<span class="codeenum">RetentionPolicy</span>.<span class="codeconst">SOURCE</span>)
+<span class="codeoperator">public</span> @interface <span class="codeinterface">MyAnnotation</span> {
+    <span class="codeclass">String</span>[] value();
+}
+</code></pre>
+</section>
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/package-summary.html" target="_blank" rel="noopener"> Package java.lang.annotation</a> Java Docs (Java 8) </li>
+	<li> <a href="http://java-online.ru/java-annotation.xhtml" target="_blank" rel="noopener"> Аннотация методов, annotation</a> java-online.ru</li>
+	<li>  </li>
+
+	</ul>
+
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body><!-- Footer --></html>
