@@ -22,15 +22,68 @@
 <section>
 <font color="#ffa31a">	<h3>SQL язык:</h3></font>
 <ul>
-<li> <a href="createtable.html"> создание таблицы.</a> </li>
-<li> <a href="droptable.html"> удаление таблицы.</a> </li>
+<li> <a href="createtable.html"> создание таблицы</a></li>
+<li> <a href="droptable.html"> удаление таблицы</a></li>
 <li> CRUD ( create, read, update, delete — «создать, прочесть, обновить, удалить». James Martin) :</li>
-<li> <a href="insert.html"> добавление новых данных в таблицу.</a> </li>
-<li> <a href="select.html"> запрос из таблицы .</a> </li>
-<li> <a href="update.html"> обновление записи в таблице .</a> </li>
-<li> <a href="delete.html"> удаление записи из таблицы .</a> </li>
+<li> <a href="insert.html"> добавление новых данных в таблицу</a></li>
+<li> <a href="select.html"> запрос из таблицы</a></li>
+<li> <a href="update.html"> обновление записи в таблице</a></li>
+<li> <a href="delete.html"> удаление записи из таблицы</a></li>
 </ul>
 </section>
+
+<br>
+
+<section>
+<font color="#ffa31a">	<h3>операторы языка SQL:</h3></font>
+<ul>
+<li> <a href="select.html">SELECT</a> </li>
+<li> <a href="insert.html">INSERT</a> </li>
+<li> <a href="update.html">UPDATE</a> </li>
+<li> <a href="delete.html">DELETE</a> </li>
+<li></li>
+<li> <a href="#">WHERE</a> ограничение по выборке . Оно выполняется до того, как будет получен результат операции.</li>
+<li> <a href="#">HAVING</a> фильтр . Оно применяется к результату операции и выполняется уже после того как этот результат будет получен .</li>
+<li></li>
+<li> <a href="#">GROUP BY</a> для объединения результатов выборки по одному или нескольким столбцам</li>
+<li> <a href="#">ORDER BY</a> сортировка</li>
+<li> <a href="#">DISTINCT</a> что следует работать только с уникальными значениями столбца</li>
+<li></li>
+<li> <a href="#">AND и OR</a> для создания логических выражений</li>
+<li> <a href="#">LIKE</a> </li>
+<li></li>
+<li> <a href="#">JOIN</a> сливает две таблицы в одну , по указаной колонке </li>
+<li> <a href="#">UNION</a> пристраевает одну таблицу к низу другой </li>
+</ul>
+</section>
+
+<br><br>
+
+<section>
+<font color="#ffa31a">	<h3>агрегатные функции:</h3></font>
+<ul>
+<li><span class="codeconst">COUNT(*)</span> - подсчитывает количество <span class="codemethod">строк</span> в таблице, не игнорирует значение <span class="codeoperator">NULL</span>, поскольку эта функция оперирует строками, а не столбцами.</li>
+<li><span class="codeconst">COUNT(<span class="codeobject">name</span>)</span> - подсчитывает количество <span class="codemethod">значений</span> в "name".  эта форма функции COUNT игнорирует значение <span class="codeoperator">NULL</span>.</li>
+<li><span class="codeconst">SUM</span> - Возвращает сумму значений в указанном столбце</li>
+<li><span class="codeconst">AVG</span> - Возвращает среднее значение в указанном столбце</li>
+<li><span class="codeconst">MIN</span> - Возвращает минимальное значение в указанном столбце</li>
+<li><span class="codeconst">MAX</span> - Возвращает максимальное значение в указанном столбце</li>
+</ul>
+</section>
+
+<br><br>
+<section>
+<font color="#ffa31a">	<h3>типы JOIN-ов:</h3></font>
+<ul>
+<li><span class="codeconst">INNER</span> <span class="codeoperator">JOIN</span> - внутреннее соединение. В результирующем наборе присутствуют только записи, значения связанных полей в которых совпадают.</li>
+<li><span class="codeconst">LEFT</span> <span class="codeoperator">JOIN</span> - левое внешнее соединение. В результирующем наборе присутствуют все записи из table1 и соответствующие им записи из table2. Если соответствия нет, поля из table2 будут пустыми.</li>
+<li><span class="codeconst">RIGHT</span> <span class="codeoperator">JOIN</span> - правое внешнее соединение. В результирующем наборе присутствуют все записи из table2 и  соответствующие им записи из table1. Если соответствия нет, поля из table1 будут пустыми.</li>
+<li><span class="codeconst">FULL</span> <span class="codeoperator">JOIN</span> - полное внешнее соединение. Комбинация двух предыдущих. В результирующем наборе присутствуют все записи из table1 и соответствующие им записи из table2. Если соответствия нет - поля из table2 будут пустыми. Записи из table2, которым не нашлось пары в table1, тоже будут присутствовать в результирующем наборе. В этом случае поля из table1 будут пустыми.</li>
+<li><span class="codeconst">CROSS</span> <span class="codeoperator">JOIN</span> -  Результирующий набор содержит все варианты комбинации строк из table1 и table2. Условие соединения при этом не указывается.</li>
+</ul>
+</section>
+
+<br><br>
 
 <!-- Базы Данных. -->
 <section>
@@ -48,7 +101,8 @@
 <section>
 <font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
 <ul>
-<li> <a href="https://www.sqlite.org/download.html" target="_blank"> SQLite Download Page </a> </li>
+<li> <a href="http://2sql.ru/" target="_blank" rel="noopener"> 2sql.ru</a> </li>
+<li> <a href="https://www.sqlite.org/download.html" target="_blank" rel="noopener"> SQLite Download Page </a> </li>
 <li>  </li>
 <li> </li>
 <li> </li>
