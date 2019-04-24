@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> final . Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<hr />
+</section>
+                         
+<section>
+	<h4> final <span class="codeoperator">class</span> :</h4>
+Для класса это означает, что класс не сможет иметь подклассов, т.е. <font color="#cc9900">запрещено наследование</font>. Это полезно при создании <font color="#cccc00">immutable</font> (неизменяемых) объектов, например, класс String объявлен, как final.<br>
+Следует также отметить, что к абстрактным классам (с ключевым словом abstarct), нельзя применить модификатор final .
+</section>
+
+<br><br>
+
+<section>
+	<h4> final <span class="codeoperator">метод</span> :</h4>
+Для метода final означает, что он не может быть переопределен в подклассах. Это полезно, когда мы хотим, чтобы исходную реализацию нельзя было переопределить.
+</section>
+
+<br><br>
+
+<section>
+	<h4> final <span class="codeoperator">переменная</span> :</h4>
+Для переменных примитивного типа это означает, что однажды присвоенное значение не может быть изменено.<br>
+Для ссылочных переменных это означает, что после присвоения объекта, нельзя изменить ссылку на данный объект. Это важно! <font color="#ff3366">Ссылку изменить нельзя, но состояние объекта изменять можно !!!</font>
+</section>
+
+<br><br><br>
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/final.html" target="_blank" rel="noopener"> Writing Final Classes and Methods</a> Oracle Java Docs</li>
+
+	</ul>
+
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body><!-- Footer --></html>

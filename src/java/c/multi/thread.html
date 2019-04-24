@@ -63,13 +63,14 @@ public void onClick(View view) {
 <li><span class="codeoperator">void  </span> <span class="codeobject">thread</span><font color="#e6e600">.join() </font> :  ожидает завершение потока thread , а потом продолжает выполнение </li><br>
 <li><span class="codeoperator">void  </span> <span class="codeobject">thread</span><font color="#e6e600">.yield() </font> :  Подсказка планировщику о том, что текущий поток готов отдать свое текущее использование процессора. Планировщик может игнорировать эту подсказку.</li><br>
 <li><span class="codeoperator">void  </span><font color="#e6e600"> *.interrupt() </font> :  приостанавливает поток . (не завершает)</li><br>
+<li><span class="codeoperator">boolean  </span><font color="#e6e600"> <span class="codeclass">Thread</span>.interrupted() </font> :   является статическим и проверяет был ли установлен флаг прерывания у текущего потока. При этом флаг прерывания после вызова этого метода <font color="#ff0099">сбрасывается</font>.</li><br>
+<li><span class="codeoperator">boolean  </span><font color="#e6e600"> *.isInterrupted() </font> :  позволяет проверить флаг прерывания у потока, для которого этот метод был вызван. При этом сам флаг не сбрасывается.</li><br>
 <li><span class="codeclass">Thread  </span> <font color="#e6e600"> *.currentThread() </font> : Получаем ссылку на текущий поток выполнения </li><br>
 <li><span class="codeclass">String  </span><font color="#e6e600"> *.getName() </font> :  возвращает имя потока</li><br>
 <li><span class="codeoperator">void  </span><font color="#e6e600"> *.setName(<span class="codeclass">String</span> <span class="codeobject">name</span>) </font> : устанавливает имя потока </li><br>
 <li><span class="codeoperator">int  </span><font color="#e6e600"> *.getPriority() </font> : возвращает приоритет потока </li><br>
 <li><span class="codeoperator">void  </span><font color="#e6e600"> *.setPriority(<span class="codeoperator">int</span> <span class="codeobject">proirity</span>) </font> : устанавливает приоритет потока.  В этот метод в качестве параметра передается числовое значение приоритета - от 1 до 10. По умолчанию главному потоку выставляется средний приоритет - 5. </li><br>
 <li><span class="codeoperator">boolean  </span><font color="#e6e600"> *.isAlive() </font> :  возвращает true, если поток активен</li><br>
-<li><span class="codeoperator">boolean  </span><font color="#e6e600"> *.isInterrupted() </font> :  возвращает true, если поток был прерван</li><br>
 <li><span class="codeoperator">void  </span><font color="#e6e600"> *.run() </font> :  запускает метод класса (без создания нового потока)</li><br>
 <li><span class="codeoperator">long  </span><font color="#e6e600"> *.getId() </font> :  возвращает Id потока</li><br>
 <li><span class="codeoperator">void  </span><font color="#e6e600"> *.setDaemon(<span class="codeoperator">boolean</span> <span class="codeobject">on</span>) </font> :  помечает поток как daemon</li><br>
