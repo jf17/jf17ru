@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Java Message Service . Java . - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h3> <a href="https://jf17.ru/java/spring/index.html" >Spring</a></h3>
+<hr />
+</header>
+                                
+
+<section>
+<h4> Java Message Service :</h4>
+Некий стандарт передачи сообщений в Java. <br>
+Так же как и JPA , у JMS есть провайдеры , которые реализуют этот стандарт.  <br>
+Асинхронность - это главная причина создания и использования JMS.<br>
+<font color="#ff0066">Сообщения теряются !! Сообщения дублируются !!! </font> <br>
+<br>
+Роли :
+<ul>
+<li>Producer</li>
+<li>Consumer</li>
+</ul>
+<br>
+Типы доставки сообщений :
+<ul>
+<li>Point to Point </li>
+<li>Publisher to Subscriber</li>
+</ul>
+<br>
+Типы распространения сообщений :
+<ul>
+<li>Очередь - получает сообщение только один из слушателей ! редко используется ! плюсы очереди (якобы) балансировка между слушателями!</li>
+<li>Топик - получают сообщение все слушатели ! </li>
+</ul>
+<br>
+Модели подтверждения получения сообщений :
+<ul>
+<li><span class="codeconst">AUTO_ACKNOWLEDGE</span> - в случае синхронного получения сообщений, подтверждение получения будет произведено автоматически, когда метод receive() возвратит значение не вызвав никакой исключительной ситуации. В случае асинхронного получения сообщений, подтверждение получения будет произведено, когда метод onMessage() вернет значение.</li>
+<li><span class="codeconst">DUPS_OK_ACKNOWLEDGE</span> - работа по подтверждению получения сообщения перекладывается на Session. Сообщения будут вновь доставлены в случае возникновения ошибки или "гибели" системы.</li>
+<li><span class="codeconst">CLIENT_ACKNOWLEDGE</span> - клиент должен вызвать метод acknowledge() интерфейса javax.jms.Message для того, чтобы явно подтвердить получение сообщения. При вызове данного метода будет подтверждено получение текущего и всех предадущих полученных сообщений.</li>
+</ul>
+<section>
+<br><br><br>
+<!-- Полезные ссылки . -->
+<div class="contentname">
+<h4>Полезные ссылки:</h4>
+</div>
+<div class="content">
+<ul>
+<li> <a href="http://queues.io/"  target="_blank" rel="noopener">проблематика Message Driven систем</a> queues.io</li>
+<li> <a href="https://kafka.apache.org/"  target="_blank" rel="noopener"> Kafka</a> </li>
+<li> <a href="https://habr.com/ru/post/354486/"  target="_blank" rel="noopener"> Apache Kafka – мой конспект</a> Хабр</li>
+<li> <a href="https://www.youtube.com/watch?v=ExjPxDxkmFo"  target="_blank" rel="noopener">Нужен ли нам JMS в мире современных Java-технологий?</a> Youtube Николай Алименков</li>
+
+</ul></div>
+</section>
+
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
