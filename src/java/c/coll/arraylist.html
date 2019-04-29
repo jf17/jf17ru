@@ -23,8 +23,14 @@
 
 <section>
 <font color="#ffa31a">	<h2> ArrayList:</h2></font>
-<p> </p>
+<p> <span class="codeclass">ArrayList</span> - автоматически расширяемый массив.</p>
+<font color="#ff0033">максимальный размер <span class="codeclass">ArrayList</span> ограничен значением <span class="codeoperator">int</span> !!!</font><br>
+<font color="#ff0033">при удалении элементов текущая величина capacity не уменьшается, что может привести к своеобразным утечкам памяти. Поэтому не стоит пренебрегать методом <span class="codemethod">trimToSize</span>() </font><br>
+<font color="#ff0033">Java имеет ограничение на максимальный размер массива, который может выделить ваша программа. Точное ограничение зависит от платформы, но обычно составляет от 1 до 2,1 миллиарда элементов.</font><br>
+Когда вы сталкиваетесь с java.lang.OutOfMemoryError: Запрашиваемый размер массива превышает ограничение виртуальной машины , это означает, что приложение, аварийно завершающее работу с ошибкой, пытается выделить массив больше, чем может поддерживать виртуальная машина Java
+</section>
 
+<br><br><br>
 <section>
 <font color="#ffffff">
 <table class="alt" border="1">
@@ -113,7 +119,8 @@
 <section>
 	<h4>Полезные ссылки:</h4>
 	<ul>
-	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank" rel="noopener"> документация Oracle по ArrayList.  </a> </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank" rel="noopener">ArrayList</a> Java 8 Oracle Dosc </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html" target="_blank" rel="noopener">ArrayList</a> Java 7 Oracle Dosc </li>
 	<li></li>
 	<li></li>
 	<li></li>
