@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> String Pool. Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body class="content">
+
+
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<hr />
+</header>
+                         
+
+<section>
+<h4> String Pool :</h4>
+
+Пул строк - это конкретная реализация JVM концепции string interning. <br><br>
+
+Когда мы используем двойные кавычки для создания строки, сначала ищется строка в пуле с таким же значением, если находится, то просто возвращается ссылка, иначе создается новая строка в пуле, а затем возвращается ссылка . <br>
+
+Пул строк возможен исключительно благодаря неизменяемости строк в Java и реализации идеи интернирования строк. Пул строк также является примером паттерна Приспособленец (Flyweight).<br>
+
+когда мы используем оператор <span class="codeoperator">new</span>, мы принуждаем класс <span class="codeclass">String</span> создать новый объект строки, а затем мы можем использовать метод <span class="codemethod">intern()</span> для того, чтобы поместить строку в пул, или получить из пула ссылку на другой объект String с таким же значением.<br>
+<br>
+Когда метод <span class="codemethod">intern()</span> вызван, если пул строк уже содержит строку, эквивалентную к нашему объекту, что подтверждается методом <span class="codemethod">equals</span>(Object), тогда возвращается ссылка на строку из пула. В противном случае объект строки добавляется в пул и ссылка на этот объект возвращается. <br>
+
+</section>
+
+<br><br>
+
+<section>
+<h4> Сборка мусора :</h4>
+До Java 7 ,  пул Java String помещался в пространство PermGen , которое имеет фиксированный размер - его нельзя развернуть во время выполнения и не подходит для сборки мусора .<br>
+Риск интернирования строк в PermGen (вместо кучи ) заключается в том, что мы можем получить ошибку <font color="#ff0066">OutOfMemory</font> от JVM, если интернируем слишком много строк .<br><br>
+Начиная с Java 7, пул Java String хранится в пространстве Heap , собираемым JVM . Преимущество этого подхода заключается в уменьшении риска ошибки OutOfMemory, поскольку строки, на которые нет ссылок, будут удалены из пула, тем самым освобождая память.<br>
+</section>
+
+<br><br><br>
+
+<section>
+<h4>работа пула строк :</h4>
+<pre class="code"><code>
+public class MyStringPool {
+    public static void main(String[] args) {
+        String s1 = <span class="codetext">"Cat"</span>; <span class="codecomment">// создаем строку и помещаем ее в pool строк</span>
+        String s2 = <span class="codetext">"Cat"</span>;<span class="codecomment"> // создаем строку и помещаем ее в pool строк</span>
+        String s3 = <span class="codeoperator">new</span> <span class="codeclass">String</span>(<span class="codetext">"Cat"</span>); <span class="codecomment">// создаем новый обьект (не помещаем его в pool)</span>
+
+        System.out.println(<span class="codetext">"s1 == s2 :"</span>+(<span class="codeobject">s1</span>==<span class="codeobject">s2</span>));
+        System.out.println(<span class="codetext">"s1 == s3 :"</span>+(<span class="codeobject">s1</span>==<span class="codeobject">s3</span>));
+    }
+}
+
+<span class="codecomment">s1 == s2 :<span class="codeoperator">true</span></span>
+<span class="codecomment">s1 == s3 :<span class="codeoperator">false</span></span>
+</code></pre>
+</section>
+
+<br><br><br>
+
+<section>
+<h4> *.intern() :</h4>
+<pre class="code"><code>
+        String str1 = <span class="codetext">"first"</span>;
+        
+        String str2 = <span class="codetext">"first"</span>;
+
+        String str3 = <span class="codeoperator">new</span> <span class="codeclass">String</span>(<span class="codetext">"first"</span>);
+
+        <span class="codeobject">str3</span> = <span class="codeobject">str3</span>.<span class="codemethod">intern()</span>;
+
+        System.out.println(<span class="codeobject">str1</span> == <span class="codeobject">str2</span>);
+        System.out.println(<span class="codeobject">str2</span> == <span class="codeobject">str3</span>);
+        System.out.println(<span class="codeobject">str1</span> == <span class="codeobject">str3</span>);
+
+<span class="codecomment">true</span>
+<span class="codecomment">true</span>
+<span class="codecomment">true</span>
+</code></pre>
+</section>
+
+<br><br><br>
+
+
+
+
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#intern--" target="_blank" rel="noopener"> "str".intern()</a>  in JavaDoc (Java 8) </li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#intern()" target="_blank" rel="noopener"> "str".intern()</a>  in JavaDoc (Java 7) </li>
+	<li> <a href="https://docs.oracle.com/javase/6/docs/api/java/lang/String.html#intern()" target="_blank" rel="noopener"> "str".intern()</a>  in JavaDoc (Java 6) </li>
+
+<li> </li>
+<li> </li>
+	</ul>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
