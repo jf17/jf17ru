@@ -22,19 +22,26 @@
 <article>
 <section>
 <font color="#ffa31a">	<h2> String</h2></font>
-<p><span class="codeoperator">package</span> <font color="#cc00cc">java.lang.String</font></p>
+<p><span class="codeoperator">package</span> <font color="#cc00cc">java.lang.String</font> @since 1.0 <br>
+<span class="codeoperator">implements</span> java.io.<span class="codeinterface">Serializable</span>, <span class="codeinterface">Comparable</span><span ><</span><span class="codeclass">String</span><span >></span>, <span class="codeinterface">CharSequence</span>
+</p>
 <p><font color="#ff0099">Класс <span class="codeclass">String</span> объявлен как <span class="codeoperator">final</span>, поэтому наследоваться от него не получится.</font></p>
 <p><font color="#cccc00">Поскольку строки <span class="codeoperator">неизменны</span>, их хэшкод кэшируется в момент создания, и не требует повторного пересчета. Это делает строки отличным кандидатом для <span class="codeoperator">ключа</span> в <span class="codeclass">Map</span> и они обрабатываются быстрее, чем другие объекты-ключи <span class="codeclass">HashMap</span>. Вот почему строки преимущественно используются в качестве ключей <span class="codeclass">HashMap</span>.</font></p>
 <p>Следует помнить, что объекты класса <span class="codeclass">String</span> являются неизменяемыми (<span class="codeoperator">immutable</span>). Поэтому, когда вам кажется, что вы меняете строку, то на самом деле вы создаёте новую строку. </p>
 <p>В Java есть специальные классы <span class="codeclass">StringBuffer</span> и <span class="codeclass">StringBuilder</span>, который допускают изменения в строке. </p>
-<p>Классы String, StringBuffer, StringBuilder определены в пакете java.lang и доступны автоматически без объявления импорта. Все три класса реализуют интерфейс CharSequence. </p>
+<p>Классы String, StringBuffer, StringBuilder определены в пакете java.lang и доступны автоматически без объявления импорта. Все три класса реализуют интерфейс <span class="codeinterface">CharSequence</span>. </p>
+java.lang.<span class="codeclass">StringBuffer</span>    @since 1.0<br>
+java.lang.<span class="codeclass">StringBuilder</span>   @since 1.5 <br>
 <br>
 </section>
 
 <section>
 <font color="#ffa31a">	<h2> Какая основная разница между String, StringBuffer, StringBuilder? </h2></font>
 <p>String - неизменяемый класс, тоесть для для добавление данных в уже существующую строку, создается новый объект строки. </p>
-<p>StringBuffer и StringBuilder могут изменятся и добавление строки не такое дорогостоющее с точки зрения памяти. Первы - синхронизированный, второй - нет. Это их единственное различие. </p>
+<p>
+StringBuffer - синхронизированный <br>
+StringBuilder  - нет.<br>
+Это их единственное различие. </p>
 <br>
 </section>
 
@@ -44,21 +51,25 @@
 <section>
 <font color="orange"><h4>Методы :</h4></font>
 <ul>
+<li><span class="codeoperator">boolean</span> <span class="codeobject">*</span><span class="codemethod">.equals</span>(<span class="codeclass">Object</span> <span class="codeobject">obj</span>) - Сравнивает содержимое строк . </li>
 <li><span class="codeoperator">int</span> <span class="codeobject">*</span><span class="codemethod">.length</span>() - Возращает длинну строки .</li>
-<li><span class="codeoperator">boolean</span> <span class="codeobject">*</span><span class="codemethod">.contains</span>() - Определяет, содержит ли строка последовательность символов. </li>
-<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.equals</span>(<span class="codeclass">Object</span> <span class="codeobject">obj</span>) - Сравнивает содержимое строк . </li>
+<li><span class="codeoperator">char</span> <span class="codeobject">*</span><span class="codemethod">.charAt</span>(<span class="codeoperator">int</span> <span class="codeobject">index</span>) - Вернуть букву по её индексу.</li>
+<li><span class="codeoperator">boolean</span> <span class="codeobject">*</span><span class="codemethod">.contains</span>(<span class="codeinterface">CharSequence</span> <span class="codeobject">s</span>) - Определяет, содержит ли строка последовательность символов. </li>
+<li><span class="codeclass">String</span><span class="codeoperator">[]</span> <span class="codeobject">*</span><span class="codemethod">.split</span>(<span class="codeclass">String</span> <span class="codeobject">regex</span>) - разбить строку по регулярному выражению .</li>
+<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.substring</span>(<span class="codeoperator">int</span> <span class="codeobject">beginIndex</span>, <span class="codeoperator">int</span> <span class="codeobject">endIndex</span>) - Вернуть подстроку из строки по индексам.</li>
+<li><span class="codeoperator">boolean</span> <span class="codeobject">*</span><span class="codemethod">.matches</span>(<span class="codeclass">String</span> <span class="codeobject">regex</span>) - Указывает, соответствует ли эта строка данному регулярному выражению. </li>
 <li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.equalsIgnoreCase</span>(<span class="codeclass">String</span> <span class="codeobject">str</span>) - Сравнивает содержимое строк игнорируя регистр букв.</li>
 <li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.toUpperCase</span>() - Переводит все буквы в строке в верхний регистр и возвращает новую строку.</li>
 <li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.toLowerCase</span>() - Переводит все буквы в строке в нижний регистр и возвращает новую строку.</li>
-<li><span class="codeoperator">boolean</span> <span class="codeobject">*</span><span class="codemethod">.matches</span>(<span class="codeclass">String</span> <span class="codeobject">regex</span>) - Указывает, соответствует ли эта строка данному регулярному выражению. </li>
 <li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.trim</span>() - Возвращает строку, значение которой является этой строкой, с удалением всех пробельных символов.</li>
 <li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.replace</span>(<span class="codeoperator">char</span> <span class="codeobject">oldChar</span>, <span class="codeoperator">char</span> <span class="codeobject">newChar</span>) - Возвращает строку, полученную в результате замены всех вхождений oldChar в этой строке с помощью newChar.</li>
 <li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.replaceAll</span>(<span class="codeclass">String</span> <span class="codeobject">regex</span>, <span class="codeclass">String</span> <span class="codeobject">replacement</span>) - Заменяет каждую подстроку этой строки, которая соответствует данному регулярному выражению с указанной заменой.</li>
 <li><span class="codeoperator">byte[]</span>  <span class="codeobject">*</span><span class="codemethod">.getBytes</span>() - Вернуть байтовое представление строки</li>
-<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.substring</span>(<span class="codeoperator">int</span> <span class="codeobject">beginIndex</span>, <span class="codeoperator">int</span> <span class="codeobject">endIndex</span>) - Вернуть подстроку из строки по индексам.</li>
-<li><span class="codeoperator">char</span> <span class="codeobject">*</span><span class="codemethod">.charAt</span>(<span class="codeoperator">int</span> <span class="codeobject">index</span>) - Вернуть букву по её индексу.</li>
+<li><span class="codeclass">String</span> <span class="codeobject">*</span><span class="codemethod">.intern</span>() - отправить строку в пулл строк .</li>
 <li> </li>
-<li> </li>
+<li> <span class="codeclass">String</span> <span class="codeobject">reverse</span> = <span class="codeoperator">new</span> <span class="codeclass">StringBuffer</span>(<span class="codeobject">string</span>).<span class="codemethod">reverse()</span>.<span class="codemethod">toString()</span>; - перевернуть строку .</li>
+<li> <span class="codeclass">String</span> <span class="codeobject">reverse</span> = <span class="codeoperator">new</span> <span class="codeclass">StringBuilder</span>(<span class="codeobject">string</span>).<span class="codemethod">reverse()</span>.<span class="codemethod">toString()</span>; - перевернуть строку .</li>
+
 </ul>
 </section>
 </article>
@@ -66,12 +77,16 @@
 <section>
 	<h4>Полезные ссылки:</h4>
 	<ul>
-	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" target="_blank" rel="noopener"> String in JavaDoc (Java 8) </a> </li>
-	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html" target="_blank" rel="noopener"> String in JavaDoc (Java 7) </a> </li>
-	<li> <a href="https://docs.oracle.com/javase/6/docs/api/java/lang/String.html" target="_blank" rel="noopener"> String in JavaDoc (Java 6) </a> </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" target="_blank" rel="noopener">String</a> in JavaDoc (Java 8)</li>
+	<li> <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html" target="_blank" rel="noopener">String</a>  in JavaDoc (Java 7)</li>
+	<li> <a href="https://docs.oracle.com/javase/6/docs/api/java/lang/String.html" target="_blank" rel="noopener">String</a>  in JavaDoc (Java 6)</li>
 <li> </li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html" target="_blank" rel="noopener">StringBuffer</a> in JavaDoc (Java 8)</li>
+	<li> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html" target="_blank" rel="noopener">StringBuilder</a>  in JavaDoc (Java 8)</li>
 <li> </li>
+	<li> <a href="https://www.tutorialspoint.com/javaexamples/java_strings.htm" target="_blank" rel="noopener">String</a> TutorialsPoint</li>
 	</ul>
+	<br><br><br><br><br>
 </section>
 
 
