@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> метод сжатия строки . Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h3> <a href="index.html" > Задачи на листочке</a></h3>
+<hr />
+</header>
+                         
+
+<section>
+	<h4> метод сжатия строки :</h4>
+
+<pre class="code"><code>
+public String compressBad(String str) {
+	String mystr = "";
+	char last = str.charAt(0);
+	int count = 1;
+	for (int i = 1; i <span ><</span> str.length(); i++) {
+		if (str.charAt(i) == last) { <span class="codecomment">// Находим повторяющийся символ</span>
+			count++;
+		} else {	<span class="codecomment">// Вставляем счетчик символа и обновляем последний символ</span>
+			mystr += last + count;
+			last = str.charAt(i);
+			count = 1;
+		}
+	}
+	return mystr + last + count;
+}
+</code></pre>
+</section>
+
+
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+<li><a href="https://tproger.ru/problems/string-compression/">метод сжатия строки</a></li>
+<li>  </li>
+	</ul>
+	</div>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body>
+<!-- Footer -->
+</html>
