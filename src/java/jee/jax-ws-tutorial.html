@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>JAX-WS Tutorial - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+
+<body>
+
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h2> <a href="https://jf17.ru/java/jee/index.html" >Java EE</a></h2>
+<hr />
+</header>
+                         
+
+<section>
+<h4> server JAX-WS :</h4>
+
+<ol>
+<li>скачиваем сервер GlassFish </li><br><br>
+<li>создаём новый проект в IDEA (нужна Pro версия )</li>
+<li>заходим в Java Enterprise</li>
+<li>ставим галочки на : Web Application и на WebServices </li>
+</ol>
+
+</section>
+<br><br><br>
+<section>
+<h4> client JAX-WS:</h4>
+
+<ol>
+<li>создаем новый проект (можно в free IDEA) обычное Java App</li>
+<li>создаём там папочку generated</li>
+<li>генерируем туда классы утилитой (wsimport -keep -d generated http://localhost:8080/jaxws_war_exploded/services/HelloWorld?wsdl)</li>
+<li>создаём там класс Client и вставляем туда код :</li>
+<pre class="code"><code>
+    public static void main(String[] args) {
+        HelloWorld helloWorld = new HelloWorldService().getHelloWorldPort();
+        System.out.println(helloWorld.sayHelloWorldFrom("Mike"));
+
+    }
+</code></pre>
+</ol>
+
+</section>
+
+
+
+<!-- Полезные ссылки . -->
+<h4>Полезные ссылки:</h4>
+<ul>
+<li> <a href="https://gvidik.livejournal.com/42281.html" target="_blank" rel="noopener">5 minute JAX-WS tutorial with Intellij IDEA</a></li>
+<li></li>
+<li></li>
+</ul>
+</section>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body><!-- Footer --></html>
