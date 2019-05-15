@@ -23,7 +23,9 @@
 <!-- Heading -->
 <section>
 	<h4> @Transactional </h4>
-import <span class="codemethod">org.springframework.transaction.annotation.Transactional</span>;
+import <span class="codemethod">org.springframework.transaction.annotation.Transactional</span>;<br>
+<font color="#ff3333">Транзакциями могут называтся действия которые полностью соответствуют <a href="https://jf17.ru/java/buzzwords/acid.html">ACID</a> !!! </font><br>
+Если один из пунктов ACID не выполняется , то оно не может называться Транзакцией !! (например в MongoDB не выполняется Durability )<br>
 <p>Транзакция это набор операций, которые могут быть либо целиком и успешно выполнены ,либо полностью не выполнены.<br>
 транзакции необходимы для поддержки целостности и согласованности данных
 </p>
@@ -80,7 +82,7 @@ import <span class="codemethod">org.springframework.transaction.annotation.Trans
 <li><span class="codeobject">isolation</span> = <span class="codeenum">Isolation</span>.<span class="codeconst">READ UNCOMMITTED</span> (dirty read («грязное чтение»)) - После INSERT данные сразу-же станут доступны для чтения. Тоесть еще до вызова COMMIT</li>
 <li><span class="codeobject">isolation</span> = <span class="codeenum">Isolation</span>.<span class="codeconst">READ COMMTITED</span>(По умолчанию в PostgreSQL) - В данном случае прочитать данные возможно только после вызова COMMIT</li>
 <li><span class="codeobject">isolation</span> = <span class="codeenum">Isolation</span>.<span class="codeconst">REPEATABLE READ</span> (по умолчанию в MySQL) -   изменения данных, которые были прочитаны в транзакции ранее в транзакцию не попадают, другие транзакции не могут изменять данные, прочитанные этой транзакцией. Возможен эффект фантомного чтения, степерь параллельности транзакций выше, чем у Serializable. </li>
-<li><span class="codeobject">isolation</span> = <span class="codeenum">Isolation</span>.<span class="codeconst">SERIALIZABLE</span> -  транзакции полностью изолируются друг от друга и ни одна транзакция ни коим образом не влияет на другие. На самом деле смысла использовать этот уровень нет</li>
+<li><span class="codeobject">isolation</span> = <span class="codeenum">Isolation</span>.<span class="codeconst">SERIALIZABLE</span> - 100% уровень изоляции , но приэтом сильно проседает скорость работы БД !!! все транзакции выполняются почти друг за другом. транзакции полностью изолируются друг от друга и ни одна транзакция ни коим образом не влияет на другие. На самом деле смысла использовать этот уровень нет</li>
 </ul>
 </section>
 
@@ -97,6 +99,7 @@ import <span class="codemethod">org.springframework.transaction.annotation.Trans
 <section>
 <h4> Через аннотации :</h4>
 <p>аннотировать ваши классы @Transactional аннотацией, добавить @EnableTransactionManagement к @Configuration классу</p>
+<font color="#ff3333">Если работать через JPA , то надо создавать TransactionManager + JpaTransactionManager  бины</font><br>
 <pre class="code"><code>
 @Configuration
 @EnableTransactionManagement
