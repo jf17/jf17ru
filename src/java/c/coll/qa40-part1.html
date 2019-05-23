@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>вопросы Collections  . Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body class="content">
+
+
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h2> <a href="https://jf17.ru/java/c/collections.html" >Collections Framework</a></h2>
+<hr />
+</header>
+                         
+
+<section>
+<font color="#ffa31a">	<h2> вопросы по Collections часть 1:</h2></font>
+
+	<ol>
+<li>Что такое коллекции в Java? Перечислите их преимущества ?</li>
+<li>Расскажите про иерархию коллекций ?</li>
+<li>Почему коллекции не наследуют интерфейсы Cloneable и Serializable?</li>
+<li>Почему интерфейс Map не наследует интерфейс Collection?</li>
+<li>Почему мы используем списки? Какие основные классы реализуют интерфейс List?</li>
+<li>Как преобразовать массив строк в ArrayList?</li>
+<li>Как отсортировать список в обратном порядке?</li>
+<li>Почему мы используем множества? Какие основные классы реализуют интерфейс Set?</li>
+<li>Как хранятся элементы в HashSet?</li>
+<li>Может ли элемент null быть добавлен в TreeSet или HashSet?</li>
+<li>Почему мы используем словари? Какие основные классы реализуют интерфейс Map?</li>
+<li>Что такое IdentityHashMap и WeakHashMap?</li>
+<li>Объясните что такое ConcurrentHashMap? Как оно работает?</li>
+<li>Как работают словари?</li>
+<li>Как создать хороший ключ для словаря?</li>
+<li>Какие представления содержимого предоставляет интерфейс Map?</li>
+<li>Когда нужно использовать HashMap, а когда TreeMap?</li>
+	</ol>
+
+</section>
+
+
+<section>
+<h4>Что такое коллекции в Java? Перечислите их преимущества ?:</h4>
+Коллекция это объект представляющий собой группу объектов .<br><br>
+преимущества:
+ <ul>
+<li> Уменьшаются затраты времени на написание кода</li>
+<li> Улучшается производительность, благодаря использованию высокоэффективных алгоритмов и структур данных</li>
+ </ul>
+</section>
+
+<section>
+<h4>Расскажите про иерархию коллекций ?:</h4>
+Один интерфейс верхнего уровня — Collection, от которого наследуются Set, List и Queue .<br>
+ интерфейс Map, который не является наследником интерфейса Collection
+</section>
+
+<section>
+<h4>Почему коллекции не наследуют интерфейсы Cloneable и Serializable?:</h4>
+Ну, простейший ответ — "потому что не надо".<br>
+не всегда нужен подкласс Cloneable потому что каждая операция клонирования потребляет очень много памяти .
+</section>
+
+<section>
+<h4>Почему интерфейс Map не наследует интерфейс Collection?:</h4>
+"потому что они несовместимы". В интерфейсе <span class="codeinterface">Collection</span> описан метод <span class="codemethod">add</span>(<span class="codeclass">Object</span> <span class="codeobject">o</span>).<br>
+Также, <span class="codeinterface">Map</span> имеют методы <span class="codemethod">keySet</span>, <span class="codemethod">valueSet</span>, которых нет в Collections.
+</section>
+
+<section>
+<h4>Почему мы используем списки? Какие основные классы реализуют интерфейс List?:</h4>
+поиск элемента, получение конкретного элемента, перебор коллекции и выборка подгруппы. Все эти операции могут производиться по индексу элемента.<br>
+List это Stack, Vector, ArrayList и LinkedList .
+</section>
+
+<section>
+<h4>Как преобразовать массив строк в ArrayList?:</h4>
+<span class="codeclass">String</span>[] <span class="codeobject">words</span> = {"ace", "boom", "crew", "dog", "eon"}; <br>
+<span class="codeinterface">List</span> <span class="codeobject">wordList</span> = <span class="codeclass">Arrays</span>.<span class="codemethod">asList</span>(<span class="codeobject">words</span>);
+</section>
+
+<section>
+<h4>Как отсортировать список в обратном порядке?:</h4>
+<span class="codeinterface">List</span> <span class="codeobject">reversedList</span> = <span class="codeclass">Collections</span>.<span class="codemethod">reverse</span>(<span class="codeobject">list</span>);
+</section>
+
+<section>
+<h4>Почему мы используем множества? Какие основные классы реализуют интерфейс Set?:</h4>
+Он моделирует математическое множество, из теории множеств.<br>
+Set — это не упорядоченная коллекция. Следовательно, добавление/удаление элементов не требует их сортировки.<br>
+Главная особенность  - уникальность элементов, то есть один и тот же элемент не может содержаться в множестве дважды.<br><br>
+
+реализацией Set, являются EnumSet, HashSet, LinkedHashSet и TreeSet
+</section>
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://howtodoinjava.com/interview-questions/useful-java-collection-interview-questions/" target="_blank" rel="noopener">Top 40 Java collection interview questions and answers</a> </li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	</ul>
+</section>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body>
+</html>
