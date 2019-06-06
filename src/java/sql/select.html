@@ -42,9 +42,33 @@
 </div>
 </section>
 
+<br><br><br>
 
+<section>
+<h4> сложный запрос:</h4>
+user<br>
+user.name + user_id <br>
+<br>
+user_id (связаное поле)<br>
+<br>
+order<br>
+order.id + user_id + order.status<br>
+<br>
+нужно выбрать всех user у которых order.status <font color="#ff0000">только ноль</font> <br>
+(у Alex юзера есть сразу два статуса в order табличке , ноль и единичка)<br>
+<pre class="code"><code>
+ <span class="codeoperator">SELECT</span> <span class="codeclass">table_user</span>.<span class="codeobject">id</span>, <span class="codeclass">table_user</span>.<span class="codeobject">name</span> ,<span class="codeclass">table_order</span>.<span class="codeobject">status</span> <span class="codeoperator">FROM</span> <span class="codeclass">table_user</span> 
+<span class="codeoperator"> INNER JOIN </span><span class="codeclass">table_order</span> <span class="codeoperator">ON </span><span class="codeclass">table_order</span>.<span class="codeobject">user_id</span> = <span class="codeclass">table_user</span>.<span class="codeobject">id</span>  
+ <span class="codeoperator">WHERE</span> <span class="codeclass">table_order</span>.<span class="codeobject">status</span>=0 <span class="codeoperator">AND</span> <span class="codeclass">table_user</span>.<span class="codeobject">id</span> 
+ <span class="codeoperator">NOT IN</span> ( 
+ <span class="codeoperator">SELECT</span> <span class="codeclass">table_user</span>.<span class="codeobject">id</span> <span class="codeoperator">FROM</span> <span class="codeclass">table_user</span> 
+ <span class="codeoperator">INNER JOIN</span> <span class="codeclass">table_order</span> <span class="codeoperator">ON</span> <span class="codeclass">table_order</span>.<span class="codeobject">user_id</span> = <span class="codeclass">table_user</span>.<span class="codeobject">id</span>  
+ <span class="codeoperator">WHERE</span> <span class="codeclass">table_order</span>.<span class="codeobject">status</span>>0 ) ;
+</code></pre>
 
+</section>
 
+<br><br><br><br>
 
 <!-- Полезные ссылки . -->
 <div class="contentname">
