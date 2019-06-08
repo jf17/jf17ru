@@ -85,6 +85,23 @@ dpkg -i GitHubDesktop-linux-2.0.3-linux1.deb
 <br><br><br>
 
 <section>
+<h4>установить телегу:</h4>
+<pre class="code"><code>
+<span class="codecomment">сначало нужно установить Debian Backports </span>
+nano /etc/apt/sources.list
+
+# stretch-backports, previously on backports.debian.org
+deb http://ftp.ru.debian.org/debian/ stretch-backports main contrib non-free
+# deb-src http://ftp.ru.debian.org/debian/ stretch-backports main contrib non-free
+
+
+apt update && apt install telegram-desktop -y
+</code></pre>
+</section>
+
+<br><br><br>
+
+<section>
 <h4>установить Skype:</h4>
 <pre class="code"><code>
 apt update && apt install <span class="codeobject">curl</span> <span class="codeobject">apt-transport-https</span> -y
