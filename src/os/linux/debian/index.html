@@ -23,18 +23,33 @@
 
 
 <section>
-<h4>установить Skype.</h4>
+<h4>установить Skype:</h4>
 <pre class="code"><code>
-apt update && apt install curl apt-transport-https -y
-dpkg -s apt-transport-https > /dev/null || bash -c "apt update; apt install apt-transport-https -y" 
-curl https://repo.skype.com/data/SKYPE-GPG-KEY |  apt-key add - 
-echo "deb [arch=amd64] https://repo.skype.com/deb stable main" |  tee /etc/apt/sources.list.d/skype-stable.list 
-apt update &&  apt install skypeforlinux -y 
+apt update && apt install <span class="codeobject">curl</span> <span class="codeobject">apt-transport-https</span> -y
+<span class="codeoperator">dpkg</span> -s apt-transport-https > /dev/null || bash -c "apt update; apt install apt-transport-https -y" 
+<span class="codeoperator">curl</span> https://repo.skype.com/data/SKYPE-GPG-KEY |  apt-key add - 
+<span class="codeoperator">echo</span> "deb [arch=amd64] https://repo.skype.com/deb stable main" |  tee /etc/apt/sources.list.d/skype-stable.list 
+apt update &&  apt install <span class="codeobject">skypeforlinux</span> -y 
 </code></pre>
 </section>
 
 <br><br><br>
 
+<section>
+<h4>автоматический вход в систему:</h4>
+<pre class="code"><code>
+<span class="codecomment">для начала нужно узнать какой у вас менеджер входа в систему ?</span>
+<span class="codecomment">в терминале выполните это:</span>
+<span class="codeoperator">cat</span> /etc/X11/default-display-manager
+
+<span class="codecomment">если у вас LightDM ? то ...</span>
+<span class="codeoperator">nano</span> /etc/lightdm/lightdm.conf
+<span class="codecomment">редактируем нужные параметры:</span>
+<span class="codeobject">autologin-user</span>=<span class="codetext">alex</span>
+<span class="codeobject">autologin-user-timeout</span>=<span class="codenumber">0</span>
+
+</code></pre>
+</section>
 
 
 <!-- Полезные ссылки . -->
@@ -43,6 +58,7 @@ apt update &&  apt install skypeforlinux -y
 <font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
 <ul>
 <li> <a href="https://www.debian.org/"  target="_blank" rel="noopener">Debian</a> org</li>
+<li> <a href="https://wiki.debian.org/LightDM"  target="_blank" rel="noopener">LightDM</a> менеджер входа в систему</li>
 <li>  </li>
 <li> </li>
 <li> </li>
