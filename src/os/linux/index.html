@@ -36,10 +36,11 @@
 <section>
 <font color="#ffa31a">	<h3>установить Skype:</h3></font>
 <pre class="code"><code>
-dpkg -s apt-transport-https > /dev/null || bash -c "sudo apt-get update; sudo apt-get install apt-transport-https -y" 
-curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add - 
-echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skype-stable.list 
-sudo apt-get update && sudo apt-get install skypeforlinux -y 
+apt install curl apt-transport-https -y
+dpkg -s apt-transport-https > /dev/null || bash -c "apt update; apt install apt-transport-https -y" 
+curl https://repo.skype.com/data/SKYPE-GPG-KEY |  apt-key add - 
+echo "deb [arch=amd64] https://repo.skype.com/deb stable main" |  tee /etc/apt/sources.list.d/skype-stable.list 
+apt update &&  apt install skypeforlinux -y 
 </code></pre>
 </section>
 <br><br>
