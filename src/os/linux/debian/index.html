@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
 <!-- author: Alexandrovich Alexey Borisovich aka JF17-->
-<title>Linux- jf17.ru</title>
+<title>Debian - jf17.ru</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <meta http-equiv="Content-Language" content="ru">
 <meta name="theme-color" content="#000000"/>
@@ -14,32 +14,26 @@
 <body>
 
 <!-- Heading -->
-<section>
-<h1> <a href="https://jf17.ru/" >Главная</a></h1>
-<hr />
-</section>
-
-
-<!-- Linux. -->
-<section>
 <header>
-<font color="#ffa31a">	<h3>Linux.</h3></font>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/os/linux/index.html" >Linux</a></h2>
+<hr />
 </header>
-<ul>
-<li> <a href="bash.html"> команды Bash.</a> </li>
-<li> <a href="elf.html"> ELF</a> исполняемый файл (exe) </li>
-</ul>
+
+
+
+<section>
+<h4>установить Skype.</h4>
+<pre class="code"><code>
+apt install curl apt-transport-https -y
+dpkg -s apt-transport-https > /dev/null || bash -c "apt update; apt install apt-transport-https -y" 
+curl https://repo.skype.com/data/SKYPE-GPG-KEY |  apt-key add - 
+echo "deb [arch=amd64] https://repo.skype.com/deb stable main" |  tee /etc/apt/sources.list.d/skype-stable.list 
+apt update &&  apt install skypeforlinux -y 
+</code></pre>
 </section>
 
 <br><br><br>
-
-<section>
-<h4>дистрибутивы:</h4>
-<ul>
-<li><a href="debian/index.html">Debian</a></li>
-</ul>
-</section>
-<br><br>
 
 
 
@@ -48,7 +42,7 @@
 <section>
 <font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
 <ul>
-<li> <a href="http://www.opennet.ru/opennews/"  target="_blank" rel="noopener"> новости OpenNet</a> </li>
+<li> <a href="https://www.debian.org/"  target="_blank" rel="noopener">Debian</a> org</li>
 <li>  </li>
 <li> </li>
 <li> </li>
