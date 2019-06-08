@@ -25,7 +25,7 @@
 <section>
 <h4>установить Skype.</h4>
 <pre class="code"><code>
-apt install curl apt-transport-https -y
+apt update && apt install curl apt-transport-https -y
 dpkg -s apt-transport-https > /dev/null || bash -c "apt update; apt install apt-transport-https -y" 
 curl https://repo.skype.com/data/SKYPE-GPG-KEY |  apt-key add - 
 echo "deb [arch=amd64] https://repo.skype.com/deb stable main" |  tee /etc/apt/sources.list.d/skype-stable.list 
