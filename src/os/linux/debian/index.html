@@ -21,19 +21,15 @@
 </header>
 
 
-
 <section>
-<h4>установить Skype:</h4>
+<h4>установка GitHub:</h4>
+<a href="https://github.com/shiftkey/desktop"  target="_blank" rel="noopener">GitHub Desktop Linux Fork</a>
 <pre class="code"><code>
-apt update && apt install <span class="codeobject">curl</span> <span class="codeobject">apt-transport-https</span> -y
-<span class="codeoperator">dpkg</span> -s apt-transport-https > /dev/null || bash -c "apt update; apt install apt-transport-https -y" 
-<span class="codeoperator">curl</span> https://repo.skype.com/data/SKYPE-GPG-KEY |  apt-key add - 
-<span class="codeoperator">echo</span> "deb [arch=amd64] https://repo.skype.com/deb stable main" |  tee /etc/apt/sources.list.d/skype-stable.list 
-apt update &&  apt install <span class="codeobject">skypeforlinux</span> -y 
+apt install <span class="codeobject">curl</span> 
+dpkg -i GitHubDesktop-linux-2.0.3-linux1.deb 
+
 </code></pre>
 </section>
-
-<br><br><br>
 
 <section>
 <h4>автоматический вход в систему:</h4>
@@ -50,6 +46,21 @@ apt update &&  apt install <span class="codeobject">skypeforlinux</span> -y
 
 </code></pre>
 </section>
+
+<section>
+<h4>установить Skype:</h4>
+<pre class="code"><code>
+apt update && apt install <span class="codeobject">curl</span> <span class="codeobject">apt-transport-https</span> -y
+<span class="codeoperator">dpkg</span> -s apt-transport-https > /dev/null || bash -c "apt update; apt install apt-transport-https -y" 
+<span class="codeoperator">curl</span> https://repo.skype.com/data/SKYPE-GPG-KEY |  apt-key add - 
+<span class="codeoperator">echo</span> "deb [arch=amd64] https://repo.skype.com/deb stable main" |  tee /etc/apt/sources.list.d/skype-stable.list 
+apt update &&  apt install <span class="codeobject">skypeforlinux</span> -y 
+</code></pre>
+</section>
+
+<br><br><br>
+
+
 
 
 <!-- Полезные ссылки . -->
