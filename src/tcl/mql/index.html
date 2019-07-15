@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>MQL - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+
+
+<body>
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<hr />
+</header>
+
+<section>
+<h4>MQL:</h4>
+Список команд MQL для бизнес-объекта. Во всех командах T означает тип, N означает имя, а R означает ревизию бизнес-объекта.
+</section>
+
+<section>
+<h4>Добавить бизнес-объект :</h4>
+<pre class="code"><code>
+ add bus T N R policy <span ><</span>policyName<span >></span> vault <span ><</span>vaultName<span >></span>
+</code></pre>
+</section>
+
+<section>
+<h4>Добавить бизнес-объект и обновить атрибуты в одной команде :</h4>
+<pre class="code"><code>
+add bus T N R policy <span ><</span>policyName<span >></span> vault <span ><</span>vaultName<span >></span> "attribute name 1" "attribute 1 value" "attribute name 2" "attribute 2 value"
+</code></pre>
+</section>
+
+<section>
+<h4>Чтобы найти количество бизнес-объектов, используя временную шину запроса :</h4>
+<pre class="code"><code>
+eval expr ' count true ' on temp query bus "Complaint" * * where " originated <span >></span> '01/01/2009' ";
+</code></pre>
+</section>
+
+<section>
+<h4>Чтобы найти количество бизнес-объектов, которые связаны с бизнес-объектом :</h4>
+<pre class="code"><code>
+eval expr ' count true ' on expand bus Complaint CPT090000011 1;
+</code></pre>
+</section>
+
+<section>
+<h4>Чтобы узнать текущий контекст:</h4>
+<pre class="code"><code>
+print context;
+</code></pre>
+</section>
+
+<section>
+<h4>Чтобы узнать, сколько пользователей подключено к eMatrix (sesssions):</h4>
+<pre class="code"><code>
+sessions;
+</code></pre>
+</section>
+
+<section>
+<h4>Для мониторинга использования памяти :</h4>
+<pre class="code"><code>
+monitor memory
+</code></pre>
+</section>
+
+<section>
+<h4>Узнать версию установленного программного обеспечения :</h4>
+<pre class="code"><code>
+version;
+</code></pre>
+</section>
+
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<h4>Полезные ссылки.</h4>
+<ul>
+<li> <a href="#" target="_blank" rel="noopener"> XXXXX</a> </li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+<!-- Footer -->
+<footer >
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+</script>
+</footer>
+
+</body>
+</html>
