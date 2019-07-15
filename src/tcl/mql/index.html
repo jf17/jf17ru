@@ -22,56 +22,56 @@
 <h4>MQL:</h4>
 Список команд MQL для бизнес-объекта. Во всех командах T означает тип, N означает имя, а R означает ревизию бизнес-объекта.
 </section>
-
+<br><br>
 <section>
 <h4>Добавить бизнес-объект :</h4>
 <pre class="code"><code>
  add bus T N R policy <span ><</span>policyName<span >></span> vault <span ><</span>vaultName<span >></span>
 </code></pre>
 </section>
-
+<br><br>
 <section>
 <h4>Добавить бизнес-объект и обновить атрибуты в одной команде :</h4>
 <pre class="code"><code>
 add bus T N R policy <span ><</span>policyName<span >></span> vault <span ><</span>vaultName<span >></span> "attribute name 1" "attribute 1 value" "attribute name 2" "attribute 2 value"
 </code></pre>
 </section>
-
+<br><br>
 <section>
 <h4>Чтобы найти количество бизнес-объектов, используя временную шину запроса :</h4>
 <pre class="code"><code>
 eval expr ' count true ' on temp query bus "Complaint" * * where " originated <span >></span> '01/01/2009' ";
 </code></pre>
 </section>
-
+<br><br>
 <section>
 <h4>Чтобы найти количество бизнес-объектов, которые связаны с бизнес-объектом :</h4>
 <pre class="code"><code>
 eval expr ' count true ' on expand bus Complaint CPT090000011 1;
 </code></pre>
 </section>
-
+<br><br>
 <section>
 <h4>Чтобы узнать текущий контекст:</h4>
 <pre class="code"><code>
 print context;
 </code></pre>
 </section>
-
+<br><br>
 <section>
 <h4>Чтобы узнать, сколько пользователей подключено к eMatrix (sesssions):</h4>
 <pre class="code"><code>
 sessions;
 </code></pre>
 </section>
-
+<br><br>
 <section>
 <h4>Для мониторинга использования памяти :</h4>
 <pre class="code"><code>
 monitor memory
 </code></pre>
 </section>
-
+<br><br>
 <section>
 <h4>Узнать версию установленного программного обеспечения :</h4>
 <pre class="code"><code>
@@ -79,7 +79,7 @@ version;
 </code></pre>
 </section>
 
-
+<br><br><br><br>
 <!-- Полезные ссылки . -->
 <br><br>
 <section>
