@@ -28,7 +28,14 @@ Sync to VBlank
 <!--  . -->
 <section>
     <h4>XFCE</h4>
-TEST
+1) Для начала отключим стандартный композитный менеджер «Крыски» для этого выполним в терминале:<br>
+xfconf-query -c xfwm4 -p /general/use_compositing -s false<br><br>
+2) далее установим Compton<br>
+sudo apt install compton<br><br>
+3) Добавить Compton в автозапуск . В меню выберете  “Сеанс и запуск.” (Session and Startup) <br>
+compton --backend glx <br><br>
+4) После чего перезагружаемся и проверяем работает ли Compton:<br>
+pgrep -l compton<br>
 </section>
 
 <!-- Полезные ссылки . -->
