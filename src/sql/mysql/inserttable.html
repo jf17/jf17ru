@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title>MySQL INSERT - jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body class="content">
+
+<!-- Heading -->
+<header>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h3> <a href="https://jf17.ru/java/sql/index.html" >SQL</a></h3>
+<h3> <a href="https://jf17.ru/java/sql/mysql/index.html" >MySQL</a></h3>
+<hr />
+</header>
+                                
+<!-- INSERT -->
+<section>
+<font color="#ffa31a">	<h2> INSERT:</h2></font>
+<p>
+Вносим данные в таблицу.<br>
+<font color="red">Обязательно в конце ставить точку с запятой ; </font> 
+</p>
+</div>
+<div class="code">
+<pre><code>
+<span class="codecomment">// заходим в MySQL </span>
+<span class="codeoperator">mysql</span> <span class="codemethod">-u root -p</span>
+</code></pre>
+<pre><code>
+<span class="codecomment">// открываем базу данных </span>
+<span class="codeoperator">USE</span> <span class="codeobject">имя_базы</span> ;
+</code></pre>
+<pre><code>
+<span class="codecomment">// вносим данные в таблицу</span>
+<span class="codeoperator">INSERT INTO</span> <span class="codeobject">employees</span> <span class="codeoperator">VALUES</span>(<span class="codenumber">1001</span>,<span class="codetext">'Mario'</span>,<span class="codetext">'Dendy'</span>,<span class="codetext">'+7-999-99'</span>,'1990/03/10', <span class="codenumber">767.19</span>); 
+</code></pre>
+</div>
+</section>
+
+
+
+
+
+<!-- Полезные ссылки . -->
+<br><br><br>
+<div class="contentname">
+<h4>Полезные ссылки:</h4>
+</div>
+<div class="content">
+<ul>
+<li> <a href="xxxxxx" target="_blank">xxxxx</a></li>
+</ul>
+</div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+</script>
+</footer>
+</body>
+</html>
