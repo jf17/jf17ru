@@ -30,6 +30,12 @@
 <li> <a href="elf.html">ELF</a> исполняемый файл (exe) </li>
 <li> <a href="tearing.html">Tearing</a> полоски при просмотре видео </li>
 </ul>
+<p>
+заикание, когда раз в 2-7 минут звук прерывается на долю секунды.<br>
+sudo nano /etc/pulse/daemon.conf <br>
+найдите строку ; realtime-scheduling = yes. Присвойте ей значение no и удалите точку с запятой. <br>
+Перезапустите PulseAudio командой pulseaudio -k <br>
+</p>
 </section>
 
 <br><br><br>
