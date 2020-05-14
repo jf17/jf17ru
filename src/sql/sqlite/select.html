@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title>SELECT FROM - jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body class="content">
+
+<!-- Heading -->
+<header>
+    <h1> <a href="https://jf17.ru/" >Главная</a></h1>
+    <h2> <a href="https://jf17.ru/sql/index.html" >SQL</a></h2>
+	<h3> <a href="https://jf17.ru/sql/sqlite/index.html" >SQLite</a></h3>
+<hr />
+</header>
+                                
+
+<section>
+	<div ></div>
+<p>
+Делаем запрос данных из таблицы.<br>
+<font color="red">Обязательно в конце ставить точку с запятой ; </font> 
+</p>
+<br><br>
+</div>
+
+
+<div class="code">
+<font color="#ffa31a">	<h2> работа с R:</h2></font>
+<pre><code>
+	<span class="codecomment">// запрашивает курсы валют + дата с 01.01.2016 числа , лимит 500 штук и выводит результаты в порядке возрастания даты.  </span>
+	<span class="codeoperator">SELECT</span> <span class="codetext">currency,rate,quotesforday</span>
+	<span class="codeoperator">FROM</span> <span class="codeobject">currencyrate</span>
+	<span class="codeoperator">WHERE</span> <span class="codetext">quotesforday</span> >= <span class="codemethod">date</span>('<span class="codenumber">2016-01-01</span>')
+	<span class="codeoperator">ORDER BY</span> <span class="codetext">quotesforday</span>
+	<span class="codeoperator">LIMIT</span> <span class="codenumber">500</span> ;
+</code></pre>
+<br><br>
+</div>
+
+
+<div class="code">
+	<font color="#ffa31a">	<h2> SELECT FROM:</h2></font>
+<pre><code>
+<span class="codecomment">// показать все данные из таблицы </span>
+<span class="codeoperator">SELECT</span> <span class="codeclass">*</span> <span class="codeoperator">FROM</span> <span class="codeobject">employees</span> ; 
+
+<span class="codecomment">// показать все данные из таблицы где имя равно 'Mario' или id больше 200 </span>
+<span class="codeoperator">SELECT</span> <span class="codeclass">*</span> <span class="codeoperator">FROM</span> <span class="codeobject">employees</span> <span class="codeoperator">WHERE</span> <span class="codetext">lastname</span>='Mario' <span class="codeoperator">OR</span> <span class="codetext">id</span>>200; 
+
+<span class="codecomment">// показать все данные из таблицы, отсортированые по полю id,  в порядке убывания </span>
+<span class="codeoperator">SELECT</span> <span class="codeclass">*</span> <span class="codeoperator">FROM</span> <span class="codeobject">employees</span> <span class="codeoperator">ORDER BY</span> <span class="codetext">rating</span> <span class="codemethod">DESC</span>; 
+
+<span class="codecomment">// запрос, который подсчитывает общую сумму денег у людей рожденных в один день и<br> выводит результаты в порядке убывания.  </span>
+<span class="codeoperator">SELECT</span> <span class="codetext">dateofbirth</span>, <span class="codemethod">SUM</span>(<span class="codetext">money</span>)
+<span class="codeoperator">FROM</span> <span class="codeobject">employees</span>
+<span class="codeoperator">GROUP BY</span> <span class="codetext">dateofbirth</span>
+<span class="codeoperator">ORDER BY</span> <span class="codenumber">2</span> <span class="codemethod">DESC</span>;
+
+<span class="codecomment">// сопоставить колонку из первой таблицы к колонке из второй таблицы </span>
+<span class="codeoperator">SELECT</span> <span class="codeobject">Orders</span><span class="codetext">.ordersNumber</span>, <span class="codeobject">Customers</span><span class="codetext">.customerName</span> <span class="codecomment">// колонки которые нужно сопоставить и вывести</span>
+<span class="codeoperator">FROM</span> <span class="codeobject">Orders, Customers</span> <span class="codecomment">// из каких таблиц ?</span>
+<span class="codeoperator">WHERE</span> <span class="codeobject">Orders</span><span class="codetext">.customerId</span>=<span class="codeobject">Customers</span><span class="codetext">.customerId</span>; <span class="codecomment">// общие значения из разных таблиц</span>
+
+</code></pre>
+<br><br>
+</div>
+
+<font color="#ffa31a">	<h2> Использование подзапросов :</h2></font>
+<div class="code">
+<pre><code>
+<span class="codecomment">// показываем все заказы из таблицы Orders принадлежащие продавцу 'Mario'(из таблицы Salers) </span>
+<span class="codeoperator">SELECT</span> * <span class="codeoperator">FROM</span> <span class="codeobject">Orders</span>
+<span class="codeoperator">WHERE</span> <span class="codetext">salerID</span> = (<span class="codeoperator">SELECT</span> <span class="codetext">salerID</span>
+<span class="codeoperator">FROM</span> <span class="codeobject">Salers</span>
+<span class="codeoperator">WHERE</span> <span class="codetext">name</span> = 'Mario');
+
+<span class="codecomment">// запрос для вывода имен и рейтингов всех покупателей,<br> сделавших заказы на сумму выше средней по всем заказам. </span>
+<span class="codeoperator">SELECT</span> <span class="codeobject">Customers</span><span class="codetext">.rating</span>, <span class="codeobject">Customers</span><span class="codetext">.cname</span>
+<span class="codeoperator">FROM</span> <span class="codeobject">Orders</span>, <span class="codeobject">Customers</span> 
+<span class="codeoperator">WHERE</span>  <span class="codeobject">Orders</span><span class="codetext">.cnum</span>=<span class="codeobject">Customers</span><span class="codetext">.cnum </span>
+<span class="codeoperator">AND</span> <span class="codeobject">Orders</span><span class="codetext">.amt</span>>(<span class="codeoperator">SELECT</span> <span class="codemethod">AVG</span>(<span class="codetext">amt</span>) <span class="codeoperator">FROM</span> <span class="codeobject">Orders</span> );
+
+<span class="codecomment">// запрос показывающий всех покупателей с максимальным рейтингом</span>
+<span class="codeoperator">SELECT</span> <span class="codemethod">MAX</span>(<span class="codetext">rating</span>) <span class="codeoperator">FROM</span> <span class="codeobject">Customers</span> ;
+
+<span class="codecomment">// группировка запроса </span>
+<span class="codeoperator">SELECT</span> <span class="codeobject">odate</span>, <span class="codemethod">SUM</span>(<span class="codetext">amt</span>)
+<span class="codeoperator">FROM</span> <span class="codeobject">Orders</span>
+<span class="codeoperator">GROUP BY</span> <span class="codetext">odate</span>
+<span class="codeoperator">ORDER BY</span> <span class="codenumber">2</span> <span class="codemethod">DESC</span>;
+
+</code></pre>
+</div>
+<br><br>
+</section>
+
+
+<section>
+<font color="#ffa31a">	<h2> сложный запрос:</h2></font>
+user<br>
+user.name + user_id <br>
+<br>
+user_id (связаное поле)<br>
+<br>
+order<br>
+order.id + user_id + order.status<br>
+<br>
+нужно выбрать всех user у которых order.status <font color="#ff0000">только ноль</font> <br>
+(у Alex юзера есть сразу два статуса в order табличке , ноль и единичка)<br>
+<pre class="code"><code>
+ <span class="codeoperator">SELECT</span> <span class="codeclass">table_user</span>.<span class="codeobject">id</span>, <span class="codeclass">table_user</span>.<span class="codeobject">name</span> ,<span class="codeclass">table_order</span>.<span class="codeobject">status</span> <span class="codeoperator">FROM</span> <span class="codeclass">table_user</span> 
+<span class="codeoperator"> INNER JOIN </span><span class="codeclass">table_order</span> <span class="codeoperator">ON </span><span class="codeclass">table_order</span>.<span class="codeobject">user_id</span> = <span class="codeclass">table_user</span>.<span class="codeobject">id</span>  
+ <span class="codeoperator">WHERE</span> <span class="codeclass">table_order</span>.<span class="codeobject">status</span>=0 <span class="codeoperator">AND</span> <span class="codeclass">table_user</span>.<span class="codeobject">id</span> 
+ <span class="codeoperator">NOT IN</span> ( 
+ <span class="codeoperator">SELECT</span> <span class="codeclass">table_user</span>.<span class="codeobject">id</span> <span class="codeoperator">FROM</span> <span class="codeclass">table_user</span> 
+ <span class="codeoperator">INNER JOIN</span> <span class="codeclass">table_order</span> <span class="codeoperator">ON</span> <span class="codeclass">table_order</span>.<span class="codeobject">user_id</span> = <span class="codeclass">table_user</span>.<span class="codeobject">id</span>  
+ <span class="codeoperator">WHERE</span> <span class="codeclass">table_order</span>.<span class="codeobject">status</span>>0 ) ;
+</code></pre>
+</section>
+
+
+
+<!-- Полезные ссылки . -->
+<br><br><br>
+<div class="contentname">
+<h4>Полезные ссылки:</h4>
+</div>
+<div class="content">
+<ul>
+<li> <a href="xxxxxx" target="_blank">xxxxx</a></li>
+</ul>
+</div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+</script>
+</footer>
+</body>
+</html>
