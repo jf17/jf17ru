@@ -31,10 +31,10 @@
 <div class="code">
 <font color="#ffa31a">	<h2> работа с R:</h2></font>
 <pre><code>
-	<span class="codecomment">// запрашивает курсы валют + дата с 01.01.2016 числа , лимит 500 штук и выводит результаты в порядке возрастания даты.  </span>
+	<span class="codecomment">// запрашивает курсы валют + дата с 01.01.2016 по 17.05.2018 числа включительно , лимит 500 штук и выводит результаты в порядке возрастания даты.  </span>
 	<span class="codeoperator">SELECT</span> <span class="codetext">currency,rate,quotesforday</span>
 	<span class="codeoperator">FROM</span> <span class="codeobject">currencyrate</span>
-	<span class="codeoperator">WHERE</span> <span class="codetext">quotesforday</span> >= <span class="codemethod">date</span>('<span class="codenumber">2016-01-01</span>')
+	<span class="codeoperator">WHERE</span> <span class="codetext">quotesforday</span>>=<span class="codemethod">date</span>('<span class="codenumber">2016-01-01</span>') <span class="codeoperator">AND</span> <span class="codetext">quotesforday</span><span><</span>=<span class="codemethod">date</span>('<span class="codenumber">2018-05-17</span>')
 	<span class="codeoperator">ORDER BY</span> <span class="codetext">quotesforday</span>
 	<span class="codeoperator">LIMIT</span> <span class="codenumber">500</span> ;
 </code></pre>
