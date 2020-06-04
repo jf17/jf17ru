@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>Spring (performance) - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+
+<body>
+<!-- Heading -->
+<section>
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h2> <a href="https://jf17.ru/java/spring/index.html" >Spring</a></h2>
+<hr />
+</section>
+
+
+
+<!-- performance -->
+<section>
+<font color="#ffa31a">	<h3>performance:</h3></font>
+<p>
+Простой секундомер, позволяющий рассчитывать время выполнения ряда задач, отображая общее время выполнения и время выполнения для каждой названной задачи.
+<br>
+Начиная с версии Spring Framework 5.2, время выполнения отслеживается и отображается в наносекундах.
+</p>
+<ul>
+<li> <a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/util/StopWatch.html" target="_blank" rel="noopener"> StopWatch.</a> </li>
+</ul>
+<pre class="code"><code>
+<span class="codeclass">StopWatch</span> <span class="codeobject">stopWatch</span> = new <span class="codeclass">StopWatch</span>(<span class="codetext">"Performance Test Result"</span>);
+
+<span class="codeobject">stopWatch</span><span class="codemethod">.start(</span><span class="codetext">"Method 1"</span>);
+doSomething1();//method to test
+<span class="codeobject">stopWatch</span><span class="codemethod">.stop()</span>;
+
+<span class="codeobject">stopWatch</span><span class="codemethod">.start</span>(<span class="codetext">"Method 2"</span>);
+doSomething2();//method to test
+<span class="codeobject">stopWatch</span><span class="codemethod">.stop()</span>;
+
+System.out.println(<span class="codeobject">stopWatch</span><span class="codemethod">.prettyPrint()</span>);
+
+<span class="codecomment">StopWatch 'Performance Test Result': running time (millis) = 12829
+-----------------------------------------
+ms     %     Task name
+-----------------------------------------
+11907  036%  Method 1
+00922  064%  Method 2</span>
+</code></pre>
+</section>
+
+
+
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<header>
+<font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
+</header>
+<ul>
+<li> <a href="https://mvnrepository.com/" target="_blank" rel="noopener"> Maven central repository</a> </li>
+
+<li>  </li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+
+<!-- Footer -->
+<footer >
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+</script>
+</footer>
+</body>
+</html>
