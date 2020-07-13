@@ -121,6 +121,38 @@ order.id + user_id + order.status<br>
  <span class="codeoperator">WHERE</span> <span class="codeclass">table_order</span>.<span class="codeobject">status</span>>0 ) ;
 </code></pre>
 </section>
+<br>
+
+<section>
+	<font color="#ffa31a">	<h2> сложный запрос 2:</h2></font>
+нужно выбрать все квартиры :<br>
+1) которые дешевле средней цены за квадратный метр <br>
+2) не первый и не последний этаж<br>
+3) сгрупировать по кол-ву комнат (сначала больше)<br>
+4) вгутри групировки отсортировать по цене (сначала дешевле)<br>
+	<pre class="code"><code>
+ <span class="codeoperator">SELECT</span> *
+  <span class="codeoperator">FROM</span> (
+           <span class="codeoperator">SELECT</span> <span class="codeobject">id</span>,
+                  <span class="codeobject">area_of_apartments</span>,
+                  <span class="codeobject">rooms</span>,
+                  <span class="codeobject">apartment_price</span>,
+                  <span class="codeobject">address</span>,
+                  <span class="codeobject">floor_apartment</span>,
+                  <span class="codeobject">floors_in_house</span>,
+                  <span class="codeobject">apartment_price_per_square_meter</span>,
+                  <span class="codeobject">link</span>
+             <span class="codeoperator">FROM</span> <span class="codeclass">cian</span>
+            <span class="codeoperator">WHERE</span> <span class="codeobject">apartment_price_per_square_meter</span> < ( <span class="codeoperator">SELECT</span> <span class="codemethod">AVG</span>(<span class="codeobject">apartment_price_per_square_meter</span>) <span class="codeoperator">FROM</span> <span class="codeclass">cian</span> ) <span class="codeoperator">AND</span>
+                  <span class="codeobject">floor_apartment</span> != <span class="codenumber">1</span> <span class="codeoperator">AND</span>
+                  <span class="codeobject">floor_apartment</span> != <span class="codeobject">floors_in_house</span>
+            <span class="codeoperator">ORDER BY</span> <span class="codeobject">apartment_price</span>
+       )
+       <span class="codeoperator">AS</span> <span class="codeclass">ResultInfo</span>
+<span class="codeoperator"> ORDER BY</span> <span class="codeobject">rooms</span> <span class="codemethod">DESC</span>;
+
+	</code></pre>
+	</section>
 
 
 
