@@ -27,8 +27,7 @@
 1)создаём папку проекта <br>
 2)переходим в папку <br>
 3) gradle init --type java-application<br>
-4) добавляем в файл build.gradle строчки :<br>
-
+4) добавляем в файл build.gradle строчки :
 <pre><code class="code">
 plugins {
     id 'java'
@@ -60,6 +59,7 @@ jar {
                 'Main-Class': 'ru.jf17.raritet.Main'
         )
     }
+    // имя jar файла
     baseName = 'parser'
     version =  '0.1.0'
 }
@@ -72,7 +72,7 @@ distZip.shouldRunAfter(build)<br><br>
 5) gradle clean<br>
 6) gradle build<br><br>
 
-7) в папке my-test-java-app\build\libs\ будет лежать ваш *.jar файл .<br>
+7) в папке my-test-java-app\build\libs\ будет лежать ваш *.jar файл .<br><br><br>
 
 
 </section>
