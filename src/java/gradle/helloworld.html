@@ -23,45 +23,57 @@
 <!-- Heading -->
 <section>
 <font color="#ffa31a">	<h2> Gradle . Hello World</h2></font>
-<pre><code>
-1)создаём папку проекта 
-2)переходим в папку 
-3) gradle init --type java-application
-4) добавляем в файл build.gradle строчки :
 
-apply plugin: 'java'
-apply plugin: 'java-library-distribution'
+1)создаём папку проекта <br>
+2)переходим в папку <br>
+3) gradle init --type java-application<br>
+4) добавляем в файл build.gradle строчки :<br>
 
+<pre><code class="code">
+plugins {
+    id 'java'
+    id 'application'
+}
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-mainClassName = 'ru.jf17.app.App'
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
 
-// Task "distZip" added by plugin "java-library-distribution":
-distZip.shouldRunAfter(build)
+mainClassName = 'ru.jf17.raritet.Main'
 
+group 'ru.jf17.raritet'
+version '1.0-SNAPSHOT'
 
+repositories {
+    mavenCentral()
+}
 
-5) gradle clean
-6) gradle build
+dependencies {
+    compile group: 'net.sourceforge.htmlcleaner', name: 'htmlcleaner', version: '2.24'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
 
-7) в папке my-test-java-app\build\libs\ будет лежать ваш *.jar файл .
+}
 
-</pre></code>
-
-<pre><code>
 jar {
-
-  exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
-
-  manifest {
-    attributes(
-      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
-      'Main-Class': 'ru.jf17.app.App'
-    )
-  }
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'ru.jf17.raritet.Main'
+        )
+    }
+    baseName = 'parser'
+    version =  '0.1.0'
 }
 </pre></code>
+
+// Task "distZip" added by plugin "java-library-distribution":<br>
+distZip.shouldRunAfter(build)<br><br>
+
+
+5) gradle clean<br>
+6) gradle build<br><br>
+
+7) в папке my-test-java-app\build\libs\ будет лежать ваш *.jar файл .<br>
+
 
 </section>
 
