@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title> Docker Compose - jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/docker/index.html" >Docker</a></h2>
+<hr />
+</section>
+                                
+<!-- Heading -->
+<section>
+<font color="#ffa31a">	<h2> Docker Compose  : </h2></font>
+<p>
+Docker Compose инструмент, который упрощает запуск приложения, использующего несколько контейнеров. Он позволяет вам добавлять команды для повторного использования в специальный файл — docker-compose.yml. Интерфейс Docker Compose command line упростит взаимодействие с вашим мультиконтейнерным приложением.
+</p>
+</section>
+
+<section>
+<pre><code>
+<font color="#ffffff">
+<font color="#00cccc">docker-compose</font> up
+
+<font color="#00cccc">docker-compose</font> ps
+
+<font color="#00cccc">docker-compose</font> up <font color="#ffff33">-d</font>  <font color="#009900">запуск службы в фоновом режиме.</font>
+<font color="#00cccc">docker-compose</font> stop <font color="#009900">остановит ваши запущенные docker-контейнеры, однако не удалит их.</font>
+
+<font color="#00cccc">docker-compose</font> <font color="#ff3333">down</font>  <font color="#009900">остановит запущенные docker-контейнеры и удалит их, а также все docker-сети (networks) созданные при запуске связки контейнеров из файла</font> docker-compose.yml
+<font color="#009900">Можно даже продвинуться дальше - добавить аргумент <font color="#ffff33">-v (--volumes)</font> при запуске команды для удаления созданных томов.
+Команда <font color="#00cccc">docker-compose</font> <font color="#ff3333">down</font><font color="#ffff33"> -v</font> отлично подходит для поддержания вашей системы в чистоте и порядке.</font>
+</code></pre>
+<br><br>
+
+<pre><code><font color="#ffffff">docker-compose.yml</font>
+<font color="#990099">version</font>: <font color="#ff9999">"3.8"</font>
+<font color="#990099">services</font>:
+  <font color="#33ccff">web</font>:
+    <font color="#00cc00">build</font>: <font color="#ff9999">.</font> <font color="#33cc00">  # означает что собираем из <font color="#ffffff">Dockerfile</font></font>
+<span class="codecomment"># restart Опция игнорируется при развертывании стека в режиме Docker Swarm .</span>
+    <font color="#00cc00">restart</font>:<font color="#ff9999"> always</font>  <font color="#33cc00">  # означает что контейнер всегда перезагружается</font>
+    <font color="#00cc00">ports</font>:
+      - <font color="#ff9999">"8181:8181"</font>
+    <font color="#00cc00">volumes</font>:
+      - <font color="#00cc00">type</font>: volume
+        <font color="#00cc00">source</font>: mydata
+        <font color="#00cc00">target</font>: /data
+        <font color="#00cc00">volume</font>:
+          <font color="#00cc00">nocopy</font>: true
+            
+      - <font color="#00cc00">type</font>: bind
+        <font color="#00cc00">source</font>: ./static
+        <font color="#00cc00">target</font>: /opt/app/static
+    <font color="#00cc00">environment</font>:
+      <font color="#ffff00">FLASK_ENV</font>:<font color="#ff9999">development</font>
+  <font color="#33ccff">redis</font>:
+    <font color="#00cc00">image</font>: <font color="#ff9999">"redis:alpine"</font>
+</code></pre>
+</section><br><br>
+
+
+<!-- Полезные ссылки . -->
+<section>
+<h4>Полезные ссылки:</h4>
+<ul>
+<li> <a href="https://habr.com/ru/company/ruvds/blog/450312/" target="_blank" rel="noopener">Руководство по Docker Compose для начинающих</a></li>
+</ul>
+</section>
+<br><br>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
