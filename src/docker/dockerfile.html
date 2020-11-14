@@ -35,71 +35,128 @@
 
 
 <section>
-<div class="content">
 <font color="#ffa31a">	<h2> FROM : </h2></font>
 <p>
-Инструкция <span class="codeoperator">FROM</span> задает базовый образ для последующих инструкций.
+<span class="codeoperator">FROM</span> задает базовый образ для последующих инструкций.
 </p>
 <p>
 Значения <span class="codeobject">имя_версии_образа</span> не обязательны. Если любая из этих опций не задана Докер по умолчанию использует значение <span class="codeobject">latest</span>. Сборщик Docker возвращает ошибку если значение <span class="codeobject">tag</span> не найдено.
 </p>
-</div>
-<div class="code">
 <pre><code>
 <span class="codeoperator">FROM </span><span class="codeclass">имя_образа</span>
 <span class="codecomment"># или </span>
 <span class="codeoperator">FROM </span><span class="codeclass">имя_образа</span>:<span class="codeobject">имя_версии_образа</span>
 </code></pre>
-</div>
 </section><br><br>
 
 
 <section>
-<div class="content">
 <font color="#ffa31a">	<h2> RUN : </h2></font>
 <p>
-Инструкция <span class="codeoperator">RUN</span> используется для конфигурирования образа. 
+<span class="codeoperator">RUN</span>  — запускает команды, создаёт слой образа. Используется для установки пакетов и библиотек внутри контейнера;
 </p>
-</div>
-<div class="code">
 <pre><code>
 <span class="codeoperator">RUN </span><span class="codeclass">apt-get upgrade -y</span>
 <span class="codecomment"># или </span>
 <span class="codeoperator">RUN </span><span class="codeclass">apt-get install -y</span> <span class="codeobject">mvn</span>
 </code></pre>
-</div>
 </section><br><br>
 
 
 <section>
-<div class="content">
+<font color="#ffa31a">	<h2> ENV  : </h2></font>
+<p>
+<span class="codeoperator">ENV </span> позволяет задавать постоянные переменные среды, которые будут доступны в контейнере во время его выполнения.
+</p>
+<pre><code>
+<span class="codeoperator">ENV  </span><span class="codeclass">FLASK_APP=app.py</span>
+<span class="codeoperator">ENV  </span><span class="codeclass">FLASK_RUN_HOST=0.0.0.0</span>
+</code></pre>
+</section><br><br>
+
+<section>
 <font color="#ffa31a">	<h2> CMD : </h2></font>
 <p>
 Основное предназначение <span class="codeoperator">CMD</span> передача параметров по-умолчанию для запуска контейнера. <br>
 <span class="codeoperator">CMD</span> ничего не выполняет во время сборки, но задает команду которая будет выполнена при запуске образа.
 </p>
-</div>
-<div class="code">
 <pre><code>
 <span class="codeoperator">CMD </span><span class="codeclass">["/bin/bash","-c", "echo $HOME"]</span>
 </code></pre>
-</div>
 </section><br><br>
 
 <section>
-<div class="content">
+<font color="#ffa31a">	<h2> ENTRYPOINT : </h2></font>
+<p>
+<span class="codeoperator">ENTRYPOINT </span> ничего не выполняет во время сборки, но задает команду которая будет выполнена при запуске образа.
+</p>
+<pre><code>
+<span class="codeoperator">ENTRYPOINT </span><span class="codeclass">["executable", "param1", "param2"]</span>
+</code></pre>
+</section><br><br>
+
+
+<section>
+<font color="#ffa31a">	<h2> COPY : </h2></font>
+<p>
+Инструкция <span class="codeoperator">COPY </span>берет два аргумента, путь откуда скопировать файл + путь куда скопировать файлы и копирует это в собственную файловую систему контейнера. <font color="#ffcc00">Не умеет скачивать по URL</font>. 
+</p>
+<pre><code>
+<span class="codeoperator">COPY </span><span class="codeclass">исходный_путь </span><span class="codeobject">путь_назначения</span>
+<span class="codeoperator">COPY </span><span class="codeclass">/media/static </span><span class="codeobject">/app</span>
+</code></pre>
+</section><br>
+
+<section>
 <font color="#ffa31a">	<h2> ADD : </h2></font>
 <p>
-Инструкция <span class="codeoperator">ADD </span>берет два аргумента, путь откуда скопировать файл + путь куда скопировать файлы и копирует это в собственную файловую систему контейнера. Если же source путем является URL (т.е адрес веб-страницы) — то вся страница будет скачена и помещена в контейнер. 
+<font color="#ff6666">Не рекомнедуется !</font><br>
+Инструкция <span class="codeoperator">ADD </span> делает всё то же, что и инструкция <span class="codeoperator">COPY</span>. Но ещё может распаковывать локальные .tar файлы и скачивать странички по URL .
 </p>
-</div>
-<div class="code">
 <pre><code>
 <span class="codeoperator">ADD </span><span class="codeclass">исходный_путь_или_URL </span><span class="codeobject">путь_назначения</span>
 </code></pre>
-</div>
 </section><br><br>
 
+<section>
+<font color="#ffa31a">	<h2> VOLUME : </h2></font>
+<p>
+<span class="codeoperator">VOLUME </span> определяет, где контейнер будет хранить постоянные данные и получать к ним доступ.
+</p>
+<pre><code>
+<span class="codeoperator">VOLUME </span><span class="codeclass">/app</span>
+</code></pre>
+</section><br><br>
+
+<section>
+<font color="#ffa31a">	<h2> EXPOSE    : </h2></font>
+<p>
+<span class="codeoperator">EXPOSE  </span> открывает порт
+</p>
+<pre><code>
+<span class="codeoperator">EXPOSE </span><span class="codeclass">8181</span>
+</code></pre>
+</section><br><br>
+
+<section>
+<font color="#ffa31a">	<h2> WORKDIR  : </h2></font>
+<p>
+<span class="codeoperator">WORKDIR </span> — устанавливает рабочую директорию для инструкции CMD и ENTRYPOINT.
+</p>
+<pre><code>
+<span class="codeoperator">WORKDIR </span><span class="codeclass">/app</span>
+</code></pre>
+</section><br><br>
+
+<section>
+<font color="#ffa31a">	<h2> ARG   : </h2></font>
+<p>
+<span class="codeoperator">ARG </span> — определяет переменную для передачи Docker’у во время сборки.
+</p>
+<pre><code>
+
+</code></pre>
+</section><br><br>
 
 <section>
 <div class="content">
