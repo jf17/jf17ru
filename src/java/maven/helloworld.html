@@ -22,7 +22,7 @@
                                 
 <!-- Heading -->
 <section>
-<h4> Maven. Hello World</h4>
+<h4> Maven. Java 8</h4>
 mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false <br><br>
 
 перейти в папку проекта ! <br><br>
@@ -58,6 +58,46 @@ mvn package <br><br>
 
 </pre></code>
 </section>
+<br><br>
+<section>
+<h4> Maven. Java 11</h4>
+mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false <br><br>
+
+перейти в папку проекта ! <br><br>
+
+mvn generate-resources <br><br>
+
+mvn compile  <br><br>
+
+mvn package <br><br>
+<pre><code class="code">
+<span><</span>properties<span>></span>
+        <span><</span>project.build.sourceEncoding<span>></span>UTF-8<span><</span>/project.build.sourceEncoding<span>></span>
+        <span><</span>project.reporting.outputEncoding<span>></span>UTF-8<span><</span>/project.reporting.outputEncoding<span>></span>
+        <span><</span>java.version<span>></span>11<span><</span>/java.version<span>></span>
+  <span><</span>maven.compiler.target<span>></span>11<span><</span>/maven.compiler.target<span>></span>
+  <span><</span>maven.compiler.source<span>></span>11<span><</span>/maven.compiler.source<span>></span>
+<span><</span>/properties<span>></span>
+
+	
+<span><</span>build<span>></span>
+<span><</span>plugins<span>></span>
+  <span><</span>plugin<span>></span>
+    <span><</span>groupId<span>></span>org.apache.maven.plugins<span><</span>/groupId>
+    <span><</span>artifactId<span>></span>maven-compiler-plugin<span><</span>/artifactId>
+    <span><</span>version<span>></span>3.8.0<span><</span>/version>
+      <span><</span>configuration<span>></span>
+        <span><</span>source<span>></span>11<span><</span>/source<span>></span>
+        <span><</span>target<span>></span>11<span><</span>/target<span>></span>
+      <span><</span>/configuration<span>></span>
+  <span><</span>/plugin<span>></span>
+<span><</span>/plugins<span>></span>
+<span><</span>/build<span>></span>
+
+</pre></code>
+<img src="helloworld.JPG">
+</section>
+<br><br><br><br>
 
 
 <footer>
