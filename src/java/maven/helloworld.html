@@ -91,6 +91,35 @@ mvn package <br><br>
         <span><</span>target<span>></span>11<span><</span>/target<span>></span>
       <span><</span>/configuration<span>></span>
   <span><</span>/plugin<span>></span>
+
+  <span><</span>plugin<span>></span>
+  <span><</span>groupId<span>></span>org.apache.maven.plugins<span><</span>/groupId<span>></span>
+  <span><</span>artifactId<span>></span>maven-dependency-plugin<span><</span>/artifactId<span>></span>
+  <span><</span>version<span>></span>3.1.2<span><</span>/version<span>></span>
+  <span><</span>executions<span>></span>
+      <span><</span>execution<span>></span>
+          <span><</span>id<span>></span>copy-dependencies<span><</span>/id<span>></span>
+          <span><</span>phase<span>></span>prepare-package<span><</span>/phase<span>></span>
+          <span><</span>goals<span>></span>
+              <span><</span>goal<span>></span>copy-dependencies<span><</span>/goal<span>></span>
+          <span><</span>/goals<span>></span>
+      <span><</span>/execution<span>></span>
+  <span><</span>/executions<span>></span>
+<span><</span>/plugin<span>></span>
+<span><</span>plugin<span>></span>
+  <span><</span>groupId<span>></span>org.apache.maven.plugins<span><</span>/groupId<span>></span>
+  <span><</span>artifactId<span>></span>maven-jar-plugin<span><</span>/artifactId<span>></span>
+  <span><</span>version<span>></span>3.2.0<span><</span>/version<span>></span>
+  <span><</span>configuration<span>></span>
+      <span><</span>archive<span>></span>
+          <span><</span>manifest<span>></span>
+              <span><</span>addClasspath<span>></span>true<span><</span>/addClasspath<span>></span>
+              <span><</span>classpathPrefix<span>></span>dependency/<span><</span>/classpathPrefix<span>></span>
+              <span><</span>mainClass<span>></span>ru.jf17.bot.Main<span><</span>/mainClass<span>></span>
+          <span><</span>/manifest<span>></span>
+      <span><</span>/archive<span>></span>
+  <span><</span>/configuration<span>></span>
+<span><</span>/plugin<span>></span>
 <span><</span>/plugins<span>></span>
 <span><</span>/build<span>></span>
 
