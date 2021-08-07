@@ -57,78 +57,76 @@ script.sh
 
 <section class="content">
 <font color="#a300cc"><h4>Ввод-вывод  :</h4></font>
-        <ul>
-                <li><font color="#ffffff"><span class="codeoperator">echo</span> </font> — выводит выражение или содержимое переменной (stdout), но имеет ограничения в использовании[3].</li>
-				<li><font color="#ffffff"><span class="codeoperator">echo</span> <span class="codetext">'hello'</span> <span>> </span>filename.txt </font> — Перенаправление стандартного вывода в файл filename.txt.</li>
-				<li><font color="#ffffff"><span class="codeoperator">echo</span> <span class="codetext">'hello'</span> <span>>> </span>filename.txt </font> — Перенаправление стандартного вывода в файл filename.txt , данные добавляются в конец файла. При отсутствии файла он создаётся</li>
-                <li><font color="#ffffff"><span class="codeoperator">printf</span> </font> — команда форматированного вывода, расширенный вариант команды echo</li>
-                <li><font color="#ffffff"><span class="codeoperator">read</span> </font> — «читает» значение переменной со стандартного ввода (stdin), в интерактивном режиме это клавиатура </li>
-				<li><font color="#ffffff"><span class="codeoperator">read</span> <span>< </span>filename.txt</font> — Перенаправление стандартного ввода из файла filename.txt </li>
-				<li><font color="#ffffff">2<span>>&</span>1 </font> — Перенаправление вывода ошибок на стандартный вывод .</li>
-				<li><font color="#ffffff">command1 | command2 </font> — Перенаправление вывода command1 на ввод command2 .</li>
-                </ul>    
-
+<ul>
+<li><font color="#ffffff"><span class="codeoperator">echo</span> </font> — выводит выражение или содержимое переменной (stdout), но имеет ограничения в использовании[3].</li>
+<li><font color="#ffffff"><span class="codeoperator">echo</span> <span class="codetext">'hello'</span> <span>> </span>filename.txt </font> — Перенаправление стандартного вывода в файл filename.txt.</li>
+<li><font color="#ffffff"><span class="codeoperator">echo</span> <span class="codetext">'hello'</span> <span>>> </span>filename.txt </font> — Перенаправление стандартного вывода в файл filename.txt , данные добавляются в конец файла. При отсутствии файла он создаётся</li>
+<li><font color="#ffffff"><span class="codeoperator">printf</span> </font> — команда форматированного вывода, расширенный вариант команды echo</li>
+<li><font color="#ffffff"><span class="codeoperator">read</span> </font> — «читает» значение переменной со стандартного ввода (stdin), в интерактивном режиме это клавиатура </li>
+<li><font color="#ffffff"><span class="codeoperator">read</span> <span>< </span>filename.txt</font> — Перенаправление стандартного ввода из файла filename.txt </li>
+<li><font color="#ffffff">2<span>>&</span>1 </font> — Перенаправление вывода ошибок на стандартный вывод .</li>
+<li><font color="#ffffff">command1 | command2 </font> — Перенаправление вывода command1 на ввод command2 .</li>
+</ul>
 </section>
 
 <section class="content">
 <font color="#a300cc"><h4>Файловая система  :</h4></font>
-        <ul>
-				<li><font color="#ffffff"><span class="codeoperator">touch </span> filename.txt</font> — Создать файл filename.txt .</li>
-				<li><font color="#ffffff"><span class="codeoperator">ls </span></font> — Просмотреть список файлов в этом каталоге .</li>
-                <li><font color="#ffffff"><span class="codeoperator">cd</span> Directory1</font> — Перемещение в каталог Directory1 .</li>
-				<li><font color="#ffffff"><span class="codeoperator">cd</span> ~ </font> — Перемещение в домашний каталог .</li>
-				<li><font color="#ffffff"><span class="codeoperator">cd</span> .. </font> — Перемещение на один уровень выше .</li>
-                <li><font color="#ffffff"><span class="codeoperator">pwd</span> </font> — выводит название текущего рабочего каталога (от англ. print working directory) </li>
-                </ul>    
-
+<ul>
+<li><font color="#ffffff"><span class="codeoperator">touch </span> filename.txt</font> — Создать файл filename.txt .</li>
+<li><font color="#ffffff"><span class="codeoperator">ls </span></font> — Просмотреть список файлов в этом каталоге .</li>
+<li><font color="#ffffff"><span class="codeoperator">cd</span> Directory1</font> — Перемещение в каталог Directory1 .</li>
+<li><font color="#ffffff"><span class="codeoperator">cd</span> ~ </font> — Перемещение в домашний каталог .</li>
+<li><font color="#ffffff"><span class="codeoperator">cd</span> .. </font> — Перемещение на один уровень выше .</li>
+<li><font color="#ffffff"><span class="codeoperator">pwd</span> </font> — выводит название текущего рабочего каталога (от англ. print working directory) </li>
+</ul>
 </section>
 
 <section class="content">
 <font color="#a300cc"><h4>Чтение из файла  :</h4></font>
-        <ul>
-                <li><font color="#ffffff"><span class="codeoperator">cat</span> filename.txt</font> — Команда cat считывает файл, переданный как аргумент, и выводит его содержимое по стандартному каналу вывода .</li>
-				<li><font color="#ffffff"><span class="codeoperator">head</span> filename.txt</font> — Команда head читает первые 10 строк любого переданного текста и выводит их по стандартному каналу.</li>
-				<li><font color="#ffffff"><span class="codeoperator">tail</span> filename.txt</font> — Команда tail работает аналогично команде head, но читает строки с конца.</li>
-                <li><font color="#ffffff"><span class="codeoperator">grep</span> <span class="codetext">'student`</span> file1.txt </font> — Команда grep занимается поиском переданной строки в указанном файле. -i Отключение чувствительности к регистру </li>
-                </ul>    
-
+<ul>
+<li><font color="#ffffff"><span class="codeoperator">cat</span> filename.txt</font> — Команда cat считывает файл, переданный как аргумент, и выводит его содержимое по стандартному каналу вывода .</li>
+<li><font color="#ffffff"><span class="codeoperator">head</span> filename.txt</font> — Команда head читает первые 10 строк любого переданного текста и выводит их по стандартному каналу.</li>
+<li><font color="#ffffff"><span class="codeoperator">tail</span> filename.txt</font> — Команда tail работает аналогично команде head, но читает строки с конца.</li>
+<li><font color="#ffffff"><span class="codeoperator">grep</span> <span class="codetext">'student`</span> file1.txt </font> — Команда grep занимается поиском переданной строки в указанном файле. -i Отключение чувствительности к регистру </li>
+</ul>
 </section>
 
 <section class="content">
 <font color="#a300cc"><h4>Коннекторы  :</h4></font>
-        <ul>
+<ul>
 <li><font color="#ffffff"> command1 <span class="codeoperator">&&</span> command2 </font> — Первая команда исполняется всегда, вторая — только в случае успешного завершения первой .</li>
 <li><font color="#ffffff"> command1 <span class="codeoperator">||</span> command2 </font> — Первая команда исполняется всегда, вторая — только в случае неудачного завершения первой .</li>
 <li><font color="#ffffff"> command1 <span class="codeoperator">;</span> command2 </font> — Команды исполняются всегда .</li>
 </ul>    
-
 </section>
 
 <section class="content">
 <font color="#a300cc"><h4>Процессы  :</h4></font>
-        <ul>
+<ul>
 <li><span class="codeoperator">kill</span> — посылает сигнал завершения процессу.</li>
+<li></li>
+<li><span class="codeoperator">jobs</span> — показывает процессы висящие в foreground или background.</li>
+<li><span class="codeoperator">fg</span> — Ctrl+Z - перевести процесс в фоновый режим.  foreground(на переднем плане) процесс висит в фоновом режиме(не работает)</li>
+<li><span class="codeoperator">bg</span> — перевести процесс в background (программа будет работать ).</li>
+<li></li>
 <li><span class="codeoperator">ps</span> — Команда выводит информацию о запущенных процессах. (ID процесса (PID) , тип терминала (TTY),время работы процесса (TIME),имя команды, запустившей процесс (CMD) )</li>
 <li><span class="codeoperator">top</span> —  консольная команда, которая выводит список работающих в системе процессов и информацию о них. По умолчанию она в реальном времени сортирует их по нагрузке на процессор .</li>
-
 </ul>    
-
 </section>
 
 
 <section class="content">
 <font color="#a300cc"><h4>Интернет  :</h4></font>
-        <ul>
+<ul>
 <li><font color="#ffffff"><span class="codeoperator">wget </span> https://github.com/mikeizbicki/ucr-cs100 </font>  — Команда wget скачивает файлы из Сети и помещает их в текущий каталог .</li>
 <li><font color="#ffffff"><span class="codeoperator">curl </span> https://jf17.ru/ </font> — Простейший и самый обычный HTTP-запрос - получить содержимое URL .</li>
-		</ul>    
-
+</ul>    
 </section>
 
 
 <section class="content">
 <font color="#a300cc"><h4>Работа с пакетами  :</h4></font>
-        <ul>
+<ul>
 <li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">update </span></font>  — Команда update используется для повторной синхронизации индекса файлов пакета из своих источников, указанных в файле /etc/apt/sources.list .</li>
 <li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">upgrade  </span></font>  — Команда upgrade используется для обновления всех установленных пакетов программного обеспечения в системе .</li>
 <li><font color="#ffffff"><span class="codeobject">sudo</span> <span class="codeoperator">apt-get </span> <span class="codemethod">install</span> имяпакета </font>  — Команда install отслеживает один или несколько пакетов для установки или модернизации.</li>
@@ -145,8 +143,7 @@ script.sh
 <li><font color="#ffffff"><span class="codeoperator">apt-cache </span> <span class="codemethod">showpkg</span> имяпакета </font>  — Используйте showpkg для проверки зависимостей для определенных пакетов программного обеспечения .</li>
 <li><font color="#ffffff"><span class="codeoperator">apt-cache </span> <span class="codemethod">show</span> имяпакета </font>  — Если вы хотите проверить информацию о пакете и получить краткое описание (номер версии, проверка суммы, размера, установленного размера, категории и т.д.), используйте ' показать команду show.</li>
 <li><font color="#ffffff"><span class="codeoperator">apt-cache </span> <span class="codemethod">search</span> имяпакета </font>  — поиск пакета по части названия или описания. Поддерживает регулярные выражения.</li>
-
-		</ul>    
+</ul>    
 
 </section>
 
