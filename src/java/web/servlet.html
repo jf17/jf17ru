@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Servlet. Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<hr />
+</section>
+                         
+
+
+<header>
+<div class="content">
+<font color="#ffa31a">	<h2> Servlet.</h2></font>
+<p>
+Сервлет является интерфейсом Java, реализация которого расширяет функциональные возможности сервера.<br>
+ Сервлет взаимодействует с клиентами посредством принципа запрос-ответ.<br>
+Хотя сервлеты могут обслуживать любые запросы, они обычно используются для расширения веб-серверов. <br>
+Для таких приложений технология Java Servlet определяет HTTP-специфичные сервлет классы.<br>
+Пакеты javax.servlet и javax.servlet.http обеспечивают интерфейсы и классы для создания сервлетов.
+ </p>
+<br>
+</div>
+</header>
+
+<section>
+В pom.xml добавим зависимость javax.servlet-api и установим packaging war:
+<pre class="code"><code>
+<span><</span>?xml version="1.0" encoding="UTF-8"?<span>></span>
+<span><</span>project xmlns="http://maven.apache.org/POM/4.0.0"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"<span>></span>
+   <span><</span>modelVersion>4.0.0<span><</span>/modelVersion<span>></span>
+
+   <span><</span>groupId<span>></span>org.example<span><</span>/groupId<span>></span>
+   <span><</span>artifactId<span>></span>servlets<span><</span>/artifactId<span>></span>
+   <span><</span>version<span>></span>1.0-SNAPSHOT<span><</span>/version<span>></span>
+   <span><</span>packaging<span>></span><font color="#ff6666">war</font><span><</span>/packaging<span>></span>
+
+   <span><</span>dependencies<span>></span>
+       <span><</span>dependency<span>></span>
+           <span><</span>groupId<span>></span>javax.servlet<span><</span>/groupId<span>></span>
+           <span><</span>artifactId<span>></span><font color="#ff6666">javax.servlet-api</font><span><</span>/artifactId<span>></span>
+           <span><</span>version<span>></span><font color="#ff6666">4.0.1</font><span><</span>/version<span>></span>
+       <span><</span>/dependency<span>></span>
+   <span><</span>/dependencies<span>></span>
+<span><</span>/project<span>></span>
+</code></pre>
+<br>
+Класс простого сервлета:
+<pre class="code"><code>import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+<span class="codeannotation">@WebServlet</span>("/hello")
+public class MainServlet extends <span class="codeinterface">HttpServlet</span> {
+
+   @Override
+   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+       resp.setContentType("text/html");
+       PrintWriter printWriter = resp.getWriter();
+       printWriter.write("Hello!");
+       printWriter.close();
+   }
+}
+</code></pre>
+</section>
+
+
+<section>
+<div class="content">
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li> <a href="https://habr.com/ru/post/333626/" target="_blank" rel="noopener"> Создание сервлетов для чайников. Пошаговое руководство(хабр) </a> </li>
+	</ul>
+	</div>
+</section>
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
