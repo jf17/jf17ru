@@ -37,7 +37,27 @@ JSP (JavaServer Pages) — технология, позволяющая веб-�
 </div>
 </header>
 
+<br><br><br>
 
+
+<section>
+Как проверить версию сервлета и JSP ?
+<pre class="code"><code><span><</span>div<span>></span>
+Server info: <span><</span>%= application.getServerInfo() %<span>></span><span><</span>br<span>></span>
+Servlet version: <span><</span>%= application.getMajorVersion() %<span>></span>.<span><</span>%= application.getMinorVersion() %<span>></span><span><</span>br<span>></span>
+JSP version: <span><</span>%= JspFactory.getDefaultFactory().getEngineInfo().getSpecificationVersion() %<span>></span><span><</span>br<span>></span>
+<span><</span>/div<span>></span>
+</code></pre>
+Output:<br>
+<font color="#0099ff">Server info:</font> Apache Tomcat/7.0.21 <br>
+<font color="#0099ff">Servlet version:</font> <font color="#ff3300">3.0</font> <br>
+<font color="#0099ff">JSP version:</font><font color="#ff3300"> 2.1</font> <br><br>
+
+<font color="#ffff00">Еще надо обратить внимание на версию указанную в <font color="#ff00ff">web.xml</font> файле !!!</font> <br>
+"http://java.sun.com/dtd/<font color="#ff6666">web-app_2_3.dtd</font>"
+</section>
+
+<br><br><br>
 
 <section>
 <div class="content">
@@ -47,7 +67,7 @@ JSP (JavaServer Pages) — технология, позволяющая веб-�
 	</ul>
 	</div>
 </section>
-
+<br><br><br>
 
 <footer>
 <!-- работа с куки -->

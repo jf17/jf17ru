@@ -36,8 +36,7 @@
 
 <section>
 В pom.xml добавим зависимость javax.servlet-api и установим packaging war:
-<pre class="code"><code>
-<span><</span>?xml version="1.0" encoding="UTF-8"?<span>></span>
+<pre class="code"><code><span><</span>?xml version="1.0" encoding="UTF-8"?<span>></span>
 <span><</span>project xmlns="http://maven.apache.org/POM/4.0.0"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"<span>></span>
    <span><</span>modelVersion>4.0.0<span><</span>/modelVersion<span>></span>
@@ -51,7 +50,7 @@
        <span><</span>dependency<span>></span>
            <span><</span>groupId<span>></span>javax.servlet<span><</span>/groupId<span>></span>
            <span><</span>artifactId<span>></span><font color="#ff6666">javax.servlet-api</font><span><</span>/artifactId<span>></span>
-           <span><</span>version<span>></span><font color="#ff6666">4.0.1</font><span><</span>/version<span>></span>
+           <span><</span>version<span>></span><font color="#ff6666">4.0.0</font><span><</span>/version<span>></span>
        <span><</span>/dependency<span>></span>
    <span><</span>/dependencies<span>></span>
 <span><</span>/project<span>></span>
@@ -80,7 +79,38 @@ public class MainServlet extends <span class="codeinterface">HttpServlet</span> 
 </code></pre>
 </section>
 
+<br><br><br>
 
+
+<section>
+<font color="#ff3366">web.xml</font>
+<pre class="code"><code><span><</span>web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                    http://xmlns.jcp.org/xml/ns/javaee/<font color="#ff3366">web-app_4_0.xsd</font>" <font color="#ff3366">version="4.0"</font> metadata-complete="true"<span>></span>
+</code></pre>
+</section>
+<br><br><br>
+
+
+<section>
+Как проверить версию сервлета и JSP ?
+<pre class="code"><code><span><</span>div<span>></span>
+Server info: <span><</span>%= application.getServerInfo() %<span>></span><span><</span>br<span>></span>
+Servlet version: <span><</span>%= application.getMajorVersion() %<span>></span>.<span><</span>%= application.getMinorVersion() %<span>></span><span><</span>br<span>></span>
+JSP version: <span><</span>%= JspFactory.getDefaultFactory().getEngineInfo().getSpecificationVersion() %<span>></span><span><</span>br<span>></span>
+<span><</span>/div<span>></span>
+</code></pre>
+Output:<br>
+<font color="#0099ff">Server info:</font> Apache Tomcat/7.0.21 <br>
+<font color="#0099ff">Servlet version:</font> <font color="#ff3300">3.0</font> <br>
+<font color="#0099ff">JSP version:</font><font color="#ff3300"> 2.1</font> <br><br>
+
+<font color="#ffff00">Еще надо обратить внимание на версию указанную в <font color="#ff00ff">web.xml</font> файле !!!</font> <br>
+"http://java.sun.com/dtd/<font color="#ff6666">web-app_2_3.dtd</font>"
+</section>
+
+<br><br><br>
 <section>
 <div class="content">
 	<h4>Полезные ссылки:</h4>
@@ -89,6 +119,7 @@ public class MainServlet extends <span class="codeinterface">HttpServlet</span> 
 	</ul>
 	</div>
 </section>
+<br><br><br>
 
 
 <footer>
