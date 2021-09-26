@@ -35,6 +35,109 @@
 </header>
 
 <section>
+<!-- Table -->
+<font color="#a300cc"><h4>Servlet API history :</h4></font>
+<table class="alt" border="1">
+<thead >
+<tr> 
+<th><font color="#e6e600">Servlet API version :</font></th>
+<th><font color="#e6e600">Released :</font></th>
+<th><font color="#e6e600">Specification :</font></th>
+<th><font color="#e6e600">Platform :</font></th>
+<th><font color="#e6e600">Important Changes  :</font></th>
+</tr>
+</thead>	
+<tbody>
+<tr> 
+<td><font color="#00b8e6">Jakarta Servlet 5.0.0 M1</font></td>
+<td> Jun 12, 2020 </td>
+<td align="left"><font color="#cc5200">5.0</font></td>
+<td align="left"><font color="#cc5200">Jakarta EE 9</font></td>
+<td align="left">API moved from package javax.servlet to jakarta.servlet</td>
+</tr>
+<tr>
+<td><font color="#00b8e6">Jakarta Servlet 4.0.3</font></td>
+<td>Aug 13, 2019</td>
+<td align="left"><font color="#cc5200">4.0</font></td>
+<td align="left"><font color="#cc5200">Jakarta EE 8</font></td>
+<td align="left">Renamed from "Java" trademark</td>
+</tr>
+<tr>
+<td><font color="#00b8e6">Java Servlet 4.0</font></td>
+<td>Sep 2017</td>
+<td align="left"><font color="#cc5200">JSR 369</font></td>
+<td align="left"><font color="#cc5200">Java EE 8</font></td>
+<td align="left">HTTP/2</td>
+</tr>
+<tr>
+<td><font color="#00b8e6">Java Servlet 3.1</font></td>
+<td>May 2013</td>
+<td align="left"><font color="#cc5200">JSR 340</font></td>
+<td align="left"><font color="#cc5200">Java EE 7</font></td>
+<td align="left">Non-blocking I/O, HTTP protocol upgrade mechanism (WebSocket)[14]</td>
+</tr>
+<tr>
+<td><font color="#00b8e6">Java Servlet 3.0</font></td>
+<td>December 2009</td>
+<td align="left"><font color="#cc5200">JSR 315</font></td>
+<td align="left"><font color="#cc5200">Java EE 6, Java SE 6</font></td>
+<td align="left">Pluggability, Ease of development, Async Servlet, Security, File Uploading</td>
+</tr>
+<tr>
+<td><font color="#00b8e6">Java Servlet 2.5</font></td>
+<td>September 2005</td>
+<td align="left"><font color="#cc5200">JSR 154</font></td>
+<td align="left"><font color="#cc5200">Java EE 5, Java SE 5</font></td>
+<td align="left">Requires Java SE 5, supports annotation</td>
+</tr>
+<tr>
+<td><font color="#00b8e6">Java Servlet 2.4</font></td>
+<td>November 2003</td>
+<td align="left"><font color="#cc5200">JSR 154</font></td>
+<td align="left"><font color="#cc5200">J2EE 1.4, J2SE 1.3</font></td>
+<td align="left">web.xml uses XML Schema</td>
+</tr>
+<tr>
+<td><font color="#00b8e6">Java Servlet 2.3</font></td>
+<td>August 2001</td>
+<td align="left"><font color="#cc5200">JSR 53</font></td>
+<td align="left"><font color="#cc5200">J2EE 1.3, J2SE 1.2</font></td>
+<td align="left">Addition of Filter</td>
+</tr>
+<tr>
+<td><font color="#00b8e6">Java Servlet 2.2</font></td>
+<td>August 1999</td>
+<td align="left"><font color="#cc5200">JSR 902, JSR 903</font></td>
+<td align="left"><font color="#cc5200">J2EE 1.2, J2SE 1.2</font></td>
+<td align="left">Becomes part of J2EE, introduced independent web applications in .war files</td>
+</tr>
+<tr>
+<td><font color="#00b8e6">Java Servlet 2.1</font></td>
+<td>November 1998</td>
+<td align="left"><font color="#cc5200">2.1a</font></td>
+<td align="left"><font color="#cc5200">Unspecified</font></td>
+<td align="left">First official specification, added RequestDispatcher, ServletContext</td>
+</tr>
+<tr>
+<td><font color="#00b8e6">Java Servlet 2.0</font></td>
+<td>December 1997</td>
+<td align="left"><font color="#cc5200">N/A</font></td>
+<td align="left"><font color="#cc5200">JDK 1.1</font></td>
+<td align="left">Part of April 1998 Java Servlet Development Kit 2.0</td>
+</tr>
+<tr>
+<td><font color="#00b8e6">Java Servlet 1.0</font></td>
+<td>December 1996</td>
+<td align="left"><font color="#cc5200">N/A</font></td>
+<td align="left"><font color="#cc5200"></font></td>
+<td align="left">Part of June 1997 Java Servlet Development Kit (JSDK) 1.0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<br><br><br>
+
+<section>
 В pom.xml добавим зависимость javax.servlet-api и установим packaging war:
 <pre class="code"><code><span><</span>?xml version="1.0" encoding="UTF-8"?<span>></span>
 <span><</span>project xmlns="http://maven.apache.org/POM/4.0.0"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
