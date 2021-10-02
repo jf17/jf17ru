@@ -21,7 +21,7 @@
 <!-- Spring stack . -->
 <section>
 <font color="#ffa31a">	<h3>Spring Framework .</h3></font>
-<p>Spring - фреймворк(каркас) с открытым исходным кодом,  обеспечивает решения многих задач, с которыми сталкиваются Java-разработчики и организации, которые хотят создать enterprise-приложение, основанную на платформе Java.Одним из главным преимуществом Spring является его слоистая архитектура, позволяющая вам самим определять какие компоненты будут использованы в вашем приложении. Модули Spring построены на базе основного контейнера, который определяет создание, конфигурация и менеджмент бинов. </p>
+<p>Spring - «lightweight» фреймворк (объём кода, который необходимо написать программисту – минимален). </p>
 модули:
 <ul>
 <li> <a href="ioc.html">Inversion of Control-контейнер</a> конфигурирование компонентов приложений и управление жизненным циклом Java-объектов.</li>
@@ -37,50 +37,49 @@
 </ul>
 </section>
 
-
-
-
-<!-- Work . -->
+<!-- Spring Core. -->
 <section>
-<font color="#ffa31a">	<h3>Сбер :</h3></font>
+<font color="#ffa31a">	<h3>Spring Core:</h3></font>
 <ul>
-<li> <a href="https://www.youtube.com/watch?v=X4Of6K12rpU">тестовый проект!!!</a>  </li>
+<li> <a href="core/ioc.html"> Inversion of Control</a> Инверсия управления </li>
+<li> <a href="core/dependencyinjection.html"> Dependency Injection</a> Внедрение зависимостей (Имплементация IoC паттерна)</li>
+<li>---------------------------------</li>
+<li> <a href="core/architecture.html"> Архитектура приложений Spring</a> </li>
+<li>---------------------------------</li>
+<li> <a href="core/bean.html"> Bean</a> </li>
+<li> <a href="core/javabean.html"> Java Bean</a> </li>
+<li> <a href="core/springbean.html"> Spring Bean</a> </li>
+<li> <a href="core/beandefinition.html"> BeanDefinition  </a> </li>
+<li> <a href="core/beanpostprocessor.html"> BeanPostProcessor </a> </li>
+<li> <a href="core/postconstruct.html"> @PostConstruct </a> </li>
+<li> <a href="#"> @PreDestroy </a>( TODO )</li>
+<li> <a href="core/scope.html"> Scope</a>  </li>
+</ul>
+</section>
+
+
+<!-- Spring Context . -->
+<section>
+<font color="#ffa31a">	<h3>Spring Context:</h3></font>
+<ul>
+<li> <a href="#"> мавен зависимость </a>( TODO )</li>
+<li>---------------------------------</li>
+<li> <a href="#"> Этапы инициализации контекста</a> ( TODO ) есть в Spring Bean, плюс ниже статья на хабре</li>
+<br>
+Есть два вида контейнеров :
+<br>
+<font color="#ff66ff">BeanFactory</font> обычно используется тогда, когда ресурсы ограничены (мобильные устройства). Поэтому, если ресурсы не сильно ограничены, то лучше использовать <font color="#ff66ff">ApplicationContext</font>.
+<br>
+Сконфигурировать Контейнер можно тримя способами:
+<li> <a href="context/xmlcontext.html"> через XML-файл</a> (устаревший)</li>
+<li> <a href="context/beanconfiguration.html"> через Java код</a> </li>
+<li> <a href="context/autowiredvsinject.html"> через Аннотации</a> (рекомендуемый способ)</li>
 <li></li>
-<li> <a href="#">java 6 vs java 7 vs java 8</a>  </li>
-<li> <a href="#">WebSphere</a>  </li>
-<li> <a href="#">String</a>  </li>
-<li> <a href="#">String Pool</a>  </li>
-<li> <a href="https://jf17.ru/java/c/collections.html">Коллекции</a>  </li>
-<li></li>
-<li> <a href="#">xml Bean</a>  </li>
-<li> <a href="#">Bean Definition</a> как создаются бины </li>
-<li> <a href="#">scope Bean</a>  </li>
-<li> <a href="#">JSP</a>  </li>
-<li> <a href="#">JSTL</a>  </li>
-<li> <a href="#">Servlet</a>  </li>
-<li> <a href="#">HttpServlet</a> класс </li>
-<li> <a href="#">Spring Web Flow</a> http://javastudy.ru/frameworks/spring/spring-webflow/  </li>
-<li> <a href="#">SOAP</a>  </li>
-<li> <a href="#">JAX-WS</a>  https://docs.oracle.com/javaee/6/tutorial/doc/bnayl.html</li>
-<li> <a href="#">JAXB</a>  https://devcolibri.com/jaxb-%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5/</li>
-<li> <a href="#">JAX-RS</a>  </li>
-<li> <a href="#">ActiveMQ</a> JMS </li>
-<li> <a href="#">Mockito</a> https://www.youtube.com/watch?v=QrSR1fm9JwA</li>
-<li> <a href="#">JUnit</a></li>
-<li> <a href="#">Open JPA</a></li>
-<li> <a href="#">SonarQube</a></li>
-<li></li>
-<li>Java Core/Collections/Multithreading</li>
-<li>Spring Core</li>
-<li>Spring Data</li>
-<li>Hibernate</li>
-<li>JMS</li>
-<li>JAX-WS/JAX-RS</li>
-<li>Liquibase,</li>
-<li>jUnit/Mockito</li>
-<li></li>
-<li> <a href="https://jf17.ru/java/git/index.html">git</a> </li>
-<li> <a href="https://jf17.ru/java/maven/index.html">Maven</a> </li>
+<li> <a href="#"> BPP , BDPP , BD vs Class</a> ( TODO )</li>
+<li> <a href="#"> Context Configuration (dep conflicts, conflict resolving , cyclic deps)</a> ( TODO ) </li>
+<li> <a href="#"> Inject types(byType , byName) methods</a> ( TODO )</li>
+<li>---------------------------------</li>
+
 <br><br><br>
 </ul>
 </section>
@@ -89,19 +88,6 @@
 <section>
 <font color="#ffa31a">	<h3>Work :</h3></font>
 <ul>
-<li> <a href="dependencyinjection.html"> Dependency Injection</a> Внедрение зависимостей </li>
-<li>---------------------------------</li>
-<li> <a href="javabean.html"> JavaBean</a> </li>
-<li> <a href="springbean.html">Spring Bean</a> </li>
-<li> <a href="beandefinition.html">BeanDefinition  </a> </li>
-<li> <a href="beanpostprocessor.html">BeanPostProcessor </a> </li>
-<li> <a href="postconstruct.html"> @PostConstruct </a> </li>
-<li> <a href="scope.html"> Scope</a>  </li>
-<li> <a href="ioc.html"> IoC</a> </li>
-<li>---------------------------------</li>
-<li> <a href="xmlcontext.html"> через XML-файл</a> </li>
-<li> <a href="beanconfiguration.html">@Bean + @Configuration</a> Java code</li>
-<li> <a href="autowiredvsinject.html">@Autowired vs @Inject vs @Resource</a> </li>
 <li>---------------------------------</li>
 <li> <a href="entitymanager.html"> EntityManager</a> </li>
 <li> <a href="transactional.html"> @Transactional</a> </li>
@@ -113,14 +99,9 @@
 <li> <a href="restcontroller.html"> @RestController </a> </li>
 
 <li>---------------------------------</li>
-<li> <a href="#"> @PreDestroy </a> </li>
 <li> <a href="#"> RMI</a> </li>
 <li> <a href="#"> REST Template</a> </li>
 <li> <a href="microvsmono.html">Микросервисы vs Монолит</a> плюсы, минусы </li>
-<li> <a href="#"> BPP , BDPP , BD vs Class</a> </li>
-<li> <a href="#"> SOLID</a> </li>
-<li> <a href="#"> Context Configuration (dep conflicts, conflict resolving , cyclic deps)</a> </li>
-<li> <a href="#"> Inject types(byType , byName) methods</a> </li>
 <li> <a href="#"> Spring Web (Filters) MVC</a> </li>
 <br><br><br>
 </ul>
@@ -135,44 +116,9 @@
     </ul>
     </section>
 
-<!-- Spring stack . -->
-<section>
-<font color="#ffa31a">	<h3>Spring stack .</h3></font>
-<ul>
-<li> <a href="springboot/index.html"> Spring Boot.</a> </li>
-<li> <a href="kafka/index.html"> Apache Kafka  .</a> </li>
-<li> <a href="elasticsearch/index.html"> Elasticsearch  .</a> </li>
-<li> <a href="#"> RabbitMQ  .</a> </li>
-</ul>
-</section>
 
 
-<!-- Spring Core Container. -->
-<section>
-<font color="#ffa31a">	<h3>Spring Core, Containers.</h3></font>
-<ul>
-<li> <a href="springbean.html"> Beans.</a> </li>
-<li> <a href="#"> Core.</a> </li>
-<li> <a href="#"> Context.</a> </li>
-<li> <a href="#"> SpEL.</a> </li>
-<li></li>
-<li></li>
-<li></li>
-<li> <a href="architecture.html"> Архитектура приложений Spring</a> </li>
-<li> <a href="ioc.html"> IoC, Inversion of Control(Инверсия управления)</a> </li>
-<br>
-Есть два вида контейнеров :
-<br>
-<font color="#ff66ff">BeanFactory</font> обычно используется тогда, когда ресурсы ограничены (мобильные устройства). Поэтому, если ресурсы не сильно ограничены, то лучше использовать <font color="#ff66ff">ApplicationContext</font>.
-<br>
-<br>
-Сконфигурировать Контейнер можно тримя способами:
-<li> <a href="xmlcontext.html"> через XML-файл</a> </li>
-<li> <a href="autowiredvsinject.html"> через Аннотации</a> </li>
-<li> <a href="beanconfiguration.html"> через Java код</a> </li>
 
-</ul>
-</section>
 
 
 <!--  Web -->
@@ -241,11 +187,12 @@
 <ul>
 <li> <a href="https://mvnrepository.com/" target="_blank" rel="noopener"> Maven central repository</a> </li>
 <li> </li>
+<li> <a href="https://www.mkyong.com/tutorials/spring-tutorials/" target="_blank" rel="noopener">Spring Tutorial</a> mkyong.com</li>
+<li> <a href="https://www.tutorialspoint.com/spring/" target="_blank" rel="noopener">Spring Tutorial</a> tutorialspoint.com </li>
+<li> </li>
 <li> <a href="https://javarush.ru/groups/posts/1676-spring-framework-vvedenie" target="_blank" rel="noopener">letsCode</a> youtube хороший канал по Spring'у</li>
 <li> <a href="https://javarush.ru/groups/posts/1676-spring-framework-vvedenie" target="_blank" rel="noopener">Spring введение</a> javaRush</li>
 <li> <a href="https://proselyte.net/tutorials/spring-tutorial-full-version/" target="_blank" rel="noopener">Руководство по Spring (полная версия)</a> PROSELYTE</li>
-<li> <a href="https://www.tutorialspoint.com/spring/" target="_blank" rel="noopener">Spring Tutorial</a> tutorialspoint.com </li>
-<li> <a href="https://www.mkyong.com/tutorials/spring-tutorials/" target="_blank" rel="noopener">Spring Tutorial</a> mkyong.com</li>
 <li> <a href="https://ru.wikipedia.org/wiki/Spring_Framework" target="_blank" rel="noopener">Spring Framework</a> Википедия</li>
 <li> <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/" target="_blank" rel="noopener">Spring Framework Documentation</a> </li>
 <li> <a href="https://habr.com/ru/post/222579/" target="_blank" rel="noopener">Этапы инициализации контекста</a> (хабр) </li>
