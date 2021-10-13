@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- author: Aleksandrovich Aleksey Borisovich -->
+<title> Context Java code - jf17.ru</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://jf17.ru/assets/main.css"> 
+</head>
+<body>
+<!-- Heading -->
+<section>
+<div class="content">
+<h1> <a href="https://jf17.ru/" >Главная</a></h1>
+<h2> <a href="https://jf17.ru/java/index.html" >Java</a></h2>
+<h3> <a href="https://jf17.ru/java/spring/index.html" >Spring</a></h3>
+<hr />
+</div>
+</section>
+                                
+<!-- Heading -->
+<section>
+<div class="content">
+<font color="#ffa31a">	<h2> AnnotationConfigApplicationContext</h2></font>
+<ul>
+<li> Класс который позволяет создать конфигурацию приложение через Java код  (вместо XML-файла) </li>
+<li> Класс <font color="#4dffa6">AppConfiguration</font> должен содержать аннотации <font color="#dadee5">@Configuration</font> и <font color="#dadee5">@Bean</font> </li>
+</ul>
+<br><br>
+<font color="#59b300">Регистрация через <font color="#ff66ff">конструктор </font>:</font>
+<pre><code>
+public class Main {
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
+        HelloService service = context.getBean(HelloService.class);
+        service.sayHello();
+    }
+}
+</code></pre>
+<br>
+<pre><code>
+@Configuration
+public class AppConfiguration {
+    @Bean
+    HelloService helloService(){
+        return new HelloService();
+    }
+}
+</code></pre>
+<br>
+<pre><code>
+public class HelloService {
+    public void sayHello(){
+        System.out.println("Hello world!");
+    }
+}
+</code></pre>
+</div>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
