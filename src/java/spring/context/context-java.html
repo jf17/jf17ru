@@ -20,42 +20,41 @@
                                 
 <!-- Heading -->
 <section>
-<div class="content">
 <font color="#ffa31a">	<h2> AnnotationConfigApplicationContext</h2></font>
 <ul>
 <li> Класс который позволяет создать конфигурацию приложение через Java код  (вместо XML-файла) </li>
 <li> Класс <font color="#4dffa6">AppConfiguration</font> должен содержать аннотации <font color="#dadee5">@Configuration</font> и <font color="#dadee5">@Bean</font> </li>
 </ul>
 <br><br>
-<font color="#59b300">Регистрация через <font color="#ff66ff">конструктор </font>:</font>
-<pre><code>
-public class Main {
-    public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
-        HelloService service = context.getBean(HelloService.class);
-        service.sayHello();
+<font color="#59b300">Регистрация через конструктор :</font>
+<pre class="code"><code>
+<span class="codeoperator">public class</span> <span class="codeclass">Main</span> {
+    <span class="codeoperator">public static void</span> <span class="codemethod">main</span>(<span class="codeclass">String</span>[] <span class="codeobject">args</span>) {
+        <span class="codeinterface">ApplicationContext</span> <span class="codeobject">context</span> = <span class="codeoperator">new</span> <span class="codeclass">AnnotationConfigApplicationContext</span>(<span class="codeclass">AppConfiguration</span>.<span class="codeoperator">class</span>);
+        <span class="codeclass">HelloService</span> <span class="codeobject">service</span> = <span class="codeobject">context</span>.<span class="codemethod">getBean</span>(<span class="codeclass">HelloService</span>.<span class="codeoperator">class</span>);
+        <span class="codeobject">service</span>.<span class="codemethod">sayHello</span>();
     }
 }
 </code></pre>
 <br>
-<pre><code>
-@Configuration
-public class AppConfiguration {
-    @Bean
-    HelloService helloService(){
-        return new HelloService();
+<pre class="code"><code>
+<span class="codeannotation">@Configuration</span>
+<span class="codeoperator">public class</span> <span class="codeclass">AppConfiguration</span> {
+    <span class="codeannotation">@Bean</span>
+    <span class="codeclass">HelloService</span> <span class="codemethod">helloService</span>(){
+        <span class="codeoperator">return new </span><span class="codeclass">HelloService</span>();
     }
 }
 </code></pre>
 <br>
-<pre><code>
-public class HelloService {
-    public void sayHello(){
-        System.out.println("Hello world!");
+<pre class="code"><code>
+<span class="codeoperator">public class </span><span class="codeclass">HelloService</span> {
+   <span class="codeoperator"> public void</span> <span class="codemethod">sayHello</span>(){
+        <span class="codeclass">System</span>.<span class="codeobject">out</span>.<span class="codemethod">println</span>(<span class="codetext">"Hello world!"</span>);
     }
 }
 </code></pre>
-</div>
+</section>
 
 <footer>
 <!-- работа с куки -->
