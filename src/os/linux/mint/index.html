@@ -58,6 +58,27 @@ sudo apt-get install openconnect -y
 
 <section>
 <br><br>
+<h4>Запуск бинарных файлов программ в linux Mint двойным щелчком мыши, без терминала:</h4>
+Пример для SQLiteStudio <br>
+создаём файл sqlitestudio.desktop
+<pre class="code"><code>
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=false
+Exec=/home/alex/Загрузки/SQLiteStudio/sqlitestudio
+Name=SQLiteStudio
+Icon=application-sql
+Comment=Программа для работы с SQLite файлами.
+</code></pre>
+можно его потом скопировать в раздел /home/alex/.local/share/applications
+</section>
+
+
+<section>
+<br><br>
 <h4>Установка dep пакетов через консоль :</h4>
 <pre class="code"><code>
 sudo dpkg -i имя_пакета.deb
