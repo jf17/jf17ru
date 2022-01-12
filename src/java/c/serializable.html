@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Serializable. Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+</head>
+
+<body class="content">
+
+<!-- Heading -->
+<header>
+<h1><a href="../../../../../../../index.html" >Главная</a></h1>
+<h2> <a href="../../../../../../../java/index.html" >Java</a></h2>
+<hr />
+ </header>                
+<article>
+
+<section>
+<h2><font color="#ffa31a">	 Сериализация и десериализация Java объектов:</font></h2>
+<p>Сериализация — это процесс сохранения состояния объекта в последовательность байт.<br>
+Десериализация — это процесс восстановления объекта из этих байт.<br><br>
+    
+Если добавить оператор <span class="codeoperator">transient</span> — значение этого поля не будет сериализовано.
+</p>
+
+</section>
+
+<br><br>
+<section>
+UID можно сгенерировать через IDEA
+<pre class="code"><code>
+<span class="codeoperator">private static final long</span> <span class="codeobject">serialVersionUID</span> =;
+    Alt + Enter
+</code></pre>
+<img src="serializable.png" alt="serializable">
+</section>
+
+<!-- Code -->
+<section>
+<br><br>
+<h3><font color="#e6e600">Пример классов:</font></h3>
+<pre class="code"><code>
+<span class="codeoperator">public class</span> <span class="codeclass">NeuralNetwork</span> <span class="codeoperator">implements</span> <span class="codeinterface">Serializable</span> {
+    <span class="codeoperator">private static final long</span> <span class="codeobject">serialVersionUID</span> = <span class="codenumber">415036214236198720L</span>;
+    <span class="codeoperator">private</span> <span class="codeclass">Layer</span>[] <span class="codeobject">layers</span>;
+    private <span class="codeoperator">transient</span> NeuralNetworkFunctionName activationName;
+    private <span class="codeoperator">transient</span> NeuralNetworkFunctionName derivativeName;
+
+
+<span class="codeoperator">public class</span> <span class="codeclass">Layer</span> <span class="codeoperator">implements</span> <span class="codeinterface">Serializable</span> {
+    <span class="codeoperator">private static final long</span> <span class="codeobject">serialVersionUID</span> = <span class="codenumber">9216696740948170978L</span>;
+</code></pre>
+</section>
+
+<section>
+<br><br>
+<h3><font color="#e6e600">Пример Сериализация объекта:</font></h3>
+<pre class="code"><code>
+<span class="codeclass">NeuralNetwork</span> <span class="codeobject">nn</span> = <span class="codeoperator">new</span> <span class="codeclass">NeuralNetwork</span>(LEARNING_RATE, ACTIVATION, DERIVATIVE, 784, 512, 128, 32, 10);
+
+<span class="codeclass">FileOutputStream</span> <span class="codeobject">outputStream</span> = <span class="codeoperator">new</span> <span class="codeclass">FileOutputStream</span>(<span class="codeobject">NEURAL_NETWORK_PATH</span> + <span class="codetext">"/digit-epochs-"</span> + <span class="codeobject">EPOCHS</span> + <span class="codetext">".dat")</span>;
+<span class="codeclass">ObjectOutputStream</span> <span class="codeobject">objectOutputStream</span> = <span class="codeoperator">new</span> <span class="codeclass">ObjectOutputStream</span>(<span class="codeobject">outputStream</span>);
+
+<span class="codeobject">objectOutputStream</span>.<span class="codemethod">writeObject</span>(<span class="codeobject">nn</span>);
+<span class="codeobject">objectOutputStream</span><span class="codemethod">.close()</span>;
+</code></pre>
+</section>
+
+<section>
+<br><br>
+<h3><font color="#e6e600">Пример Десериализации объекта:</font></h3>
+<pre class="code"><code>
+<span class="codeclass">FileInputStream</span> <span class="codeobject">fileInputStream</span> = <span class="codeoperator">new</span> <span class="codeclass">FileInputStream</span>(<span class="codeobject">NEURAL_NETWORK_PATH</span> + <span class="codetext">"/digit-epochs-"</span> + <span class="codeobject">EPOCHS</span> + <span class="codetext">".dat"</span>);
+<span class="codeclass">ObjectInputStream</span> <span class="codeobject">objectInputStream</span> = <span class="codeoperator">new</span> <span class="codeclass">ObjectInputStream</span>(<span class="codeobject">fileInputStream</span>);
+
+<span class="codeclass">NeuralNetwork</span> <span class="codeobject">neuralNetwork</span> = (<span class="codeclass">NeuralNetwork</span>) <span class="codeobject">objectInputStream</span><span class="codemethod">.readObject()</span>;
+</code></pre>
+</section>
+
+
+</article>
+
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<h4>Полезные ссылки.</h4>
+<ul>
+<li> <a href="https://javarush.ru/groups/posts/2022-serializacija-i-deserializacija-v-java" target="_blank" rel="noopener">Сериализация и десериализация в Java</a> JavaRush</li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+<!-- Footer -->
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+
+</body></html>
