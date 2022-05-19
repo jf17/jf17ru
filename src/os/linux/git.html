@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>Git </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+<script>
+function myFunction() {
+let urlStr = document.getElementById("url").value;
+let branchStr =document.getElementById("branch").value;
+let result = "git clone -b " + branchStr + " " + urlStr;
+    document.getElementById("result").innerHTML = result;
+<!-- copy to clipboard -->
+navigator.clipboard.writeText(result);
+  }
+</script>
+</head>
+<body class="content">
+
+<!-- Heading -->
+<section>
+    <div class="content">
+        <h1><a href="../../../../../../../index.html" >Главная</a></h1>
+        <h2> <a href="../../../../../../../os/linux/index.html" >Linux</a></h2>
+        <hr />
+    </div>
+</section>
+
+<font color="#ffa31a"><h1>Git:</h1></font><br>
+URL: <input type="text" id="url"><br><br>
+branch name: <input type="text" id="branch"><br><br>
+<p id="result"></p>
+<input type="submit" value="copy to clipboard" onclick="myFunction()">
+<br><br>
+<br><br>
+<!-- Footer -->
+<footer >
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+</script>
+</footer>
+
+</body>
+</html>
