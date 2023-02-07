@@ -70,6 +70,9 @@ mvn generate-resources <br><br>
 mvn compile  <br><br>
 
 mvn package <br><br>
+
+mvn exec:java<br><br>
+
 <pre><code class="code">
 <span><</span>properties<span>></span>
         <span><</span>project.build.sourceEncoding<span>></span>UTF-8<span><</span>/project.build.sourceEncoding<span>></span>
@@ -121,10 +124,19 @@ mvn package <br><br>
       <span><</span>/archive<span>></span>
   <span><</span>/configuration<span>></span>
 <span><</span>/plugin<span>></span>
+<span><</span>plugin<span>></span>
+  <span><</span>groupId<span>></span>org.codehaus.mojo<span><</span>/groupId<span>></span>
+  <span><</span>artifactId<span>></span>exec-maven-plugin<span><</span>/artifactId<span>></span>
+  <span><</span>version<span>></span>1.2.1<span><</span>/version<span>></span>
+  <span><</span>configuration<span>></span>
+        <span><</span>configuration<span>></span>
+            <span><</span>mainClass<span>></span>ru.jf17.bot.Main<span><</span>/mainClass<span>></span>
+        <span><</span>/configuration<span>></span>
+ <span><</span>/plugin<span>></span>
 <span><</span>/plugins<span>></span>
 <span><</span>/build<span>></span>
 
-</pre></code>
+</code></pre>
 <img src="helloworld.JPG">
 </section>
 <br><br><br><br>
