@@ -117,6 +117,26 @@ sudo docker run hello-world
 <br>
 
 <section>
+    <h4>Настройка Docker чтобы работали plugin в IDEA и VSCode :</h4>
+    <pre class="code"><code>
+// добавляем группу (она может быть уже добавленна при установке Docker)
+sudo groupadd docker
+
+// добавляем своего пользователя чтобы могли запускать Docker без sudo
+sudo usermod -aG docker $USER
+
+// Нужно перелогиниться
+
+// Активируем новые настройки группы
+newgrp docker
+
+// Пробуем запустить Docker без sudo
+docker run hello-world
+</code></pre>
+</section>
+<br>
+
+<section>
 <h4>Установка Docker Compose:</h4>
 <pre class="code"><code>
 https://github.com/docker/compose/releases
