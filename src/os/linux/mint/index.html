@@ -119,18 +119,18 @@ sudo docker run hello-world
 <section>
     <h4>Настройка Docker чтобы работали plugin в IDEA и VSCode :</h4>
     <pre class="code"><code>
-// добавляем группу (она может быть уже добавленна при установке Docker)
+<span class="codecomment">// добавляем группу (она может быть уже добавленна при установке Docker)</span>
 sudo groupadd docker
 
-// добавляем своего пользователя чтобы могли запускать Docker без sudo
+<span class="codecomment">// добавляем своего пользователя чтобы могли запускать Docker без sudo</span>
 sudo usermod -aG docker $USER
 
-// Нужно перелогиниться
+<span class="codecomment">// Нужно перелогиниться</span>
 
-// Активируем новые настройки группы
+<span class="codecomment">// Активируем новые настройки группы</span>
 newgrp docker
 
-// Пробуем запустить Docker без sudo
+<span class="codecomment">// Пробуем запустить Docker без sudo</span>
 docker run hello-world
 </code></pre>
 </section>
