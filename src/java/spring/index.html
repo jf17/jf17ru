@@ -24,6 +24,29 @@
 <p>Spring - «lightweight» фреймворк (объём кода, который необходимо написать программисту – минимален). </p>
 </section>
 
+<!--  Spring Boot  -->
+<br><br>
+<section>
+    <font color="#ffa31a"><h3> Spring Boot:</h3></font>
+    <p> В springBoot очень много магии с автоконфигурацией(из-за чего опытные разработчики не любят спрингБут).<br>
+        @EnableAutoConfiguration - главная фишка springBoot'а! Она позволяет автоматически настраевать подключаемые
+        библиотеки(например монгу она настраевает и автоматически поднимает коннекшены к базе).<br>
+    </p>
+    <ul>
+        <li><a href="#">spring-boot-starter </a> ( TODO )</li>
+        <li><a href="#">@SpringBootApplication </a> ( TODO )</li>
+        <li><a href="#">@EnableAutoConfiguration</a> ( TODO )</li>
+        <li>---------------------------------</li>
+        <li><a href="#">@RestController</a> ( TODO )</li>
+        <li>---------------------------------</li>
+        <li><a href="#">application.properties</a> ( TODO )</li>
+        <li><a href="#">@EnableConfigurationProperties</a> ( TODO )</li>
+        <li><a href="#">@ConfigurationProperties</a> ( TODO )</li>
+        <li>---------------------------------</li>
+        <li><a href="#">Baner</a> ( TODO ) То что отображается в консоле при старте приложания</li>
+    </ul>
+</section>
+
 <!-- Spring Core. -->
 <section>
 <br><br>
@@ -34,15 +57,23 @@
 <li>---------------------------------</li>
 <li> <a href="core/architecture.html"> Архитектура приложений Spring</a> </li>
 <li>---------------------------------</li>
-<li> <a href="#"> POJO</a> ( TODO )</li>
-<li> <a href="core/bean.html"> Bean</a> </li>
-<li> <a href="core/javabean.html"> Java Bean</a> </li>
-<li></li>
-<li> <a href="core/springbean.html"> Spring Bean</a> </li>
-<li> <a href="core/beandefinition.html"> BeanDefinition  </a> </li>
-<li> <a href="core/beanpostprocessor.html"> BeanPostProcessor </a> </li>
-<li> <a href="core/postconstruct.html"> @PostConstruct </a> </li>
-<li> <a href="#"> @PreDestroy </a>( TODO )</li>
+    <li><a href="core/springbean.html"> Spring Bean</a></li>
+    <li><a href="#"> Bean Life Cycle (Жизненный цикл бина )</a>( TODO )</li>
+    <li><a href="#"> BeanFactory</a>( TODO )</li>
+
+
+    <li><a href="core/beandefinition.html"> BeanDefinition </a></li>
+    <li><a href="core/beanpostprocessor.html"> BeanPostProcessor </a></li>
+    <li><a href="core/postconstruct.html"> @PostConstruct </a></li>
+    <li><a href="#"> @PreDestroy </a>( TODO )</li>
+    <li>---------------------------------</li>
+
+
+    <li><a href="#"> POJO</a> ( TODO )</li>
+    <li><a href="core/bean.html"> Bean</a></li>
+    <li><a href="core/javabean.html"> Java Bean</a></li>
+    <li></li>
+
 <li> <a href="core/scope.html"> Scope</a>  </li>
 </ul>
 </section>
@@ -53,8 +84,6 @@
 <br><br>
 <font color="#ffa31a">	<h3>Spring Context:</h3></font>
 <ul>
-<li> <a href="#"> мавен зависимость </a>( TODO )</li>
-<li>---------------------------------</li>
 <li> <a href="#"> Этапы инициализации контекста</a> ( TODO ) есть в Spring Bean, плюс ниже статья на хабре</li>
 <li>---------------------------------</li>
 Есть два вида контейнеров :<br>
@@ -72,12 +101,29 @@
 <li> <a href="#">@ComponentScan </a> ( TODO )</li>
 <li> <a href="#">@SpringBootApplication </a> ( TODO )</li>
 <li>---------------------------------</li>
+    <li><a href="#"> @Autowired</a>( TODO ) - используется для автоматического связывания зависимостей в spring beans.
+    </li>
+    <li><a href="#"> @Qualifier</a>( TODO ) используется совместно с @Autowired для уточнения данных связывания, когда
+        возможны коллизии (например одинаковых имен\типов).
+    </li>
 <li> <a href="context/autowiredvsinject.html"> @Autowired vs @Inject</a> </li>
 <li> <a href="#"> BPP , BDPP , BD vs Class</a> ( TODO )</li>
 <li> <a href="#"> Context Configuration (dep conflicts, conflict resolving , cyclic deps)</a> ( TODO ) </li>
 <li> <a href="#"> Inject types(byType , byName) methods</a> ( TODO )</li>
 <li>---------------------------------</li>
 </ul>
+</section>
+
+<!-- Spring Context . -->
+<section>
+    <br><br>
+    <font color="#ffa31a"><h3>Spring Data:</h3></font>
+    <ul>
+        <li><a href="entitymanager.html"> EntityManager</a></li>
+        <li><a href="transactional.html"> @Transactional</a></li>
+        <li><a href="springdatajpa/index.html"> Spring Data JPA</a></li>
+        <li>---------------------------------</li>
+    </ul>
 </section>
 
 <!--  Aspect-oriented programming  -->
@@ -90,32 +136,6 @@
     </ul>
 </section>
 
-<!--  Spring Boot  -->
-<br><br>
-<section>
-    <font color="#ffa31a"><h3> Spring Boot:</h3></font>
-    <p> В springBoot очень много магии с автоконфигурацией(из-за чего опытные разработчики не любят спрингБут).<br>
-    @EnableAutoConfiguration - главная фишка springBoot'а! Она позволяет автоматически настраевать подключаемые библиотеки(например монгу она настраевает и автоматически поднимает коннекшены к базе).<br>
-    <font color="#ee233d">@Autowired - это зло!!!</font>
-    </p>
-    <ul>
-        <li><a href="#">spring-boot-starter </a> ( TODO )</li>
-        <li> <a href="#">@SpringBootApplication </a> ( TODO )</li>
-        <li> <a href="#">@EnableAutoConfiguration</a> ( TODO )</li>
-        <li>---------------------------------</li>
-        <li> <a href="#">@RestController</a> ( TODO )</li>
-        <li>---------------------------------</li>
-        <li> <a href="#">application.properties</a> ( TODO )</li>
-        <li> <a href="#">@EnableConfigurationProperties</a> ( TODO )</li>
-        <li> <a href="#">@ConfigurationProperties</a> ( TODO )</li>
-        <li>---------------------------------</li>
-        <li> <a href="#">Baner</a> ( TODO ) То что отображается в консоле при старте приложания</li>
-    </ul>
-</section>
-
-
-
-
 
 <!-- Work . -->
 <section>
@@ -123,11 +143,8 @@
 <font color="#ffa31a">	<h3>Work :</h3></font>
 <ul>
 <li>---------------------------------</li>
-<li> <a href="entitymanager.html"> EntityManager</a> </li>
-<li> <a href="transactional.html"> @Transactional</a> </li>
 <li> <a href="hibernateinheritance.html"> Hibernate</a> (стратегия наследования)</li>
 <li> <a href="liquibase.html"> миграция данных (Liquibase)</a> </li>
-<li> <a href="springdatajpa/index.html"> Spring Data JPA</a> </li>
 <li>---------------------------------</li>
 <li> <a href="../../../../../../../java/buzzwords/soap.html"> SOAP</a> </li>
 <li> <a href="restcontroller.html"> @RestController </a> </li>
