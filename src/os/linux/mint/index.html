@@ -45,9 +45,26 @@ sudo apt install nodejs -y
 
 sudo apt install youtube-dl -y
 </code></pre>
-<br><br>
-<h4>Установка программ для работы :</h4>
-<pre class="code"><code>
+
+    <br><br>
+    <h4>Установка Azul Zulu на Debian-based Linux :</h4>
+    <pre class="code"><code>
+<span class="codecomment">// Импорт Azul’s public key:</span>
+sudo apt install gnupg ca-certificates curl
+curl -s https://repos.azul.com/azul-repo.key | sudo gpg --dearmor -o /usr/share/keyrings/azul.gpg
+echo "deb [signed-by=/usr/share/keyrings/azul.gpg] https://repos.azul.com/zulu/deb stable main" | sudo tee /etc/apt/sources.list.d/zulu.list
+<span class="codecomment">//Update the information about available packages:</span>
+sudo apt update
+<span class="codecomment">//Install the required Azul Zulu package:</span>
+sudo apt install zulu21-jdk
+sudo apt install zulu17-jdk
+<span class="codecomment">// To verify your installation,</span>
+java -version
+</code></pre>
+
+    <br><br>
+    <h4>Установка программ для работы :</h4>
+    <pre class="code"><code>
 <span class="codecomment">// Установка RDP client</span>
 sudo apt install remmina -y
 <span class="codecomment">//Обновление Remmina</span>
