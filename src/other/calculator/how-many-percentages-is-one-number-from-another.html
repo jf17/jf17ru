@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>Сколько процентов составляет одно число от другого</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+<script>
+function myFunction() {
+let first_in = document.getElementById("first").value;
+let second_in =document.getElementById("second").value;
+
+
+let division = first_in / second_in;
+let resultValue =division * 100;
+
+
+ if (resultValue != null) {
+    document.getElementById("result").innerHTML ="результат = " +resultValue + " " ;
+}
+
+}
+</script>
+</head>
+<body class="content">
+<!-- Heading -->
+<header>
+<h1><a href="../../../../../../../index.html" >Главная</a></h1>
+<hr />
+</header>
+
+<font color="#ffa31a"><h1>Сколько процентов составляет одно число от другого </h1></font><br>
+<p>(Число1 / Число2) * 100 <br><br>
+Пример: число 23 от числа 5000 это <br>
+    (23/5000)*100 </p>
+Число1: <input type="text" id="first"> 23<br><br>
+Число2: <input type="text" id="second"> 5000<br><br>
+<input type="submit" value="Посчитай!" onclick="myFunction()">
+<br><br>
+<br><br>
+<p id="result"></p>
+<!-- Footer -->
+<footer >
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+</script>
+</footer>
+
+</body>
+</html>
