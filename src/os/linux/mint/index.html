@@ -162,7 +162,7 @@ newgrp docker
 <span class="codecomment">// Пробуем запустить Docker без sudo</span>
 docker run hello-world
 
-<span class="codecomment">// если не помогло ,то вбиваем эту команду </span>
+<span class="codecomment">// если не помогло, то вбиваем эту команду </span>
 gpasswd -a $USER docker
 
 sudo chmod 0777 /var/run/docker.sock
