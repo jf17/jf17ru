@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
+<html lang="ru">
+<head>
 <!-- author: Alexandrovich Alexey Borisovich aka JF17-->
 <title>SQL - jf17.ru</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
@@ -19,16 +20,18 @@
 
 <!-- Базы Данных. -->
 <section>
-    <font color="#ffa31a">	<h3>Команды:</h3></font>
+    <font color="#ffa31a">	<h3>Управление данными:</h3></font>
     <ul>
-        <li> <a href="#">CREATE TABLE</a> (TODO) </li>
-        <li> <a href="#">DROP TABLE</a> (TODO) </li>
-        <li> <a href="#"></a></li>
         <li> <a href="#">INSERT</a> (TODO) </li>
         <li> <a href="#">DELETE</a> (TODO) </li>
         <li> <a href="#">SELECT</a> (TODO) </li>
         <li> <a href="#"></a></li>
-        <li> <a href="#">WHERE</a> (TODO) </li>
+        <li> <a href="#">WHERE</a> (TODO) ограничение по выборке . Оно выполняется до того, как будет получен результат операции.</li>
+        <li> <a href="#">HAVING</a> (TODO) фильтр . Оно применяется к результату операции и выполняется уже после того как этот результат будет получен .</li>
+        <li> <a href="#"></a></li>
+        <li> <a href="#">GROUP BY</a> (TODO) для объединения результатов выборки по одному или нескольким столбцам</li>
+        <li> <a href="#">ORDER BY</a> (TODO) сортировка</li>
+        <li> <a href="#">DISTINCT</a> (TODO) что следует работать только с уникальными значениями столбца</li>
         <li> <a href="#"></a></li>
         <li> <a href="#">FETCH</a> (TODO) fetch first rows only</li>
         <li> <a href="#">OFFSET</a> (TODO) </li>
@@ -37,6 +40,7 @@
         <li> <a href="#">NOT</a> (TODO) </li>
         <li> <a href="#">AND</a> (TODO) </li>
         <li> <a href="#">OR</a> (TODO) </li>
+        <li> <a href="#">LIKE</a> (TODO) </li>
         <li> <a href="#"></a></li>
         <li> <a href="#">ON</a> (TODO) </li>
         <li> <a href="#"></a></li>
@@ -49,6 +53,39 @@
         <li> <a href="#">CONCAT</a> (TODO) конкатенировать строки</li>
         <li> <a href="#"></a></li>
         <li> <a href="#">CONSTRAINT</a> (TODO) особые условия для вводимых данных (есть отдельная вкладка в IDE)</li>
+    </ul>
+</section>
+<section>
+    <font color="#ffa31a">	<h3>агрегатные функции:</h3></font>
+    <ul>
+        <li><span class="codeconst">COUNT(*)</span> - подсчитывает количество <span class="codemethod">строк</span> в таблице, не игнорирует значение <span class="codeoperator">NULL</span>, поскольку эта функция оперирует строками, а не столбцами.</li>
+        <li><span class="codeconst">COUNT(<span class="codeobject">name</span>)</span> - подсчитывает количество <span class="codemethod">значений</span> в "name".  эта форма функции COUNT игнорирует значение <span class="codeoperator">NULL</span>.</li>
+        <li><span class="codeconst">SUM</span> - Возвращает сумму значений в указанном столбце</li>
+        <li><span class="codeconst">AVG</span> - Возвращает среднее значение в указанном столбце</li>
+        <li><span class="codeconst">MIN</span> - Возвращает минимальное значение в указанном столбце</li>
+        <li><span class="codeconst">MAX</span> - Возвращает максимальное значение в указанном столбце</li>
+    </ul>
+</section>
+
+<section>
+    <font color="#ffa31a">	<h3>типы JOIN-ов:</h3></font>
+<img src="join.png" width="350"  alt="join.png">
+    <ul>
+        <li><span class="codeconst">INNER</span> <span class="codeoperator">JOIN</span> - внутреннее соединение. В результирующем наборе присутствуют только записи, значения связанных полей в которых совпадают.</li>
+        <li><span class="codeconst">LEFT</span> <span class="codeoperator">JOIN</span> - левое внешнее соединение. В результирующем наборе присутствуют все записи из table1 и соответствующие им записи из table2. Если соответствия нет, поля из table2 будут пустыми.</li>
+        <li><span class="codeconst">RIGHT</span> <span class="codeoperator">JOIN</span> - правое внешнее соединение. В результирующем наборе присутствуют все записи из table2 и  соответствующие им записи из table1. Если соответствия нет, поля из table1 будут пустыми.</li>
+        <li><span class="codeconst">FULL</span> <span class="codeoperator">JOIN</span> - полное внешнее соединение. Комбинация двух предыдущих. В результирующем наборе присутствуют все записи из table1 и соответствующие им записи из table2. Если соответствия нет - поля из table2 будут пустыми. Записи из table2, которым не нашлось пары в table1, тоже будут присутствовать в результирующем наборе. В этом случае поля из table1 будут пустыми.</li>
+        <li><span class="codeconst">CROSS</span> <span class="codeoperator">JOIN</span> -  Результирующий набор содержит все варианты комбинации строк из table1 и table2. Условие соединения при этом не указывается.</li>
+    </ul>
+</section>
+
+
+<section>
+    <font color="#ffa31a">	<h3>Управление базой:</h3></font>
+    <ul>
+        <li> <a href="#">CREATE TABLE</a> (TODO) </li>
+        <li> <a href="#">DROP TABLE</a> (TODO) </li>
+        <li> <a href="#"></a></li>
     </ul>
 </section><br>
 
