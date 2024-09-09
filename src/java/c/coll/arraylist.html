@@ -39,6 +39,9 @@
             Метод
         </td>
         <td>
+            Описание
+        </td>
+        <td>
             Arraylist
         </td>
         <td>
@@ -47,29 +50,10 @@
     </tr>
     <tr>
         <td>
-           <span class="codemethod">*.get</span>(<span class="codeobject">index</span>)
-        </td>
-        <td>
-            <font color="#33ff33"> O(1)</font>
-        </td>
-        <td>
-            O(n)
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <span class="codemethod">*.add</span>(E) 
-        </td>
-        <td>
-             O(n)
-        </td>
-        <td>
-           <font color="#33ff33"> O(1)</font>
-        </td>
-    </tr>    
-    <tr>
-        <td>
              <span class="codemethod">*.add</span>(E, <span class="codeobject">index</span>) 
+        </td>
+        <td>
+            добавление в середину
         </td>
         <td>
              O(n) 
@@ -83,15 +67,63 @@
              <span class="codemethod">*.remove</span>(<span class="codeobject">index</span>) 
         </td>
         <td>
+            удаление
+        </td>
+        <td>
              O(n) 
         </td>
         <td>
              O(n) 
         </td>
-    </tr>    
+    </tr>
+    <tr>
+        <td>
+            <span class="codemethod">*.set</span>(E, <span class="codeobject">index</span>)
+        </td>
+        <td>
+            замена по индексу
+        </td>
+        <td>
+            <font color="#33ff33"> O(1)</font>
+        </td>
+        <td>
+            O(n)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span class="codemethod">*.get</span>(<span class="codeobject">index</span>)
+        </td>
+        <td>
+            получение по индексу
+        </td>
+        <td>
+            <font color="#33ff33"> O(1)</font>
+        </td>
+        <td>
+            O(n)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span class="codemethod">*.add</span>(E)
+        </td>
+        <td>
+            добавление в конец
+        </td>
+        <td>
+            <font color="#33ff33"> O(1)</font>
+        </td>
+        <td>
+            <font color="#33ff33"> O(1)</font>
+        </td>
+    </tr>
     <tr>
         <td>
             <span class="codeclass">Iterator</span><span class="codemethod">.remove</span>()
+        </td>
+        <td>
+            удаление через Iterator
         </td>
         <td>
             O(n)
@@ -103,6 +135,9 @@
     <tr>
         <td>
             <span class="codeclass">Iterator</span><span class="codemethod">.add</span>(E) 
+        </td>
+        <td>
+            добавление в конец через Iterator
         </td>
         <td>
            O(n) 
