@@ -37,23 +37,17 @@ Spring Bean – это, по сути , обьект, управляемый Spr
 <font color="#cc0066">в IoC-контейнере храняться только синглтоны !!!</font> 
 <br>
 Так как prototype Bean  не хранится в IoC-контейнере , для него <font color="#cc6600">не сработает @PreDestroy</font> метод !!!
+</section>
+
 
 <section>
-
-
-<section>
-<font color="#ffa31a">	<h3> алгоритм инициализации контекста: </h3></font>
-<ol>
-<li>XmlBeanDefinitionReader сканирует наш xml-конфигурационный файл. </li>
-<li>Создает BeanDefinition’ы и кладет их в HashMap. </li>
-<li> Приходит BeanFactory и из этой HashMap отдельно складывает все BeanPostProcessor’ы.</li>
-<li> Создает из BeanDefinition’ов бины и кладет их в IoC-контейнер.</li>
-<li>Тут приходят BPP и настраивают эти бины с помощью 2х методов. (postProcessorBeforeInitialization , postProcessorAfterInitialization) </li>
-</ol>
-
-<section>
-
-
+    <font color="#ffa31a">	<h3> В Java можно создать bean тремя способами: </h3></font>
+    <ul>
+ <li><span class="codeenum">На основе классов</span> Чтобы превратить класс в бин, нужно пометить его аннотацией <span class="codeannotation">@Component, @Repository, @RestController, @Controller</span>  </li>
+ <li><span class="codeenum">На основе методов</span>  Для создания бина с помощью метода нужно создать метод(помеченного аннотацией <span class="codeannotation">@Bean</span>) внутри любого класса(помеченного аннотацией <span class="codeannotation">@Configuration</span>).</li>
+ <li><span class="codeenum">Через XML файл (устаревший способ)</span> Это самый примитивный подход. Bean определяется в XML-файле конфигурации Spring. При запуске контейнер Spring читает этот файл и создаёт и инициализирует все bean, определённые в нём  </li>
+    </ul>
+</section>
 <section>
 <font color="#ffa31a">	<h3> Свойства Bean: </h3></font>
 <ul>
@@ -67,8 +61,9 @@ Spring Bean – это, по сути , обьект, управляемый Spr
 <li><span class="codeoperator">autowiring mode</span> -  Определяет режим автоматического связывания при внедрении зависимости.</li>
 <li><span class="codeoperator">lazy-initialization mode</span> -  Режим ленивой инициализации даёт контейнеру IoC команду создавать экземпляр бина при первом запросе, а не при запуске приложения.</li>
 </ul>
+</section>
 
-<section>
+    <a href="life-cycle-bean.html" >Жизненный цикл Bean</a>
 
 <section>
 <font color="#ffa31a">	<h3> типы  Bean: </h3></font>
@@ -77,15 +72,14 @@ Spring Bean – это, по сути , обьект, управляемый Spr
 <li> Session Bean (stateless , stateful , singleton)</li>
 <li>Message Driven Beans</li>
 </ul>
-
-<section>
+</section>
 
 <!-- Полезные ссылки . -->
 <br><br>
 <section>
 <font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
 <ul>
-<li> <a href="keybindingidea.html"> Краткая шпаргалка по сочетаниям клавиш в IntelliJ IDEA </a> </li>
+    <li><a href="https://www.baeldung.com/spring-boot-xml-beans" target="_blank" rel="noopener"> Создание Spring Bean через XML файл</a> baeldung.com</li>
 <li> </li>
 <li> </li>
 </ul>
