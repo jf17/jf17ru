@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Life Cycle Bean (Жизненный цикл бина )- jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+</head>
+<body>
+
+
+
+<!-- Heading -->
+<section>
+<h1><a href="../../../../../../../index.html" >Главная</a></h1>
+<h2> <a href="../../../../../../../java/index.html" >Java</a></h2>
+<h3> <a href="../../../../../../../java/spring/index.html" >Spring</a></h3>
+<hr />
+</section>
+
+<img src="life-cycle-bean.png" alt="life-cycle-bean.png" width="600">
+
+<section>
+<font color="#ffa31a">	<h3> Жизненный цикл Bean в Spring : </h3></font>
+<ol>
+<li> Инициализация контейнера. При запуске приложения Spring контейнер создаёт экземпляры всех бинов(BeanDefinition), определённых в конфигурации.</li>
+<li> Создание бина. Контейнер вызывает его конструктор или фабричный метод для создания экземпляра бина. </li>
+<li> Внедрение зависимостей. После создания бина контейнер внедряет зависимости, указанные в конфигурации.</li>
+<li> Настройка бина. После внедрения зависимостей контейнер вызывает методы инициализации бина.</li>
+<li> Использование бина. После настройки бина он готов к использованию в приложении.</li>
+<li> Уничтожение бина. Когда контекст приложения закрывается или бин больше не нужен, контейнер вызывает методы уничтожения бина. (только для singleton)</li>
+</ol>
+
+<section>
+
+
+
+<section>
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
+<ul>
+	<li><a href="https://www.youtube.com/watch?v=MR_h8kljt-w" target="_blank" rel="noopener"> Spring Framework. Жизненный цикл</a> youtube.com</li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body><!-- Footer --></html>
