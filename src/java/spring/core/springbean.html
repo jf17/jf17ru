@@ -43,7 +43,7 @@ Spring Bean – это, по сути , обьект, управляемый Spr
 <section>
     <font color="#ffa31a">	<h3> В Java можно создать bean тремя способами: </h3></font>
     <ul>
- <li><span class="codeenum">На основе классов</span> Чтобы превратить класс в бин, нужно пометить его аннотацией <span class="codeannotation">@Component, @Repository, @RestController, @Controller</span>  </li>
+ <li><span class="codeenum">На основе классов</span> Чтобы превратить класс в бин, нужно пометить его аннотацией <span class="codeannotation">@Component, @Service, @Repository, @RestController, @Controller</span>  </li>
  <li><span class="codeenum">На основе методов</span>  Для создания бина с помощью метода нужно создать метод(помеченного аннотацией <span class="codeannotation">@Bean</span>) внутри любого класса(помеченного аннотацией <span class="codeannotation">@Configuration</span>).</li>
  <li><span class="codeenum">Через XML файл (устаревший способ)</span> Это самый примитивный подход. Bean определяется в XML-файле конфигурации Spring. При запуске контейнер Spring читает этот файл и создаёт и инициализирует все bean, определённые в нём  </li>
     </ul>
