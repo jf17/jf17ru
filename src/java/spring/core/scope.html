@@ -23,8 +23,7 @@
 <!-- Heading -->
 <section>
 <div class="content">
-<font color="#ffa31a">	<h2> Spring Bean scopes</h2></font><br>
-
+<font color="#ffa31a">	<h2> Spring Bean scopes</h2></font>
 <ul>
 <li><a href="#" >singleton</a>Определяет один единственный бин для каждого контейнера Spring IoC (используется по умолчанию). </li>
 <li><a href="#" >prototype</a> Позволяет иметь любое количество экземпляров бина.  <font color="#ff6666">Не хранится в контейнере , поэтому @PreDestroy не сработает !!! </font></li>
@@ -33,7 +32,50 @@
 <li><a href="#" >global-session</a> Создаётся один экземпляр бина на каждую глобальную HTTP сессию. Касается исключительно ApplicationContext.</li>
 </ul>
 </div>
-<section>
+</section>
+<br><br>
+
+	<section>
+		<div class="content">
+			<font color="#ffa31a">	<h2> Как внедрить Prototype в Singleton ?</h2></font>
+			<ol>
+				<li>через ObjectFactory Interface :
+<pre class="code"><code>@Component
+public class SingletonObjectFactoryBean {
+
+    <span class="codeannotation">@Autowired</span>
+    <span class="codeoperator">private </span><span class="codeinterface">ObjectFactory</span><span><</span><span class="codeclass">PrototypeBean</span><span>></span> <span class="codeobject">prototypeBeanObjectFactory</span>;
+
+    public PrototypeBean getPrototypeInstance() {
+        return prototypeBeanObjectFactory.getObject();
+    }
+}
+</code></pre>
+				</li>
+				
+				<li>через имплементацию интерфейса ApplicationContextAware :
+<pre class="code"><code>@Component
+public class SingletonAppContextBean <span class="codeoperator">implements</span> <span class="codeinterface">ApplicationContextAware</span> {
+
+    private <span class="codeinterface">ApplicationContext</span> <span class="codeobject">applicationContext</span>;
+
+    public <span class="codeclass">PrototypeBean</span> getPrototypeBean() {
+        <span class="codeoperator">return</span> <span class="codeobject">applicationContext</span><span class="codemethod">.getBean</span>(<span class="codeclass">PrototypeBean.class</span>);
+    }
+
+    <span class="codeannotation">@Override</span>
+    <span class="codeoperator">public void </span><span class="codemethod">setApplicationContext</span>(<span class="codeinterface">ApplicationContext</span> <span class="codeobject">applicationContext</span>) 
+      throws BeansException {
+        <span class="codeoperator">this</span>.<span class="codeobject">applicationContext</span> = <span class="codeobject">applicationContext</span>;
+    }
+}
+</code></pre>
+				</li>
+				<li>с помощью @Lookup </li>
+				<li>API -интерфейс javax.inject</li>
+			</ol>
+		</div>
+		</section>
 
 <!-- Полезные ссылки . -->
 <div class="contentname">
