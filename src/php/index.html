@@ -23,11 +23,36 @@
 <h4>PHP :</h4>
 <ul>
 <li> <a href="install-linux-php-8-3.html"> Установка на Linux</a> </li>
-
 </ul>
-
 </section>
 
+<br><br>
+
+<section>
+<h4>Apache2 :</h4>
+<pre class="code"><code>
+<span class="codecomment">// прверка статуса</span>
+sudo systemctl status apache2
+
+<span class="codecomment">// перзапуск сервера</span>
+sudo service apache2 restart
+
+<span class="codecomment">// запуск вручную сервера</span>
+sudo systemctl start apache2
+
+<span class="codecomment">// остановка вручную сервера</span>
+sudo systemctl stop apache2
+
+<span class="codecomment">// включить Apache при запуске системы</span>
+sudo systemctl enable apache2
+
+<span class="codecomment">// выключить Apache при запуске системы</span>
+sudo systemctl disable apache2
+
+<span class="codecomment">// включен автозапуск Apache при запуске системы ?</span>
+sudo systemctl is-enabled apache2
+</code></pre>
+</section>
 
 
 
