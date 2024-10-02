@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>PHP 8.3 install on Linux - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+</head>
+
+
+<body>
+
+<!-- Heading -->
+<header>
+<h1><a href="../../../../../../../index.html" >Главная</a></h1>
+<h2> <a href="../../../../../../../php/index.html" >PHP</a></h2>
+<hr />
+</header>
+
+
+
+<section>
+<h4>Установка :</h4>
+<pre class="code"><code><span class="codecomment">// add the PHP PPA repository</span>
+sudo add-apt-repository ppa:ondrej/php -y
+sudo apt update
+sudo apt install php8.3 libapache2-mod-php -y
+</code></pre>
+</section>
+
+<br>
+
+<section>
+    <h4>Настройка версии PHP :</h4>
+    <pre class="code"><code><span class="codecomment">// отключить версию PHP8.1</span>
+sudo a2dismod php8.1
+<span class="codecomment">// включить версию PHP8.3</span>
+sudo a2enmod php8.3
+<span class="codecomment">// перезагрузить сервер Apache2</span>
+sudo systemctl restart apache2
+</code></pre>
+</section>
+
+<br>
+
+<section>
+<h4>Проверка версии PHP :</h4>
+<pre class="code"><code><span class="codecomment">// запустить через sudo su</span>
+echo "<span><</span>?php phpinfo(); ?<span>></span>" > /var/www/html/info.php
+</code></pre>
+<a href="http://localhost/info.php"  target="_blank" rel="noopener">info.php</a>
+</section>
+
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
+<ul>
+<li> <a href="https://debianforum.ru/"  target="_blank" rel="noopener">debianforum.ru</a></li>
+
+<li>  </li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+
+<!-- Footer -->
+<footer >
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+</script>
+</footer>
+</body>
+</html>
