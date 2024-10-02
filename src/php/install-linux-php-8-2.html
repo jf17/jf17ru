@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
 <!-- author: Alexandrovich Alexey Borisovich aka JF17-->
-<title>PHP 8.3 install on Linux - jf17.ru</title>
+<title>PHP 8.2 install on Linux - jf17.ru</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <meta http-equiv="Content-Language" content="ru">
 <meta name="theme-color" content="#000000"/>
@@ -27,7 +27,7 @@
 <pre class="code"><code><span class="codecomment">// add the PHP PPA repository</span>
 sudo add-apt-repository ppa:ondrej/php -y
 sudo apt update
-sudo apt install php8.3 libapache2-mod-php -y
+sudo apt install php8.2 libapache2-mod-php -y
 </code></pre>
 </section>
 
@@ -37,8 +37,8 @@ sudo apt install php8.3 libapache2-mod-php -y
     <h4>Настройка версии PHP :</h4>
     <pre class="code"><code><span class="codecomment">// отключить версию PHP8.1</span>
 sudo a2dismod php8.1
-<span class="codecomment">// включить версию PHP8.3</span>
-sudo a2enmod php8.3
+<span class="codecomment">// включить версию PHP8.2</span>
+sudo a2enmod php8.2
 <span class="codecomment">// перезагрузить сервер Apache2</span>
 sudo systemctl restart apache2
 </code></pre>
