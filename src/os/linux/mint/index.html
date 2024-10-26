@@ -36,20 +36,54 @@ Snap - не любит !!!
 
 <pre class="code"><code>
 sudo apt install vlc mpv curl deluge filezilla flameshot akregator htop mc -y
-sudo apt install git maven podman cmake llvm build-essential clang postgresql mysql-server python3-pip openjdk-21-jdk -y
+sudo apt install git cmake llvm build-essential clang postgresql mysql-server python3-pip maven openjdk-21-jdk podman -y
+
+<br>
+<span class="codecomment">// Ollama</span>
+curl -fsSL https://ollama.com/install.sh | sh
+
+<br>
 <span class="codecomment">// Библиотеки для Rust</span>
 sudo apt install fontconfig libfontconfig-dev ibxcb-shape0-dev libxcb-xfixes0-dev libxcb1-dev libxkbcommon-dev libasound2-dev -y
 
+    <span class="codecomment">// NodeJs</span>
 curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install nodejs -y
 
 sudo -H pip install --upgrade yt-dlp
 sudo apt install youtube-dl -y
 </code></pre>
+</section>
 
-    <br><br>
-    <h4>Установка Azul Zulu на Debian-based Linux :</h4>
-    <pre class="code"><code>
+<br><br>
+
+<section>
+        <h4>Настройка отображения времени  :</h4>
+        <pre class="code"><code>
+        | %A %d %B %Y  %H:%M |
+    </code></pre>
+</section>
+
+<br><br>
+
+
+<section>
+    <h4>Настройка раскладки клавиатуры  :</h4>
+    <img src="lang.png">
+</section>
+
+<br><br>
+
+<section>
+    <h4>Сменить HotKey для блокировки эркана (для IDEA)  :</h4>
+    <img src="ScreenLock.png">
+</section>
+<br><br>
+
+
+<section>
+<h4>Установка Azul Zulu на Debian-based Linux :</h4>
+<pre class="code"><code>
 <span class="codecomment">// Импорт Azul’s public key:</span>
 sudo apt install gnupg ca-certificates curl
 curl -s https://repos.azul.com/azul-repo.key | sudo gpg --dearmor -o /usr/share/keyrings/azul.gpg
@@ -196,25 +230,6 @@ sudo docker-compose -f my-docker-compose.yml down
 <br>
 
 
-<section>
-    <h4>Настройка отображения времени  :</h4>
-    <pre class="code"><code>
-        | %A %d %B %Y  %H:%M | 
-    </code></pre>
-</section>
-<br>
-
-<section>
-    <h4>Настройка раскладки клавиатуры  :</h4>
-    <img src="lang.png">
-</section>
-<br><br>
-
-<section>
-    <h4>Сменить HotKey для блокировки эркана (для IDEA)  :</h4>
-    <img src="ScreenLock.png">
-</section>
-<br><br>
 
 
 <section>
