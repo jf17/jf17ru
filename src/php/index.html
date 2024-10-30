@@ -51,6 +51,9 @@ sudo systemctl disable apache2
 
 <span class="codecomment">// включен автозапуск Apache при запуске системы ?</span>
 sudo systemctl is-enabled apache2
+
+<span class="codecomment">// Когда изменили файл юнита, надо заставлять systemd перечитать его, чтобы он использовал уже новый файл</span>
+sudo systemctl daemon-reload
 </code></pre>
 </section>
 
