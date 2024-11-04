@@ -15,20 +15,112 @@
 <body>
 <!-- Heading -->
 <header>
-    <h1><a href="../../../../../../../index.html">Главная</a></h1>
-    <hr/>
+    <h1><a href="../../../../../../../index.html" >Главная</a></h1>
+    <h2> <a href="../../../../../../../java/index.html" >Java</a></h2>
+    <hr />
 </header>
 
+<p>
+    Stream API - это мощный инструмент, который появился в Java 8 для обработки коллекций данных. <br>
+    Он предоставляет функциональный стиль программирования, основанный на операции над потоками элементов.
+</p>
 
-<!--  Web  -->
-<br><br>
 <section>
-    <h4>Web:</h4>
+    <h4>Основные преимущества Stream API:</h4>
     <ul>
-        <li><a href="web/servlet.html">Servlet</a></li>
-        <li><a href="web/jsp.html">JSP</a></li>
-        <li><a href="spring/spring-mvc.html">Spring MVC</a>(TODO)</li>
-        <li></li>
+        <li><span class="codeannotation">Читаемость и краткость кода:</span> Stream API позволяет выразить сложные операции над коллекциями более лаконично, чем традиционные циклы. </li>
+        <li><span class="codeannotation">Параллельная обработка:</span> Streams можно легко парализировать для обработки больших объемов данных быстрее.</li>
+        <li><span class="codeannotation">Функциональное программирование:</span> API основан на функциях и лямбда-выражениях, что делает код более гибким и рефакторируемым.</li>
+    </ul>
+</section>
+
+<br>
+
+<section>
+    <h4>Создание потока:</h4>
+    <ul>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.stream()</span> Поток можно создать из любой коллекции, такой как список или множество.</li>
+        <br>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.chars()</span> Для создания потока символов строки используется метод chars(), который возвращает поток типа IntStream.</li>
+        <br>
+        <li><span class="codeinterface">Stream </span><span class="codemethod">Stream.generate(<span class="codeinterface">Supplier</span>)</span> Поток можно также создать с помощью метода Stream.generate(), который использует интерфейс Supplier. При каждом вызове Supplier возвращает новое значение. Это удобно для генерации бесконечных потоков данных.</li>
+        <br>
+        <li><span class="codeinterface">Stream </span><span class="codemethod">Arrays.stream(<span class="codeobject">numbers</span>)</span> Для создания потока из массива</li>
+        <br>
+        <li><span class="codeinterface">Stream </span><span class="codemethod">Files.lines(<span class="codeobject">path</span>)</span> Поток можно создать из строк файла с помощью метода Files.lines(). Этот метод считывает файл построчно и возвращает поток строк.</li>
+    </ul>
+</section>
+
+<br>
+
+<section>
+    <h4>Промежуточные операции:</h4>
+    Промежуточные операции возвращают новый поток (stream), который можно использовать для дальнейшей обработки или преобразования данных.<br>
+    Они выполняются лениво, то есть действие не будет произведено до тех пор, пока не встретится терминальная операция.
+    <ul>
+        <font color="#990099">Stateless (без состояния) :</font>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.filter(<span class="codeinterface">Predicate</span>)</span> используется для создания нового потока, который содержит только те элементы, которые удовлетворяют определённому условию</li>
+        <br>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.map(<span class="codeinterface">Function</span>)</span> преобразует каждый элемент потока с помощью функции, переданной в виде лямбда-выражения или ссылки на метод. В результате создаётся новый поток, содержащий преобразованные элементы, без изменения исходного потока.</li>
+        <br>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.flatMap()</span> используется для преобразования каждого элемента потока в поток и “разворачивания” всех потоков в один общий поток. Это особенно полезно для работы с вложенными структурами данных, такими как списки списков.</li>
+        <br><br>
+        <font color="#990099">Statefull (с состоянием):</font>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.distinct()</span> возвращает новый поток, содержащий только уникальные элементы исходного потока. Уникальность элементов определяется на основе их естественного порядка (метод equals()), если это объекты, или с использованием переданного компаратора. Эта операция полезна, когда необходимо устранить дубликаты из набора данных.</li>
+        <br>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.limit(<span class="codeinterface">n</span>)</span> возвращает новый поток, содержащий не более n элементов исходного потока. Если исходный поток содержит меньше элементов, поток будет содержать все доступные элементы. Этот метод полезен для ограничения размера выборки.</li>
+        <br>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.skip(<span class="codeinterface">n</span>)</span> возвращает новый поток, исключающий первые n элементов исходного потока. Если исходный поток содержит меньше n элементов, возвращённый поток будет пустым. Этот метод удобен, если нужно пропустить определённое количество элементов в начале потока.</li>
+        <br>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.sorted()</span> создает новый поток, содержащий элементы исходного потока, отсортированные в естественном порядке (для объектов, реализующих интерфейс Comparable), либо в порядке, заданном переданным компаратором. Эта операция полезна для сортировки элементов в потоке перед дальнейшими операциями, такими как фильтрация или агрегация.</li>
+        <br>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.takeWhile(<span class="codeinterface">Predicate</span>)</span> создает новый поток, который включает элементы исходного потока до тех пор, пока они удовлетворяют указанному условию (Predicate). Как только условие становится ложным, поток завершается. Если первый элемент не соответствует предикату, возвращается пустой поток.</li>
+        <br>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.dropWhile(<span class="codeinterface">Predicate</span>)</span> возвращает новый поток, исключающий все элементы исходного потока, которые удовлетворяют указанному условию (Predicate), до тех пор, пока не встретится элемент, не соответствующий условию. Как только первый элемент не удовлетворяет предикату, все последующие элементы включаются в новый поток, независимо от того, соответствуют ли они условию.</li>
+        <br>
+        <li><span class="codeinterface">Stream </span> *<span class="codemethod">.peek(<span class="codeinterface">Consumer</span>)</span> позволяет добавить промежуточную операцию в поток, которая выполняет действия над каждым элементом, не изменяя сам поток. Это полезно для таких задач, как логирование, отладка или профилирование.</li>
+    </ul>
+</section>
+
+<br>
+
+<section>
+    <h4>Терминальные операции:</h4>
+    Терминальные операции завершают процесс обработки данных и возвращают результат в виде одного значения или коллекции.<br>
+    После вызова терминальной операции поток больше нельзя использовать повторно — это приведет к ошибке IllegalStateException
+    <ul>
+        <li><span class="codenumber">T</span> *<span class="codemethod">.сollect(<span class="codeinterface">Collector</span>)</span> это один из самых полезных и часто используемых терминальных методов. Он применяется для преобразования элементов потока в определённую структуру данных (например, List, Set, Map), строку или агрегированное значение.</li>
+        <br>
+        <li><span class="codenumber">long</span> *<span class="codemethod">.count()</span> терминальная операция, которая возвращает количество элементов в потоке. </li>
+        <br>
+        <li><span class="codeclass">Optional</span><span><</span>T<span>></span> *<span class="codemethod">.findFirst()</span> возвращает первый элемент потока в виде Optional. Этот метод полезен, когда важно получить именно первый элемент (например, при упорядоченном потоке), обычно в сочетании с фильтрацией. </li>
+        <br>
+        <li><span class="codeclass">Optional</span><span><</span>T<span>></span> *<span class="codemethod">.findAny()</span> возвращает любой элемент потока в виде Optional. В однопоточных сценариях его поведение идентично findFirst(), но при параллельной обработке потока он может вернуть любой элемент, что может улучшить производительность за счёт отсутствия необходимости ожидания первого элемента в последовательности. </li>
+        <br>
+        <li><span class="codenumber">T</span> *<span class="codemethod">.reduce()</span> используется для объединения всех элементов потока в одно итоговое значение. Он отличается от метода collect() тем, что работает с бинарной ассоциативной функцией, которая принимает два значения и возвращает одно. reduce() особенно полезен для таких задач, как суммирование, нахождение максимального или минимального значения в потоке. </li>
+        <br>
+        <li><span class="codeoperator">boolean</span> *<span class="codemethod">.anyMatch(<span class="codeinterface">Predicate</span>)</span> проверяет, соответствует ли хотя бы один элемент потока заданному условию (предикату). Если хотя бы один элемент удовлетворяет предикату, возвращается true, иначе — false. </li>
+        <br>
+        <li><span class="codeoperator">boolean</span> *<span class="codemethod">.allMatch(<span class="codeinterface">Predicate</span>)</span> возвращает true, если все элементы потока удовлетворяют заданному предикату. Если хотя бы один элемент не соответствует предикату, метод возвращает false. </li>
+        <br>
+        <li><span class="codeoperator">void</span> *<span class="codemethod">.forEach(<span class="codeinterface">Consumer</span>)</span> не возвращает новое значение или поток. Применяет переданную функцию (объект интерфейса Consumer) к каждому элементу потока. </li>
+        <br>
+    </ul>
+</section>
+
+
+<section>
+    <h4>статические методы класса Collectors:</h4>
+    T *.сollect(Collector)
+    <ul>
+        <li><span class="codeinterface">List </span> <span class="codeclass">Collectors</span><span class="codemethod">.toList()</span> возвращает  List</li>
+        <br>
+        <li><span class="codeinterface">Unmodifiable List </span> <span class="codeclass">Collectors</span><span class="codemethod">.toUnmodifiableList()</span> возвращает неизменяемый List</li>
+        <br>
+        <li><span class="codeinterface">Set </span> <span class="codeclass">Collectors</span><span class="codemethod">.toSet()</span> возвращает  Set</li>
+        <br>
+        <li><span class="codeinterface">Unmodifiable Set </span> <span class="codeclass">Collectors</span><span class="codemethod">.toUnmodifiableSet()</span> возвращает неизменяемый Set</li>
+        <br>
     </ul>
 </section>
 
@@ -38,7 +130,12 @@
 <section>
     <h4>Полезные ссылки.</h4>
     <ul>
-        <li><a href="https://dev.java/" target="_blank" rel="noopener"> dev.java</a> Oracle</li>
+        <li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html" target="_blank" rel="noopener"> Stream API </a>документация Java 17</li>
+        <li><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html" target="_blank" rel="noopener"> Stream API </a>документация Java 17</li>
+        <li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/stream/Stream.html" target="_blank" rel="noopener"> Stream API </a>документация Java 11</li>
+
+        <li><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Collectors.html" target="_blank" rel="noopener"> Class Collectors  </a> документация Java 11</li>
+
         <li></li>
         <li></li>
     </ul>

@@ -20,24 +20,14 @@
 <hr />
 </header>
 
-
-<section>
-    <h4>Менеджер пакетов :</h4>
-    <pre class="code"><code></code>Synaptic
-</code></pre>
-    </section>
-    <br>
-
-
 <section>
 <h4>Установка нужных программ :</h4>
-
 <pre class="code"><code>
 sudo apt install curl wget htop mc git cmake clang tmux -y
 </code></pre>
 </section>
 
-
+<br><br>
 
 <section>
     <h4>полезные программы :</h4>
@@ -46,6 +36,41 @@ sudo apt install curl wget htop mc git cmake clang tmux -y
     </ul>
 </section>
 
+<br><br>
+
+<section>
+    <h4>Управление демонама на примере Apache2 :</h4>
+<span class="codecomment">Где находятся файлы сервисов Systemd:</span> <br>
+/etc/systemd/system/
+    <pre class="code"><code>
+<span class="codecomment">// прверка статуса</span>
+sudo systemctl <span class="codeoperator">status</span> <span class="codeobject">apache2</span>
+
+<span class="codecomment">// перзапуск сервера</span>
+sudo service <span class="codeobject">apache2</span> <span class="codeoperator">restart</span>
+
+<span class="codecomment">// запуск вручную сервера</span>
+sudo systemctl <span class="codeoperator">start</span> <span class="codeobject">apache2</span>
+
+<span class="codecomment">// остановка вручную сервера</span>
+sudo systemctl <span class="codeoperator">stop</span> <span class="codeobject">apache2</span>
+
+<span class="codecomment">// включить Apache при запуске системы</span>
+sudo systemctl <span class="codeoperator">enable</span> <span class="codeobject">apache2</span>
+
+<span class="codecomment">// выключить Apache при запуске системы</span>
+sudo systemctl <span class="codeoperator">disable</span> <span class="codeobject">apache2</span>
+
+<span class="codecomment">// включен автозапуск Apache при запуске системы ?</span>
+sudo systemctl <span class="codeoperator">is-enabled</span> <span class="codeobject">apache2</span>
+
+<span class="codecomment">// Когда изменили файл юнита, надо заставлять systemd перечитать его, чтобы он использовал уже новый файл</span>
+sudo systemctl <span class="codeoperator">daemon-reload</span>
+</code></pre>
+</section>
+
+
+<br><br>
 
 
 <!-- Полезные ссылки . -->
