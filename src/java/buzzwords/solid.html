@@ -173,21 +173,55 @@ class <span class="codeclass">Ostrich</span> extends <span class="codeclass">Bir
     <br><br>
 
 <p>
-<h3><span class="contenthead">I – Interface Segregation Principle</span></h3>
+<h3><span class="contenthead">I – Interface Segregation Principle</span> (Принцип разделения интерфейсов)</h3>
 
-Название: Принцип разделения интерфейсов<br>
 
 Определение: клиенты не должны вынужденно зависеть от методов, которыми не пользуются.<br>
 
 Смысл: класс должен предоставлять удобный интерфейс с точки зрения его разнообразных клиентов.<br>
 
-Краткое описание: <font color="#ffff00">В интерфейсе не должно быть методов которые не будут использовать его наследники !! Если есть такой интерфейс , то его надо разбить на два интерфейса!!</font>.  Интерфейс класса должен быть цельным и согласованным не зависимо от числа клиентов. Несколько разных клиентов вполне могут использовать лишь подмножество методов класса, до тех пор, пока интерфейс класса будет оставаться согласованным. Проблемы появляются тогда, когда интерфейс класса начинает распухать или появляются разные методы с похожей семантикой лишь для того, чтобы ими было удобно пользоваться определенным клиентам.<br>
-
-Типичные примеры нарушения: 1) класс или интерфейс содержит несколько методов со схожей семантикой, которые используются разными клиентами; 2) интерфейс класса слишком разнороден и содержит методы, отвечающие за слабосвязанные операции.<br>
-
-Anti-ISP – Принцип тысячи интерфейсов. Интерфейсы классов разбиваются на слишком большое число составляющих, что делает их неудобными для использования всеми клиентами. <br>
-<br>
+Краткое описание: <font color="#ffff00">В интерфейсе не должно быть методов которые не будут использовать его наследники !! Если есть такой интерфейс , то его надо разбить на два интерфейса!!</font>. 
 </p>
+Пример: Допустим, у нас есть интерфейс <span class="codeinterface">Worker</span>, в котором объединены разные обязанности.
+
+<pre class="code"><code>
+interface <span class="codeinterface">Worker</span> {
+    void <span class="codemethod">work()</span>;
+    void <span class="codemethod">eat()</span>;
+   <span class="codecomment"> // Нарушение: Если мы создадим класс <span class="codeclass">Robot</span> и реализуем интерфейс <span class="codeinterface">Worker</span>, то метод <span class="codemethod">eat()</span> для него неуместен.</span>
+}
+</code></pre>
+<br>
+Исправление: Разделим обязанности на два интерфейса.
+<pre class="code"><code>
+interface <span class="codeinterface">Workable</span> {
+    void <span class="codemethod">work()</span>;
+}
+
+interface <span class="codeinterface">Eatable</span> {
+    void <span class="codemethod">eat()</span>;
+}
+
+class <span class="codeclass">HumanWorker</span> implements <span class="codeinterface">Workable</span>, <span class="codeinterface">Eatable</span> {
+    public void <span class="codemethod">work()</span> {
+        System.out.println("Working...");
+    }
+
+    public void <span class="codemethod">eat() </span>{
+        System.out.println("Eating...");
+    }
+}
+
+class <span class="codeclass">RobotWorker</span> implements <span class="codeinterface">Workable</span> {
+    public void <span class="codemethod">work()</span> {
+        System.out.println("Working...");
+    }
+}
+</code></pre>
+Теперь каждый класс реализует только нужные ему интерфейсы.
+
+
+<br><br>
 
 <p>
 <h3><span class="contenthead">D – The Dependency Inversion Principle</span></h3>
