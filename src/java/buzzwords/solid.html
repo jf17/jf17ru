@@ -37,21 +37,41 @@ new <br>
 
 <section>
 <p>
-<h3><span class="contenthead">S – The Single Responsibility Principle .</span></h3> 
-
-Название: Принцип единственной ответственности.<br>
-
-Определение: У класса/модуля должна быть лишь одна причина для изменения.<br>
-
-Смысл принципа: Борьба со сложностью, важность которой резко возрастает при развитии логики приложения.<br>
+<h3><span class="contenthead">S – The Single Responsibility Principle </span>(Принцип единственной ответственности) :</h3>
+(Должна быть узкая специализация у класса т.е. класс должен отвечать за что-то одно )<br><br>
+Определение: Класс должен иметь только одну причину для изменения, т.е. классы должны быть маленького размера. <br>
 
 Краткое описание: <font color="#ffff00">Любой сложный класс должен быть разбит на несколько простых составляющих</font>, отвечающих за определенный аспект поведения, что упрощает как понимание, так и будущее развитие.<br>
 
-Типовые примеры нарушения: 1) смешивание логики и инфраструктуры: бизнес-логика смешана с представлением, слоем персистентности, находится внутри WCF или windows-сервисов и т.п. 2) класс/модуль решает задачи разных уровней абстракции: вычисляет CRC и отправляет уведомления по электронной почте; разбирает json-объект и анализирует его содержимое и т.п.<br>
+Типовые примеры :</p>
+<pre class="code"><code>
+<span class="codecomment">//Представим класс Order, который обрабатывает заказ и также отвечает за сохранение его в базу данных.</span>
+         class <span class="codeclass">Order</span> {
+             public void <span class="codemethod">processOrder</span>() {
+                <span class="codecomment"> // Логика обработки заказа</span>
+             }
 
-Anti-SRP – Принцип размытой ответственности. Чрезмерная любовь к SRP ведет к обилию мелких классов/методов и размазыванию логики между ними.<br>
-<br>
-</p>
+             public void <span class="codemethod">saveToDatabase</span>() {
+                 <span class="codecomment">// Логика сохранения заказа в базу данных</span>
+             }
+         }
+
+<span class="codecomment">//Нарушение: Класс выполняет две обязанности — обработку заказа и сохранение его в базу данных.</span>
+<span class="codecomment">//Исправление: Разделим ответственность на два класса: Order для обработки заказа и OrderRepository для сохранения.</span>
+         class <span class="codeclass">Order</span> {
+             public void <span class="codemethod">processOrder</span>() {
+                 <span class="codecomment">// Логика обработки заказа</span>
+             }
+         }
+
+         class <span class="codeclass">OrderRepository</span> {
+             public void <span class="codemethod">save</span>(<span class="codeclass">Order</span> <span class="codeobject">order</span>) {
+                <span class="codecomment"> // Логика сохранения заказа в базу данных</span>
+             }
+         }
+</code></pre>
+<br><br>
+
 
 <p>
 <h3><span class="contenthead">O – The Open-Closed Principle</span></h3> 
