@@ -120,21 +120,58 @@ class <span class="codeclass">DiscountCalculator</span> {
 
 
 <p>
-<h3><span class="contenthead">L – The Liskov Substitution Principle</span></h3>
+<h3><span class="contenthead">L – The Liskov Substitution Principle</span>(Принцип подстановки Барбары Лисков)</h3>
+(Нужно реализовывать «родительский» класс так, чтобы потом «наследникам» не приходилось существенно менять его поведение. ) <br>
+(т.е. не должно быть неожиданного поведения в "наследнике")
+    <br><br>
+Определение: Объекты подклассов должны быть заменяемыми объектами базовых классов без нарушения правильности программы<br>
 
-Название: Принцип замещения Барбары Лисков<br>
-
-Определение: Должна быть возможность вместо базового типа подставить любой его подтип.<br>
-
-Смысл: <font color="#ffff00">При наследовании мы не должны изменять(вмешиваться) поведение нашего "родителя класса" (лучше использовать интерфейс в качестве родителя)</font>. Реализуйте наследование подтипов правильно.<br>
-
-Краткое описание: для корректной реализации отношения «ЯВЛЯЕТСЯ», наследник может ослаблять предусловие и усиливать постусловие (требовать меньше и гарантировать больше), при этом инварианты базового класса должны выполняться наследником. При нарушении этих правил подстановка экземпляров наследника в метод, принимающий базовый класс будет приводить к непредсказуемым последствиям.<br>
-
-Типичные примеры нарушения: несогласованное поведение наследников, что приводит к необходимости приводить экземпляры базового класса к конкретным типам наследников.<br>
-
-Anti-LSP – Принцип непонятного наследования. Данный анти-принцип проявляется либо в чрезмерном количестве наследования, либо в его полном отсутствии, в зависимости от опыта и взглядов местного главного архитектора <br>
-<br>
+Смысл: <font color="#ffff00">При наследовании мы не должны изменять(вмешиваться) поведение нашего "родительского класса" . </font>. Существенные различия в поведении "родителя" нужно выносить в интерфейсы.  <br>
 </p>
+    Пример нарушения LSP:<br>
+    Предположим, у нас есть базовый класс <span class="codeclass">Bird</span> (птица) с методом <span class="codemethod">fly</span>(), который позволяет птицам летать.<br>
+    Затем мы создаем класс <span class="codeclass">Ostrich</span> (страус), который наследует <span class="codeclass">Bird.</span><br>
+    Однако, страусы не могут летать, поэтому мы переопределим метод <span class="codemethod">fly()</span> в <span class="codeclass">Ostrich</span>, чтобы выбрасывать исключение:<br>
+ <pre class="code"><code>
+class <span class="codeclass">Bird</span> {
+    public void <span class="codemethod">fly()</span> {
+        System.out.println("Bird is flying...");
+    }
+}
+
+class <span class="codeclass">Ostrich</span> extends <span class="codeclass">Bird</span> {
+    @Override
+    public void <span class="codemethod">fly()</span> {
+        <span class="codeoperator">throw new</span> <span class="codeclass">UnsupportedOperationException</span>("Ostriches can't fly!");
+    }
+}
+</code></pre>
+    Исправление нарушения LSP:<br>
+    Чтобы исправить ситуацию и следовать принципу Лисков, <font color="#ecce0a">нужно понимать, что не все птицы могут летать.</font> <br>
+    Вместо того, чтобы переопределять метод <span class="codemethod">fly()</span> для всех птиц, мы можем использовать интерфейсы для разделения летающих и нелетающих птиц.<br>
+<pre class="code"><code>
+interface <span class="codeinterface">Flyable</span> {
+    void <span class="codemethod">fly()</span>;
+}
+
+class <span class="codeclass">Bird</span> {
+    <span class="codecomment">// Общие свойства для всех птиц</span>
+}
+
+class <span class="codeclass">Sparrow</span> extends <span class="codeclass">Bird</span> implements <span class="codeinterface">Flyable</span> {
+    @Override
+    public void <span class="codemethod">fly()</span> {
+        System.out.println("Sparrow is flying...");
+    }
+}
+
+class <span class="codeclass">Ostrich</span> extends <span class="codeclass">Bird</span> {
+   <span class="codecomment"> // Страус не имеет метода <span class="codemethod">fly()</span>, так как не может летать</span>
+}
+
+</code></pre>
+
+    <br><br>
 
 <p>
 <h3><span class="contenthead">I – Interface Segregation Principle</span></h3>
