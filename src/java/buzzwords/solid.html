@@ -224,24 +224,50 @@ class <span class="codeclass">RobotWorker</span> implements <span class="codeint
 <br><br>
 
 <p>
-<h3><span class="contenthead">D – The Dependency Inversion Principle</span></h3>
-
-Название: Принцип инверсии зависимостей<br>
+<h3><span class="contenthead">D – The Dependency Inversion Principle</span> (Принцип инверсии зависимостей)</h3>
 
 Определение: Модули верхнего уровня не должны зависеть от модулей нижнего уровня. И те и другие должны зависеть от абстракций.<br>
 
-Смысл: сделать ключевые и/или изменчивые зависимости класса явными.<br>
-
-Краткое описание: <font color="#ffff00">Между слоями(например бизнес логикой и базой данных) желательно использовать интерфейс вместо класса</font>. Слишком большое число зависимостей класса говорит о проблемах в дизайне. Возможно класс делает слишком многое, или же текущий класс не удачен, что приводит к необходимости дергания по одному методу у слишком большого числа зависимостей. Любой объектный дизайн представляет собой некоторый граф взаимодействующих объектов, при этом некоторые зависимости являются частью реализации и должны создаваться напрямую (композиция), а некоторые – передаваться ему извне (агрегация). Выделять зависимости особенно полезно, когда они являются изменчивыми (завязаны на окружения), или же представляют собой некоторую форму «стратегий».<br>
-
-Типичные примеры нарушения: использование синглтонов, сервис-локаторов или же создание ключевых зависимостей класса по ходу дела в закрытых методах.<br>
-
-Anti-DIP – Принцип инверсии сознания или DI-головного мозга. Интерфейсы выделяются для каждого класса и пачками передаются через конструкторы. Понять, где находится логика становится практически невозможно. <br>
-<br><br>
+Краткое описание: <font color="#ffff00">Между слоями(например бизнес логикой и базой данных) желательно использовать интерфейс вместо класса</font>.
 </p>
+Пример: Пусть у нас есть класс <span class="codeclass">Keyboard</span> и класс <span class="codeclass">Computer</span>, который напрямую зависит от конкретного типа клавиатуры.
+<pre class="code"><code>
+class <span class="codeclass">Keyboard</span> {
+    <span class="codecomment">// Класс клавиатуры</span>
+}
 
+class <span class="codeclass">Computer</span> {
+    private <span class="codeclass">Keyboard</span> <span class="codeobject">keyboard</span>;
+
+    public <span class="codeclass">Computer</span>() {
+        this.keyboard = new <span class="codeclass">Keyboard</span>();
+    }
+    <span class="codecomment">// Нарушение: Класс Computer напрямую зависит от конкретного класса Keyboard, что затрудняет замену клавиатуры на другой тип.</span>
+}
+</code></pre>
+
+Исправление: Вместо конкретной зависимости используем абстракцию (интерфейс).
+<pre class="code"><code>
+interface <span class="codeinterface">Keyboard</span> {
+    <span class="codecomment">// Интерфейс для клавиатуры</span>
+}
+
+class <span class="codeclass">StandardKeyboard</span> implements <span class="codeinterface">Keyboard</span> {
+    <span class="codecomment">// Стандартная клавиатура</span>
+}
+
+class <span class="codeclass">Computer</span> {
+    private <span class="codeinterface">Keyboard</span> <span class="codeobject">keyboard</span>;
+
+    public <span class="codeclass">Computer</span>(<span class="codeinterface">Keyboard</span> <span class="codeobject">keyboard</span>) {
+        this.keyboard = keyboard;
+    }
+}
+</code></pre>
+Теперь мы можем передавать любой объект, реализующий интерфейс <span class="codeinterface">Keyboard</span>, в <span class="codeclass">Computer</span>, что уменьшает связность и делает код гибче.
 </section>
 
+<br><br>
 
 <footer>
 <!-- работа с куки -->
