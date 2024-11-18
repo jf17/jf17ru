@@ -43,7 +43,7 @@ new <br>
 Краткое описание: <font color="#ffff00">Любой сложный класс должен быть разбит на несколько простых составляющих</font>, отвечающих за определенный аспект поведения, что упрощает как понимание, так и будущее развитие.<br>
 Типовые примеры :</p>
 <pre class="code"><code>
-<span class="codecomment">//Представим класс Order, который обрабатывает заказ и также отвечает за сохранение его в базу данных.</span>
+<span class="codecomment">//Представим класс <span class="codeclass">Order</span>, который обрабатывает заказ и также отвечает за сохранение его в базу данных.</span>
          class <span class="codeclass">Order</span> {
              public void <span class="codemethod">processOrder</span>() {
                 <span class="codecomment"> // Логика обработки заказа</span>
@@ -55,7 +55,7 @@ new <br>
          }
 
 <span class="codecomment">//Нарушение: Класс выполняет две обязанности — обработку заказа и сохранение его в базу данных.</span>
-<span class="codecomment">//Исправление: Разделим ответственность на два класса: Order для обработки заказа и OrderRepository для сохранения.</span>
+<span class="codecomment">//Исправление: Разделим ответственность на два класса: <span class="codeclass">Order</span> для обработки заказа и <span class="codeclass">OrderRepository</span> для сохранения.</span>
          class <span class="codeclass">Order</span> {
              public void <span class="codemethod">processOrder</span>() {
                  <span class="codecomment">// Логика обработки заказа</span>
@@ -90,7 +90,7 @@ class <span class="codeclass">DiscountCalculator</span> {
         return 0.0;
     }
 }
-<span class="codecomment">// Проблема: Если в будущем появится новый тип клиента, например, "Premium", нам придется изменять метод calculateDiscount, добавляя новый if или else if блок. </span>
+<span class="codecomment">// Проблема: Если в будущем появится новый тип клиента, например, <span class="codetext">"Premium"</span>, нам придется изменять метод <span class="codemethod">calculateDiscount</span>, добавляя новый if или else if блок. </span>
 
 <span class="codecomment">// Исправление: Вместо этого можно создать интерфейс <span class="codeinterface">DiscountPolicy</span> и реализовать его для каждого типа скидок.</span>
 interface <span class="codeinterface">DiscountPolicy</span> {
@@ -168,7 +168,6 @@ class <span class="codeclass">Sparrow</span> extends <span class="codeclass">Bir
 class <span class="codeclass">Ostrich</span> extends <span class="codeclass">Bird</span> {
    <span class="codecomment"> // Страус не имеет метода <span class="codemethod">fly()</span>, так как не может летать</span>
 }
-
 </code></pre>
 
     <br><br>
