@@ -64,6 +64,17 @@ import <span class="codemethod">org.springframework.transaction.annotation.Trans
 </section>
 
 <br><br>
+<section>
+    <h4> Какими способами можно управлять транзакциями ?</h4>
+    <ul>
+        <li> <span class="codeenum">Декларативно</span>через аннотацию <span class="codeannotation">@Transactional </span></li>
+        <li> </li>
+        <li> <span class="codeenum">Вручную</span>через класс TransactionTemplate</li>
+        <li> <span class="codeenum">Вручную</span>через интерфейс PlatformTransactionManager</li>
+    </ul>
+</section>
+
+<br><br>
 
 <section>
 <h4> Распространение транзакций : </h4>
@@ -197,6 +208,8 @@ public class FooService {
 <section>
 <h4>Полезные ссылки:</h4>
 <ul>
+<li> <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/support/TransactionTemplate.html"  target="_blank" rel="noopener">TransactionTemplate</a> docs.spring.io</li>
+<li> <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/PlatformTransactionManager.html"  target="_blank" rel="noopener">PlatformTransactionManager</a> docs.spring.io</li>
 <li> <a href="https://easyjava.ru/spring/spring-data-access/izolyaciya-i-rasprostranenie-tranzakcij-v-spring/"  target="_blank" rel="noopener">Изоляция и распространение транзакций в Spring</a> EasyJava</li>
 <li> <a href="https://www.ibm.com/developerworks/ru/library/j-ts1/"  target="_blank" rel="noopener">Распространенные ошибки</a> IBM</li>
 <li> <a href="http://spring-projects.ru/guides/managing-transactions/"  target="_blank" rel="noopener">http://spring-projects.ru</a></li>
