@@ -35,27 +35,27 @@ import <span class="codemethod">org.springframework.transaction.annotation.Trans
 <section>
 <h4> Spring </h4>
 <p>
-<font color="#ff9999">
-   1) Не используйте аннотацию <span class="codeannotation">@Transactional</span> на <span class="codeoperator">private</span>, <span class="codeoperator">protected</span> или <span class="codeoperator">default</span> методах класса. Аннотация будет проигнорирована !!! <br>
-    Spring создает прокси-объект, который оборачивает оригинальный класс и перехватывает вызовы помеченных методов, чтобы обрабатывать транзакции.<br>
-    Прокси может перехватывать только вызовы публичных методов !
-</font>
-</p>
-<p>
-    <font color="#ff9999">
-        2) Не используйте аннотацию <span class="codeannotation">@Transactional</span> при вызове внутреннего метода класса ! <br>
-        Это связано с тем, что вызовы внутри одного и того же класса происходят напрямую, минуя прокси-объект.
-    </font>
-</p>
-<p>
-<font color="#ff9999"> По умолчанию <span class="codeannotation">@Transactional</span> без параметров , является REQUIRED, значением атрибута "<span class="codeobject">readOnly</span>" – <span class="codeoperator">false</span>, уровень изоляции соответствует уровню изоляции по умолчанию для базы данных (как правило, это READ_COMMITTED), и транзакция НЕ БУДЕТ откатываться в случае контролируемых исключений (checked exception) !!!</font>
-</p>
-<p>
-<font color="#ff9999">Странной особенностью флага "<span class="codeannotation">@Transactional</span>(<span class="codeobject">readOnly</span> = <span class="codeoperator">true</span>)" является то, что он вступает в силу только с началом новой транзакции ! В ORM  окружении необходимо использовать этот флаг вместе с Propagation.SUPPORTS. </font>
+1) <font color="#ff3333">Не используйте аннотацию <span class="codeannotation">@Transactional</span>  при вызове внутреннего метода класса !</font> <br>
+Это связано с тем, что вызовы внутри одного и того же класса происходят напрямую, минуя прокси-объект.
 </p>
 
 <p>
-<font color="#ff9999"> лучше вообще не использовать аннотацию <span class="codeannotation">@Transactional </span>при чтении данных из базы </font>
+2) <font color="#ff3333">Не используйте аннотацию <span class="codeannotation">@Transactional</span> на <span class="codeoperator">private</span>, <span class="codeoperator">protected</span> или <span class="codeoperator">default</span> методах класса.</font> Аннотация будет проигнорирована !!! <br>
+ Spring создает прокси-объект, который оборачивает оригинальный класс и перехватывает вызовы помеченных методов, чтобы обрабатывать транзакции.<br>
+ Прокси может перехватывать только вызовы публичных методов !
+</p>
+
+
+<p>
+ По умолчанию <span class="codeannotation">@Transactional</span> без параметров , является REQUIRED, значением атрибута "<span class="codeobject">readOnly</span>" – <span class="codeoperator">false</span>, уровень изоляции соответствует уровню изоляции по умолчанию для базы данных (как правило, это READ_COMMITTED), и транзакция НЕ БУДЕТ откатываться в случае контролируемых исключений (checked exception) !!!
+</p>
+
+<p>
+Странной особенностью флага "<span class="codeannotation">@Transactional</span>(<span class="codeobject">readOnly</span> = <span class="codeoperator">true</span>)" является то, что он вступает в силу только с началом новой транзакции ! В ORM  окружении необходимо использовать этот флаг вместе с Propagation.SUPPORTS.
+</p>
+
+<p>
+лучше вообще не использовать аннотацию <span class="codeannotation">@Transactional </span>при чтении данных из базы
 </p>
 <p>
     Устанавливайте аннотацию <span class="codeannotation">@Transactional </span>в слое сервиса (Service layer), а не в слое DAO !!!
