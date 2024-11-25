@@ -13,46 +13,57 @@
 
 <!-- Heading -->
 <header>
-<div class="content">
 <h1><a href="../../../../../../../index.html" >Главная</a></h1>
 <h2> <a href="../../../../../../../java/index.html" >Java</a></h2>
 <h3> <a href="../../../../../../../java/spring/index.html" >Spring</a></h3>
 <hr />
 </header>
-                                
-<!-- Heading -->
+
+<br><br>
+
 <section>
-	<h4> @Transactional </h4>
 import <span class="codemethod">org.springframework.transaction.annotation.Transactional</span>;<br>
 <font color="#ff3333">Транзакциями могут называтся действия которые полностью соответствуют <a href="../../../../../../../java/buzzwords/acid.html">ACID</a> !!! </font><br>
 Если один из пунктов ACID не выполняется , то оно не может называться Транзакцией !! (например в MongoDB не выполняется Durability )<br>
 <p>Транзакция это набор операций, которые могут быть либо целиком и успешно выполнены ,либо полностью не выполнены.<br>
 транзакции необходимы для поддержки целостности и согласованности данных
 </p>
-При использовании аннотации @Transactional в Spring следует добавить следующую строку в конфигурационный файл Spring:<br>
-<pre class="code"><code><span><</span>tx:annotation-driven transaction-manager="transactionManager"/<span>></span>
-</code></pre>
-<p>
-Устанавливайте аннотацию @Transactional в слое сервиса (Service layer), а не в слое DAO !!!
-</p>
+</section>
 
+<br><br>
+
+<section>
+<h4> Spring </h4>
 <p>
-<font color="#ff9999"> По умолчанию @Transactional без параметров , является REQUIRED, значением атрибута "<span class="codeobject">readOnly</span>" – <span class="codeoperator">false</span>, уровень изоляции соответствует уровню изоляции по умолчанию для базы данных (как правило, это READ_COMMITTED), и транзакция НЕ БУДЕТ откатываться в случае контролируемых исключений (checked exception) !!!</font>
+<font color="#ff9999">
+   1) Не используйте аннотацию <span class="codeannotation">@Transactional</span> на <span class="codeoperator">private</span>, <span class="codeoperator">protected</span> или <span class="codeoperator">default</span> методах класса. Аннотация будет проигнорирована !!! <br>
+    Spring создает прокси-объект, который оборачивает оригинальный класс и перехватывает вызовы помеченных методов, чтобы обрабатывать транзакции.<br>
+    Прокси может перехватывать только вызовы публичных методов !
+</font>
+</p>
+<p>
+    <font color="#ff9999">
+        2) Не используйте аннотацию <span class="codeannotation">@Transactional</span> при вызове внутреннего метода класса ! <br>
+        Это связано с тем, что вызовы внутри одного и того же класса происходят напрямую, минуя прокси-объект.
+    </font>
+</p>
+<p>
+<font color="#ff9999"> По умолчанию <span class="codeannotation">@Transactional</span> без параметров , является REQUIRED, значением атрибута "<span class="codeobject">readOnly</span>" – <span class="codeoperator">false</span>, уровень изоляции соответствует уровню изоляции по умолчанию для базы данных (как правило, это READ_COMMITTED), и транзакция НЕ БУДЕТ откатываться в случае контролируемых исключений (checked exception) !!!</font>
 </p>
 <p>
 <font color="#ff9999">Странной особенностью флага "<span class="codeannotation">@Transactional</span>(<span class="codeobject">readOnly</span> = <span class="codeoperator">true</span>)" является то, что он вступает в силу только с началом новой транзакции ! В ORM  окружении необходимо использовать этот флаг вместе с Propagation.SUPPORTS. </font>
 </p>
-<p>
-<font color="#ff9999">
-Не используйте аннотацию @Transactional на приватных, protected или default методах. Добавление аннотации к методами с <span class="codeoperator">private</span>, <span class="codeoperator">protected</span> или <span class="codeoperator">default</span> модификаторами доступа не выбросит исключение.Однако аннотация будет проигнорирована !!!
-</font>
-</p>
-<p>
-<font color="#ff9999"> лучше вообще не использовать аннотацию @Transactional при чтении данных из базы </font>
-</p>
 
-<p>Транзакциями в Spring управляют с помощью Declarative Transaction Management (программное управление). Используется аннотация @Transactional для описания необходимости управления транзакцией. В файле конфигурации нужно добавить настройку transactionManager для DataSource.</p>
+<p>
+<font color="#ff9999"> лучше вообще не использовать аннотацию <span class="codeannotation">@Transactional </span>при чтении данных из базы </font>
+</p>
+<p>
+    Устанавливайте аннотацию <span class="codeannotation">@Transactional </span>в слое сервиса (Service layer), а не в слое DAO !!!
+</p>
+<p>Транзакциями в Spring управляют с помощью Declarative Transaction Management (программное управление). Используется аннотация <span class="codeannotation">@Transactional</span> для описания необходимости управления транзакцией. В файле конфигурации нужно добавить настройку transactionManager для DataSource.</p>
 </section>
+
+<br><br>
 
 <section>
 <h4> Распространение транзакций : </h4>
@@ -67,14 +78,7 @@ import <span class="codemethod">org.springframework.transaction.annotation.Trans
 </ul>
 </section>
 
-<section>
-<h4> откат транзакций: </h4>
-<ul>
-<li><span class="codeobject">rollbackFor</span> = <span class="codeclass">Exception</span>.<span class="codeoperator">class</span> -  Значением этого параметра может быть либо класс исключения, либо массив подобных классов. <font color="#ff6666">По умолчанию откат происходит при rollbackFor=RunTimeException.class</font></li>
-<li><span class="codeobject">rollbackForClassName</span> = <span class="codetext">"Name"</span> - для задания имен исключений в строковом виде</li>
-<li><span class="codeobject">noRollbackFor</span> = <span class="codeclass">IllegalStateException</span>.<span class="codeoperator">class</span> -   Означает что откат не должен происходить если целевой метод выбросил это исключение.</li>
-</ul>
-</section>
+<br><br>
 
 <section>
 <h4> уровни изоляции транзакций: </h4>
@@ -86,8 +90,22 @@ import <span class="codemethod">org.springframework.transaction.annotation.Trans
 </ul>
 </section>
 
+<br><br>
+
 <section>
-<h4> Для уровня изоляции Read committed допустимы следующие особые условия чтения данных:: </h4>
+<h4> откат транзакций: </h4>
+<ul>
+    <li><span class="codeobject">rollbackFor</span> = <span class="codeclass">Exception</span>.<span class="codeoperator">class</span> -  Значением этого параметра может быть либо класс исключения, либо массив подобных классов. <font color="#ff6666">По умолчанию откат происходит при rollbackFor=RunTimeException.class</font></li>
+    <br>
+    <li><span class="codeobject">rollbackForClassName</span> = <span class="codetext">"Name"</span> - для задания имен исключений в строковом виде</li>
+    <li><span class="codeobject">noRollbackFor</span> = <span class="codeclass">IllegalStateException</span>.<span class="codeoperator">class</span> -   Означает что откат не должен происходить если целевой метод выбросил это исключение.</li>
+</ul>
+</section>
+
+<br><br>
+
+<section>
+<h4> Для уровня изоляции Read committed допустимы следующие особые условия чтения данных:</h4>
 <ul>
 <li>Неповторяемое чтение — транзакция повторно читает те же данные, что и раньше, и обнаруживает, что они были изменены другой транзакцией (которая завершилась после первого чтения).</li>
 <li>Фантомное чтение — транзакция повторно выполняет запрос, возвращающий набор строк для некоторого условия, и обнаруживает, что набор строк, удовлетворяющих условию, изменился из-за транзакции, завершившейся за это время.</li>
