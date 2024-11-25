@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Всегда ли Spring создаёт прокси бины ?  - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+</head>
+<body>
+
+
+
+<!-- Heading -->
+<section>
+<h1><a href="../../../../../../../index.html" >Главная</a></h1>
+<h2> <a href="../../../../../../../java/index.html" >Java</a></h2>
+<h3> <a href="../../../../../../../java/spring/index.html" >Spring</a></h3>
+<hr />
+</section>
+                                
+<!-- Heading -->
+<section>
+<font color="#ffa31a">	<h2>Всегда ли Spring создаёт прокси бины ?</h2></font>
+<p>
+    Нет, Spring создаёт прокси для бинов не всегда, а только в определённых случаях, когда это необходимо.<br>
+    Прокси используются, когда Spring применяет некоторые аспекты к бинам, такие как транзакционность, безопасность или другие аспекты AOP (Aspect-Oriented Programming)
+</p>
+</section>
+
+<br>
+
+<section>
+    <font color="#ffa31a">	<h3> Рассмотрим основные случаи, когда Spring создаёт прокси: </h3></font>
+    <ul>
+ <li><span class="codeenum">Транзакционность</span> Если у бина есть аннотация <span class="codeannotation">@Transactional</span>, Spring создаёт прокси для управления транзакциями. Это позволяет оборачивать методы транзакционными аспектами, которые управляют началом, коммитом или откатом транзакции.  </li>
+  <br>
+ <li><span class="codeenum">Безопасность (Spring Security)</span>Если используется Spring Security и аннотации безопасности, такие как <span class="codeannotation">@Secured</span> или <span class="codeannotation">@PreAuthorize</span>, Spring создаёт прокси для добавления аспектов безопасности. </li>
+<br>
+ <li><span class="codeenum">Событийное программирование (Event Listeners)</span>Аннотация <span class="codeannotation">@EventListener</span> требует создания прокси, чтобы бины могли реагировать на события.  </li>
+<br>
+<li><span class="codeenum">Spring AOP </span> (<span class="codeannotation">@Aspect</span>) Если используется Spring AOP, чтобы добавить к методам кросс-концернные задачи (например, логирование, кэширование и т. д.), Spring создаёт прокси для бинов с аннотациями аспектов. </li>
+<br>
+ <li><span class="codeenum">Lazy Initialization (отложенная инициализация)</span> Если бин помечен как <span class="codeannotation">@Lazy</span>, Spring может создать прокси для управления его инициализацией и загрузкой по требованию. </li>
+</ul>
+</section>
+
+<br><br>
+
+<section>
+<font color="#ffa31a">	<h3> Когда прокси не создаются: </h3></font>
+<ul>
+<li>Если бин не использует аспекты, прокси создавать не нужно.</li>
+<li>Прокси не создаются, если бин используется только для простого внедрения зависимостей без аспектов или если его метод вызывается напрямую.</li>
+</ul>
+</section>
+
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
+<ul>
+    <li><a href="https://docs.spring.io/spring-framework/reference/core/aop.html" target="_blank" rel="noopener"> Aspect-oriented Programming (AOP)</a> docs.spring.io</li>
+<li> </li>
+<li> </li>
+</ul>
+</section>
+
+
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</body><!-- Footer --></html>
