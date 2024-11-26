@@ -58,8 +58,6 @@ sudo apt install youtube-dl -y
 </code></pre>
 </section>
 
-
-
 <br><br>
 
 <section>
@@ -67,6 +65,30 @@ sudo apt install youtube-dl -y
         <pre class="code"><code>
         | %A %d %B %Y  %H:%M |
     </code></pre>
+</section>
+
+
+<section>
+    <br><br>
+    <h4>Запуск бинарных файлов программ в linux Mint двойным щелчком мыши, без терминала:</h4>
+    Пример для SQLiteStudio <br>
+    создаём файл sqlitestudio.desktop
+    <pre class="code"><code>
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=false
+Exec=/home/alex/Загрузки/SQLiteStudio/sqlitestudio
+Name=SQLiteStudio
+Icon=application-sql
+Comment=Программа для работы с SQLite файлами.
+</code></pre>
+    можно его потом скопировать в раздел /home/alex/.local/share/applications
+    <pre class="code"><code>
+cp /home/alex/Загрузки/SQLiteStudio/sqlitestudio.desktop /home/alex/.local/share/applications
+</code></pre>
 </section>
 
 <br><br>
@@ -188,44 +210,6 @@ java -version
 </code></pre>
 
     <br><br>
-    <h4>Установка программ для работы :</h4>
-    <pre class="code"><code>
-<span class="codecomment">// Установка RDP client</span>
-sudo apt install remmina -y
-<span class="codecomment">//Обновление Remmina</span>
-sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
-sudo apt-get update
-<span class="codecomment">//установка или обновление плагина протокола RDP</span>
-sudo apt-get install remmina remmina-plugin-rdp libfreerdp-plugins-standard
-
-<span class="codecomment">// Установка VPN client</span>
-sudo apt-get install openconnect -y
-</code></pre>
-</section>
-
-<section>
-<br><br>
-<h4>Запуск бинарных файлов программ в linux Mint двойным щелчком мыши, без терминала:</h4>
-Пример для SQLiteStudio <br>
-создаём файл sqlitestudio.desktop
-<pre class="code"><code>
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Encoding=UTF-8
-Version=1.0
-Type=Application
-NoDisplay=false
-Exec=/home/alex/Загрузки/SQLiteStudio/sqlitestudio
-Name=SQLiteStudio
-Icon=application-sql
-Comment=Программа для работы с SQLite файлами.
-</code></pre>
-можно его потом скопировать в раздел /home/alex/.local/share/applications
-<pre class="code"><code>
-cp /home/alex/Загрузки/SQLiteStudio/sqlitestudio.desktop /home/alex/.local/share/applications
-</code></pre>
-</section>
-
 
 <section>
 <br><br>
