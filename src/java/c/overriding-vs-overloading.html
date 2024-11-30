@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Overriding vs. Overloading . Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+</head>
+<body class="content">
+
+
+<!-- Heading -->
+<header>
+<h1><a href="../../../../../../../index.html" >Главная</a></h1>
+<h2> <a href="../../../../../../../java/index.html" >Java</a></h2>
+<hr />
+</header>
+                         
+
+<section>
+<font color="#ffa31a">	<h2> Overriding (Переопределение):</h2></font>
+<p> Overriding — это процесс, при котором подкласс предоставляет собственную реализацию метода, который уже определён в его суперклассе.</p>
+Пример:
+<pre class="code"><code>    <span class="codeoperator">class</span> <span class="codeclass">Animal</span> {
+        <span class="codeoperator">void</span> <span class="codemethod">sound() </span>{
+            System.out.println("Animal makes a sound");
+        }
+    }
+
+    <span class="codeoperator">class</span> <span class="codeclass">Dog</span> <span class="codeoperator">extends</span> <span class="codeclass">Animal</span> {
+        <span class="codeannotation">@Override</span>
+        <span class="codeoperator">void</span> <span class="codemethod">sound() </span>{
+            System.out.println("Dog barks");
+        }
+    }
+</code></pre>
+</section>
+
+<br><br>
+
+<section>
+<font color="#ffa31a">	<h2> Overloading (Перегрузка):</h2></font>
+<p> Overloading — это создание нескольких методов с одним и тем же именем, но с разной сигнатурой (количество или тип параметров).</p>
+Пример:
+<pre class="code"><code>    class Calculator {
+        <span class="codeoperator">int</span> <span class="codemethod">add</span>(<span class="codeoperator">int</span> <span class="codeobject">a</span>, <span class="codeoperator">int</span> <span class="codeobject">b</span>) {
+            return a + b;
+        }
+
+        <span class="codeoperator">double</span> <span class="codemethod">add</span>(<span class="codeoperator">double</span> <span class="codeobject">a</span>, <span class="codeoperator">double</span> <span class="codeobject">b</span>) {
+            return a + b;
+        }
+
+        <span class="codeoperator">int</span> <span class="codemethod">add</span>(<span class="codeoperator">int</span> <span class="codeobject">a</span>, <span class="codeoperator">int</span> <span class="codeobject">b</span>, <span class="codeoperator">int</span> <span class="codeobject">c</span>) {
+            return a + b + c;
+        }
+    }
+</code></pre>
+</section>
+
+<br><br><br>
+<section>
+<font color="#ffffff">
+<table class="alt" border="1">
+    <tbody><tr>
+        <td>
+            Особенность
+        </td>
+        <td>
+            <span class="codeoperator">Overriding</span>
+        </td>
+        <td>
+            <span class="codeobject">Overloading</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Сигнатура
+        </td>
+        <td>
+            Должна быть идентичной
+        </td>
+        <td>
+            Должна быть разной
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Возвращаемый тип
+        </td>
+        <td>
+            Должен совпадать или быть ковариантным
+        </td>
+        <td>
+            Может отличаться
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Аннотация @Override
+        </td>
+        <td>
+            Используется
+        </td>
+        <td>
+            Не используется
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Полиморфизм
+        </td>
+        <td>
+            Поддерживает
+        </td>
+        <td>
+            Не поддерживает
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Время определения
+        </td>
+        <td>
+            Время выполнения (runtime)
+        </td>
+        <td>
+            Время компиляции (compile-time)
+        </td>
+    </tr>
+</tbody></table>
+</font>
+
+</section>
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	</ul>
+</section>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
