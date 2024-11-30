@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title> Abstract class vs Interface. Java - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+</head>
+<body class="content">
+
+
+<!-- Heading -->
+<header>
+<h1><a href="../../../../../../../index.html" >Главная</a></h1>
+<h2> <a href="../../../../../../../java/index.html" >Java</a></h2>
+<hr />
+</header>
+                         
+
+<section>
+<font color="#ffa31a">	<h2> Абстрактный класс:</h2></font>
+<p> Имеет состояние.</p>
+</section>
+
+<section>
+    <font color="#ffa31a">	<h2> Интерфейс:</h2></font>
+    <p> Описывает поведение</p>
+</section>
+
+
+<br>
+<section>
+<font color="#ffffff">
+<table class="alt" border="1">
+    <tbody><tr>
+        <td>
+            <span class="codeoperator">Interface</span>
+        </td>
+        <td>
+            <span class="codeobject">Абстрактный класс</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Поля всегда являются public static final (константы)
+        </td>
+        <td>
+            Может содержать переменные экземпляра с различными модификаторами доступа (например, private, protected).
+        </td>
+    </tr>
+    <tr>
+        <td>
+            До Java 8 содержал только абстрактные методы, но начиная с Java 8, поддерживает default и static методы.<br> Начиная с Java 9, можно использовать private методы для внутренних нужд.
+        </td>
+        <td>
+            Методы могут быть public, protected, private или package-private.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Конструкторы отсутствуют.
+        </td>
+        <td>
+            Может иметь конструкторы.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Реализуется с помощью ключевого слова implements.
+        </td>
+        <td>
+            Наследуется с помощью ключевого слова extends.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Класс может реализовывать несколько интерфейсов.
+        </td>
+        <td>
+            Класс может наследовать только один абстрактный класс.
+        </td>
+    </tr>
+</tbody></table>
+</font>
+
+</section>
+
+<section>
+	<h4>Полезные ссылки:</h4>
+	<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	</ul>
+</section>
+
+<footer>
+<!-- работа с куки -->
+<script type="text/javascript">
+	var x = document.cookie;
+	if(x=='size=150'){
+	document.body.style.fontSize='150%';
+	}
+	</script>
+</footer>
+</div>
+</div></section></div></body><!-- Footer --></html>
