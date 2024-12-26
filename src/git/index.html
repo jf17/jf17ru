@@ -26,18 +26,27 @@
 </section>
 
 <section>
+    <font color="#ffa31a">	<h3>Git индексы</h3></font>
+    <ul>
+        <li><span class="codemethod">git add .</span> - Добавить все файлы в индекс.</li>
+        <li><span class="codemethod">git restore --staged <span class="codeobject">имя_файла.txt</span></span> - убрать файл из индекса</li>
+    </ul>
+</section>
+
+<section>
 <font color="#ffa31a">	<h3>Git команды</h3></font>
 <ul>
-<li><span class="codemethod">git commit --amend </span> - ????? </li>
-<li><span class="codemethod">git rebase </span> - ????? </li>
+    <li><span class="codemethod">git status </span> - используется для отображения состояния рабочего каталога и индекса (staging area) </li>
+    <li> </li>
+    <li><span class="codemethod">git commit --amend </span> - ????? </li>
+    <li><span class="codemethod">git rebase </span> - ????? </li>
 <li> </li>
-<li><span class="codemethod">git clone https://github.com/jf17/jf17ru.git</span> - клонирование репозитория (master ветка) </li>
-<li><span class="codemethod">git clone https://github.com/jf17/jf17ru.git <span class="codeobject">-b branch-name</span></span> - Этот вариант склонирует ПОЛНОСТЬЮ весь репозиторий и просто переключится на ветку branch-name</li>
-<li><span class="codemethod">git clone <span class="codeobject">--branch=branch-name</span> https://github.com/jf17/jf17ru.git</span> - склонировать ТОЛЬКО конкретную ветку </li>
+    <li><span class="codemethod">git clone <span class="codeobject">--branch=branch-name</span> https://github.com/jf17/jf17ru.git</span> - склонировать ТОЛЬКО конкретную ветку </li>
+    <li><span class="codemethod">git clone https://github.com/jf17/jf17ru.git</span> - клонирование репозитория (master ветка) </li>
+    <li><span class="codemethod">git clone https://github.com/jf17/jf17ru.git <span class="codeobject">-b branch-name</span></span> - Этот вариант склонирует ПОЛНОСТЬЮ весь репозиторий и просто переключится на ветку branch-name</li>
 <li> </li>
 <li><span class="codemethod">git pull</span> - вливание изменений из удаленного репозитория в локальный .</li>
 <li><span class="codemethod">git status</span> - Список всех измененных и добавленных файлов .</li>
-<li><span class="codemethod">git add .</span> - Подготавливаем коммит, добавляя в него файлы .</li>
 <li><span class="codemethod">git commit -m <span class="codetext">"add Spring + Multi"</span></span> -  Выполняем коммит</li>
 <li><span class="codemethod">git push -u origin <span class="codeobject">master</span></span>  - вливаем изменения в ветку master</li>
 <li><span class="codemethod">git checkout <span class="codeobject">dev</span></span> -  переключиться на ветку dev</li>
