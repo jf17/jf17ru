@@ -1,14 +1,48 @@
-body{background-color:#000;color:#59b300}
-h4{color:#ffa31a}
-h5{color:#a300cc}
-A{color:#42dcf4}
-.content{color:#59b300}
-.code{color:#dadee5}
-.contentname{color:#ffa31a}
-.contenthead{color:#a300cc}
-.table-head{color:#8a00e6}
-.codeclass{color:#e6e600}
-.codeinterface{color:#4dffa6}
+body {
+    background-color: #000;
+    color: #59b300
+}
+
+h4 {
+    color: #ffa31a
+}
+
+h5 {
+    color: #a300cc
+}
+
+A {
+    color: #42dcf4
+}
+
+.content {
+    color: #59b300
+}
+
+.code {
+    color: #dadee5
+}
+
+.contentname {
+    color: #ffa31a
+}
+
+.contenthead {
+    color: #a300cc
+}
+
+.table-head {
+    color: #8a00e6
+}
+
+.codeclass {
+    color: #e6e600
+}
+
+.codeinterface {
+    color: #4dffa6
+}
+
 .codeannotation {
     color: #ace5e1
 }
@@ -141,9 +175,7 @@ section h4 {
 }
 
 section ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 0.5rem;
+    display: block;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -153,8 +185,9 @@ section li {
     margin: 0;
 }
 
-section li a, section li span {
-    display: block;
+section li a,
+section li span {
+    display: inline-block;
     padding: 0.75rem 1rem;
     border: 1px solid rgba(66, 220, 244, 0.3);
     border-radius: 6px;
@@ -190,16 +223,7 @@ section li span {
     margin: 0;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-    section ul {
-        grid-template-columns: 1fr;
-    }
-    
-    .fibonacci-sequence p {
-        font-size: 0.8rem;
-    }
-}
+
 
 /* Улучшения для заголовков секций */
 section li strong {
