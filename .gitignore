@@ -29,4 +29,7 @@ Thumbs.db
 
 # IDEA #
 ######################
-/.idea
+/.idea# VS Code 
+#
+###########
+.vscode/
