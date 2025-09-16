@@ -1,41 +1,43 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
-<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
-<title>Mint - jf17.ru</title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<meta http-equiv="Content-Language" content="ru">
-<meta name="theme-color" content="#000000"/>
-<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+<html lang="ru">
+
+<head>
+    <!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+    <title>Mint - jf17.ru</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Language" content="ru">
+    <meta name="theme-color" content="#000000" />
+    <meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
 </head>
 
 
 <body>
 
-<!-- Heading -->
-<header>
-<h1><a href="../../../../../../../index.html" >Главная</a></h1>
-<h2> <a href="../../../../../../../os/linux/index.html" >Linux</a></h2>
-<hr />
-</header>
+    <!-- Heading -->
+    <header>
+        <h1><a href="../../../../../../../index.html">Главная</a></h1>
+        <h2> <a href="../../../../../../../os/linux/index.html">Linux</a></h2>
+        <hr />
+    </header>
 
 
-<section>
-    <h4>Менеджер пакетов :</h4>
-    <pre class="code"><code></code>Synaptic
+    <section>
+        <h4>Менеджер пакетов :</h4>
+        <pre class="code"><code></code>Synaptic
 </code></pre>
     </section>
     <br>
 
 
-<section>
-<h4>Установка нужных программ :</h4>
-Flatpak - поддерживается Linux Mint<br>
-Snap - не любит !!!
+    <section>
+        <h4>Установка нужных программ :</h4>
+        Flatpak - поддерживается Linux Mint<br>
+        Snap - не любит !!!
 
-<pre class="code"><code>
-sudo apt install vlc mpv curl deluge filezilla flameshot akregator htop mc -y
+        <pre class="code"><code>
+sudo apt install vlc mpv curl deluge filezilla flameshot akregator htop mc zsh -y
 
 sudo apt install git python3-pip maven openjdk-21-jdk podman -y
 
@@ -56,34 +58,65 @@ sudo apt install nodejs -y
 sudo -H pip install --upgrade yt-dlp
 sudo apt install youtube-dl -y
 </code></pre>
-</section>
+    </section>
 
-<br><br>
+    <br><br>
 
-<section>
-    <h4>Восстановить пропавшую панель :</h4>
-    Нажмите Ctrl + Alt + T, чтобы открыть терминал.<br>
-    Введите команду:
-    <pre class="code"><code>cinnamon-settings panel</code></pre>
-    В открывшемся меню настройки панели нажмите «Добавить новую панель» и настройте её.
-</section>
+    <section>
+        <h4>Настройка Zsh :</h4>
+        Установка Oh My Zsh для удобной настройки:<br>
+        <pre
+            class="code"><code>sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></pre>
+        Сделать Zsh оболочкой по умолчанию:
+        <pre class="code"><code>chsh -s $(which zsh)</code></pre>
+        Перезайдите в систему для применения изменений.<br>
+        Популярные плагины для ~/.zshrc:
+        <pre class="code"><code>plugins=(git zsh-autosuggestions zsh-syntax-highlighting)</code></pre>
+        Установка дополнительных плагинов:
+        <pre
+            class="code"><code>git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></pre>
+        Настройка темы оформления:<br>
+        С помощью редактора nano открываем файл .zshrc для выбора темы терминала:
+        <pre class="code"><code>nano ~/.zshrc</code></pre>
+        Найдите строку ZSH_THEME="robbyrussell" и замените тему robbyrussell на agnoster.<br>
+        (CTRL+X затем Enter для сохранения)
+        <pre class="code"><code>ZSH_THEME="murilasso"</code></pre>
+        Просмотреть список тем и выбрать более подходящую можно на странице:<br>
+        <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank"
+            rel="noopener">https://github.com/robbyrussell/oh-my-zsh/wiki/Themes</a><br><br>
+        Обновить конфигурацию после изменений:
+        <pre class="code"><code>source ~/.zshrc</code></pre>
+    </section>
 
-<br><br>
+    <br><br>
 
-<section>
-        <h4>Настройка отображения времени  :</h4>
+
+    <section>
+        <h4>Настройка отображения времени :</h4>
         <pre class="code"><code>
         | %A %d %B %Y  %H:%M |
     </code></pre>
-</section>
+    </section>
 
-
-<section>
     <br><br>
-    <h4>Запуск бинарных файлов программ в linux Mint двойным щелчком мыши, без терминала:</h4>
-    Пример для SQLiteStudio <br>
-    создаём файл sqlitestudio.desktop
-    <pre class="code"><code>
+
+    <section>
+        <h4>Восстановить пропавшую панель :</h4>
+        Нажмите Ctrl + Alt + T, чтобы открыть терминал.<br>
+        Введите команду:
+        <pre class="code"><code>cinnamon-settings panel</code></pre>
+        В открывшемся меню настройки панели нажмите «Добавить новую панель» и настройте её.
+    </section>
+
+    <br><br>
+
+    <section>
+        <br><br>
+        <h4>Запуск бинарных файлов программ в linux Mint двойным щелчком мыши, без терминала:</h4>
+        Пример для SQLiteStudio <br>
+        создаём файл sqlitestudio.desktop
+        <pre class="code"><code>
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Encoding=UTF-8
@@ -95,32 +128,32 @@ Name=SQLiteStudio
 Icon=application-sql
 Comment=Программа для работы с SQLite файлами.
 </code></pre>
-    можно его потом скопировать в раздел /home/alex/.local/share/applications
-    <pre class="code"><code>
+        можно его потом скопировать в раздел /home/alex/.local/share/applications
+        <pre class="code"><code>
 cp /home/alex/Загрузки/SQLiteStudio/sqlitestudio.desktop /home/alex/.local/share/applications
 </code></pre>
-</section>
+    </section>
 
-<br><br>
-
-
-<section>
-    <h4>Настройка раскладки клавиатуры  :</h4>
-    <img src="lang.png">
-</section>
-
-<br><br>
-
-<section>
-    <h4>Сменить HotKey для блокировки эркана (для IDEA)  :</h4>
-    <img src="ScreenLock.png">
-</section>
-<br><br>
+    <br><br>
 
 
-<section>
-    <h4>Установка Docker :</h4>
-    <pre class="code"><code>
+    <section>
+        <h4>Настройка раскладки клавиатуры :</h4>
+        <img src="lang.png">
+    </section>
+
+    <br><br>
+
+    <section>
+        <h4>Сменить HotKey для блокировки эркана (для IDEA) :</h4>
+        <img src="ScreenLock.png">
+    </section>
+    <br><br>
+
+
+    <section>
+        <h4>Установка Docker :</h4>
+        <pre class="code"><code>
 sudo apt update
 
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
@@ -137,12 +170,12 @@ sudo apt install docker-ce
 
 sudo docker run hello-world
 </code></pre>
-</section>
-<br>
+    </section>
+    <br>
 
-<section>
-    <h4>Настройка Docker чтобы работали plugin в IDEA и VSCode :</h4>
-    <pre class="code"><code>
+    <section>
+        <h4>Настройка Docker чтобы работали plugin в IDEA и VSCode :</h4>
+        <pre class="code"><code>
 <span class="codecomment">// добавляем группу (она может быть уже добавленна при установке Docker)</span>
 sudo groupadd docker
 
@@ -162,12 +195,12 @@ gpasswd -a $USER docker
 
 sudo chmod 0777 /var/run/docker.sock
 </code></pre>
-</section>
-<br>
+    </section>
+    <br>
 
-<section>
-    <h4>Установка Docker Compose:</h4>
-    <pre class="code"><code>
+    <section>
+        <h4>Установка Docker Compose:</h4>
+        <pre class="code"><code>
 <a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener">https://github.com/docker/compose/releases</a>
 
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.18.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -183,14 +216,14 @@ sudo docker-compose -f my-docker-compose.yml up -d
 sudo docker-compose -f my-docker-compose.yml ps
 sudo docker-compose -f my-docker-compose.yml down
 </code></pre>
-</section>
+    </section>
 
-<br><br>
+    <br><br>
 
 
-<section>
-    <h4>Установка Podman (альтернатива Docker) :</h4>
-    <pre class="code"><code>
+    <section>
+        <h4>Установка Podman (альтернатива Docker) :</h4>
+        <pre class="code"><code>
 sudo apt install podman
 
 podman -v
@@ -198,14 +231,14 @@ podman -v
 podman run quay.io/podman/hello
 podman run hello-world (Docker version)
 </code></pre>
-</section>
+    </section>
 
 
-<br><br>
+    <br><br>
 
-<section>
-<h4>Установка Azul Zulu на Debian-based Linux :</h4>
-<pre class="code"><code>
+    <section>
+        <h4>Установка Azul Zulu на Debian-based Linux :</h4>
+        <pre class="code"><code>
 <span class="codecomment">// Импорт Azul’s public key:</span>
 sudo apt install gnupg ca-certificates curl
 curl -s https://repos.azul.com/azul-repo.key | sudo gpg --dearmor -o /usr/share/keyrings/azul.gpg
@@ -219,24 +252,24 @@ sudo apt install zulu17-jdk
 java -version
 </code></pre>
 
-    <br><br>
+        <br><br>
 
-<section>
-<br><br>
-<h4>Установка dep пакетов через консоль :</h4>
-<pre class="code"><code>
+        <section>
+            <br><br>
+            <h4>Установка dep пакетов через консоль :</h4>
+            <pre class="code"><code>
 sudo apt install ./<span class="codecomment">имя_пакета</span>.deb
 
 sudo dpkg -i имя_пакета.deb
 </code></pre>
-</section>
+        </section>
 
 
-<br><br>
+        <br><br>
 
-<section>
-    <h4>Установка Jupyter Notebook :</h4>
-    <pre class="code"><code>
+        <section>
+            <h4>Установка Jupyter Notebook :</h4>
+            <pre class="code"><code>
 sudo apt install python3 python3-dev python3-venv python3-pip -y
 sudo apt-get install python3-numpy python3-scipy python3-matplotlib -y
 
@@ -254,41 +287,44 @@ pip install matplotlib
 <span class="codecomment">// Запустить Jupyter Notebook</span>
 jupyter notebook
 </code></pre>
-    <a href="http://localhost:8888/tree" target="_blank" rel="noopener">Jupyter Notebook</a>
-</section>
+            <a href="http://localhost:8888/tree" target="_blank" rel="noopener">Jupyter Notebook</a>
+        </section>
 
-<br><br>
+        <br><br>
 
-<section>
-    <h4>Проблемы  :</h4>
-    Глючит звук
-    <pre class="code"><code>sudo alsa force-reload</code></pre>
-</section>
-<br><br>
+        <section>
+            <h4>Проблемы :</h4>
+            Глючит звук
+            <pre class="code"><code>sudo alsa force-reload</code></pre>
+        </section>
+        <br><br>
 
-<!-- Полезные ссылки . -->
-<br><br>
-<section>
-<font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
-<ul>
-<li> <a href="https://debianforum.ru/"  target="_blank" rel="noopener">debianforum.ru</a></li>
+        <!-- Полезные ссылки . -->
+        <br><br>
+        <section>
+            <font color="#ffa31a">
+                <h3>Полезные ссылки.</h3>
+            </font>
+            <ul>
+                <li> <a href="https://debianforum.ru/" target="_blank" rel="noopener">debianforum.ru</a></li>
 
-<li>  </li>
-<li> </li>
-<li> </li>
-</ul>
-</section>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+            </ul>
+        </section>
 
 
-<!-- Footer -->
-<footer >
-<!-- работа с куки -->
-<script type="text/javascript">
-var x = document.cookie;
-if(x=='size=150'){
-document.body.style.fontSize='150%';
-}
-</script>
-</footer>
+        <!-- Footer -->
+        <footer>
+            <!-- работа с куки -->
+            <script type="text/javascript">
+                var x = document.cookie;
+                if (x == 'size=150') {
+                    document.body.style.fontSize = '150%';
+                }
+            </script>
+        </footer>
 </body>
+
 </html>
