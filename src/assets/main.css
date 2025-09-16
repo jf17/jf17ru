@@ -237,3 +237,31 @@ section li a[target="_blank"]::after {
     font-size: 0.8em;
     opacity: 0.7;
 }
+
+/* Стили для кнопки копирования кода */
+.code-container {
+    position: relative;
+}
+
+.copy-btn {
+    top: 8px;
+    right: 8px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.copy-btn:hover {
+    opacity: 1;
+    background: #45a049;
+}
+
+.copy-btn.copied {
+    background: #2196F3;
+}

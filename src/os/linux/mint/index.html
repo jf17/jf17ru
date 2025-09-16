@@ -10,6 +10,7 @@
     <meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+    <script src="../../../../../../../assets/main.js"></script>
 </head>
 
 
@@ -37,26 +38,27 @@
 
         <pre class="code"><code>
 sudo apt install vlc mpv curl deluge filezilla flameshot akregator htop mc zsh -y
-
-sudo apt install git python3-pip maven openjdk-21-jdk podman r-base -y
-
-sudo apt install cmake llvm build-essential clang libgtk-3-dev glade -y
-
-<br>
-<span class="codecomment">// Ollama</span>
-curl -fsSL https://ollama.com/install.sh | sh
-
-<br>
-<span class="codecomment">// Библиотеки для Rust</span>
-sudo apt install fontconfig libfontconfig-dev ibxcb-shape0-dev libxcb-xfixes0-dev libxcb1-dev libxkbcommon-dev libasound2-dev -y
-
-    <span class="codecomment">// NodeJs</span>
-curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt install nodejs -y
-
-sudo -H pip install --upgrade yt-dlp
-sudo apt install youtube-dl -y
 </code></pre>
+        <pre class="code"><code>
+sudo apt install git python3-pip maven openjdk-21-jdk podman r-base -y
+</code></pre>
+        <pre class="code"><code>
+sudo apt install cmake llvm build-essential clang libgtk-3-dev glade -y
+</code></pre>
+
+        <span class="codecomment">// Ollama</span>
+        <pre class="code"><code>curl -fsSL https://ollama.com/install.sh | sh</code></pre>
+
+        <span class="codecomment">// Библиотеки для Rust</span>
+        <pre
+            class="code"><code>sudo apt install fontconfig libfontconfig-dev ibxcb-shape0-dev libxcb-xfixes0-dev libxcb1-dev libxkbcommon-dev libasound2-dev -y</code></pre>
+
+        <span class="codecomment">// NodeJs</span>
+        <pre class="code"><code>curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -</code></pre>
+        <pre class="code"><code>sudo apt install nodejs -y</code></pre>
+
+        <pre class="code"><code>sudo -H pip install --upgrade yt-dlp</code></pre>
+        <pre class="code"><code>sudo apt install youtube-dl -y</code></pre>
     </section>
 
     <br><br>
@@ -73,8 +75,9 @@ sudo apt install youtube-dl -y
         <pre class="code"><code>plugins=(git zsh-autosuggestions zsh-syntax-highlighting)</code></pre>
         Установка дополнительных плагинов:
         <pre
-            class="code"><code>git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></pre>
+            class="code"><code>git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</code></pre>
+        <pre
+            class="code"><code>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></pre>
         Настройка темы оформления:<br>
         С помощью редактора nano открываем файл .zshrc для выбора темы терминала:
         <pre class="code"><code>nano ~/.zshrc</code></pre>
@@ -152,69 +155,61 @@ cp /home/alex/Загрузки/SQLiteStudio/sqlitestudio.desktop /home/alex/.loc
 
     <section>
         <h4>Установка Docker :</h4>
-        <pre class="code"><code>
-sudo apt update
-
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-
-sudo apt update
-
-apt-cache policy docker-ce
-
-sudo apt install docker-ce
-
-sudo docker run hello-world
-</code></pre>
+        <pre class="code"><code>sudo apt update</code></pre>
+        <pre
+            class="code"><code>sudo apt install apt-transport-https ca-certificates curl software-properties-common</code></pre>
+        <pre
+            class="code"><code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></pre>
+        <pre
+            class="code"><code>sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"</code></pre>
+        <pre class="code"><code>sudo apt update</code></pre>
+        <pre class="code"><code>apt-cache policy docker-ce</code></pre>
+        <pre class="code"><code>sudo apt install docker-ce</code></pre>
+        <pre class="code"><code>sudo docker run hello-world</code></pre>
     </section>
     <br>
 
     <section>
         <h4>Настройка Docker чтобы работали plugin в IDEA и VSCode :</h4>
-        <pre class="code"><code>
-<span class="codecomment">// добавляем группу (она может быть уже добавленна при установке Docker)</span>
-sudo groupadd docker
+        <span class="codecomment">// добавляем группу (она может быть уже добавленна при установке Docker)</span>
+        <pre class="code"><code>sudo groupadd docker</code></pre>
 
-<span class="codecomment">// добавляем своего пользователя чтобы могли запускать Docker без sudo</span>
-sudo usermod -aG docker $USER
+        <span class="codecomment">// добавляем своего пользователя чтобы могли запускать Docker без sudo</span>
+        <pre class="code"><code>sudo usermod -aG docker $USER</code></pre>
 
-<span class="codecomment">// Нужно перелогиниться</span>
+        <span class="codecomment">// Нужно перелогиниться</span><br>
 
-<span class="codecomment">// Активируем новые настройки группы</span>
-newgrp docker
+        <span class="codecomment">// Активируем новые настройки группы</span>
+        <pre class="code"><code>newgrp docker</code></pre>
 
-<span class="codecomment">// Пробуем запустить Docker без sudo</span>
-docker run hello-world
+        <span class="codecomment">// Пробуем запустить Docker без sudo</span>
+        <pre class="code"><code>docker run hello-world</code></pre>
 
-<span class="codecomment">// если не помогло, то вбиваем эту команду </span>
-gpasswd -a $USER docker
-
-sudo chmod 0777 /var/run/docker.sock
-</code></pre>
+        <span class="codecomment">// если не помогло, то вбиваем эту команду</span>
+        <pre class="code"><code>gpasswd -a $USER docker</code></pre>
+        <pre class="code"><code>sudo chmod 0777 /var/run/docker.sock</code></pre>
     </section>
     <br>
 
     <section>
         <h4>Установка Docker Compose:</h4>
-        <pre class="code"><code>
-<a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener">https://github.com/docker/compose/releases</a>
+        <a href="https://github.com/docker/compose/releases" target="_blank"
+            rel="noopener">https://github.com/docker/compose/releases</a><br><br>
 
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.18.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        <pre
+            class="code"><code>sudo curl -L "https://github.com/docker/compose/releases/download/v2.18.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose</code></pre>
 
-<span class="codecomment">// old</span>
-sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        <span class="codecomment">// old</span>
+        <pre
+            class="code"><code>sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose</code></pre>
 
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version
+        <pre class="code"><code>sudo chmod +x /usr/local/bin/docker-compose</code></pre>
+        <pre class="code"><code>docker-compose --version</code></pre>
 
-sudo docker-compose -f my-docker-compose.yml build
-sudo docker-compose -f my-docker-compose.yml up -d
-sudo docker-compose -f my-docker-compose.yml ps
-sudo docker-compose -f my-docker-compose.yml down
-</code></pre>
+        <pre class="code"><code>sudo docker-compose -f my-docker-compose.yml build</code></pre>
+        <pre class="code"><code>sudo docker-compose -f my-docker-compose.yml up -d</code></pre>
+        <pre class="code"><code>sudo docker-compose -f my-docker-compose.yml ps</code></pre>
+        <pre class="code"><code>sudo docker-compose -f my-docker-compose.yml down</code></pre>
     </section>
 
     <br><br>
@@ -222,14 +217,10 @@ sudo docker-compose -f my-docker-compose.yml down
 
     <section>
         <h4>Установка Podman (альтернатива Docker) :</h4>
-        <pre class="code"><code>
-sudo apt install podman
-
-podman -v
-
-podman run quay.io/podman/hello
-podman run hello-world (Docker version)
-</code></pre>
+        <pre class="code"><code>sudo apt install podman</code></pre>
+        <pre class="code"><code>podman -v</code></pre>
+        <pre class="code"><code>podman run quay.io/podman/hello</code></pre>
+        <pre class="code"><code>podman run hello-world</code></pre>
     </section>
 
 
@@ -259,11 +250,8 @@ java -version
 
     <section>
         <h4>Установка dep пакетов через консоль :</h4>
-        <pre class="code"><code>
-sudo apt install ./<span class="codecomment">имя_пакета</span>.deb
-
-sudo dpkg -i имя_пакета.deb
-</code></pre>
+        <pre class="code"><code>sudo apt install ./<span class="codecomment">имя_пакета</span>.deb</code></pre>
+        <pre class="code"><code>sudo dpkg -i имя_пакета.deb</code></pre>
     </section>
 
 
@@ -271,24 +259,21 @@ sudo dpkg -i имя_пакета.deb
 
     <section>
         <h4>Установка Jupyter Notebook :</h4>
-        <pre class="code"><code>
-sudo apt install python3 python3-dev python3-venv python3-pip -y
-sudo apt-get install python3-numpy python3-scipy python3-matplotlib -y
+        <pre class="code"><code>sudo apt install python3 python3-dev python3-venv python3-pip -y</code></pre>
+        <pre class="code"><code>sudo apt-get install python3-numpy python3-scipy python3-matplotlib -y</code></pre>
 
-<span class="codecomment">// Создание виртуальной среды для Jupyter Notebook</span>
-python3 -m venv myenv
+        <span class="codecomment">// Создание виртуальной среды для Jupyter Notebook</span>
+        <pre class="code"><code>python3 -m venv myenv</code></pre>
 
-<span class="codecomment">// Активировать виртуальную среду для установки Jupyter Notebook</span>
-source myenv/bin/activate
+        <span class="codecomment">// Активировать виртуальную среду для установки Jupyter Notebook</span>
+        <pre class="code"><code>source myenv/bin/activate</code></pre>
 
-pip install --upgrade pip
+        <pre class="code"><code>pip install --upgrade pip</code></pre>
+        <pre class="code"><code>pip install jupyter</code></pre>
+        <pre class="code"><code>pip install matplotlib</code></pre>
 
-pip install jupyter
-pip install matplotlib
-
-<span class="codecomment">// Запустить Jupyter Notebook</span>
-jupyter notebook
-</code></pre>
+        <span class="codecomment">// Запустить Jupyter Notebook</span>
+        <pre class="code"><code>jupyter notebook</code></pre>
         <a href="http://localhost:8888/tree" target="_blank" rel="noopener">Jupyter Notebook</a>
     </section>
 
