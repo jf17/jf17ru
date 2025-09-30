@@ -1,95 +1,129 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
-<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
-<title>Зарплатный калькулятор Gross + Net </title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<meta http-equiv="Content-Language" content="ru">
-<meta name="theme-color" content="#000000"/>
-<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
-<script>
-function calculate13tax() {
-var grossin = document.getElementById("gross13").value;
-var netin =document.getElementById("net13").value;
+<html lang="ru">
 
-var coeff = grossin /100;
-var nalog =  coeff * 13;
+<head>
+    <!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+    <title>Зарплатный калькулятор Gross + Net </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Language" content="ru">
+    <meta name="theme-color" content="#000000" />
+    <meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+    <script>
+        function calculate13tax() {
+            // Очищаем результаты
+            document.getElementById("net13Label").innerHTML = "";
+            document.getElementById("gross13Label").innerHTML = "";
 
+            var grossin = parseFloat(document.getElementById("gross13").value);
+            var netin = parseFloat(document.getElementById("net13").value);
 
-var gross = grossin - nalog;
-var net = netin /0.87;
+            // Валидация ввода
+            if (isNaN(grossin) && isNaN(netin)) {
+                alert("Введите значение в одно из полей");
+                return;
+            }
 
- if (gross != null) {
-    document.getElementById("net13Label").innerHTML = "NET: " + gross + " руб." ;
-}
- if (net != null) {
-    document.getElementById("gross13Label").innerHTML ="GROSS: " +net + " руб." ;
-}
+            if (!isNaN(grossin) && !isNaN(netin)) {
+                alert("Заполните только одно поле для расчета");
+                return;
+            }
 
-}
-function calculate15tax() {
-    var grossin = document.getElementById("gross15").value;
-    var netin =document.getElementById("net15").value;
+            // Расчет NET из GROSS
+            if (!isNaN(grossin) && grossin > 0) {
+                var net = grossin * 0.87;
+                document.getElementById("net13Label").innerHTML = "NET: " + net.toFixed(2) + " руб.";
+            }
 
-    var coeff = grossin /100;
-    var nalog =  coeff * 15;
+            // Расчет GROSS из NET
+            if (!isNaN(netin) && netin > 0) {
+                var gross = netin / 0.87;
+                document.getElementById("gross13Label").innerHTML = "GROSS: " + gross.toFixed(2) + " руб.";
+            }
+        }
 
+        function calculate15tax() {
+            // Очищаем результаты
+            document.getElementById("net15Label").innerHTML = "";
+            document.getElementById("gross15Label").innerHTML = "";
 
-    var gross = grossin - nalog;
-    var net = netin /0.85;
+            var grossin = parseFloat(document.getElementById("gross15").value);
+            var netin = parseFloat(document.getElementById("net15").value);
 
-    if (gross != null) {
-        document.getElementById("net15Label").innerHTML = "NET: " + gross + " руб." ;
-    }
-    if (net != null) {
-        document.getElementById("gross15Label").innerHTML ="GROSS: " +net + " руб." ;
-    }
-}
-</script>
+            // Валидация ввода
+            if (isNaN(grossin) && isNaN(netin)) {
+                alert("Введите значение в одно из полей");
+                return;
+            }
+
+            if (!isNaN(grossin) && !isNaN(netin)) {
+                alert("Заполните только одно поле для расчета");
+                return;
+            }
+
+            // Расчет NET из GROSS
+            if (!isNaN(grossin) && grossin > 0) {
+                var net = grossin * 0.85;
+                document.getElementById("net15Label").innerHTML = "NET: " + net.toFixed(2) + " руб.";
+            }
+
+            // Расчет GROSS из NET
+            if (!isNaN(netin) && netin > 0) {
+                var gross = netin / 0.85;
+                document.getElementById("gross15Label").innerHTML = "GROSS: " + gross.toFixed(2) + " руб.";
+            }
+        }
+    </script>
 </head>
+
 <body class="content">
-<!-- Heading -->
-<header>
-<h1><a href="../../../../../../../index.html" >Главная</a></h1>
-<hr />
-</header>
+    <!-- Heading -->
+    <header>
+        <h1><a href="../../../../../../../index.html">Главная</a></h1>
+        <hr />
+    </header>
 
-<section>
-<font color="#ffa31a"><h1>Зарплатный калькулятор Gross + Net (13 %)</h1></font><br>
-<p>GROSS = NET + 13%</p><br>
-<p id="net13Label"></p>
-<p id="gross13Label"></p><br><br>
-Gross: <input type="text" id="gross13"><br><br>
-Net: <input type="text" id="net13"><br><br>
-<input type="submit" value="Calculate Gross + Net " onclick="calculate13tax()">
-</section>
+    <section>
+        <font color="#ffa31a">
+            <h1>Зарплатный калькулятор Gross + Net (13 %)</h1>
+        </font><br>
+        <p>GROSS = NET + 13%</p><br>
+        <p id="net13Label"></p>
+        <p id="gross13Label"></p><br><br>
+        Gross: <input type="text" id="gross13" oninput="document.getElementById('net13').value=''"><br><br>
+        Net: <input type="text" id="net13" oninput="document.getElementById('gross13').value=''"><br><br>
+        <input type="submit" value="Calculate Gross + Net " onclick="calculate13tax()">
+    </section>
 
-<br><br>
+    <br><br>
 
-<section>
-    <font color="#ffa31a"><h1>Зарплатный калькулятор Gross + Net (15 %)</h1></font><br>
-    <p>GROSS = NET + 15%</p><br>
-    <p id="net15Label"></p>
-    <p id="gross15Label"></p><br><br>
-    Gross: <input type="text" id="gross15"><br><br>
-    Net: <input type="text" id="net15"><br><br>
-    <input type="submit" value="Calculate Gross + Net " onclick="calculate15tax()">
-</section>
+    <section>
+        <font color="#ffa31a">
+            <h1>Зарплатный калькулятор Gross + Net (15 %)</h1>
+        </font><br>
+        <p>GROSS = NET + 15%</p><br>
+        <p id="net15Label"></p>
+        <p id="gross15Label"></p><br><br>
+        Gross: <input type="text" id="gross15" oninput="document.getElementById('net15').value=''"><br><br>
+        Net: <input type="text" id="net15" oninput="document.getElementById('gross15').value=''"><br><br>
+        <input type="submit" value="Calculate Gross + Net " onclick="calculate15tax()">
+    </section>
 
-<br><br>
+    <br><br>
 
 
-<!-- Footer -->
-<footer >
-<!-- работа с куки -->
-<script type="text/javascript">
-var x = document.cookie;
-if(x=='size=150'){
-document.body.style.fontSize='150%';
-}
-</script>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <!-- работа с куки -->
+        <script type="text/javascript">
+            var x = document.cookie;
+            if (x == 'size=150') {
+                document.body.style.fontSize = '150%';
+            }
+        </script>
+    </footer>
 
 </body>
+
 </html>
