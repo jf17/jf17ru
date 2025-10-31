@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<!-- author: Alexandrovich Alexey Borisovich aka JF17-->
+<title>Interface Bloat - jf17.ru</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="theme-color" content="#000000"/>
+<meta name="Description" content="Author: Alexandrovich Alexey Borisovich aka JF17">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../../../../../../assets/main.css">
+</head>
+
+
+<body class="content">
+<!-- Heading -->
+<header>
+<h1><a href="../../../../../../../index.html" >Главная</a></h1>
+<h2> <a href="../../../../../../../java/index.html" >Java</a></h2>
+<h2> <a href="../../../../../../../java/gof/index.html" >GoF</a></h2>
+<hr />
+</header>
+
+
+<section>
+<font color="#ffa31a">	<h3>Interface Bloat (Распухший Интерфейс) :</h3></font>
+Антипаттерн создания интерфейсов с избыточным количеством методов. Нарушает принцип разделения интерфейсов (Interface Segregation Principle).
+</section>
+<br><br><br>
+
+<section>
+<font color="#ffa31a">	<h3>Признаки проблемы:</h3></font>
+Интерфейсы с множеством методов, классы реализуют только часть методов интерфейса, пустые реализации методов, сложность тестирования.
+</section>
+<br><br><br>
+
+<section>
+<font color="#ffa31a">	<h3>Как избежать:</h3></font>
+Разделение больших интерфейсов на более мелкие, применение принципа разделения интерфейсов, создание специализированных интерфейсов.
+</section>
+<br><br><br>
+
+<section>
+<font color="#ffa31a">	<h3>Простой пример из жизни:</h3></font>
+Как универсальный пульт с 200 кнопками: большинство функций вам не нужны, но вы вынуждены "поддерживать" весь интерфейс, даже если используете только 5 кнопок.
+</section>
+<br><br><br>
+
+
+<!-- Полезные ссылки . -->
+<br><br>
+<section>
+<font color="#ffa31a">	<h3>Полезные ссылки.</h3></font>
+<ul>
+<li> <a href="https://en.wikipedia.org/wiki/Interface_segregation_principle" target="_blank" rel="noopener">Interface Segregation Principle</a> Wikipedia</li>
+<li> <a href="https://refactoring.guru/ru/smells/large-class" target="_blank" rel="noopener">Large Class</a> Refactoring Guru</li>
+<li> </li>
+</ul>
+</section>
+
+<!-- Footer -->
+<footer >
+<!-- работа с куки -->
+<script type="text/javascript">
+var x = document.cookie;
+if(x=='size=150'){
+document.body.style.fontSize='150%';
+}
+</script>
+</footer>
+
+</body>
+</html>
