@@ -45,8 +45,17 @@ sudo apt install curl wget htop mc git cmake clang tmux -y
 <span class="codecomment">// создаём volume для portainer_data</span>
 sudo docker volume create portainer_data
 
+<span class="codecomment">// Остановить контейнер</span>
+sudo docker stop portainer
+
+<span class="codecomment">// Удалить контейнер</span>
+sudo docker rm portainer
+
+<span class="codecomment">// удалить старый образ Portainer</span>
+sudo docker rmi portainer/portainer-ce
+
 <span class="codecomment">// запуск portainer</span>
-sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.27.0
+sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.33.3
 </code></pre>
 </section>
 
