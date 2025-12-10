@@ -16,7 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Обработчик клика по кнопке
         copyBtn.addEventListener('click', function () {
             const code = codeBlock.querySelector('code');
-            const text = code.textContent || code.innerText;
+            let text = code.textContent || code.innerText;
+            // Убираем лишние переводы строк в начале и конце
+            text = text.trim();
 
             // Копируем в буфер обмена
             navigator.clipboard.writeText(text).then(function () {
